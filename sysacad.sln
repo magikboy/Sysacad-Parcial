@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sysacad", "sysacad.csproj", "{E5189484-C35A-416F-8773-737A44C095FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca", "..\Biblioteca\Biblioteca.csproj", "{8DF40A55-C771-4DA1-9D67-AB8BCD6388F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5189484-C35A-416F-8773-737A44C095FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5189484-C35A-416F-8773-737A44C095FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5189484-C35A-416F-8773-737A44C095FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5189484-C35A-416F-8773-737A44C095FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF40A55-C771-4DA1-9D67-AB8BCD6388F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF40A55-C771-4DA1-9D67-AB8BCD6388F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF40A55-C771-4DA1-9D67-AB8BCD6388F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF40A55-C771-4DA1-9D67-AB8BCD6388F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CAC5815-D9BA-49E7-AEA3-E803DB287642}
+	EndGlobalSection
+EndGlobal
