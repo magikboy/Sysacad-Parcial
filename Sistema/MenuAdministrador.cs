@@ -40,7 +40,10 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //ir al menu de cursos
+            Cursos cursos = new Cursos();
+            cursos.Show();
+            this.Hide();
         }
     }
-}
+} 

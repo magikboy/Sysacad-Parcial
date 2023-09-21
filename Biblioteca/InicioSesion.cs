@@ -8,69 +8,40 @@ namespace Biblioteca
 {
     public class InicioSesion
     {
-        // Constructor de la clase InicioSesion
-        public InicioSesion()
+        public void GenerarConstaseniaProvisoria(Estudiante estudiante)
         {
-            // Cargo la lista de estudiantes desde el archivo JSON al crear una instancia de InicioSesion
+            //generar contraseña provisoria para el estudiante una vez registrado
+            string contraseña = "1234";
+            estudiante.Contrasenia = contraseña;
+        }
+
+        public void GenerarNumeroEstudiante(Estudiante estudiante)
+        {
+            // crear numero aleatorio para el estudiante
+            Random random = new Random();
+            int numeroEstudiante = random.Next(1, 9999);
+            estudiante.NumeroEstudiante = numeroEstudiante;
+            //valida que el numero no este repetido y lo crea
+            while (existeNumeroIdentificacionEnLaBaseDeDatos(numeroEstudiante.ToString()))
+            {
+                numeroEstudiante = random.Next(1, 9999);
+                estudiante.NumeroEstudiante = numeroEstudiante;
+            }
+        }
+        public bool existeNumeroIdentificacionEnLaBaseDeDatos(string numeroIdentificacion)
+        {
+            // fijarse en el json si existe el numero de identificacion
+            List<Estudiante> estudiantes = new List<Estudiante>();
             estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
-        }
-
-        // Lista para almacenar los estudiantes cargados desde el archivo JSON
-        private List<Estudiante> estudiantes = new List<Estudiante>();
-
-        // Método estático para iniciar sesión como administrador
-        public static void IniciarSesionAdministrador()
-        {
-            Console.Write("Ingrese el nombre de usuario: ");
-            string usuario = Console.ReadLine();
-            Console.Write("Ingrese la contraseña: ");
-            string contraseña = Console.ReadLine();
-
-            Administrador administrador = new Administrador(usuario, contraseña);
-            if (administrador.IniciarSesion())
+            foreach (Estudiante estudiante in estudiantes)
             {
-                Console.WriteLine($"Inicio de sesión como administrador {administrador.Usuario} exitoso.");
-                Menu.MostrarMenuAdministrador();
+                if (estudiante.NumeroEstudiante.ToString() == numeroIdentificacion)
+                {
+                    return true;
+                }
             }
-            else
-            {
-                Console.WriteLine("Error: Inicio de sesión fallido.");
-            }
-        }
 
-        // Método para que un estudiante inicie sesión
-        public Estudiante IniciarSesionEstudiante()
-        {
-            Console.Clear();
-            Console.Write("Ingrese su número de identificación: ");
-            string numeroIdentificacion = Console.ReadLine();
-            Console.Write("Ingrese su contraseña: ");
-            string contraseña = Console.ReadLine();
-
-            // Buscar al estudiante en la lista de estudiantes cargados desde el JSON
-            Estudiante estudiante = estudiantes.Find(e => e.NumeroEstudiante.ToString() == numeroIdentificacion);
-
-            if (estudiante != null && estudiante.IniciarSesion(contraseña))
-            {
-                Console.WriteLine("Inicio de sesión exitoso como estudiante.");
-                return estudiante; // El estudiante está autenticado correctamente
-            }
-            else
-            {
-                Console.WriteLine("Credenciales incorrectas. Intente de nuevo.");
-                return null;
-            }
-        }
-
-        // Método estático para cambiar la contraseña de un estudiante
-        public static void CambiarContraseñaEstudiante(Estudiante estudiante)
-        {
-            Console.Write("Ingrese la nueva contraseña: ");
-            string nuevaContraseña = Console.ReadLine();
-            estudiante.CambiarContraseña(nuevaContraseña);
-
-            // Actualiza la contraseña en el archivo JSON
-            GuardarDatos.ActualizarContraseñaEstudiante(estudiante);
+            return false;
         }
     }
 }

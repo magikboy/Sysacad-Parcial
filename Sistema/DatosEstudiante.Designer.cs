@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            label15 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            checkBox1 = new CheckBox();
             button1 = new Button();
             label9 = new Label();
             label8 = new Label();
@@ -37,32 +42,23 @@
             label7 = new Label();
             textBox6 = new TextBox();
             label6 = new Label();
-            textBox5 = new TextBox();
             label5 = new Label();
-            textBox4 = new TextBox();
             label4 = new Label();
-            textBox3 = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
             label1 = new Label();
             label2 = new Label();
             button2 = new Button();
             btnSalir = new Button();
-            checkBox1 = new CheckBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(85, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(159, 25);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(checkBox1);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label9);
@@ -71,21 +67,82 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(textBox6);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox5);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
             groupBox1.Location = new Point(102, 48);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(589, 282);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Datos del estudiante";
+            groupBox1.Text = "Datos del Estudiante";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(76, 212);
+            label15.Name = "label15";
+            label15.Size = new Size(60, 19);
+            label15.TabIndex = 40;
+            label15.Text = "Telefono";
+            label15.Click += label15_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(80, 167);
+            label14.Name = "label14";
+            label14.Size = new Size(51, 19);
+            label14.TabIndex = 39;
+            label14.Text = "Correo";
+            label14.Click += label14_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(80, 126);
+            label13.Name = "label13";
+            label13.Size = new Size(65, 19);
+            label13.TabIndex = 38;
+            label13.Text = "Direccion";
+            label13.Click += label13_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(78, 81);
+            label12.Name = "label12";
+            label12.Size = new Size(58, 19);
+            label12.TabIndex = 37;
+            label12.Text = "Apellido";
+            label12.Click += label12_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(80, 39);
+            label11.Name = "label11";
+            label11.Size = new Size(59, 19);
+            label11.TabIndex = 36;
+            label11.Text = "Nombre";
+            label11.Click += label11_Click;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(297, 164);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(128, 19);
+            checkBox1.TabIndex = 34;
+            checkBox1.Text = "Ocultar Contraseña";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // button1
             // 
@@ -157,15 +214,6 @@
             label6.TabIndex = 9;
             label6.Text = "Telefono:";
             // 
-            // textBox5
-            // 
-            textBox5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(85, 209);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(159, 25);
-            textBox5.TabIndex = 8;
-            textBox5.TextChanged += textBox5_TextChanged;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -176,15 +224,6 @@
             label5.TabIndex = 7;
             label5.Text = "Correo:";
             // 
-            // textBox4
-            // 
-            textBox4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(85, 164);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(159, 25);
-            textBox4.TabIndex = 6;
-            textBox4.TextChanged += textBox4_TextChanged;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -194,15 +233,7 @@
             label4.Size = new Size(68, 19);
             label4.TabIndex = 5;
             label4.Text = "Direccion:";
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(85, 123);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(159, 25);
-            textBox3.TabIndex = 4;
-            textBox3.TextChanged += textBox3_TextChanged;
+            label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -213,15 +244,6 @@
             label3.Size = new Size(61, 19);
             label3.TabIndex = 3;
             label3.Text = "Apellido:";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(85, 78);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(159, 25);
-            textBox2.TabIndex = 2;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label1
             // 
@@ -267,17 +289,6 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(297, 164);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(130, 19);
-            checkBox1.TabIndex = 34;
-            checkBox1.Text = "Mostrar Contraseña";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
-            // 
             // DatosEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -297,19 +308,12 @@
         }
 
         #endregion
-
-        private TextBox textBox1;
         private GroupBox groupBox1;
         private Label label1;
         private Label label2;
         private Label label6;
-        private TextBox textBox5;
-        private Label label5;
-        private TextBox textBox4;
         private Label label4;
-        private TextBox textBox3;
         private Label label3;
-        private TextBox textBox2;
         private Button button2;
         private Button btnSalir;
         private Label label9;
@@ -319,5 +323,11 @@
         private TextBox textBox6;
         private Button button1;
         private CheckBox checkBox1;
+        private Label label15;
+        private Label label14;
+        private Label label13;
+        private Label label12;
+        private Label label11;
+        private Label label5;
     }
 }

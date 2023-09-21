@@ -52,8 +52,8 @@ namespace Sistema
                     if (estudianteEncontrado != null)
                     {
                         MessageBox.Show("Acceso como estudiante");
-                        // Abrir el formulario de estudiante
-                        MenuEstudiante menuEstudiante = new MenuEstudiante();
+                        // Abrir el formulario de estudiante y pasar el número de estudiante
+                        MenuEstudiante menuEstudiante = new MenuEstudiante(numeroEstudiante);
                         menuEstudiante.Show();
                         this.Hide();
                     }
@@ -77,6 +77,16 @@ namespace Sistema
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             textBox2.PasswordChar = '*';
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,21 +13,29 @@ namespace Sistema
 {
     public partial class DatosEstudiante : Form
     {
-        List<Estudiante> estudiantes = new List<Estudiante>();
-        public DatosEstudiante()
+        private Estudiante estudianteSeleccionado;
+        private List<Estudiante> estudiantes;
+        public DatosEstudiante(int numeroEstudiante)
         {
             InitializeComponent();
             estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
 
-            // Verificar si hay estudiantes en la lista
-            if (estudiantes.Count > 0)
+            // Buscar el estudiante por NumeroEstudiante
+            estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
+
+            if (estudianteSeleccionado != null)
             {
-                // Mostrar el nombre del primer estudiante en textBox1
-                textBox1.Text = estudiantes[0].NombreCompleto;
-                textBox2.Text = estudiantes[0].ApellidoCompleto;
-                textBox3.Text = estudiantes[0].Direccion;
-                textBox4.Text = estudiantes[0].CorreoElectronico;
-                textBox5.Text = estudiantes[0].NumeroTelefono;
+                // Mostrar la información del estudiante en los Labels
+                label11.Text = estudianteSeleccionado.NombreCompleto;
+                label12.Text = estudianteSeleccionado.ApellidoCompleto;
+                label13.Text = estudianteSeleccionado.Direccion;
+                label14.Text = estudianteSeleccionado.CorreoElectronico;
+                label15.Text = estudianteSeleccionado.NumeroTelefono;
+            }
+            else
+            {
+                MessageBox.Show("No se encontró un estudiante con ese número.");
+                this.Close();
             }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -60,7 +68,7 @@ namespace Sistema
         {
             //volver al menu del estudiante
             this.Hide();
-            MenuEstudiante menuEstudiante = new MenuEstudiante();
+            MenuEstudiante menuEstudiante = new MenuEstudiante(estudianteSeleccionado.NumeroEstudiante);
             menuEstudiante.Show();
         }
 
@@ -126,5 +134,34 @@ namespace Sistema
             }
         }
 
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

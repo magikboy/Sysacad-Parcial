@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,22 @@ namespace Sistema
 {
     public partial class MenuEstudiante : Form
     {
-        public MenuEstudiante()
+        private int numeroEstudianteIngresado;
+        private List<Estudiante> estudiantes;
+
+        public MenuEstudiante(int numeroEstudiante)
         {
             InitializeComponent();
+            this.numeroEstudianteIngresado = numeroEstudiante;
+            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            MostrarNumeroEstudiante();
         }
+
+        private void MostrarNumeroEstudiante()
+        {
+            label1.Text = numeroEstudianteIngresado.ToString();
+        }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -24,7 +37,7 @@ namespace Sistema
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //volver al login
+            // Volver al login
             Login login = new Login();
             login.Show();
             this.Hide();
@@ -32,10 +45,24 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //mostrar datos del estudiante
-            DatosEstudiante datosEstudiante = new DatosEstudiante();
-            datosEstudiante.Show();
-            this.Hide();
+            // Buscar el estudiante por NumeroEstudiante
+            Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+
+            if (estudianteSeleccionado != null)
+            {
+                // Abrir el formulario de datos del estudiante
+                DatosEstudiante datosEstudiante = new DatosEstudiante(numeroEstudianteIngresado);
+                datosEstudiante.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No se encontró un estudiante con ese número.");
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -34,6 +34,8 @@
             btnSalir = new Button();
             btnIngresar = new Button();
             button3 = new Button();
+            label1 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // button2
@@ -63,7 +65,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(293, 9);
+            label2.Location = new Point(305, 9);
             label2.Name = "label2";
             label2.Size = new Size(198, 32);
             label2.TabIndex = 33;
@@ -104,12 +106,33 @@
             button3.Text = "Pagos";
             button3.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(427, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 15);
+            label1.TabIndex = 38;
+            label1.Text = "Num Est";
+            label1.Click += label1_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(317, 47);
+            label3.Name = "label3";
+            label3.Size = new Size(115, 15);
+            label3.TabIndex = 39;
+            label3.Text = "Numero Estudiante :";
+            // 
             // MenuEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -130,5 +153,7 @@
         private Button btnSalir;
         private Button btnIngresar;
         private Button button3;
+        private Label label1;
+        private Label label3;
     }
 }

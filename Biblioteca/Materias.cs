@@ -26,17 +26,11 @@ namespace Biblioteca
                 {
                     EstudiantesInscritos.Add(estudiante);
                     CuposDisponibles--;
-                    Console.WriteLine($"{estudiante.NombreCompleto} inscrito en {Nombre}.");
                 }
-                else
-                {
-                    Console.WriteLine($"{estudiante.NombreCompleto} ya está inscrito en {Nombre}.");
-                }
-            }
-            else
-            {
-                Console.WriteLine($"No hay cupos disponibles en {Nombre}.");
-            }
         }
     }
+    }
 }
+
+
+
