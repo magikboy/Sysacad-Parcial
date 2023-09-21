@@ -58,10 +58,10 @@ namespace Sistema
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //modificar un curso
+            //elegir un curso para editar
             this.Hide();
-            ElegirCurso Ingresar = new ElegirCurso();
-            Ingresar.Show();
+            ElegirCurso elegir = new ElegirCurso();
+            elegir.Show();
         }
     }
 }

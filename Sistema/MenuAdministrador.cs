@@ -19,7 +19,8 @@ namespace Sistema
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //salir del programa
+            Application.Exit();
         }
 
         private void button2_Click(object sender, EventArgs e)
