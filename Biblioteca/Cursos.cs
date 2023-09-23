@@ -9,6 +9,9 @@ namespace Biblioteca
         public string DescripcionCurso { get; set; }
         public int CupoDisponibles { get; set; }
         public int NumeroInscriptos { get; set; }
+        public int HorarioMin { get; set; }
+        public int HorarioMax { get; set; }
+        public string Profesor { get; set; }
 
         public Cursos()
         {
@@ -18,15 +21,21 @@ namespace Biblioteca
             this.DescripcionCurso = "";
             this.CupoDisponibles = 0;
             this.NumeroInscriptos = 0;
+            this.HorarioMin = 0;
+            this.HorarioMax = 0;
+            this.Profesor = "";
         }
 
-        public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos)
+        public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos , int horarioMin,int horarioMax ,string profesor)
         {
             Codigo = codigo;
             Nombre = nombre;
             DescripcionCurso = descripcionCurso;
             CupoDisponibles = cupoDisponibles;
             NumeroInscriptos = numeroInscriptos;
+            HorarioMin = horarioMin;
+            HorarioMax = horarioMax;
+            Profesor = profesor;
         }
 
         // Constructor que acepta una cadena para inicializar las propiedades
@@ -36,7 +45,7 @@ namespace Biblioteca
             var partes = linea.Split(';');
 
             // Asegúrate de que haya suficientes componentes para inicializar las propiedades
-            if (partes.Length >= 5)
+            if (partes.Length >= 6)
             {
                 if (int.TryParse(partes[0], out int codigo))
                 {
@@ -52,6 +61,15 @@ namespace Biblioteca
                 {
                     NumeroInscriptos = numeroInscriptos;
                 }
+                if (int.TryParse(partes[5], out int horario))
+                {
+                    HorarioMin = horario;
+                }
+                if (int.TryParse(partes[6], out int horarioMax))
+                {
+                    HorarioMax = horarioMax;
+                }
+                Profesor = partes[6];
             }
             else
             {
@@ -67,7 +85,10 @@ namespace Biblioteca
                 $"Nombre: {Nombre}\n" +
                 $"Descripción: {DescripcionCurso}\n" +
                 $"Cupo Disponibles: {CupoDisponibles}\n" +
-                $"Número de Inscriptos: {NumeroInscriptos}\n";
+                $"Número de Inscriptos: {NumeroInscriptos}\n"+
+                $"Horario: {HorarioMin}\n"+
+                $"Horario: {HorarioMax}\n"+
+                $"Profesor: {Profesor}\n";
         }
 
         // Operador de conversión implícita para crear un Cursos a partir de una cadena
@@ -80,7 +101,11 @@ namespace Biblioteca
                 datos[1],
                 datos[2],
                 int.Parse(datos[3]),
-                int.Parse(datos[4])
+                int.Parse(datos[4]),
+                int.Parse(datos[5]),
+                int.Parse(datos[6]),
+                datos[7]
+
             );
         }
 
@@ -102,6 +127,26 @@ namespace Biblioteca
         public void CambiarCupo(string nuevoCupo)
         {
             CupoDisponibles = int.Parse(nuevoCupo);
+        }
+
+        public void CambiarNumeroInscriptos(string nuevoNumeroInscriptos)
+        {
+            NumeroInscriptos = int.Parse(nuevoNumeroInscriptos);
+        }
+
+        public void CambiarHorarioMin(string nuevoHorario)
+        {
+            HorarioMin = int.Parse(nuevoHorario);
+        }
+
+        public void CambiarHorarioMax(string nuevoHorarioMax)
+        {
+            HorarioMax = int.Parse(nuevoHorarioMax);
+        }
+
+        public void CambiarProfesor(string nuevoProfesor)
+        {
+            Profesor = nuevoProfesor;
         }
     }
 }

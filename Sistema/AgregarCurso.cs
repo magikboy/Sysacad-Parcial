@@ -51,8 +51,11 @@ namespace Sistema
             // Verificar si algún campo está vacío
             if (string.IsNullOrWhiteSpace(textBox1.Text) ||
                 string.IsNullOrWhiteSpace(textBox2.Text) ||
+                string.IsNullOrWhiteSpace(textBox3.Text) ||
                 string.IsNullOrWhiteSpace(textBox4.Text) ||
-                numericUpDown1.Value == 0) // Validar el cupo disponible
+                numericUpDown1.Value == 0 ||
+                numericUpDown2.Value == 0 ||
+                numericUpDown3.Value == 0)
             {
                 MessageBox.Show("Faltan completar campos. Por favor, llene todos los campos.");
             }
@@ -75,25 +78,31 @@ namespace Sistema
                         Cursos curso = new Cursos();
 
                         // Asignar los valores de los campos a las propiedades del objeto
-                        curso.Codigo = codigoCurso; // Usar el valor numérico en lugar del texto
+                        curso.Codigo = codigoCurso;
                         curso.Nombre = textBox2.Text;
                         curso.DescripcionCurso = textBox4.Text;
                         curso.CupoDisponibles = (int)numericUpDown1.Value;
                         curso.NumeroInscriptos = 0; // Inicialmente, no hay inscritos en el curso
+                        curso.HorarioMin = (int)numericUpDown2.Value;
+                        curso.HorarioMax= (int)numericUpDown3.Value;
+                        curso.Profesor = textBox3.Text;
 
                         // Agregar el curso a la lista
                         cursos.Add(curso);
 
-                        // Guardar solo el nuevo curso en el archivo JSON
-                        GuardarDatosCursos.WriteStreamJSON("cursos.json", new List<Cursos> { curso });
+                        // Guardar todos los cursos en el archivo JSON (sobrescribir el archivo)
+                        GuardarDatosCursos.WriteStreamJSON("cursos.json", cursos);
 
                         MessageBox.Show("Curso Registrado.");
 
                         // Limpiar los campos después de agregar el curso
                         textBox1.Clear();
                         textBox2.Clear();
+                        textBox3.Clear();
                         textBox4.Clear();
                         numericUpDown1.Value = 0;
+                        numericUpDown2.Value = 7;
+                        numericUpDown3.Value = 9;
                     }
                 }
                 else
@@ -102,6 +111,7 @@ namespace Sistema
                 }
             }
         }
+
 
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -122,6 +132,25 @@ namespace Sistema
             this.Hide();
             GestionarCursos cursos = new GestionarCursos();
             cursos.Show();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            //horario del curso min
+            numericUpDown2.Minimum = 7;
+            numericUpDown2.Maximum = 19;
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            //horario del curso max
+            numericUpDown3.Minimum = 9;
+            numericUpDown3.Maximum = 21;
         }
     }
 }

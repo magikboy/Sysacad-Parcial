@@ -63,8 +63,12 @@ namespace Sistema
             // Obtén los nuevos valores del curso desde los controles en el formulario
             string nuevoNombre = textBox1.Text;
             string nuevoCodigo = textBox2.Text;
+            string nuevoProfesor = textBox3.Text;
             string nuevaDescripcion = textBox4.Text;
             int nuevoCupo = (int)numericUpDown1.Value;
+            int nuevoHorarioMin = (int)numericUpDown2.Value;
+            int nuevoHorarioMax = (int)numericUpDown3.Value;
+
 
             // Buscar el curso en la lista que coincida con el número de curso seleccionado
             Cursos cursoAEditar = cursos.Find(curso => curso.Codigo == numeroCurso);
@@ -74,16 +78,22 @@ namespace Sistema
                 // Actualiza los datos del curso en la lista
                 cursoAEditar.Nombre = nuevoNombre;
                 cursoAEditar.Codigo = int.Parse(nuevoCodigo);
+                cursoAEditar.Profesor = nuevoProfesor;
                 cursoAEditar.DescripcionCurso = nuevaDescripcion;
                 cursoAEditar.CupoDisponibles = nuevoCupo;
+                cursoAEditar.HorarioMin = nuevoHorarioMin;
+                cursoAEditar.HorarioMax = nuevoHorarioMax;
 
                 try
                 {
                     // Actualiza los datos del curso en el archivo JSON
                     cursoAEditar.CambiarCodigo(nuevoCodigo);
                     cursoAEditar.CambiarNombre(nuevoNombre);
+                    cursoAEditar.CambiarProfesor(nuevoProfesor);
                     cursoAEditar.CambiarDescripcion(nuevaDescripcion);
                     cursoAEditar.CambiarCupo(nuevoCupo.ToString());
+                    cursoAEditar.CambiarHorarioMin(nuevoHorarioMin.ToString());
+                    cursoAEditar.CambiarHorarioMax(nuevoHorarioMax.ToString());
 
                     // Actualiza la lista de cursos en el archivo JSON
                     GuardarDatosCursos.ActualizarCursos(cursos);
@@ -135,6 +145,30 @@ namespace Sistema
         private void label7_Click(object sender, EventArgs e)
         {
             // Este evento se activa cuando se hace clic en el nombre del curso
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            //horario del curso min
+            numericUpDown2.Minimum = 7;
+            numericUpDown2.Maximum = 19;
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            //horario del curso max
+            numericUpDown3.Minimum = 9;
+            numericUpDown3.Maximum = 21;
         }
     }
 }
