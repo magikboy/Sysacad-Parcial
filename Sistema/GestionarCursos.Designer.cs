@@ -1,6 +1,6 @@
 ﻿namespace Sistema
 {
-    partial class Cursos
+    partial class GestionarCursos
     {
         /// <summary>
         /// Required designer variable.

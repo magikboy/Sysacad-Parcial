@@ -153,6 +153,7 @@
             label16.Size = new Size(45, 15);
             label16.TabIndex = 43;
             label16.Text = "Codigo";
+            label16.Click += label16_Click;
             // 
             // label15
             // 
@@ -163,6 +164,7 @@
             label15.Size = new Size(45, 15);
             label15.TabIndex = 42;
             label15.Text = "Codigo";
+            label15.Click += label15_Click;
             // 
             // label14
             // 
@@ -173,6 +175,7 @@
             label14.Size = new Size(45, 15);
             label14.TabIndex = 41;
             label14.Text = "Codigo";
+            label14.Click += label14_Click;
             // 
             // label13
             // 
@@ -183,6 +186,7 @@
             label13.Size = new Size(45, 15);
             label13.TabIndex = 40;
             label13.Text = "Codigo";
+            label13.Click += label13_Click;
             // 
             // label12
             // 
@@ -193,6 +197,7 @@
             label12.Size = new Size(45, 15);
             label12.TabIndex = 39;
             label12.Text = "Codigo";
+            label12.Click += label12_Click;
             // 
             // label11
             // 
@@ -203,6 +208,7 @@
             label11.Size = new Size(45, 15);
             label11.TabIndex = 38;
             label11.Text = "Codigo";
+            label11.Click += label11_Click;
             // 
             // label10
             // 
@@ -213,6 +219,7 @@
             label10.Size = new Size(45, 15);
             label10.TabIndex = 37;
             label10.Text = "Codigo";
+            label10.Click += label10_Click;
             // 
             // groupBox3
             // 
@@ -241,6 +248,7 @@
             label9.Size = new Size(45, 15);
             label9.TabIndex = 36;
             label9.Text = "Codigo";
+            label9.Click += label9_Click;
             // 
             // label8
             // 
@@ -251,6 +259,7 @@
             label8.Size = new Size(45, 15);
             label8.TabIndex = 35;
             label8.Text = "Codigo";
+            label8.Click += label8_Click;
             // 
             // label7
             // 
@@ -261,6 +270,7 @@
             label7.Size = new Size(45, 15);
             label7.TabIndex = 34;
             label7.Text = "Codigo";
+            label7.Click += label7_Click;
             // 
             // label6
             // 
@@ -271,6 +281,7 @@
             label6.Size = new Size(45, 15);
             label6.TabIndex = 33;
             label6.Text = "Codigo";
+            label6.Click += label6_Click;
             // 
             // label5
             // 
@@ -281,6 +292,7 @@
             label5.Size = new Size(45, 15);
             label5.TabIndex = 32;
             label5.Text = "Codigo";
+            label5.Click += label5_Click;
             // 
             // label4
             // 
@@ -291,6 +303,7 @@
             label4.Size = new Size(45, 15);
             label4.TabIndex = 31;
             label4.Text = "Codigo";
+            label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -301,6 +314,7 @@
             label3.Size = new Size(45, 15);
             label3.TabIndex = 30;
             label3.Text = "Codigo";
+            label3.Click += label3_Click;
             // 
             // guardarDatosBindingSource
             // 

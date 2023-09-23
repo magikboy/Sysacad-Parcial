@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    internal class GuardarDatoCursos
+    public class GuardarDatosCursos
     {
-
         private static string directorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\documentos";
 
-        private static string archivoCursos = "cursos.json";
-
-        // Lee datos en formato JSON desde un archivo y los deserializa en una lista de Curso.
+        public static string archivoCursos = "cursos.json";
 
         public static void CrearCarpeta()
         {
@@ -26,10 +20,11 @@ namespace Biblioteca
             }
         }
 
-        public static List<Cursos> ReadCursosJSON()
+        // Lee datos en formato JSON desde un archivo y los deserializa en una lista de Cursos.
+        public static List<Cursos> ReadStreamJSON(string file)
         {
             CrearCarpeta();
-            var path = ObtenerRutaCompleta(archivoCursos);
+            var path = ObtenerRutaCompleta(file);
             var lista = new List<Cursos>();
 
             if (File.Exists(path))
@@ -49,43 +44,58 @@ namespace Biblioteca
             return lista;
         }
 
-        // Escribe datos en formato JSON en un archivo de cursos, fusionándolos con los datos existentes.
-        public static void WriteCursosJSON(List<Cursos> cursos)
+        // Escribe datos en formato JSON en un archivo, fusionándolos con los datos existentes.
+        public static void WriteStreamJSON(string file, List<Cursos> nuevosCursos)
         {
-            var path = ObtenerRutaCompleta(archivoCursos);
+            // Obtiene la lista actual de cursos desde el archivo JSON
+            var listaExistente = ReadStreamJSON(file);
 
-            // Lee los datos existentes del archivo JSON y los almacena en una lista.
-            var lista = ReadCursosJSON();
-            lista.AddRange(cursos);
+            // Agrega los nuevos cursos a la lista existente
+            listaExistente.AddRange(nuevosCursos);
+
+            var path = Combine(file);
 
             using (var writer = new StreamWriter(path))
             {
                 var options = new JsonSerializerOptions();
                 options.WriteIndented = true;
-                var json = JsonSerializer.Serialize(lista, options);
+                var json = JsonSerializer.Serialize(listaExistente, options);
                 writer.Write(json);
             }
         }
 
-        // Escribe los datos de un Curso en un archivo de texto.
-        public static void WriteCurso(Cursos curso)
+
+        // Método privado para combinar el nombre de archivo con la ubicación en el escritorio.
+        private static string Combine(string file)
         {
-            using (var writer = new StreamWriter(ObtenerRutaCompleta(archivoCursos), true))
+            Environment.SpecialFolder escritorio = Environment.SpecialFolder.DesktopDirectory;
+            var desktop = Environment.GetFolderPath(escritorio);
+            var path = Path.Combine(desktop, "documentos", file);
+            return path;
+        }
+
+
+        // Actualiza la informacion en el archivo JSON de los Cursos.
+        public static void ActualizarCursos(List<Cursos> cursos)
+        {
+            var path = Combine(archivoCursos);
+
+            using (var writer = new StreamWriter(path))
             {
-                writer.WriteLine(curso.GetInstancias());
+                var options = new JsonSerializerOptions();
+                options.WriteIndented = true;
+                var json = JsonSerializer.Serialize(cursos, options);
+                writer.Write(json);
             }
         }
 
-        // Escribe una lista de Cursos en un archivo de texto.
-        public static void WriteCursos(List<Cursos> cursos)
+        //elimina un curso del archivo JSON
+        public static void EliminarCurso(int codigo)
         {
-            using (var writer = new StreamWriter(ObtenerRutaCompleta(archivoCursos)))
-            {
-                foreach (var curso in cursos)
-                {
-                    writer.WriteLine(curso.GetInstancias());
-                }
-            }
+            var lista = ReadStreamJSON(archivoCursos);
+            var curso = lista.Find(curso => curso.Codigo == codigo);
+            lista.Remove(curso);
+            ActualizarCursos(lista);
         }
 
         // Método privado para combinar la ruta del directorio con el nombre del archivo.

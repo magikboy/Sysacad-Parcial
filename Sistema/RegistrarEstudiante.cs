@@ -22,6 +22,7 @@ namespace Sistema
             if (File.Exists("estudiantes.json"))
             {
                 estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+
             }
         }
 

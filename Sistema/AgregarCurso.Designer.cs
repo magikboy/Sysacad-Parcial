@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label5 = new Label();
             numericUpDown1 = new NumericUpDown();
             label4 = new Label();
             textBox4 = new TextBox();
@@ -46,6 +47,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(numericUpDown1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(textBox4);
@@ -57,18 +59,28 @@
             groupBox1.Location = new Point(29, 59);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(10);
-            groupBox1.Size = new Size(388, 382);
+            groupBox1.Size = new Size(388, 408);
             groupBox1.TabIndex = 29;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Curso";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(13, 290);
+            label5.Name = "label5";
+            label5.Size = new Size(101, 15);
+            label5.TabIndex = 35;
+            label5.Text = "Cupos Disponible";
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(13, 225);
+            numericUpDown1.Location = new Point(13, 308);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 34;
-            numericUpDown1.Value = new decimal(new int[] { 30, 0, 0, 0 });
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // label4
@@ -85,9 +97,11 @@
             // textBox4
             // 
             textBox4.Location = new Point(13, 171);
+            textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(362, 23);
+            textBox4.Size = new Size(362, 94);
             textBox4.TabIndex = 30;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // label1
             // 
@@ -113,12 +127,13 @@
             // 
             btnIngresar.BackColor = Color.LightGreen;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(89, 311);
+            btnIngresar.Location = new Point(89, 348);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(171, 47);
             btnIngresar.TabIndex = 25;
             btnIngresar.Text = "Registar";
             btnIngresar.UseVisualStyleBackColor = false;
+            btnIngresar.Click += btnIngresar_Click;
             // 
             // textBox2
             // 
@@ -126,6 +141,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(362, 23);
             textBox2.TabIndex = 24;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
             // 
@@ -155,6 +171,7 @@
             button2.TabIndex = 36;
             button2.Text = "Volver al menu";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // AgregarCurso
             // 
@@ -186,5 +203,6 @@
         private Label label2;
         private NumericUpDown numericUpDown1;
         private Button button2;
+        private Label label5;
     }
 }

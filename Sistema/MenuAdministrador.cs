@@ -42,7 +42,7 @@ namespace Sistema
         private void button1_Click(object sender, EventArgs e)
         {
             //ir al menu de cursos
-            Cursos cursos = new Cursos();
+            GestionarCursos cursos = new GestionarCursos();
             cursos.Show();
             this.Hide();
         }

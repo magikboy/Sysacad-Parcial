@@ -1,18 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    internal class Cursos
+    public class Cursos
     {
         public int Codigo { get; set; }
         public string Nombre { get; set; }
         public string DescripcionCurso { get; set; }
         public int CupoDisponibles { get; set; }
         public int NumeroInscriptos { get; set; }
+
+        public Cursos()
+        {
+            // Valores predeterminados para las propiedades
+            this.Codigo = 0;
+            this.Nombre = "";
+            this.DescripcionCurso = "";
+            this.CupoDisponibles = 0;
+            this.NumeroInscriptos = 0;
+        }
 
         public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos)
         {
@@ -23,62 +29,79 @@ namespace Biblioteca
             NumeroInscriptos = numeroInscriptos;
         }
 
-        public Cursos(string curso)
+        // Constructor que acepta una cadena para inicializar las propiedades
+        public Cursos(string linea)
         {
-            var datos = curso.Split('-');
-            if (datos.Length == 5)
+            // Divide la línea en sus componentes
+            var partes = linea.Split(';');
+
+            // Asegúrate de que haya suficientes componentes para inicializar las propiedades
+            if (partes.Length >= 5)
             {
-                Codigo = int.Parse(datos[0]);
-                Nombre = datos[1];
-                DescripcionCurso = datos[2];
-                CupoDisponibles = int.Parse(datos[3]);
-                NumeroInscriptos = int.Parse(datos[4]);
+                if (int.TryParse(partes[0], out int codigo))
+                {
+                    Codigo = codigo;
+                }
+                Nombre = partes[1];
+                DescripcionCurso = partes[2];
+                if (int.TryParse(partes[3], out int cupoDisponibles))
+                {
+                    CupoDisponibles = cupoDisponibles;
+                }
+                if (int.TryParse(partes[4], out int numeroInscriptos))
+                {
+                    NumeroInscriptos = numeroInscriptos;
+                }
             }
             else
             {
-                throw new ArgumentException("La cadena proporcionada no contiene los datos requeridos para inicializar un curso.");
+                throw new ArgumentException("La línea de datos no tiene suficientes componentes.");
             }
         }
 
+        // Método para obtener una representación en cadena de las instancias de Cursos
         public string GetInstancias()
         {
-            return $"Código: {Codigo}\n" +
+            return
+                $"Código: {Codigo}\n" +
                 $"Nombre: {Nombre}\n" +
-                $"Descripción del Curso: {DescripcionCurso}\n" +
+                $"Descripción: {DescripcionCurso}\n" +
                 $"Cupo Disponibles: {CupoDisponibles}\n" +
                 $"Número de Inscriptos: {NumeroInscriptos}\n";
         }
 
+        // Operador de conversión implícita para crear un Cursos a partir de una cadena
         public static implicit operator Cursos(string curso)
         {
-            return new Cursos(curso);
+            // Método para convertir una cadena en un objeto Cursos
+            var datos = curso.Split(';');
+            return new Cursos(
+                int.Parse(datos[0]),
+                datos[1],
+                datos[2],
+                int.Parse(datos[3]),
+                int.Parse(datos[4])
+            );
         }
 
-        //creao un metodo para limitar el numero de inscriptos a el curso
-        public bool HayCupo()
+        public void CambiarCodigo(string nuevaCodigo)
         {
-            return CupoDisponibles >= NumeroInscriptos;
+            Codigo = int.Parse(nuevaCodigo);
         }
 
-        public bool NoHayCupo()
+        public void CambiarNombre(string nuevoNombre)
         {
-            return NumeroInscriptos >= 30;
+            Nombre = nuevoNombre;
         }
 
-        public void Inscribir()
+        public void CambiarDescripcion(string nuevaDescripcion)
         {
-            NumeroInscriptos++;
+            DescripcionCurso = nuevaDescripcion;
         }
 
-        public void Desinscribir()
+        public void CambiarCupo(string nuevoCupo)
         {
-            NumeroInscriptos--;
+            CupoDisponibles = int.Parse(nuevoCupo);
         }
-
-        public bool EsIgual(Cursos curso)
-        {
-            return Codigo == curso.Codigo;
-        }
-
     }
 }

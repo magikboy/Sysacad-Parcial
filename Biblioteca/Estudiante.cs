@@ -43,12 +43,6 @@ namespace Biblioteca
             NumeroEstudiante = numeroEstudiante;
         }
 
-        public Estudiante(string estudiante)
-        {
-            // Constructor que permite inicializar un estudiante a partir de una cadena de datos
-            var datos = estudiante.Split('-');
-        }
-
         // Método para obtener una representación en cadena de las instancias de Estudiante
         public string GetInstancias()
         {
