@@ -26,6 +26,28 @@ namespace Sistema
             label1.Text = numeroEstudianteIngresado.ToString();
         }
 
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //volver al menu de estudiante
+            MenuEstudiante menuEstudiante = new MenuEstudiante(numeroEstudianteIngresado);
+            menuEstudiante.Show();
+            this.Hide();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            //salir del programa
+            Application.Exit();
+        }
     }
 }
