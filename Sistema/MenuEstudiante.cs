@@ -64,5 +64,13 @@ namespace Sistema
         private void label1_Click(object sender, EventArgs e)
         {
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //entra al formulario de cursos y horarios
+            MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
+            menuCursosYHorariosEstudiantes.Show();
+            this.Hide();
+        }
     }
 }
