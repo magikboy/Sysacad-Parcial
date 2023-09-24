@@ -4,17 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class MenuCursosYHorariosEstudiantes : Form
+    public partial class ConsultarHorario : Form
     {
         private int numeroEstudianteIngresado;
-
-        public MenuCursosYHorariosEstudiantes(int numeroEstudiante)
+        public ConsultarHorario(int numeroEstudiante)
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
@@ -26,15 +26,6 @@ namespace Sistema
             label1.Text = numeroEstudianteIngresado.ToString();
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-            //ingresar a inscripcionCursos
-            InscripcionCursos inscripcionCursos = new InscripcionCursos(numeroEstudianteIngresado);
-            inscripcionCursos.Show();
-            this.Hide();
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -42,24 +33,16 @@ namespace Sistema
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //volver al menu de estudiante
-            MenuEstudiante menuEstudiante = new MenuEstudiante(numeroEstudianteIngresado);
-            menuEstudiante.Show();
+            //volver al menu de cursos y horarios
             this.Hide();
+            MenuCursosYHorariosEstudiantes menuCursosYHorarios = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
+            menuCursosYHorarios.Show();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             //salir del programa
             Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //ingresar a ConsultarHorario
-            ConsultarHorario consultaHorario = new ConsultarHorario(numeroEstudianteIngresado);
-            consultaHorario.Show();
-            this.Hide();
         }
     }
 }

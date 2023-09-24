@@ -67,6 +67,7 @@ namespace Sistema
                 string.IsNullOrWhiteSpace(textBox3.Text) ||
                 string.IsNullOrWhiteSpace(textBox4.Text) ||
                 string.IsNullOrWhiteSpace(textBox5.Text) ||
+                string.IsNullOrWhiteSpace(textBox6.Text) ||
                 (!checkBox1.Checked && !checkBox2.Checked))
             {
                 MessageBox.Show("Faltan completar campos. Por favor, llene todos los campos.");
@@ -100,6 +101,7 @@ namespace Sistema
                 estudiante.CorreoElectronico = correoElectronico; // Usar el valor validado
                 estudiante.Direccion = textBox4.Text;
                 estudiante.NumeroTelefono = numeroTelefono; // Usar el valor validado
+                estudiante.CuatrimestreEstudiante = textBox6.Text;
 
                 // Llamar al método de creación de número de estudiante
                 GenerarNumeroEstudiante(estudiante);
@@ -209,6 +211,16 @@ namespace Sistema
 
         private void RegistrarEstudiante_Load(object sender, EventArgs e)
         {
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            string NumeroCuatrimestre = textBox6.Text;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

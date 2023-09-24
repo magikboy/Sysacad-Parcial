@@ -44,7 +44,11 @@ namespace Sistema
                 textBox1.Text = cursoAEditar.Nombre;
                 textBox2.Text = cursoAEditar.Codigo.ToString();
                 textBox4.Text = cursoAEditar.DescripcionCurso;
+                textBox5.Text = cursoAEditar.Cuatrimestre;
+                textBox3.Text = cursoAEditar.Profesor;
                 numericUpDown1.Value = cursoAEditar.CupoDisponibles;
+                numericUpDown2.Value = cursoAEditar.HorarioMin;
+                numericUpDown3.Value = cursoAEditar.HorarioMax;
             }
             else
             {
@@ -65,6 +69,7 @@ namespace Sistema
             string nuevoCodigo = textBox2.Text;
             string nuevoProfesor = textBox3.Text;
             string nuevaDescripcion = textBox4.Text;
+            string nuevoCuatrimestre = textBox5.Text;
             int nuevoCupo = (int)numericUpDown1.Value;
             int nuevoHorarioMin = (int)numericUpDown2.Value;
             int nuevoHorarioMax = (int)numericUpDown3.Value;
@@ -80,6 +85,7 @@ namespace Sistema
                 cursoAEditar.Codigo = int.Parse(nuevoCodigo);
                 cursoAEditar.Profesor = nuevoProfesor;
                 cursoAEditar.DescripcionCurso = nuevaDescripcion;
+                cursoAEditar.Cuatrimestre = nuevoCuatrimestre;
                 cursoAEditar.CupoDisponibles = nuevoCupo;
                 cursoAEditar.HorarioMin = nuevoHorarioMin;
                 cursoAEditar.HorarioMax = nuevoHorarioMax;
@@ -91,6 +97,7 @@ namespace Sistema
                     cursoAEditar.CambiarNombre(nuevoNombre);
                     cursoAEditar.CambiarProfesor(nuevoProfesor);
                     cursoAEditar.CambiarDescripcion(nuevaDescripcion);
+                    cursoAEditar.CambiarCuatrimestre(nuevoCuatrimestre);
                     cursoAEditar.CambiarCupo(nuevoCupo.ToString());
                     cursoAEditar.CambiarHorarioMin(nuevoHorarioMin.ToString());
                     cursoAEditar.CambiarHorarioMax(nuevoHorarioMax.ToString());
@@ -169,6 +176,11 @@ namespace Sistema
             //horario del curso max
             numericUpDown3.Minimum = 9;
             numericUpDown3.Maximum = 21;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            string cuatrimeste = textBox5.Text;
         }
     }
 }

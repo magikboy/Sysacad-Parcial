@@ -12,6 +12,7 @@ namespace Biblioteca
         public int HorarioMin { get; set; }
         public int HorarioMax { get; set; }
         public string Profesor { get; set; }
+        public string Cuatrimestre { get; set; }
 
         public Cursos()
         {
@@ -24,9 +25,11 @@ namespace Biblioteca
             this.HorarioMin = 0;
             this.HorarioMax = 0;
             this.Profesor = "";
+            this.Cuatrimestre = "";
+
         }
 
-        public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos , int horarioMin,int horarioMax ,string profesor)
+        public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos , int horarioMin,int horarioMax ,string profesor,string cuatrimestre)
         {
             Codigo = codigo;
             Nombre = nombre;
@@ -36,6 +39,7 @@ namespace Biblioteca
             HorarioMin = horarioMin;
             HorarioMax = horarioMax;
             Profesor = profesor;
+            Cuatrimestre = cuatrimestre;
         }
 
         // Constructor que acepta una cadena para inicializar las propiedades
@@ -70,6 +74,7 @@ namespace Biblioteca
                     HorarioMax = horarioMax;
                 }
                 Profesor = partes[6];
+                Cuatrimestre = partes[7];
             }
             else
             {
@@ -88,7 +93,8 @@ namespace Biblioteca
                 $"Número de Inscriptos: {NumeroInscriptos}\n"+
                 $"Horario: {HorarioMin}\n"+
                 $"Horario: {HorarioMax}\n"+
-                $"Profesor: {Profesor}\n";
+                $"Profesor: {Profesor}\n"+
+                $"Cuatrimestre: {Cuatrimestre}\n";
         }
 
         // Operador de conversión implícita para crear un Cursos a partir de una cadena
@@ -104,8 +110,8 @@ namespace Biblioteca
                 int.Parse(datos[4]),
                 int.Parse(datos[5]),
                 int.Parse(datos[6]),
-                datos[7]
-
+                datos[7],
+                datos[8]
             );
         }
 
@@ -147,6 +153,11 @@ namespace Biblioteca
         public void CambiarProfesor(string nuevoProfesor)
         {
             Profesor = nuevoProfesor;
+        }
+
+        public void CambiarCuatrimestre(string nuevoCuatrimestre)
+        {
+            Cuatrimestre = nuevoCuatrimestre;
         }
     }
 }

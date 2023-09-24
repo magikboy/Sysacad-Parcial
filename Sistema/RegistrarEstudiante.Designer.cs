@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label8 = new Label();
+            textBox6 = new TextBox();
             label7 = new Label();
             checkBox2 = new CheckBox();
             checkBox1 = new CheckBox();
@@ -51,6 +53,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(textBox6);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(checkBox2);
             groupBox1.Controls.Add(checkBox1);
@@ -68,16 +72,35 @@
             groupBox1.Location = new Point(12, 53);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(10);
-            groupBox1.Size = new Size(415, 454);
+            groupBox1.Size = new Size(415, 483);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Estudiante";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(10, 301);
+            label8.Name = "label8";
+            label8.Size = new Size(148, 15);
+            label8.TabIndex = 40;
+            label8.Text = "Numero De Cuatrimestre";
+            label8.Click += label8_Click;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(13, 319);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(296, 23);
+            textBox6.TabIndex = 39;
+            textBox6.TextChanged += textBox6_TextChanged;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(12, 308);
+            label7.Location = new Point(13, 365);
             label7.Name = "label7";
             label7.Size = new Size(132, 15);
             label7.TabIndex = 38;
@@ -87,7 +110,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(247, 351);
+            checkBox2.Location = new Point(238, 394);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(44, 19);
             checkBox2.TabIndex = 37;
@@ -98,7 +121,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(123, 351);
+            checkBox1.Location = new Point(123, 394);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(35, 19);
             checkBox1.TabIndex = 36;
@@ -186,7 +209,7 @@
             // 
             btnIngresar.BackColor = Color.LightGreen;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(123, 394);
+            btnIngresar.Location = new Point(123, 419);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(159, 47);
             btnIngresar.TabIndex = 25;
@@ -225,7 +248,7 @@
             // 
             btnSalir.BackColor = SystemColors.Control;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(147, 526);
+            btnSalir.Location = new Point(146, 542);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(129, 48);
             btnSalir.TabIndex = 26;
@@ -238,7 +261,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(452, 586);
+            ClientSize = new Size(452, 596);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(btnSalir);
@@ -270,5 +293,7 @@
         private CheckBox checkBox2;
         private CheckBox checkBox1;
         private Label label7;
+        private Label label8;
+        private TextBox textBox6;
     }
 }

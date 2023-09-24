@@ -17,6 +17,8 @@ namespace Biblioteca
         public string NumeroTelefono { get; set; }
         public string CorreoElectronico { get; set; }
         public int NumeroEstudiante { get; set; }
+        
+        public string CuatrimestreEstudiante { get; set; }
 
         // Constructores de la clase Estudiante
         public Estudiante()
@@ -29,9 +31,10 @@ namespace Biblioteca
             this.NumeroTelefono = "";
             this.CorreoElectronico = "";
             this.NumeroEstudiante = 0;
+            this.CuatrimestreEstudiante = "";
         }
 
-        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante)
+        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante,string cuatrimestreEstudiante)
         {
             // Constructor que permite inicializar todas las propiedades de Estudiante
             NombreCompleto = nombreCompleto;
@@ -41,6 +44,7 @@ namespace Biblioteca
             NumeroTelefono = numeroTelefono;
             CorreoElectronico = correoElectronico;
             NumeroEstudiante = numeroEstudiante;
+            CuatrimestreEstudiante = cuatrimestreEstudiante;
         }
 
         // Método para obtener una representación en cadena de las instancias de Estudiante
@@ -53,7 +57,8 @@ namespace Biblioteca
                 $"Dirección: {Direccion}\n" +
                 $"Número de teléfono: {NumeroTelefono}\n" +
                 $"Correo electrónico: {CorreoElectronico}\n" +
-                $"Número de estudiante: {NumeroEstudiante}\n";
+                $"Número de estudiante: {NumeroEstudiante}\n"+
+                $"Cuatrimestre: {CuatrimestreEstudiante}\n";
         }
 
         // Operador de conversión implícita para crear un Estudiante a partir de una cadena
@@ -61,7 +66,7 @@ namespace Biblioteca
         {
             // Método para convertir una cadena en un objeto Estudiante
             var datos = estudiante.Split('-');
-            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]));
+            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7]);
         }
 
         // Método para iniciar sesión del estudiante

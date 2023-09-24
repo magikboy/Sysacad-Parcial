@@ -53,6 +53,7 @@ namespace Sistema
                 string.IsNullOrWhiteSpace(textBox2.Text) ||
                 string.IsNullOrWhiteSpace(textBox3.Text) ||
                 string.IsNullOrWhiteSpace(textBox4.Text) ||
+                string.IsNullOrWhiteSpace(textBox5.Text) ||
                 numericUpDown1.Value == 0 ||
                 numericUpDown2.Value == 0 ||
                 numericUpDown3.Value == 0)
@@ -84,8 +85,9 @@ namespace Sistema
                         curso.CupoDisponibles = (int)numericUpDown1.Value;
                         curso.NumeroInscriptos = 0; // Inicialmente, no hay inscritos en el curso
                         curso.HorarioMin = (int)numericUpDown2.Value;
-                        curso.HorarioMax= (int)numericUpDown3.Value;
+                        curso.HorarioMax = (int)numericUpDown3.Value;
                         curso.Profesor = textBox3.Text;
+                        curso.Cuatrimestre = textBox5.Text;
 
                         // Agregar el curso a la lista
                         cursos.Add(curso);
@@ -100,6 +102,7 @@ namespace Sistema
                         textBox2.Clear();
                         textBox3.Clear();
                         textBox4.Clear();
+                        textBox5.Clear();
                         numericUpDown1.Value = 0;
                         numericUpDown2.Value = 7;
                         numericUpDown3.Value = 9;
@@ -151,6 +154,15 @@ namespace Sistema
             //horario del curso max
             numericUpDown3.Minimum = 9;
             numericUpDown3.Maximum = 21;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            string cuatrimeste = textBox5.Text;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
         }
     }
 }

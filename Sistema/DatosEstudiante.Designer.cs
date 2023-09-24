@@ -49,11 +49,15 @@
             label2 = new Label();
             button2 = new Button();
             btnSalir = new Button();
+            label10 = new Label();
+            label16 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(label13);
@@ -289,6 +293,27 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(11, 249);
+            label10.Name = "label10";
+            label10.Size = new Size(91, 19);
+            label10.TabIndex = 41;
+            label10.Text = "Cuatrimestre:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(99, 249);
+            label16.Name = "label16";
+            label16.Size = new Size(88, 19);
+            label16.TabIndex = 42;
+            label16.Text = "Cuatrimestre";
+            label16.Click += label16_Click;
+            // 
             // DatosEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -329,5 +354,7 @@
         private Label label12;
         private Label label11;
         private Label label5;
+        private Label label16;
+        private Label label10;
     }
 }

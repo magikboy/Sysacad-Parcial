@@ -31,6 +31,7 @@ namespace Sistema
                 label13.Text = estudianteSeleccionado.Direccion;
                 label14.Text = estudianteSeleccionado.CorreoElectronico;
                 label15.Text = estudianteSeleccionado.NumeroTelefono;
+                label16.Text = estudianteSeleccionado.CuatrimestreEstudiante;
             }
             else
             {
@@ -160,6 +161,11 @@ namespace Sistema
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }

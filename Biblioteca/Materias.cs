@@ -27,8 +27,8 @@ namespace Biblioteca
                     EstudiantesInscritos.Add(estudiante);
                     CuposDisponibles--;
                 }
+            }
         }
-    }
     }
 }
 
