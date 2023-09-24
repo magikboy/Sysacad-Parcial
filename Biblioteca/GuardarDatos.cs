@@ -103,6 +103,39 @@ namespace Biblioteca
             }
         }
 
+        // Actualiza las materias de un Estudiante en el archivo JSON.
+
+        public static void ActualizarMateriasEstudiante(Estudiante estudiante)
+        {
+            var path = Combine("estudiantes.json");
+
+            // Lee los datos existentes del archivo JSON y los almacena en una lista.
+            var lista = ReadStreamJSON("estudiantes.json");
+
+            // Encuentra el estudiante en la lista y actualiza sus materias
+            Estudiante estudianteExistente = lista.FirstOrDefault(e => e.NumeroEstudiante == estudiante.NumeroEstudiante);
+
+            if (estudianteExistente != null)
+            {
+                estudianteExistente.materiaUno = estudiante.materiaUno;
+                estudianteExistente.materiaDos = estudiante.materiaDos;
+                estudianteExistente.materiaTres = estudiante.materiaTres;
+                estudianteExistente.materiaCuatro = estudiante.materiaCuatro;
+                estudianteExistente.materiaCinco = estudiante.materiaCinco;
+                estudianteExistente.materiaSeis = estudiante.materiaSeis;
+
+                // Guarda la lista actualizada en el archivo JSON
+                using (var writer = new StreamWriter(path))
+                {
+                    var options = new JsonSerializerOptions();
+                    options.WriteIndented = true;
+                    var json = JsonSerializer.Serialize(lista, options);
+                    writer.Write(json);
+                }
+            }
+        }
+
+
         // Método privado para combinar la ruta del directorio con el nombre del archivo.
         private static string ObtenerRutaCompleta(string archivo)
         {

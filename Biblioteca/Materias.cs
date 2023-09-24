@@ -7,7 +7,11 @@ namespace Biblioteca
     {
         public string Nombre { get; }
         public int CuposDisponibles { get; private set; }
+        public int CuposOcupados { get; set; }
+
         public List<Estudiante> EstudiantesInscritos { get; }
+
+
 
         // Constructor de la clase Materia
         public Materia(string nombre, int cuposDisponibles)
@@ -27,6 +31,16 @@ namespace Biblioteca
                     EstudiantesInscritos.Add(estudiante);
                     CuposDisponibles--;
                 }
+            }
+        }
+
+        // Método para retirar a un estudiante de la materia
+        public void RetirarEstudiante(Estudiante estudiante)
+        {
+            if (EstudiantesInscritos.Contains(estudiante))
+            {
+                EstudiantesInscritos.Remove(estudiante);
+                CuposDisponibles++;
             }
         }
     }

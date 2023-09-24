@@ -320,6 +320,7 @@
             button1.TabIndex = 68;
             button1.Text = "Inscribirse";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label4
             // 

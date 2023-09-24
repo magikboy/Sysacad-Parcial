@@ -103,5 +103,14 @@ namespace Biblioteca
         {
             Contrasenia = nuevaContraseña;
         }
+
+        // Método para que el estudiante se inscriba a un curso
+
+        public void InscribirCursoUno(string nuevoCurso)
+        {
+            // Método para inscribir un curso
+            // Agrega el curso a la lista de cursos del estudiante
+            materiaUno = nuevoCurso;
+        }
     }
 }

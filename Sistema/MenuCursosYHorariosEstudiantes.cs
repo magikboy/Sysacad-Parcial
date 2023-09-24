@@ -32,7 +32,6 @@ namespace Sistema
             InscripcionCursos inscripcionCursos = new InscripcionCursos(numeroEstudianteIngresado);
             inscripcionCursos.Show();
             this.Hide();
-
         }
 
         private void label1_Click(object sender, EventArgs e)
