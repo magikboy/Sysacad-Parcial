@@ -54,6 +54,10 @@ namespace Sistema
                 string.IsNullOrWhiteSpace(textBox3.Text) ||
                 string.IsNullOrWhiteSpace(textBox4.Text) ||
                 string.IsNullOrWhiteSpace(textBox5.Text) ||
+                string.IsNullOrWhiteSpace(textBox6.Text) ||
+                string.IsNullOrWhiteSpace(textBox7.Text) ||
+                string.IsNullOrWhiteSpace(textBox8.Text) ||
+                string.IsNullOrWhiteSpace(textBox9.Text) ||
                 numericUpDown1.Value == 0 ||
                 numericUpDown2.Value == 0 ||
                 numericUpDown3.Value == 0)
@@ -62,14 +66,14 @@ namespace Sistema
             }
             else
             {
-                // Verificar si textBox1 contiene un valor numérico
-                if (int.TryParse(textBox1.Text, out int codigoCurso))
+                // Verificar si textBox1  y textBox7 contiene un valor numérico
+                if (int.TryParse(textBox1.Text, out int codigoCurso) && int.TryParse(textBox7.Text, out int aulaCurso))
                 {
                     // Todos los campos obligatorios están completos y textBox1 contiene un valor numérico.
                     // Puedes continuar con el proceso de registro.
 
                     // Verificar si el curso ya existe en la lista
-                    if (cursos.Exists(c => c.Codigo == codigoCurso))
+                    if (cursos.Exists(x => x.Codigo == codigoCurso))
                     {
                         MessageBox.Show("El curso ya está registrado en la base de datos.");
                     }
@@ -88,6 +92,10 @@ namespace Sistema
                         curso.HorarioMax = (int)numericUpDown3.Value;
                         curso.Profesor = textBox3.Text;
                         curso.Cuatrimestre = textBox5.Text;
+                        curso.Fecha = textBox6.Text;
+                        curso.Aula = aulaCurso;
+                        curso.Division = textBox8.Text;
+                        curso.Turno = textBox9.Text;
 
                         // Agregar el curso a la lista
                         cursos.Add(curso);
@@ -103,6 +111,10 @@ namespace Sistema
                         textBox3.Clear();
                         textBox4.Clear();
                         textBox5.Clear();
+                        textBox6.Clear();
+                        textBox7.Clear();
+                        textBox8.Clear();
+                        textBox9.Clear();
                         numericUpDown1.Value = 0;
                         numericUpDown2.Value = 7;
                         numericUpDown3.Value = 9;
@@ -163,6 +175,26 @@ namespace Sistema
 
         private void label11_Click(object sender, EventArgs e)
         {
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,6 +46,10 @@ namespace Sistema
                 textBox4.Text = cursoAEditar.DescripcionCurso;
                 textBox5.Text = cursoAEditar.Cuatrimestre;
                 textBox3.Text = cursoAEditar.Profesor;
+                textBox6.Text = cursoAEditar.Fecha;
+                textBox7.Text = cursoAEditar.Aula.ToString();
+                textBox8.Text = cursoAEditar.Division;
+                textBox9.Text = cursoAEditar.Turno;
                 numericUpDown1.Value = cursoAEditar.CupoDisponibles;
                 numericUpDown2.Value = cursoAEditar.HorarioMin;
                 numericUpDown3.Value = cursoAEditar.HorarioMax;
@@ -70,6 +74,10 @@ namespace Sistema
             string nuevoProfesor = textBox3.Text;
             string nuevaDescripcion = textBox4.Text;
             string nuevoCuatrimestre = textBox5.Text;
+            string nuevaFecha = textBox6.Text;
+            string nuevoAula = textBox7.Text;
+            string nuevaDivision = textBox8.Text;
+            string nuevoTurno = textBox9.Text;
             int nuevoCupo = (int)numericUpDown1.Value;
             int nuevoHorarioMin = (int)numericUpDown2.Value;
             int nuevoHorarioMax = (int)numericUpDown3.Value;
@@ -86,6 +94,10 @@ namespace Sistema
                 cursoAEditar.Profesor = nuevoProfesor;
                 cursoAEditar.DescripcionCurso = nuevaDescripcion;
                 cursoAEditar.Cuatrimestre = nuevoCuatrimestre;
+                cursoAEditar.Fecha = nuevaFecha;
+                cursoAEditar.Aula = int.Parse(nuevoAula);
+                cursoAEditar.Division = nuevaDivision;
+                cursoAEditar.Turno = nuevoTurno;
                 cursoAEditar.CupoDisponibles = nuevoCupo;
                 cursoAEditar.HorarioMin = nuevoHorarioMin;
                 cursoAEditar.HorarioMax = nuevoHorarioMax;
@@ -98,6 +110,10 @@ namespace Sistema
                     cursoAEditar.CambiarProfesor(nuevoProfesor);
                     cursoAEditar.CambiarDescripcion(nuevaDescripcion);
                     cursoAEditar.CambiarCuatrimestre(nuevoCuatrimestre);
+                    cursoAEditar.CambiarFecha1(nuevaFecha);
+                    cursoAEditar.CambiarAula(int.Parse(nuevoAula));
+                    cursoAEditar.CambiarDivision(nuevaDivision);
+                    cursoAEditar.CambiarTurno(nuevoTurno);
                     cursoAEditar.CambiarCupo(nuevoCupo.ToString());
                     cursoAEditar.CambiarHorarioMin(nuevoHorarioMin.ToString());
                     cursoAEditar.CambiarHorarioMax(nuevoHorarioMax.ToString());
@@ -181,6 +197,26 @@ namespace Sistema
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             string cuatrimeste = textBox5.Text;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

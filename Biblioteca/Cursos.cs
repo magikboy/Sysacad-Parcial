@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Biblioteca
 {
@@ -14,6 +15,15 @@ namespace Biblioteca
         public string Profesor { get; set; }
         public string Cuatrimestre { get; set; }
 
+        public string Fecha { get; set; }
+
+        public int Aula { get; set; }
+
+        public string Division { get; set; }
+
+        public string Turno { get; set; }
+
+
         public Cursos()
         {
             // Valores predeterminados para las propiedades
@@ -26,10 +36,13 @@ namespace Biblioteca
             this.HorarioMax = 0;
             this.Profesor = "";
             this.Cuatrimestre = "";
-
+            this.Fecha = "";
+            this.Aula = 0;
+            this.Division = "";
+            this.Turno = "";
         }
 
-        public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos , int horarioMin,int horarioMax ,string profesor,string cuatrimestre)
+        public Cursos(int codigo, string nombre, string descripcionCurso, int cupoDisponibles, int numeroInscriptos , int horarioMin,int horarioMax ,string profesor,string cuatrimestre,string fehcha,int aula,string division , string turno)
         {
             Codigo = codigo;
             Nombre = nombre;
@@ -40,6 +53,10 @@ namespace Biblioteca
             HorarioMax = horarioMax;
             Profesor = profesor;
             Cuatrimestre = cuatrimestre;
+            Fecha = fehcha;
+            Aula = aula;
+            Division = division;
+            Turno = turno;
         }
 
         // Constructor que acepta una cadena para inicializar las propiedades
@@ -75,6 +92,13 @@ namespace Biblioteca
                 }
                 Profesor = partes[6];
                 Cuatrimestre = partes[7];
+                Fecha = partes[8];
+                if (int.TryParse(partes[9], out int aula))
+                {
+                    Aula = aula;
+                }
+                Division = partes[10];
+                Turno = partes[11];
             }
             else
             {
@@ -94,7 +118,11 @@ namespace Biblioteca
                 $"Horario: {HorarioMin}\n"+
                 $"Horario: {HorarioMax}\n"+
                 $"Profesor: {Profesor}\n"+
-                $"Cuatrimestre: {Cuatrimestre}\n";
+                $"Cuatrimestre: {Cuatrimestre}\n"+
+                $"Fecha: {Fecha}\n"+
+                $"Fecha: {Aula}\n"+
+                $"Fecha: {Division}\n"+
+                $"Fecha: {Turno}\n";
         }
 
         // Operador de conversión implícita para crear un Cursos a partir de una cadena
@@ -111,8 +139,12 @@ namespace Biblioteca
                 int.Parse(datos[5]),
                 int.Parse(datos[6]),
                 datos[7],
-                datos[8]
-            );
+                datos[8],
+                datos[9],
+                int.Parse(datos[10]),
+                datos[11],
+                datos[12]
+                );
         }
 
         public void CambiarCodigo(string nuevaCodigo)
@@ -158,6 +190,26 @@ namespace Biblioteca
         public void CambiarCuatrimestre(string nuevoCuatrimestre)
         {
             Cuatrimestre = nuevoCuatrimestre;
+        }
+
+        public void CambiarFecha1(string nuevaFecha)
+        {
+            Fecha = nuevaFecha;
+        }
+
+        public void CambiarAula(int nuevaAula)
+        {
+            Aula = nuevaAula;
+        }
+
+        public void CambiarDivision(string nuevaDivision)
+        {
+            Division = nuevaDivision;
+        }
+
+        public void CambiarTurno(string nuevoTurno)
+        {
+            Turno = nuevoTurno;
         }
     }
 }
