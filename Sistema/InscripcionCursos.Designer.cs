@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            label1 = new Label();
             label2 = new Label();
             button2 = new Button();
             btnSalir = new Button();
@@ -97,6 +96,7 @@
             button18 = new Button();
             label36 = new Label();
             label37 = new Label();
+            label44 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -111,16 +111,6 @@
             label3.Size = new Size(115, 15);
             label3.TabIndex = 50;
             label3.Text = "Numero Estudiante :";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(556, 48);
-            label1.Name = "label1";
-            label1.Size = new Size(52, 15);
-            label1.TabIndex = 49;
-            label1.Text = "Num Est";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -895,12 +885,22 @@
             label37.TabIndex = 69;
             label37.Text = "Nombre:";
             // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Location = new Point(568, 48);
+            label44.Name = "label44";
+            label44.Size = new Size(44, 15);
+            label44.TabIndex = 56;
+            label44.Text = "label44";
+            // 
             // InscripcionCursos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(1124, 694);
+            Controls.Add(label44);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -908,7 +908,6 @@
             Controls.Add(button2);
             Controls.Add(btnSalir);
             Controls.Add(label3);
-            Controls.Add(label1);
             Controls.Add(label2);
             Name = "InscripcionCursos";
             Text = "Form2";
@@ -927,7 +926,6 @@
         #endregion
 
         private Label label3;
-        private Label label1;
         private Label label2;
         private Button button2;
         private Button btnSalir;
@@ -995,5 +993,6 @@
         private Button button18;
         private Label label36;
         private Label label37;
+        private Label label44;
     }
 }
