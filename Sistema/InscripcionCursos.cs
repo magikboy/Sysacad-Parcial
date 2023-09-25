@@ -25,7 +25,9 @@ namespace Sistema
             MostrarNumeroEstudiante();
             CargarYMostrarDatos();
             cursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
         }
+
 
         private void MostrarNumeroEstudiante()
         {
@@ -269,38 +271,70 @@ namespace Sistema
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            // Obtener el estudiante correspondiente
-            var estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+            // Obtener el número de estudiante desde el Label
+            int numeroEstudiante = int.Parse(label44.Text);
 
-            if (estudiante != null)
+            // Verificar si el estudiante existe en la lista de estudiantes
+            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
+
+            if (estudiante == null)
             {
-                // Verificar si el estudiante ya está inscrito en materiaUno
-                if (estudiante.materiaUno == null)
-                {
-                    // Actualizar materiaUno en el estudiante
-                    estudiante.materiaUno = label4.Text; // Usar el texto de label4
-
-                    // Actualizar la lista de estudiantes
-                    GuardarDatos.ActualizarMateriasEstudiante(estudiante);
-
-                    // Mostrar un mensaje de éxito
-                    MessageBox.Show("Inscripción exitosa en el curso: " + label4.Text);
-
-                    // También puedes actualizar el label4 con el nuevo valor de materiaUno
-                    label4.Text = estudiante.materiaUno;
-                }
-                else
-                {
-                    MessageBox.Show("El estudiante ya está inscrito en la materiaUno.");
-                }
+                MessageBox.Show("El estudiante no existe.");
+                return;
             }
-            else
+
+            // Obtener el nombre del curso desde Label4
+            string cursoSeleccionado = label4.Text;
+
+            // Buscar el curso en la lista de cursos
+            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
+
+            if (curso == null)
             {
-                MessageBox.Show("No se encontró al estudiante.");
+                MessageBox.Show("El curso seleccionado no existe.");
+                return;
             }
+
+            // Mostrar valores antes de realizar cambios
+            Console.WriteLine($"Cupo disponible antes: {curso.CupoDisponibles}");
+            Console.WriteLine($"Número de inscritos antes: {curso.NumeroInscriptos}");
+
+            // Verificar si hay cupo disponible en el curso
+            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
+            {
+                MessageBox.Show("El curso está completo, no hay cupo disponible.");
+                return;
+            }
+
+
+            if (estudiante.materiaUno != null)
+            {
+                MessageBox.Show("El estudiante ya está inscrito en un curso.");
+                return;
+            }
+
+            curso.CupoDisponibles--;
+            curso.NumeroInscriptos++;
+
+            // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
+            GuardarDatosCursos.ActualizarCursos(cursos);
+
+            // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
+            estudiante.materiaUno = cursoSeleccionado;
+            GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+
+            //// Mostrar valores después de realizar cambios
+            //Console.WriteLine($"Cupo disponible después: {curso.CupoDisponibles}");
+            //Console.WriteLine($"Número de inscritos después: {curso.NumeroInscriptos}");
+
+            // Mostrar un mensaje de éxito
+            MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
         }
+
+
 
 
     }
