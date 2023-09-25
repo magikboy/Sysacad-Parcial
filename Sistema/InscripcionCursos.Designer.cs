@@ -33,6 +33,7 @@
             button2 = new Button();
             btnSalir = new Button();
             groupBox1 = new GroupBox();
+            label1 = new Label();
             button6 = new Button();
             label12 = new Label();
             label13 = new Label();
@@ -40,7 +41,6 @@
             label10 = new Label();
             label11 = new Label();
             button4 = new Button();
-            label8 = new Label();
             label9 = new Label();
             button3 = new Button();
             label6 = new Label();
@@ -149,6 +149,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(button6);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(label13);
@@ -156,7 +157,6 @@
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(button4);
-            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(label6);
@@ -172,6 +172,16 @@
             groupBox1.Text = "Primer Cuartrimestre";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(6, 169);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 15);
+            label1.TabIndex = 81;
+            label1.Text = "Codigo";
+            // 
             // button6
             // 
             button6.BackColor = Color.LightGreen;
@@ -182,6 +192,7 @@
             button6.TabIndex = 80;
             button6.Text = "Inscribirse";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // label12
             // 
@@ -214,6 +225,7 @@
             button5.TabIndex = 77;
             button5.Text = "Inscribirse";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // label10
             // 
@@ -246,17 +258,7 @@
             button4.TabIndex = 74;
             button4.Text = "Inscribirse";
             button4.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(6, 169);
-            label8.Name = "label8";
-            label8.Size = new Size(45, 15);
-            label8.TabIndex = 73;
-            label8.Text = "Codigo";
-            label8.Click += label8_Click;
+            button4.Click += button4_Click;
             // 
             // label9
             // 
@@ -278,6 +280,7 @@
             button3.TabIndex = 71;
             button3.Text = "Inscribirse";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // label6
             // 
@@ -370,6 +373,7 @@
             button12.TabIndex = 86;
             button12.Text = "Inscribirse";
             button12.UseVisualStyleBackColor = false;
+            button12.Click += button12_Click;
             // 
             // label24
             // 
@@ -402,6 +406,7 @@
             button11.TabIndex = 83;
             button11.Text = "Inscribirse";
             button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
             // 
             // label22
             // 
@@ -434,6 +439,7 @@
             button10.TabIndex = 80;
             button10.Text = "Inscribirse";
             button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
             // 
             // label20
             // 
@@ -466,6 +472,7 @@
             button9.TabIndex = 77;
             button9.Text = "Inscribirse";
             button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
             // 
             // label18
             // 
@@ -498,6 +505,7 @@
             button8.TabIndex = 74;
             button8.Text = "Inscribirse";
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // label16
             // 
@@ -530,6 +538,7 @@
             button7.TabIndex = 71;
             button7.Text = "Inscribirse";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // label14
             // 
@@ -586,6 +595,7 @@
             button17.TabIndex = 83;
             button17.Text = "Inscribirse";
             button17.UseVisualStyleBackColor = false;
+            button17.Click += button17_Click;
             // 
             // label34
             // 
@@ -618,6 +628,7 @@
             button16.TabIndex = 80;
             button16.Text = "Inscribirse";
             button16.UseVisualStyleBackColor = false;
+            button16.Click += button16_Click;
             // 
             // label32
             // 
@@ -650,6 +661,7 @@
             button15.TabIndex = 77;
             button15.Text = "Inscribirse";
             button15.UseVisualStyleBackColor = false;
+            button15.Click += button15_Click;
             // 
             // label30
             // 
@@ -682,6 +694,7 @@
             button14.TabIndex = 74;
             button14.Text = "Inscribirse";
             button14.UseVisualStyleBackColor = false;
+            button14.Click += button14_Click;
             // 
             // label28
             // 
@@ -714,6 +727,7 @@
             button13.TabIndex = 71;
             button13.Text = "Inscribirse";
             button13.UseVisualStyleBackColor = false;
+            button13.Click += button13_Click;
             // 
             // label26
             // 
@@ -767,6 +781,7 @@
             button21.TabIndex = 80;
             button21.Text = "Inscribirse";
             button21.UseVisualStyleBackColor = false;
+            button21.Click += button21_Click;
             // 
             // label42
             // 
@@ -799,6 +814,7 @@
             button20.TabIndex = 77;
             button20.Text = "Inscribirse";
             button20.UseVisualStyleBackColor = false;
+            button20.Click += button20_Click;
             // 
             // label40
             // 
@@ -831,6 +847,7 @@
             button19.TabIndex = 74;
             button19.Text = "Inscribirse";
             button19.UseVisualStyleBackColor = false;
+            button19.Click += button19_Click;
             // 
             // label38
             // 
@@ -863,6 +880,7 @@
             button18.TabIndex = 71;
             button18.Text = "Inscribirse";
             button18.UseVisualStyleBackColor = false;
+            button18.Click += button18_Click;
             // 
             // label36
             // 
@@ -940,7 +958,6 @@
         private Label label10;
         private Label label11;
         private Button button4;
-        private Label label8;
         private Label label9;
         private Button button3;
         private Label label6;
@@ -994,5 +1011,6 @@
         private Label label36;
         private Label label37;
         private Label label44;
+        private Label label1;
     }
 }

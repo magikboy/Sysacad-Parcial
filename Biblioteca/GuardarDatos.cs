@@ -135,7 +135,6 @@ namespace Biblioteca
             }
         }
 
-
         // Método privado para combinar la ruta del directorio con el nombre del archivo.
         private static string ObtenerRutaCompleta(string archivo)
         {
