@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,12 +15,13 @@ namespace Sistema
     public partial class MenuCursosYHorariosEstudiantes : Form
     {
         private int numeroEstudianteIngresado;
-
+        List<Estudiante> estudiantes = new List<Estudiante>();
         public MenuCursosYHorariosEstudiantes(int numeroEstudiante)
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
+            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
         }
 
         private void MostrarNumeroEstudiante()
@@ -28,10 +31,37 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //ingresar a inscripcionCursos
-            InscripcionCursos inscripcionCursos = new InscripcionCursos(numeroEstudianteIngresado);
-            inscripcionCursos.Show();
-            this.Hide();
+            int numeroEstudiante = int.Parse(label1.Text);
+            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
+            //ingresar a incscribir primer cuatri si pertenece a primer cuatri
+            if (estudiante.CuatrimestreEstudiante == "Primer Cuatrimestre") ;
+            {
+                InscribirPrimerCuatri inscribirPrimerCuatri = new InscribirPrimerCuatri(numeroEstudianteIngresado);
+                inscribirPrimerCuatri.Show();
+                this.Hide();
+            }
+            //ingresar a inscribir segundo cuatri si pertenece a segundo cuatri
+            if (estudiante.CuatrimestreEstudiante == "Segundo Cuatrimestre") ;
+            {
+                InscribirSegundoCuatri inscribirSegundoCuatri = new InscribirSegundoCuatri(numeroEstudianteIngresado);
+                inscribirSegundoCuatri.Show();
+                this.Hide();
+            }
+            //ingresar a inscribir tercer cuatri si pertenece a tercer cuatri
+            if (estudiante.CuatrimestreEstudiante == "Tercer Cuatrimestre") ;
+            {
+                InscribirTercerCuatri inscribirTercerCuatri = new InscribirTercerCuatri(numeroEstudianteIngresado);
+                inscribirTercerCuatri.Show();
+                this.Hide();
+            }
+            //ingresar a inscribir cuarto cuatri si pertenece a cuarto cuatri
+            if (estudiante.CuatrimestreEstudiante == "Cuarto Cuatrimestre") ;
+            {
+                InscribirCuartoCuatri inscribirCuartoCuatri = new InscribirCuartoCuatri(numeroEstudianteIngresado);
+                inscribirCuartoCuatri.Show();
+                this.Hide();
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
