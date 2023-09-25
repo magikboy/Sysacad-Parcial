@@ -23,7 +23,7 @@ namespace Sistema
 
         private void MostrarNumeroEstudiante()
         {
-            label1.Text = numeroEstudianteIngresado.ToString();
+            label4.Text = numeroEstudianteIngresado.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e)

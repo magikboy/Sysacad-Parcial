@@ -11,13 +11,12 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class InscribirTercerCuatri : Form
+    public partial class InscribirCuartoCuatri : Form
     {
         private int numeroEstudianteIngresado;
         List<Biblioteca.Cursos> cursos = new List<Biblioteca.Cursos>();
         List<Estudiante> estudiantes = new List<Estudiante>();
-
-        public InscribirTercerCuatri(int numeroEstudiante)
+        public InscribirCuartoCuatri(int numeroEstudiante)
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
@@ -36,7 +35,7 @@ namespace Sistema
             cursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
 
             // Verificar si hay cursos disponibles en la lista y que sean del primer cuatrimestre
-            List<Cursos> cursosPrimerCuatrimestre = cursos.Where(curso => curso.Cuatrimestre == "Tercer Cuatrimestre").ToList();
+            List<Cursos> cursosPrimerCuatrimestre = cursos.Where(curso => curso.Cuatrimestre == "Cuarto Cuatrimestre").ToList();
 
             if (cursosPrimerCuatrimestre.Count > indice)
             {
@@ -68,7 +67,7 @@ namespace Sistema
             MostrarDatosCurso(5, label51, label48, label50, label43);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             // Obtener el número de estudiante desde el Label
             int numeroEstudiante = int.Parse(label44.Text);
@@ -95,9 +94,9 @@ namespace Sistema
             // Buscar el curso en la lista de cursos
             Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
 
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
+            if (estudiante.CuatrimestreEstudiante != "Cuarto Cuatrimestre")
             {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Cuarto cuatrimestre.");
                 return;
             }
 
@@ -141,7 +140,7 @@ namespace Sistema
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             //volver al menu de cursos y horarios
             MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
@@ -149,13 +148,13 @@ namespace Sistema
             this.Hide();
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             //salir del programa
             Application.Exit();
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             // Obtener el número de estudiante desde el Label
             int numeroEstudiante = int.Parse(label44.Text);
@@ -163,9 +162,9 @@ namespace Sistema
             // Verificar si el estudiante existe en la lista de estudiantes
             Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
 
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
+            if (estudiante.CuatrimestreEstudiante != "Cuarto Cuatrimestre")
             {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Cuarto cuatrimestre.");
                 return;
             }
 
@@ -236,9 +235,9 @@ namespace Sistema
             // Verificar si el estudiante existe en la lista de estudiantes
             Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
 
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
+            if (estudiante.CuatrimestreEstudiante != "Cuarto Cuatrimestre")
             {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Cuarto cuatrimestre.");
                 return;
             }
 
@@ -301,7 +300,7 @@ namespace Sistema
             }
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             // Obtener el número de estudiante desde el Label
             int numeroEstudiante = int.Parse(label44.Text);
@@ -309,9 +308,9 @@ namespace Sistema
             // Verificar si el estudiante existe en la lista de estudiantes
             Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
 
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
+            if (estudiante.CuatrimestreEstudiante != "Cuarto Cuatrimestre")
             {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Cuarto cuatrimestre.");
                 return;
             }
 
@@ -374,7 +373,7 @@ namespace Sistema
             }
         }
 
-        private void button6_Click_1(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             // Obtener el número de estudiante desde el Label
             int numeroEstudiante = int.Parse(label44.Text);
@@ -382,9 +381,9 @@ namespace Sistema
             // Verificar si el estudiante existe en la lista de estudiantes
             Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
 
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
+            if (estudiante.CuatrimestreEstudiante != "Cuarto Cuatrimestre")
             {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Cuarto cuatrimestre.");
                 return;
             }
 
@@ -447,45 +446,110 @@ namespace Sistema
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
+            // Obtener el número de estudiante desde el Label
+            int numeroEstudiante = int.Parse(label44.Text);
 
+            // Verificar si el estudiante existe en la lista de estudiantes
+            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
+
+            if (estudiante.CuatrimestreEstudiante != "Cuarto Cuatrimestre")
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Cuarto cuatrimestre.");
+                return;
+            }
+
+            if (estudiante == null)
+            {
+                MessageBox.Show("El estudiante no existe.");
+                return;
+            }
+
+            // Obtener el nombre del curso desde Label3 (botón 3)
+            string cursoSeleccionado = label51.Text;
+
+            // Verificar si el estudiante ya está inscrito en la materiaTres
+            if (!string.IsNullOrEmpty(estudiante.materiaCinco))
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en la materia {estudiante.materiaCinco}.");
+                return;
+            }
+
+            // Buscar el curso en la lista de cursos
+            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
+
+            if (curso == null)
+            {
+                MessageBox.Show("El curso seleccionado no existe.");
+                return;
+            }
+
+            // Verificar si hay cupo disponible en el curso
+            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
+            {
+                MessageBox.Show("El curso está completo, no hay cupo disponible.");
+                return;
+            }
+
+            // Preguntar al usuario si realmente desea inscribirse
+            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {curso.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // El usuario ha confirmado la inscripción
+
+                curso.CupoDisponibles--;
+                curso.NumeroInscriptos++;
+
+                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
+                GuardarDatosCursos.ActualizarCursos(cursos);
+
+                // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
+                estudiante.materiaCinco = cursoSeleccionado; // Cambio a materiaTres
+                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+
+                // Mostrar un mensaje de éxito
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
+            }
+            else
+            {
+                // El usuario ha cancelado la inscripción
+                MessageBox.Show("La inscripción ha sido cancelada.");
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            //salir del programa
+            Application.Exit();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            //volver al menu de cursos y horarios
+            MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
+            menuCursosYHorariosEstudiantes.Show();
+            this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void button3_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
         {
 
         }
     }
 }
-

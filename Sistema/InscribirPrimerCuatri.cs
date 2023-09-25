@@ -62,9 +62,9 @@ namespace Sistema
             // Mostrar los datos de los cursos del primer cuatrimestre del uno al cinco
             MostrarDatosCurso(0, label4, label1, label7, label9);
             MostrarDatosCurso(1, label17, label15, label13, label11);
-            MostrarDatosCurso(2, label25, label23, label21, label19);
-            MostrarDatosCurso(3, label33, label31, label29, label27);
-            MostrarDatosCurso(4, label41, label39, label37, label35);
+            MostrarDatosCurso(2, label24, label25, label23, label19);
+            MostrarDatosCurso(3, label34, label31, label33, label27);
+            MostrarDatosCurso(4, label42, label39, label41, label35);
             MostrarDatosCurso(5, label51, label48, label50, label43);
         }
 
@@ -176,7 +176,7 @@ namespace Sistema
             }
 
             // Obtener el nombre del curso desde Label4
-            string cursoSeleccionado = label6.Text;
+            string cursoSeleccionado = label17.Text;
 
             // Verificar si el estudiante ya está inscrito en la materiaUno
             if (!string.IsNullOrEmpty(estudiante.materiaDos))
@@ -249,7 +249,7 @@ namespace Sistema
             }
 
             // Obtener el nombre del curso desde Label3 (botón 3)
-            string cursoSeleccionado = label1.Text;
+            string cursoSeleccionado = label24.Text;
 
             // Verificar si el estudiante ya está inscrito en la materiaTres
             if (!string.IsNullOrEmpty(estudiante.materiaTres))
@@ -322,7 +322,7 @@ namespace Sistema
             }
 
             // Obtener el nombre del curso desde Label3 (botón 3)
-            string cursoSeleccionado = label10.Text;
+            string cursoSeleccionado = label34.Text;
 
             // Verificar si el estudiante ya está inscrito en la materiaTres
             if (!string.IsNullOrEmpty(estudiante.materiaCuatro))
@@ -395,7 +395,7 @@ namespace Sistema
             }
 
             // Obtener el nombre del curso desde Label3 (botón 3)
-            string cursoSeleccionado = label12.Text;
+            string cursoSeleccionado = label42.Text;
 
             // Verificar si el estudiante ya está inscrito en la materiaTres
             if (!string.IsNullOrEmpty(estudiante.materiaCinco))

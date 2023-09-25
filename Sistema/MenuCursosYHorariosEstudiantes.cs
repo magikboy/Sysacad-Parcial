@@ -33,36 +33,37 @@ namespace Sistema
         {
             int numeroEstudiante = int.Parse(label1.Text);
             Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-            //ingresar a incscribir primer cuatri si pertenece a primer cuatri
-            if (estudiante.CuatrimestreEstudiante == "Primer Cuatrimestre") ;
+
+            // ingresar a inscribir primer cuatri if pertenece a primer cuatri
+            if (estudiante.CuatrimestreEstudiante == "Primer Cuatrimestre")
             {
                 InscribirPrimerCuatri inscribirPrimerCuatri = new InscribirPrimerCuatri(numeroEstudianteIngresado);
                 inscribirPrimerCuatri.Show();
                 this.Hide();
             }
-            //ingresar a inscribir segundo cuatri si pertenece a segundo cuatri
-            if (estudiante.CuatrimestreEstudiante == "Segundo Cuatrimestre") ;
+            // ingresar a inscribir segundo cuatri if pertenece a segundo cuatri
+            else if (estudiante.CuatrimestreEstudiante == "Segundo Cuatrimestre")
             {
                 InscribirSegundoCuatri inscribirSegundoCuatri = new InscribirSegundoCuatri(numeroEstudianteIngresado);
                 inscribirSegundoCuatri.Show();
                 this.Hide();
             }
-            //ingresar a inscribir tercer cuatri si pertenece a tercer cuatri
-            if (estudiante.CuatrimestreEstudiante == "Tercer Cuatrimestre") ;
+            // ingresar a inscribir tercer cuatri if pertenece a tercer cuatri
+            else if (estudiante.CuatrimestreEstudiante == "Tercer Cuatrimestre")
             {
                 InscribirTercerCuatri inscribirTercerCuatri = new InscribirTercerCuatri(numeroEstudianteIngresado);
                 inscribirTercerCuatri.Show();
                 this.Hide();
             }
-            //ingresar a inscribir cuarto cuatri si pertenece a cuarto cuatri
-            if (estudiante.CuatrimestreEstudiante == "Cuarto Cuatrimestre") ;
+            // ingresar a inscribir cuarto cuatri if pertenece a cuarto cuatri
+            else if (estudiante.CuatrimestreEstudiante == "Cuarto Cuatrimestre")
             {
                 InscribirCuartoCuatri inscribirCuartoCuatri = new InscribirCuartoCuatri(numeroEstudianteIngresado);
                 inscribirCuartoCuatri.Show();
                 this.Hide();
             }
-
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {

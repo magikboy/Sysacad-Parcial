@@ -189,6 +189,7 @@
             button7.TabIndex = 113;
             button7.Text = "Inscribirse";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // label50
             // 
@@ -298,6 +299,7 @@
             button4.TabIndex = 86;
             button4.Text = "Inscribirse";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click_1;
             // 
             // label23
             // 
@@ -407,6 +409,7 @@
             button6.TabIndex = 104;
             button6.Text = "Inscribirse";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click_1;
             // 
             // label41
             // 
@@ -516,6 +519,7 @@
             button3.TabIndex = 77;
             button3.Text = "Inscribirse";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
             // 
             // label15
             // 
@@ -625,6 +629,7 @@
             button5.TabIndex = 95;
             button5.Text = "Inscribirse";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click_1;
             // 
             // label33
             // 
@@ -743,6 +748,7 @@
             button1.TabIndex = 68;
             button1.Text = "Inscribirse";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // label4
             // 
@@ -774,6 +780,7 @@
             button2.TabIndex = 88;
             button2.Text = "Volver al menu";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
             // btnSalir
             // 
@@ -785,6 +792,7 @@
             btnSalir.TabIndex = 87;
             btnSalir.Text = "SALIR";
             btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click_1;
             // 
             // label3
             // 
