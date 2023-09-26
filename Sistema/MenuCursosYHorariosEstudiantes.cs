@@ -87,7 +87,7 @@ namespace Sistema
         private void button1_Click(object sender, EventArgs e)
         {
             //ingresar a ConsultarHorario
-            ConsultarHorario consultaHorario = new ConsultarHorario(numeroEstudianteIngresado);
+            Horarios consultaHorario = new Horarios(numeroEstudianteIngresado);
             consultaHorario.Show();
             this.Hide();
         }

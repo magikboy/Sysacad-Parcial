@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label16 = new Label();
+            label10 = new Label();
             label15 = new Label();
             label14 = new Label();
             label13 = new Label();
@@ -49,13 +51,12 @@
             label2 = new Label();
             button2 = new Button();
             btnSalir = new Button();
-            label10 = new Label();
-            label16 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Gainsboro;
             groupBox1.Controls.Add(label16);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label15);
@@ -81,6 +82,27 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Estudiante";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(99, 249);
+            label16.Name = "label16";
+            label16.Size = new Size(88, 19);
+            label16.TabIndex = 42;
+            label16.Text = "Cuatrimestre";
+            label16.Click += label16_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(11, 249);
+            label10.Name = "label10";
+            label10.Size = new Size(91, 19);
+            label10.TabIndex = 41;
+            label10.Text = "Cuatrimestre:";
             // 
             // label15
             // 
@@ -293,32 +315,11 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(11, 249);
-            label10.Name = "label10";
-            label10.Size = new Size(91, 19);
-            label10.TabIndex = 41;
-            label10.Text = "Cuatrimestre:";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(99, 249);
-            label16.Name = "label16";
-            label16.Size = new Size(88, 19);
-            label16.TabIndex = 42;
-            label16.Text = "Cuatrimestre";
-            label16.Click += label16_Click;
-            // 
             // DatosEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
             Controls.Add(button2);
             Controls.Add(label2);

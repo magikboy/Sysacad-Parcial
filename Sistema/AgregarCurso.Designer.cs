@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            textBox9 = new TextBox();
+            label13 = new Label();
+            textBox8 = new TextBox();
+            label12 = new Label();
             textBox7 = new TextBox();
             label10 = new Label();
             label9 = new Label();
@@ -52,10 +56,6 @@
             textBox1 = new TextBox();
             label2 = new Label();
             button2 = new Button();
-            textBox8 = new TextBox();
-            label12 = new Label();
-            textBox9 = new TextBox();
-            label13 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -98,6 +98,42 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Curso";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(190, 415);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(108, 23);
+            textBox9.TabIndex = 59;
+            textBox9.TextChanged += textBox9_TextChanged;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(190, 397);
+            label13.Name = "label13";
+            label13.Size = new Size(42, 15);
+            label13.TabIndex = 58;
+            label13.Text = "Turno:";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(292, 360);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(83, 23);
+            textBox8.TabIndex = 57;
+            textBox8.TextChanged += textBox8_TextChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(292, 342);
+            label12.Name = "label12";
+            label12.Size = new Size(54, 15);
+            label12.TabIndex = 56;
+            label12.Text = "Division:";
             // 
             // textBox7
             // 
@@ -316,46 +352,11 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(292, 360);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(83, 23);
-            textBox8.TabIndex = 57;
-            textBox8.TextChanged += textBox8_TextChanged;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(292, 342);
-            label12.Name = "label12";
-            label12.Size = new Size(54, 15);
-            label12.TabIndex = 56;
-            label12.Text = "Division:";
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(190, 415);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(108, 23);
-            textBox9.TabIndex = 59;
-            textBox9.TextChanged += textBox9_TextChanged;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(190, 397);
-            label13.Name = "label13";
-            label13.Size = new Size(42, 15);
-            label13.TabIndex = 58;
-            label13.Text = "Turno:";
-            // 
             // AgregarCurso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(444, 732);
             Controls.Add(button2);
             Controls.Add(label2);

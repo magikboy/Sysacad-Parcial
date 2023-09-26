@@ -107,11 +107,11 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // Cursos
+            // GestionarCursos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -119,7 +119,7 @@
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
-            Name = "Cursos";
+            Name = "GestionarCursos";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

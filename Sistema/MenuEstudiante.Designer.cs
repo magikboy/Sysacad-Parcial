@@ -110,7 +110,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(427, 47);
+            label1.Location = new Point(429, 47);
             label1.Name = "label1";
             label1.Size = new Size(52, 15);
             label1.TabIndex = 38;
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
             Controls.Add(label3);
             Controls.Add(label1);

@@ -72,7 +72,7 @@
             groupBox1.Location = new Point(12, 53);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(10);
-            groupBox1.Size = new Size(415, 483);
+            groupBox1.Size = new Size(328, 483);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Estudiante";
@@ -110,7 +110,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(238, 394);
+            checkBox2.Location = new Point(194, 394);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(44, 19);
             checkBox2.TabIndex = 37;
@@ -121,7 +121,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(123, 394);
+            checkBox1.Location = new Point(79, 394);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(35, 19);
             checkBox1.TabIndex = 36;
@@ -209,7 +209,7 @@
             // 
             btnIngresar.BackColor = Color.LightGreen;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(123, 419);
+            btnIngresar.Location = new Point(79, 419);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(159, 47);
             btnIngresar.TabIndex = 25;
@@ -248,7 +248,7 @@
             // 
             btnSalir.BackColor = SystemColors.Control;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(146, 542);
+            btnSalir.Location = new Point(106, 542);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(129, 48);
             btnSalir.TabIndex = 26;
@@ -260,8 +260,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
-            ClientSize = new Size(452, 596);
+            BackColor = Color.White;
+            ClientSize = new Size(354, 596);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(btnSalir);

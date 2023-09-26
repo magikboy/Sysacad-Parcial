@@ -47,4 +47,4 @@ namespace Sistema
             this.Hide();
         }
     }
-} 
+}
