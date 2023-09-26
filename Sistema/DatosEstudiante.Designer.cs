@@ -51,6 +51,8 @@
             label2 = new Label();
             button2 = new Button();
             btnSalir = new Button();
+            label17 = new Label();
+            label18 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,7 +78,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(102, 48);
+            groupBox1.Location = new Point(101, 76);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(589, 282);
             groupBox1.TabIndex = 1;
@@ -295,7 +297,7 @@
             // 
             button2.BackColor = Color.LightGreen;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(254, 336);
+            button2.Location = new Point(254, 364);
             button2.Name = "button2";
             button2.Size = new Size(296, 48);
             button2.TabIndex = 32;
@@ -307,7 +309,7 @@
             // 
             btnSalir.BackColor = SystemColors.Control;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(339, 390);
+            btnSalir.Location = new Point(339, 418);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(129, 48);
             btnSalir.TabIndex = 31;
@@ -315,12 +317,32 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(424, 43);
+            label17.Name = "label17";
+            label17.Size = new Size(44, 15);
+            label17.TabIndex = 73;
+            label17.Text = "label17";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(312, 43);
+            label18.Name = "label18";
+            label18.Size = new Size(115, 15);
+            label18.TabIndex = 72;
+            label18.Text = "Numero Estudiante :";
+            // 
             // DatosEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 478);
+            Controls.Add(label17);
+            Controls.Add(label18);
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(btnSalir);
@@ -357,5 +379,7 @@
         private Label label5;
         private Label label16;
         private Label label10;
+        private Label label17;
+        private Label label18;
     }
 }
