@@ -24,6 +24,7 @@ namespace Sistema
             MostrarNumeroEstudiante();
             estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
 
+
             // Buscar al estudiante por su número y obtener su cuatrimestre
             var estudiante = estudiantes.FirstOrDefault(e => e.NumeroEstudiante == numeroEstudiante);
 
