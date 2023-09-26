@@ -53,9 +53,23 @@ namespace Sistema
                 else
                 {
                     MessageBox.Show("El estudiante no está inscrito en ninguna materia.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MostrarCursosVacios();
                 }
             }
         }
+
+        private void MostrarCursosVacios()
+        {
+            for (int i = 9; i <= 112; i++)
+            {
+                var label = Controls.Find("label" + i, true).FirstOrDefault() as Label;
+                if (label != null)
+                {
+                    label.Text = string.Empty;
+                }
+            }
+        }
+
 
         private List<string> ObtenerMateriasInscritas(Estudiante estudiante)
         {
