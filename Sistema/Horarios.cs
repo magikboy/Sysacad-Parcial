@@ -267,10 +267,10 @@ namespace Sistema
             {
                 // Mostrar la información en los labels correspondientes
                 labelNombre.Text = curso.Nombre;
-                labelAula.Text = curso.Aula.ToString();
-                labelHoraInicio.Text = curso.HorarioMin.ToString();
-                labelHoraFin.Text = curso.HorarioMax.ToString();
-                labelProfesor.Text = curso.Profesor;
+                labelAula.Text = "Aula: " + curso.Aula.ToString();
+                labelHoraInicio.Text = "De: " + curso.HorarioMin.ToString();
+                labelHoraFin.Text = "a " + curso.HorarioMax.ToString() + " Hrs";
+                labelProfesor.Text = "Profesor: " + curso.Profesor;
             }
             else
             {

@@ -99,12 +99,6 @@
             label70 = new Label();
             label71 = new Label();
             label72 = new Label();
-            groupBox14 = new GroupBox();
-            label73 = new Label();
-            label74 = new Label();
-            label75 = new Label();
-            label76 = new Label();
-            label77 = new Label();
             groupBox15 = new GroupBox();
             label78 = new Label();
             label79 = new Label();
@@ -135,6 +129,12 @@
             label110 = new Label();
             label111 = new Label();
             label112 = new Label();
+            label77 = new Label();
+            label76 = new Label();
+            label75 = new Label();
+            label74 = new Label();
+            label73 = new Label();
+            groupBox14 = new GroupBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox4.SuspendLayout();
@@ -146,12 +146,12 @@
             groupBox10.SuspendLayout();
             groupBox11.SuspendLayout();
             groupBox13.SuspendLayout();
-            groupBox14.SuspendLayout();
             groupBox15.SuspendLayout();
             groupBox17.SuspendLayout();
             groupBox18.SuspendLayout();
             groupBox19.SuspendLayout();
             groupBox21.SuspendLayout();
+            groupBox14.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -179,20 +179,20 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(66, 49);
+            label12.Location = new Point(40, 49);
             label12.Name = "label12";
-            label12.Size = new Size(56, 15);
+            label12.Size = new Size(30, 15);
             label12.TabIndex = 3;
-            label12.Text = "HoraMax";
+            label12.Text = "Max";
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Location = new Point(6, 49);
             label11.Name = "label11";
-            label11.Size = new Size(54, 15);
+            label11.Size = new Size(28, 15);
             label11.TabIndex = 2;
-            label11.Text = "HoraMin";
+            label11.Text = "Min";
             // 
             // label10
             // 
@@ -403,20 +403,20 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(66, 49);
+            label15.Location = new Point(40, 49);
             label15.Name = "label15";
-            label15.Size = new Size(56, 15);
+            label15.Size = new Size(30, 15);
             label15.TabIndex = 3;
-            label15.Text = "HoraMax";
+            label15.Text = "Max";
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Location = new Point(6, 49);
             label16.Name = "label16";
-            label16.Size = new Size(54, 15);
+            label16.Size = new Size(28, 15);
             label16.TabIndex = 2;
-            label16.Text = "HoraMin";
+            label16.Text = "Min";
             // 
             // label17
             // 
@@ -461,20 +461,20 @@
             // label29
             // 
             label29.AutoSize = true;
-            label29.Location = new Point(66, 49);
+            label29.Location = new Point(40, 49);
             label29.Name = "label29";
-            label29.Size = new Size(56, 15);
+            label29.Size = new Size(30, 15);
             label29.TabIndex = 3;
-            label29.Text = "HoraMax";
+            label29.Text = "Max";
             // 
             // label30
             // 
             label30.AutoSize = true;
             label30.Location = new Point(6, 49);
             label30.Name = "label30";
-            label30.Size = new Size(54, 15);
+            label30.Size = new Size(28, 15);
             label30.TabIndex = 2;
-            label30.Text = "HoraMin";
+            label30.Text = "Min";
             // 
             // label31
             // 
@@ -519,20 +519,20 @@
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new Point(66, 49);
+            label34.Location = new Point(43, 49);
             label34.Name = "label34";
-            label34.Size = new Size(56, 15);
+            label34.Size = new Size(30, 15);
             label34.TabIndex = 3;
-            label34.Text = "HoraMax";
+            label34.Text = "Max";
             // 
             // label35
             // 
             label35.AutoSize = true;
             label35.Location = new Point(6, 49);
             label35.Name = "label35";
-            label35.Size = new Size(54, 15);
+            label35.Size = new Size(28, 15);
             label35.TabIndex = 2;
-            label35.Text = "HoraMin";
+            label35.Text = "Min";
             // 
             // label36
             // 
@@ -577,20 +577,20 @@
             // label39
             // 
             label39.AutoSize = true;
-            label39.Location = new Point(66, 49);
+            label39.Location = new Point(43, 49);
             label39.Name = "label39";
-            label39.Size = new Size(56, 15);
+            label39.Size = new Size(30, 15);
             label39.TabIndex = 3;
-            label39.Text = "HoraMax";
+            label39.Text = "Max";
             // 
             // label40
             // 
             label40.AutoSize = true;
             label40.Location = new Point(6, 49);
             label40.Name = "label40";
-            label40.Size = new Size(54, 15);
+            label40.Size = new Size(28, 15);
             label40.TabIndex = 2;
-            label40.Text = "HoraMin";
+            label40.Text = "Min";
             // 
             // label41
             // 
@@ -635,20 +635,20 @@
             // label49
             // 
             label49.AutoSize = true;
-            label49.Location = new Point(66, 49);
+            label49.Location = new Point(43, 49);
             label49.Name = "label49";
-            label49.Size = new Size(56, 15);
+            label49.Size = new Size(30, 15);
             label49.TabIndex = 3;
-            label49.Text = "HoraMax";
+            label49.Text = "Max";
             // 
             // label50
             // 
             label50.AutoSize = true;
             label50.Location = new Point(6, 49);
             label50.Name = "label50";
-            label50.Size = new Size(54, 15);
+            label50.Size = new Size(28, 15);
             label50.TabIndex = 2;
-            label50.Text = "HoraMin";
+            label50.Text = "Min";
             // 
             // label51
             // 
@@ -693,20 +693,20 @@
             // label54
             // 
             label54.AutoSize = true;
-            label54.Location = new Point(66, 49);
+            label54.Location = new Point(43, 49);
             label54.Name = "label54";
-            label54.Size = new Size(56, 15);
+            label54.Size = new Size(30, 15);
             label54.TabIndex = 3;
-            label54.Text = "HoraMax";
+            label54.Text = "Max";
             // 
             // label55
             // 
             label55.AutoSize = true;
             label55.Location = new Point(6, 49);
             label55.Name = "label55";
-            label55.Size = new Size(54, 15);
+            label55.Size = new Size(28, 15);
             label55.TabIndex = 2;
-            label55.Text = "HoraMin";
+            label55.Text = "Min";
             // 
             // label56
             // 
@@ -751,20 +751,20 @@
             // label59
             // 
             label59.AutoSize = true;
-            label59.Location = new Point(66, 49);
+            label59.Location = new Point(43, 49);
             label59.Name = "label59";
-            label59.Size = new Size(56, 15);
+            label59.Size = new Size(30, 15);
             label59.TabIndex = 3;
-            label59.Text = "HoraMax";
+            label59.Text = "Max";
             // 
             // label60
             // 
             label60.AutoSize = true;
             label60.Location = new Point(6, 49);
             label60.Name = "label60";
-            label60.Size = new Size(54, 15);
+            label60.Size = new Size(28, 15);
             label60.TabIndex = 2;
-            label60.Text = "HoraMin";
+            label60.Text = "Min";
             // 
             // label61
             // 
@@ -809,20 +809,20 @@
             // label69
             // 
             label69.AutoSize = true;
-            label69.Location = new Point(66, 49);
+            label69.Location = new Point(43, 49);
             label69.Name = "label69";
-            label69.Size = new Size(56, 15);
+            label69.Size = new Size(30, 15);
             label69.TabIndex = 3;
-            label69.Text = "HoraMax";
+            label69.Text = "Max";
             // 
             // label70
             // 
             label70.AutoSize = true;
             label70.Location = new Point(6, 49);
             label70.Name = "label70";
-            label70.Size = new Size(54, 15);
+            label70.Size = new Size(28, 15);
             label70.TabIndex = 2;
-            label70.Text = "HoraMin";
+            label70.Text = "Min";
             // 
             // label71
             // 
@@ -841,64 +841,6 @@
             label72.Size = new Size(47, 15);
             label72.TabIndex = 0;
             label72.Text = "Materia";
-            // 
-            // groupBox14
-            // 
-            groupBox14.Controls.Add(label73);
-            groupBox14.Controls.Add(label74);
-            groupBox14.Controls.Add(label75);
-            groupBox14.Controls.Add(label76);
-            groupBox14.Controls.Add(label77);
-            groupBox14.Location = new Point(738, 178);
-            groupBox14.Name = "groupBox14";
-            groupBox14.Size = new Size(181, 90);
-            groupBox14.TabIndex = 78;
-            groupBox14.TabStop = false;
-            // 
-            // label73
-            // 
-            label73.AutoSize = true;
-            label73.Location = new Point(6, 64);
-            label73.Name = "label73";
-            label73.Size = new Size(51, 15);
-            label73.TabIndex = 4;
-            label73.Text = "Profesor";
-            // 
-            // label74
-            // 
-            label74.AutoSize = true;
-            label74.Location = new Point(66, 49);
-            label74.Name = "label74";
-            label74.Size = new Size(56, 15);
-            label74.TabIndex = 3;
-            label74.Text = "HoraMax";
-            // 
-            // label75
-            // 
-            label75.AutoSize = true;
-            label75.Location = new Point(6, 49);
-            label75.Name = "label75";
-            label75.Size = new Size(54, 15);
-            label75.TabIndex = 2;
-            label75.Text = "HoraMin";
-            // 
-            // label76
-            // 
-            label76.AutoSize = true;
-            label76.Location = new Point(6, 34);
-            label76.Name = "label76";
-            label76.Size = new Size(31, 15);
-            label76.TabIndex = 1;
-            label76.Text = "Aula";
-            // 
-            // label77
-            // 
-            label77.AutoSize = true;
-            label77.Location = new Point(6, 19);
-            label77.Name = "label77";
-            label77.Size = new Size(47, 15);
-            label77.TabIndex = 0;
-            label77.Text = "Materia";
             // 
             // groupBox15
             // 
@@ -925,20 +867,20 @@
             // label79
             // 
             label79.AutoSize = true;
-            label79.Location = new Point(66, 49);
+            label79.Location = new Point(43, 49);
             label79.Name = "label79";
-            label79.Size = new Size(56, 15);
+            label79.Size = new Size(30, 15);
             label79.TabIndex = 3;
-            label79.Text = "HoraMax";
+            label79.Text = "Max";
             // 
             // label80
             // 
             label80.AutoSize = true;
             label80.Location = new Point(6, 49);
             label80.Name = "label80";
-            label80.Size = new Size(54, 15);
+            label80.Size = new Size(28, 15);
             label80.TabIndex = 2;
-            label80.Text = "HoraMin";
+            label80.Text = "Min";
             // 
             // label81
             // 
@@ -983,20 +925,20 @@
             // label89
             // 
             label89.AutoSize = true;
-            label89.Location = new Point(66, 49);
+            label89.Location = new Point(43, 49);
             label89.Name = "label89";
-            label89.Size = new Size(56, 15);
+            label89.Size = new Size(30, 15);
             label89.TabIndex = 3;
-            label89.Text = "HoraMax";
+            label89.Text = "Max";
             // 
             // label90
             // 
             label90.AutoSize = true;
             label90.Location = new Point(6, 49);
             label90.Name = "label90";
-            label90.Size = new Size(54, 15);
+            label90.Size = new Size(28, 15);
             label90.TabIndex = 2;
-            label90.Text = "HoraMin";
+            label90.Text = "Min";
             // 
             // label91
             // 
@@ -1041,20 +983,20 @@
             // label94
             // 
             label94.AutoSize = true;
-            label94.Location = new Point(66, 49);
+            label94.Location = new Point(40, 49);
             label94.Name = "label94";
-            label94.Size = new Size(56, 15);
+            label94.Size = new Size(30, 15);
             label94.TabIndex = 3;
-            label94.Text = "HoraMax";
+            label94.Text = "Max";
             // 
             // label95
             // 
             label95.AutoSize = true;
             label95.Location = new Point(6, 49);
             label95.Name = "label95";
-            label95.Size = new Size(54, 15);
+            label95.Size = new Size(28, 15);
             label95.TabIndex = 2;
-            label95.Text = "HoraMin";
+            label95.Text = "Min";
             // 
             // label96
             // 
@@ -1099,20 +1041,20 @@
             // label99
             // 
             label99.AutoSize = true;
-            label99.Location = new Point(66, 49);
+            label99.Location = new Point(43, 49);
             label99.Name = "label99";
-            label99.Size = new Size(56, 15);
+            label99.Size = new Size(30, 15);
             label99.TabIndex = 3;
-            label99.Text = "HoraMax";
+            label99.Text = "Max";
             // 
             // label100
             // 
             label100.AutoSize = true;
             label100.Location = new Point(6, 49);
             label100.Name = "label100";
-            label100.Size = new Size(54, 15);
+            label100.Size = new Size(28, 15);
             label100.TabIndex = 2;
-            label100.Text = "HoraMin";
+            label100.Text = "Min";
             // 
             // label101
             // 
@@ -1157,20 +1099,20 @@
             // label109
             // 
             label109.AutoSize = true;
-            label109.Location = new Point(66, 49);
+            label109.Location = new Point(43, 49);
             label109.Name = "label109";
-            label109.Size = new Size(56, 15);
+            label109.Size = new Size(30, 15);
             label109.TabIndex = 3;
-            label109.Text = "HoraMax";
+            label109.Text = "Max";
             // 
             // label110
             // 
             label110.AutoSize = true;
             label110.Location = new Point(6, 49);
             label110.Name = "label110";
-            label110.Size = new Size(54, 15);
+            label110.Size = new Size(28, 15);
             label110.TabIndex = 2;
-            label110.Text = "HoraMin";
+            label110.Text = "Min";
             // 
             // label111
             // 
@@ -1189,6 +1131,64 @@
             label112.Size = new Size(47, 15);
             label112.TabIndex = 0;
             label112.Text = "Materia";
+            // 
+            // label77
+            // 
+            label77.AutoSize = true;
+            label77.Location = new Point(6, 19);
+            label77.Name = "label77";
+            label77.Size = new Size(47, 15);
+            label77.TabIndex = 0;
+            label77.Text = "Materia";
+            // 
+            // label76
+            // 
+            label76.AutoSize = true;
+            label76.Location = new Point(6, 34);
+            label76.Name = "label76";
+            label76.Size = new Size(31, 15);
+            label76.TabIndex = 1;
+            label76.Text = "Aula";
+            // 
+            // label75
+            // 
+            label75.AutoSize = true;
+            label75.Location = new Point(6, 49);
+            label75.Name = "label75";
+            label75.Size = new Size(28, 15);
+            label75.TabIndex = 2;
+            label75.Text = "Min";
+            // 
+            // label74
+            // 
+            label74.AutoSize = true;
+            label74.Location = new Point(43, 49);
+            label74.Name = "label74";
+            label74.Size = new Size(30, 15);
+            label74.TabIndex = 3;
+            label74.Text = "Max";
+            // 
+            // label73
+            // 
+            label73.AutoSize = true;
+            label73.Location = new Point(6, 64);
+            label73.Name = "label73";
+            label73.Size = new Size(51, 15);
+            label73.TabIndex = 4;
+            label73.Text = "Profesor";
+            // 
+            // groupBox14
+            // 
+            groupBox14.Controls.Add(label73);
+            groupBox14.Controls.Add(label74);
+            groupBox14.Controls.Add(label75);
+            groupBox14.Controls.Add(label76);
+            groupBox14.Controls.Add(label77);
+            groupBox14.Location = new Point(738, 178);
+            groupBox14.Name = "groupBox14";
+            groupBox14.Size = new Size(181, 90);
+            groupBox14.TabIndex = 78;
+            groupBox14.TabStop = false;
             // 
             // Horarios
             // 
@@ -1246,8 +1246,6 @@
             groupBox11.PerformLayout();
             groupBox13.ResumeLayout(false);
             groupBox13.PerformLayout();
-            groupBox14.ResumeLayout(false);
-            groupBox14.PerformLayout();
             groupBox15.ResumeLayout(false);
             groupBox15.PerformLayout();
             groupBox17.ResumeLayout(false);
@@ -1258,6 +1256,8 @@
             groupBox19.PerformLayout();
             groupBox21.ResumeLayout(false);
             groupBox21.PerformLayout();
+            groupBox14.ResumeLayout(false);
+            groupBox14.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1333,12 +1333,6 @@
         private Label label70;
         private Label label71;
         private Label label72;
-        private GroupBox groupBox14;
-        private Label label73;
-        private Label label74;
-        private Label label75;
-        private Label label76;
-        private Label label77;
         private GroupBox groupBox15;
         private Label label78;
         private Label label79;
@@ -1369,5 +1363,11 @@
         private Label label110;
         private Label label111;
         private Label label112;
+        private Label label77;
+        private Label label76;
+        private Label label75;
+        private Label label74;
+        private Label label73;
+        private GroupBox groupBox14;
     }
 }
