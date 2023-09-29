@@ -63,6 +63,16 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_mastercard {
+            get {
+                object obj = ResourceManager.GetObject("logo-mastercard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TarjetaFrente {
             get {
                 object obj = ResourceManager.GetObject("TarjetaFrente", resourceCulture);
@@ -86,6 +96,16 @@ namespace Sistema.Properties {
         internal static System.Drawing.Bitmap Tarjetas {
             get {
                 object obj = ResourceManager.GetObject("Tarjetas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visa_logo {
+            get {
+                object obj = ResourceManager.GetObject("visa-logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

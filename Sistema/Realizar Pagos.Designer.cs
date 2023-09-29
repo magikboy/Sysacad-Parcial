@@ -71,7 +71,7 @@
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(296, 48);
             btnIngresar.TabIndex = 20;
-            btnIngresar.Text = "Pagar";
+            btnIngresar.Text = "Ir a Pagar";
             btnIngresar.UseVisualStyleBackColor = false;
             btnIngresar.Click += btnIngresar_Click;
             // 

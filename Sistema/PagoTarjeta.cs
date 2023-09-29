@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    private int numeroEstudianteIngresado;
-    private List<Estudiante> estudiantes;
     public partial class PagoTarjeta : Form
     {
-        public PagoTarjeta()
+        private int numeroEstudianteIngresado;
+        private List<Estudiante> estudiantes;
+        public PagoTarjeta(int numeroEstudiante)
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
@@ -26,7 +26,21 @@ namespace Sistema
 
         private void MostrarNumeroEstudiante()
         {
-            label1.Text = numeroEstudianteIngresado.ToString();
+            label4.Text = numeroEstudianteIngresado.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //volver al menu del estudiante
+            MenuEstudiante menuEstudiante = new MenuEstudiante(numeroEstudianteIngresado);
+            menuEstudiante.Show();
+            this.Close();
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            //mostara mensaje paga pibe
+            MessageBox.Show("Pago realizado con exito");
         }
     }
 }

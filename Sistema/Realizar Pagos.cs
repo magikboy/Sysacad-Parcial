@@ -44,7 +44,23 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
+            //ir a la ventana de pago con tarjeta si marco el checkBox4 o ir a la ventana de trasferenciabacaria si marco el checkBox5
+            if (checkBox4.Checked)
+            {
+                PagoTarjeta pagoTarjeta = new PagoTarjeta(numeroEstudianteIngresado);
+                pagoTarjeta.Show();
+                this.Close();
+            }
+            else if (checkBox5.Checked)
+            {
+                PagoTransferencia transferenciaBancaria = new PagoTransferencia(numeroEstudianteIngresado);
+                transferenciaBancaria.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una opcion");
+            }
         }
     }
 }
