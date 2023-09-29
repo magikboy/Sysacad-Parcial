@@ -104,8 +104,9 @@
             button3.Name = "button3";
             button3.Size = new Size(296, 48);
             button3.TabIndex = 36;
-            button3.Text = "Pagos";
+            button3.Text = "Realizar Pagos";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // label1
             // 

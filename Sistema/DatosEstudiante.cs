@@ -44,7 +44,6 @@ namespace Sistema
             }
         }
 
-
         private void MostrarNumeroEstudiante()
         {
             label17.Text = numeroEstudianteIngresado.ToString();
@@ -87,28 +86,6 @@ namespace Sistema
             textBox7.Clear();
         }
 
-
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //volver al menu del estudiante
@@ -124,14 +101,6 @@ namespace Sistema
         }
 
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -146,41 +115,6 @@ namespace Sistema
                 textBox6.UseSystemPasswordChar = false;
                 textBox7.UseSystemPasswordChar = false;
             }
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -72,5 +72,13 @@ namespace Sistema
             menuCursosYHorariosEstudiantes.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //ir al menu de realizar pagos
+            Realizar_Pagos realizar_Pagos = new Realizar_Pagos(numeroEstudianteIngresado);
+            realizar_Pagos.Show();
+            this.Hide();
+        }
     }
 }

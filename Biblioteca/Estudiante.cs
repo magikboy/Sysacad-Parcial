@@ -24,6 +24,11 @@ namespace Biblioteca
         public string materiaCinco { get; set; }
         public string materiaSeis { get; set; }
         public string CuatrimestreEstudiante { get; set; }
+        public string PagoMatricula { get; set; }
+        public string PagoCargosAdministrativos { get; set; }
+        public string PagoUtilidades { get; set; }
+
+        public string EstadoPago { get; set; }
 
         // Constructores de la clase Estudiante
         public Estudiante()
@@ -43,9 +48,13 @@ namespace Biblioteca
             this.materiaCuatro = "";
             this.materiaCinco = "";
             this.materiaSeis = "";
+            this.PagoMatricula = "";
+            this.PagoCargosAdministrativos = "";
+            this.PagoUtilidades = "";
+            this.EstadoPago = "";
         }
 
-        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis)
+        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis , string pagomatricula ,string pagocargos ,string pagoutilidades,string estadopago)
         {
             // Constructor que permite inicializar todas las propiedades de Estudiante
             NombreCompleto = nombreCompleto;
@@ -62,6 +71,10 @@ namespace Biblioteca
             materiaCuatro = materiacuatro;
             materiaCinco = materiacinco;
             materiaSeis = materiaseis;
+            PagoMatricula = pagomatricula;
+            PagoCargosAdministrativos = pagocargos;
+            PagoUtilidades = pagoutilidades;
+            EstadoPago = estadopago;
         }
 
         // Método para obtener una representación en cadena de las instancias de Estudiante
@@ -81,7 +94,11 @@ namespace Biblioteca
                 $"Materia 3: {materiaTres}\n"+
                 $"Materia 4: {materiaCuatro}\n"+
                 $"Materia 5: {materiaCinco}\n"+
-                $"Materia 6: {materiaSeis}\n";
+                $"Materia 6: {materiaSeis}\n"+
+                $"Pago de matrícula: {PagoMatricula}\n"+
+                $"Pago de cargos administrativos: {PagoCargosAdministrativos}\n"+
+                $"Pago de utilidades: {PagoUtilidades}\n"+
+                $"Estado de pago: {EstadoPago}\n";
         }
 
         // Operador de conversión implícita para crear un Estudiante a partir de una cadena
@@ -89,7 +106,7 @@ namespace Biblioteca
         {
             // Método para convertir una cadena en un objeto Estudiante
             var datos = estudiante.Split('-');
-            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13]);
+            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13], datos[14], datos[15], datos[16], datos[17]);
         }
 
         // Método para iniciar sesión del estudiante
@@ -102,15 +119,6 @@ namespace Biblioteca
         public void CambiarContraseña(string nuevaContraseña)
         {
             Contrasenia = nuevaContraseña;
-        }
-
-        // Método para que el estudiante se inscriba a un curso
-
-        public void InscribirCursoUno(string nuevoCurso)
-        {
-            // Método para inscribir un curso
-            // Agrega el curso a la lista de cursos del estudiante
-            materiaUno = nuevoCurso;
         }
     }
 }

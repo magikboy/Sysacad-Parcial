@@ -126,6 +126,10 @@
             PerformLayout();
         }
 
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+        }
+
         #endregion
 
         private Label label1;

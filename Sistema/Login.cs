@@ -22,11 +22,6 @@ namespace Sistema
             textBox2.PasswordChar = '*';
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnIngresar_Click_1(object sender, EventArgs e)
         {
             // Cargar la lista de estudiantes desde el archivo JSON
@@ -77,16 +72,6 @@ namespace Sistema
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             textBox2.PasswordChar = '*';
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
-        {
-
         }
     }
 }
