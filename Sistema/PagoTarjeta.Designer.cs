@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             label3 = new Label();
             label2 = new Label();
             label4 = new Label();
@@ -44,40 +43,32 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            textBox6 = new TextBox();
             textBox7 = new TextBox();
             label8 = new Label();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             button2 = new Button();
             btnIngresar = new Button();
+            pictureBox2 = new PictureBox();
+            label11 = new Label();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.TarjetaFrente;
-            pictureBox1.Location = new Point(-19, 41);
+            pictureBox1.Location = new Point(-16, 44);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(600, 300);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.TarjetaReverso;
-            pictureBox2.Location = new Point(-47, 303);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(600, 300);
-            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -113,6 +104,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(57, 23);
             textBox1.TabIndex = 110;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -141,6 +133,7 @@
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(42, 23);
             numericUpDown2.TabIndex = 114;
+            numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
             // 
             // numericUpDown1
             // 
@@ -148,6 +141,7 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(42, 23);
             numericUpDown1.TabIndex = 115;
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // textBox5
             // 
@@ -196,13 +190,6 @@
             label7.TabIndex = 120;
             label7.Text = "Nombre";
             // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(29, 458);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(151, 23);
-            textBox6.TabIndex = 121;
-            // 
             // textBox7
             // 
             textBox7.Location = new Point(190, 458);
@@ -244,7 +231,7 @@
             // 
             button2.BackColor = Color.LightGreen;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(79, 660);
+            button2.Location = new Point(79, 688);
             button2.Name = "button2";
             button2.Size = new Size(296, 48);
             button2.TabIndex = 128;
@@ -256,7 +243,7 @@
             // 
             btnIngresar.BackColor = Color.LightGreen;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(79, 582);
+            btnIngresar.Location = new Point(79, 623);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(296, 48);
             btnIngresar.TabIndex = 126;
@@ -264,18 +251,47 @@
             btnIngresar.UseVisualStyleBackColor = false;
             btnIngresar.Click += btnIngresar_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.TarjetaReverso;
+            pictureBox2.Location = new Point(-45, 306);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(600, 300);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(110, 577);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 15);
+            label11.TabIndex = 133;
+            label11.Text = "Numero";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(79, 577);
+            label10.Name = "label10";
+            label10.Size = new Size(35, 15);
+            label10.TabIndex = 134;
+            label10.Text = "Total:";
+            // 
             // PagoTarjeta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(444, 720);
+            ClientSize = new Size(444, 748);
+            Controls.Add(label11);
+            Controls.Add(label10);
             Controls.Add(button2);
             Controls.Add(btnIngresar);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(label8);
             Controls.Add(textBox7);
-            Controls.Add(textBox6);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -295,11 +311,11 @@
             Name = "PagoTarjeta";
             Text = "Pagar";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -307,7 +323,6 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private Label label3;
         private Label label2;
         private Label label4;
@@ -322,12 +337,14 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private TextBox textBox6;
         private TextBox textBox7;
         private Label label8;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private Button button2;
         private Button btnIngresar;
+        private PictureBox pictureBox2;
+        private Label label11;
+        private Label label10;
     }
 }

@@ -40,6 +40,8 @@
             label6 = new Label();
             label5 = new Label();
             label1 = new Label();
+            label10 = new Label();
+            label11 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,6 +99,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
@@ -170,6 +174,24 @@
             label1.TabIndex = 132;
             label1.Text = "CVU:";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(6, 172);
+            label10.Name = "label10";
+            label10.Size = new Size(35, 15);
+            label10.TabIndex = 132;
+            label10.Text = "Total:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(37, 172);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 15);
+            label11.TabIndex = 132;
+            label11.Text = "Numero";
+            // 
             // PagoTransferencia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -203,5 +225,7 @@
         private Label label9;
         private Label label8;
         private Label label7;
+        private Label label11;
+        private Label label10;
     }
 }

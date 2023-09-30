@@ -135,6 +135,35 @@ namespace Biblioteca
             }
         }
 
+        //actualizar pago estudiante
+
+        public static void ActualizarPagoEstudiante(Estudiante estudiante)
+        {
+            var path = Combine("estudiantes.json");
+
+            // Lee los datos existentes del archivo JSON y los almacena en una lista.
+            var lista = ReadStreamJSON("estudiantes.json");
+
+            // Encuentra el estudiante en la lista y actualiza sus materias
+            Estudiante estudianteExistente = lista.FirstOrDefault(e => e.NumeroEstudiante == estudiante.NumeroEstudiante);
+
+            if (estudianteExistente != null)
+            {
+                estudianteExistente.PagoMatricula = estudiante.PagoMatricula;
+                estudianteExistente.PagoCargosAdministrativos = estudiante.PagoCargosAdministrativos;
+                estudianteExistente.PagoUtilidades = estudiante.PagoUtilidades;
+
+                // Guarda la lista actualizada en el archivo JSON
+                using (var writer = new StreamWriter(path))
+                {
+                    var options = new JsonSerializerOptions();
+                    options.WriteIndented = true;
+                    var json = JsonSerializer.Serialize(lista, options);
+                    writer.Write(json);
+                }
+            }
+        }
+
         // Método privado para combinar la ruta del directorio con el nombre del archivo.
         private static string ObtenerRutaCompleta(string archivo)
         {

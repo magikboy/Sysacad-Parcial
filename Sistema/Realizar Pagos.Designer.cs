@@ -32,6 +32,14 @@
             btnIngresar = new Button();
             button2 = new Button();
             groupBox1 = new GroupBox();
+            label16 = new Label();
+            label15 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
             label6 = new Label();
             checkBox3 = new CheckBox();
             label5 = new Label();
@@ -47,7 +55,11 @@
             label2 = new Label();
             label3 = new Label();
             label1 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,6 +101,14 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(checkBox3);
             groupBox1.Controls.Add(label5);
@@ -101,6 +121,78 @@
             groupBox1.TabIndex = 106;
             groupBox1.TabStop = false;
             groupBox1.Text = "Conceptos a pagar";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(76, 306);
+            label16.Name = "label16";
+            label16.Size = new Size(79, 15);
+            label16.TabIndex = 119;
+            label16.Text = "Numero Total";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(16, 306);
+            label15.Name = "label15";
+            label15.Size = new Size(64, 15);
+            label15.TabIndex = 118;
+            label15.Text = "Valor Total:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(16, 267);
+            label14.Name = "label14";
+            label14.Size = new Size(36, 15);
+            label14.TabIndex = 117;
+            label14.Text = "Valor:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(16, 190);
+            label13.Name = "label13";
+            label13.Size = new Size(36, 15);
+            label13.TabIndex = 116;
+            label13.Text = "Valor:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(16, 76);
+            label12.Name = "label12";
+            label12.Size = new Size(36, 15);
+            label12.TabIndex = 115;
+            label12.Text = "Valor:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(48, 267);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 15);
+            label11.TabIndex = 114;
+            label11.Text = "Numero";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(48, 190);
+            label10.Name = "label10";
+            label10.Size = new Size(51, 15);
+            label10.TabIndex = 113;
+            label10.Text = "Numero";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(48, 76);
+            label9.Name = "label9";
+            label9.Size = new Size(51, 15);
+            label9.TabIndex = 109;
+            label9.Text = "Numero";
             // 
             // label6
             // 
@@ -161,9 +253,12 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(label19);
+            groupBox2.Controls.Add(label18);
+            groupBox2.Controls.Add(label17);
             groupBox2.Location = new Point(12, 91);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(196, 123);
+            groupBox2.Size = new Size(196, 135);
             groupBox2.TabIndex = 107;
             groupBox2.TabStop = false;
             groupBox2.Text = "Conceptos Pendientes";
@@ -247,6 +342,36 @@
             label1.TabIndex = 105;
             label1.Text = "Numero";
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label17.Location = new Point(6, 19);
+            label17.Name = "label17";
+            label17.Size = new Size(123, 21);
+            label17.TabIndex = 120;
+            label17.Text = "Pagar Matricula";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.Location = new Point(6, 49);
+            label18.Name = "label18";
+            label18.Size = new Size(121, 42);
+            label18.TabIndex = 120;
+            label18.Text = "Pagar Cargos \r\nadminsitrativos";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.Location = new Point(6, 99);
+            label19.Name = "label19";
+            label19.Size = new Size(128, 21);
+            label19.TabIndex = 120;
+            label19.Text = "Pagar Utilidades";
+            // 
             // Realizar_Pagos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -265,6 +390,8 @@
             Text = "Realizar_Pagos";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ResumeLayout(false);
@@ -292,5 +419,16 @@
         private Label label2;
         private Label label3;
         private Label label1;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Label label12;
+        private Label label14;
+        private Label label13;
+        private Label label16;
+        private Label label15;
+        private Label label19;
+        private Label label18;
+        private Label label17;
     }
 }
