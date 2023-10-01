@@ -23,7 +23,5 @@ namespace Biblioteca
         {
             return Usuario == usuario && Contraseña == contraseña;
         }
-
-
     }
 }

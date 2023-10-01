@@ -848,6 +848,10 @@
             PerformLayout();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+        }
+
         #endregion
 
         private GroupBox groupBox6;

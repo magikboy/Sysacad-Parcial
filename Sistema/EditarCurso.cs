@@ -144,42 +144,6 @@ namespace Sistema
             admin.Show();
         }
 
-        // Eventos de cambios en los campos de texto y el control NumericUpDown
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            // Aquí se edita el nombre
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            // Aquí se edita el código
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            // Aquí se edita la descripción
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            // Aquí se edita el cupo
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-            // Este evento se activa cuando se hace clic en el nombre del curso
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             //horario del curso min
@@ -199,24 +163,5 @@ namespace Sistema
             string cuatrimeste = textBox5.Text;
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -21,48 +21,6 @@ namespace Biblioteca
             }
         }
 
-        //validar si el administrador quiere cambiar su contraseña provisional
-
-        public static bool ValidarContraseña(string contraseña)
-        {
-            if (contraseña.Length >= 8)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //valiar que el numero de identificacion sea valido
-
-        public static bool ValidarNumeroIdentificacion(string numeroIdentificacion)
-        {
-            if (numeroIdentificacion.Length == 4)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        // validar que el numero de identificacion no este repetido
-
-        public static bool ValidarNumeroIdentificacionRepetido(string numeroEstudiante, List<Estudiante> estudiantes)
-        {
-            foreach (Estudiante estudiante in estudiantes)
-            {
-                if (estudiante.NumeroEstudiante.ToString() == numeroEstudiante)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
         //validar que el numero de telefono sea valido
         public static bool ValidarNumeroTelefono(string numeroTelefono)
         {
@@ -76,18 +34,5 @@ namespace Biblioteca
             }
         }
 
-
-        //validar que el numero del estudiante no este repetido
-        public static bool ValidarNumeroEstudianteRepetido(string numeroEstudiante, List<Estudiante> estudiantes)
-        {
-            foreach (Estudiante estudiante in estudiantes)
-            {
-                if (estudiante.NumeroEstudiante.ToString() == numeroEstudiante)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
     }
 }

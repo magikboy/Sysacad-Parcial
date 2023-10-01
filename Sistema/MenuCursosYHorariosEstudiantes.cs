@@ -21,7 +21,7 @@ namespace Sistema
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
         }
 
         private void MostrarNumeroEstudiante()

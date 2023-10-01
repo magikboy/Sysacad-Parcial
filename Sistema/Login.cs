@@ -6,16 +6,17 @@ namespace Sistema
 {
     public partial class Login : Form
     {
+        List<Administrador> admin = new List<Administrador>();
+        List<Estudiante> estudiantes = new List<Estudiante>();
         public Login()
         {
             InitializeComponent();
         }
-        Administrador administrador = new Administrador("admin", "1234"); // Credenciales de administrador
-        List<Estudiante> estudiantes = new List<Estudiante>();
         public void CargarEstudiantesDesdeJSON()
         {
             // Cargar la lista de estudiantes desde el archivo JSON si existe
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+            admin = GuardarDatosAdministrador.ReadStreamJSON("administrador.json");
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -24,11 +25,10 @@ namespace Sistema
 
         private void btnIngresar_Click_1(object sender, EventArgs e)
         {
-            // Cargar la lista de estudiantes desde el archivo JSON
-            CargarEstudiantesDesdeJSON();
+            string usuario = textBox1.Text;
+            string contrasenia = textBox2.Text;
 
-            // Verificar si las credenciales ingresadas son del administrador
-            if (textBox1.Text == administrador.Usuario && textBox2.Text == administrador.Contraseña)
+            if (AutenticarCredenciales.AutenticarComoAdministrador(usuario, contrasenia))
             {
                 MessageBox.Show("Acceso como administrador");
                 // Abrir el formulario de administrador
@@ -38,31 +38,22 @@ namespace Sistema
             }
             else
             {
-                // Intentar convertir el valor de textBox1.Text a un entero
-                if (int.TryParse(textBox1.Text, out int numeroEstudiante))
+                Estudiante estudianteEncontrado = AutenticarCredenciales.AutenticarComoEstudiante(usuario, contrasenia);
+                if (estudianteEncontrado != null)
                 {
-                    // Verificar si las credenciales coinciden con algún estudiante
-                    Estudiante estudianteEncontrado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante && est.Contrasenia == textBox2.Text);
-
-                    if (estudianteEncontrado != null)
-                    {
-                        MessageBox.Show("Acceso como estudiante");
-                        // Abrir el formulario de estudiante y pasar el número de estudiante
-                        MenuEstudiante menuEstudiante = new MenuEstudiante(numeroEstudiante);
-                        menuEstudiante.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario o contraseña incorrectos.");
-                    }
+                    MessageBox.Show("Acceso como estudiante");
+                    // Abrir el formulario de estudiante y pasar el número de estudiante
+                    MenuEstudiante menuEstudiante = new MenuEstudiante(estudianteEncontrado.NumeroEstudiante);
+                    menuEstudiante.Show();
+                    this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Número de estudiante no válido.");
+                    MessageBox.Show("Usuario o contraseña incorrectos.");
                 }
             }
         }
+
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {

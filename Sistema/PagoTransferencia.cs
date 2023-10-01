@@ -21,7 +21,7 @@ namespace Sistema
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
             MostrarNumeroEstudiante();
         }
 
@@ -90,7 +90,7 @@ namespace Sistema
                 }
 
                 // Guardar la lista actualizada en el archivo JSON
-                GuardarDatos.ActualizarPagoEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarPagoEstudiante(estudiante);
 
                 // Mostrar mensaje de confirmación
                 string cuentaBancaria = label7.Text; // Obtengo la información de la cuenta bancaria desde label7

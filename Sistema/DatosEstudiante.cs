@@ -21,7 +21,7 @@ namespace Sistema
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
             MostrarNumeroEstudiante();
 
             // Buscar el estudiante por NumeroEstudiante
@@ -67,7 +67,7 @@ namespace Sistema
                     estudianteSeleccionado.CambiarContraseña(nuevaContraseña);
 
                     // Actualizar la contraseña en el archivo JSON
-                    GuardarDatos.ActualizarContraseñaEstudiante(estudianteSeleccionado);
+                    GuardarDatosEstudiantes.ActualizarContraseñaEstudiante(estudianteSeleccionado);
 
                     MessageBox.Show("Contraseña cambiada exitosamente.");
                 }

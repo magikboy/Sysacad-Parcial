@@ -14,36 +14,16 @@ namespace Sistema
     public partial class RegistrarEstudiante : Form
     {
         List<Estudiante> estudiantes = new List<Estudiante>();
+        private InicioSesion inicioSesion = new InicioSesion();
 
         public RegistrarEstudiante()
         {
             InitializeComponent();
+
             // Verificar si el archivo JSON existe antes de cargarlo
             if (File.Exists("estudiantes.json"))
             {
-                estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
-
-            }
-        }
-
-        public void GenerarContraseniaProvisoria(Estudiante estudiante)
-        {
-            // Generar contraseña provisoria para el estudiante una vez registrado
-            string contrasenia = "1234";
-            estudiante.Contrasenia = contrasenia;
-        }
-
-        public void GenerarNumeroEstudiante(Estudiante estudiante)
-        {
-            // Crear número aleatorio para el estudiante
-            Random random = new Random();
-            int numeroEstudiante = random.Next(1, 9999);
-            estudiante.NumeroEstudiante = numeroEstudiante;
-            // Validar que el número no esté repetido y crear uno nuevo si es necesario
-            while (existeNumeroIdentificacionEnLaBaseDeDatos(numeroEstudiante.ToString()))
-            {
-                numeroEstudiante = random.Next(1, 9999);
-                estudiante.NumeroEstudiante = numeroEstudiante;
+                estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
             }
         }
 
@@ -90,8 +70,6 @@ namespace Sistema
                     return; // Salir del método si la validación falla
                 }
 
-                // Todos los campos y validaciones están completos, puedes continuar con el proceso de registro.
-
                 // Crear un objeto de tipo Estudiante
                 Estudiante estudiante = new Estudiante();
 
@@ -104,13 +82,14 @@ namespace Sistema
                 estudiante.CuatrimestreEstudiante = textBox6.Text;
 
                 // Llamar al método de creación de número de estudiante
-                GenerarNumeroEstudiante(estudiante);
+                inicioSesion.GenerarNumeroEstudiante(estudiante);
 
                 // Si CheckBox1 está marcado, generar la contraseña provisoria
                 if (checkBox1.Checked)
                 {
-                    GenerarContraseniaProvisoria(estudiante);
+                    inicioSesion.GenerarConstaseniaProvisoria(estudiante);
                 }
+
 
                 // Verificar si el estudiante ya existe en la lista
                 if (estudiantes.Exists(est => est.NumeroEstudiante == estudiante.NumeroEstudiante))
@@ -123,7 +102,7 @@ namespace Sistema
                     estudiantes.Add(estudiante);
 
                     // Guardar la lista de estudiantes actualizada en el archivo JSON
-                    GuardarDatos.WriteStreamJSON("estudiantes.json", estudiantes);
+                    GuardarDatosEstudiantes.WriteStreamJSON("estudiantes.json", estudiantes);
 
                     MessageBox.Show("Estudiante Registrado.");
                     MessageBox.Show("Se envio un Correo al Estudiante.");
@@ -155,72 +134,5 @@ namespace Sistema
             this.Hide();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //para que ingrese el nombre del estudiante
-
-            string nombreCompleto = textBox1.Text;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            //para que ingrese el Apellido de usuario
-
-            string apellido = textBox2.Text;
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            // para que ingrese la direccion de usuario
-
-            string direccion = textBox4.Text;
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            //para que ingrese el correo electronico
-
-            string correoElectronico = textBox3.Text;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            //para que ingrese el Telefono
-
-            string telefono = textBox5.Text;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RegistrarEstudiante_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            string NumeroCuatrimestre = textBox6.Text;
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

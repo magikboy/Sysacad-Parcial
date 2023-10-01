@@ -21,7 +21,7 @@ namespace Sistema
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
             MostrarNumeroEstudiante();
             textBox1.KeyPress += textBox1_KeyPress;
             textBox2.KeyPress += textBox2_KeyPress;
@@ -157,7 +157,7 @@ namespace Sistema
                 }
 
                 // Guardar la lista actualizada en el archivo JSON
-                GuardarDatos.ActualizarPagoEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarPagoEstudiante(estudiante);
 
                 // Mostrar mensaje de pago exitoso y comprobante, incluyendo los valores de los numericUpDown
                 string mensaje = $"Pago de {tituloPago} realizado con éxito el {fechaActual.ToString("dd/MM/yyyy")}\n\n por un monto de {valorLabel}. " +

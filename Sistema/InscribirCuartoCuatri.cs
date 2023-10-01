@@ -22,7 +22,7 @@ namespace Sistema
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
             MostrarDatosDelPrimerAlSextoCurso();
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
         }
 
         private void MostrarNumeroEstudiante()
@@ -128,7 +128,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
                 estudiante.materiaUno = cursoSeleccionado;
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -215,7 +215,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
                 estudiante.materiaDos = cursoSeleccionado;
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -288,7 +288,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaTres = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -361,7 +361,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaCuatro = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -434,7 +434,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaCinco = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -507,7 +507,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaCinco = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -531,25 +531,6 @@ namespace Sistema
             MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
             menuCursosYHorariosEstudiantes.Show();
             this.Hide();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

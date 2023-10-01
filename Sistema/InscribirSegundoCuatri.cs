@@ -23,7 +23,7 @@ namespace Sistema
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
             MostrarDatosDelPrimerAlSextoCurso();
-            estudiantes = GuardarDatos.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
         }
 
         private void MostrarNumeroEstudiante()
@@ -129,7 +129,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
                 estudiante.materiaUno = cursoSeleccionado;
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -216,7 +216,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
                 estudiante.materiaDos = cursoSeleccionado;
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -289,7 +289,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaTres = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -362,7 +362,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaCuatro = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -435,7 +435,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaCinco = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -445,31 +445,6 @@ namespace Sistema
                 // El usuario ha cancelado la inscripción
                 MessageBox.Show("La inscripción ha sido cancelada.");
             }
-        }
-
-        private void button1_Click_1_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -533,7 +508,7 @@ namespace Sistema
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
                 estudiante.materiaSeis = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatos.ActualizarMateriasEstudiante(estudiante);
+                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
@@ -543,16 +518,6 @@ namespace Sistema
                 // El usuario ha cancelado la inscripción
                 MessageBox.Show("La inscripción ha sido cancelada.");
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
