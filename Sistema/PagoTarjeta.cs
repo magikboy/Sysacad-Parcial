@@ -141,7 +141,7 @@ namespace Sistema
                         estudiante.PagoCargosAdministrativos = "pagado";
                         tituloPago = "Matrícula y Cargos Administrativos";
                         break;
-                    case "1100$":
+                    case "11000$":
                         estudiante.PagoMatricula = "pagado";
                         estudiante.PagoUtilidades = "pagado";
                         tituloPago = "Matrícula y Utilidades";
