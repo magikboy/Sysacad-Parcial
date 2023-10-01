@@ -29,11 +29,6 @@ namespace Sistema
             string Codigo = textBox1.Text;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             //hacer que tenga un limite de 40 cupos
@@ -41,10 +36,6 @@ namespace Sistema
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -127,8 +118,6 @@ namespace Sistema
             }
         }
 
-
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             //nombre del curso
@@ -149,11 +138,6 @@ namespace Sistema
             cursos.Show();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             //horario del curso min
@@ -171,30 +155,6 @@ namespace Sistema
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             string cuatrimeste = textBox5.Text;
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Sistema
             // Leer la lista de cursos desde el archivo JSON
             var lista = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
 
-            // Mostrar cursos en los labels (hasta un máximo de 7 cursos)
+            // Mostrar cursos en los labels (tiene un máximo de 7 cursos)
             for (int i = 0; i < Math.Min(lista.Count, 7); i++)
             {
                 var labelNombre = Controls.Find($"label{i + 3}", true)[0] as Label; // Encuentra el label por nombre

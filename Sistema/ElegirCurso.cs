@@ -36,7 +36,7 @@ namespace Sistema
             // Leer la lista de cursos desde el archivo JSON
             var lista = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
 
-            // Asegurarse de que hay al menos un curso en la lista antes de mostrar datos
+            // me Aseguro de que hay al menos un curso en la lista antes de mostrar datos
             if (lista.Count > 0)
             {
                 label3.Text = lista[0].Nombre.ToString();
@@ -79,7 +79,7 @@ namespace Sistema
                 label16.Text = lista[6].Codigo.ToString();
             }
 
-            // Repite este bloque para otros labels y cursos.
+            // Repite si hay mas cursos.
         }
 
 
