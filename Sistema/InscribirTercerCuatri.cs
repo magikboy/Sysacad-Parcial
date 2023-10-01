@@ -68,7 +68,7 @@ namespace Sistema
             MostrarDatosCurso(5, label51, label48, label50, label43);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void InscribirEstudianteEnCurso(string materiaLabel, string cuatrimestre)
         {
             // Obtener el número de estudiante desde el Label
             int numeroEstudiante = int.Parse(label44.Text);
@@ -82,40 +82,70 @@ namespace Sistema
                 return;
             }
 
-            // Obtener el nombre del curso desde Label4
-            string cursoSeleccionado = label4.Text;
+            // Obtener el nombre del curso desde el Label correspondiente a la materia
+            string cursoSeleccionado = materiaLabel;
 
-            // Verificar si el estudiante ya está inscrito en la materiaUno
-            if (!string.IsNullOrEmpty(estudiante.materiaUno))
+            // Verificar si el estudiante ya está inscrito en la materia
+            if (!string.IsNullOrEmpty(estudiante.materiaUno) &&
+                estudiante.materiaUno == cursoSeleccionado)
             {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en la materia {estudiante.materiaUno}.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(estudiante.materiaDos) &&
+                estudiante.materiaDos == cursoSeleccionado)
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(estudiante.materiaTres) &&
+                estudiante.materiaTres == cursoSeleccionado)
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(estudiante.materiaCuatro) &&
+                estudiante.materiaCuatro == cursoSeleccionado)
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(estudiante.materiaCinco) &&
+                estudiante.materiaCinco == cursoSeleccionado)
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(estudiante.materiaSeis) &&
+                estudiante.materiaSeis == cursoSeleccionado)
+            {
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
             }
 
             // Buscar el curso en la lista de cursos
-            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
-
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
-                return;
-            }
+            Cursos curso = cursos.FirstOrDefault(cur => cur.Nombre == cursoSeleccionado);
 
             if (curso == null)
             {
-                MessageBox.Show("El curso seleccionado no existe.");
+                MessageBox.Show("El curso no existe.");
                 return;
             }
 
-            // Verificar si hay cupo disponible en el curso
-            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
+            // Verificar si hay cupos disponibles
+            if (curso.CupoDisponibles == 0)
             {
-                MessageBox.Show("El curso está completo, no hay cupo disponible.");
+                MessageBox.Show("No hay cupos disponibles para este curso.");
                 return;
             }
 
             // Preguntar al usuario si realmente desea inscribirse
-            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {curso.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {cursoSeleccionado}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -127,12 +157,37 @@ namespace Sistema
                 // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
                 GuardarDatosCursos.ActualizarCursos(cursos);
 
-                // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
-                estudiante.materiaUno = cursoSeleccionado;
+                // Actualizar la materia correspondiente en el JSON del estudiante
+                if (string.IsNullOrEmpty(estudiante.materiaUno))
+                {
+                    estudiante.materiaUno = cursoSeleccionado;
+                }
+                else if (string.IsNullOrEmpty(estudiante.materiaDos))
+                {
+                    estudiante.materiaDos = cursoSeleccionado;
+                }
+                else if (string.IsNullOrEmpty(estudiante.materiaTres))
+                {
+                    estudiante.materiaTres = cursoSeleccionado;
+                }
+                else if (string.IsNullOrEmpty(estudiante.materiaCuatro))
+                {
+                    estudiante.materiaCuatro = cursoSeleccionado;
+                }
+                else if (string.IsNullOrEmpty(estudiante.materiaCinco))
+                {
+                    estudiante.materiaCinco = cursoSeleccionado;
+                }
+                else if (string.IsNullOrEmpty(estudiante.materiaSeis))
+                {
+                    estudiante.materiaSeis = cursoSeleccionado;
+                }
+
+                // Actualizar el JSON del estudiante para reflejar la inscripción en la materia correspondiente
                 GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
 
                 // Mostrar un mensaje de éxito
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
+                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {cursoSeleccionado}.");
             }
             else
             {
@@ -141,9 +196,46 @@ namespace Sistema
             }
         }
 
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            // Llamar al método para inscribir al estudiante en la materia 1
+            InscribirEstudianteEnCurso(label4.Text, "Tercer Cuatrimestre");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            // Llamar al método para inscribir al estudiante en la materia 2
+            InscribirEstudianteEnCurso(label17.Text, "Tercer Cuatrimestre");
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            // Llamar al método para inscribir al estudiante en la materia 3
+            InscribirEstudianteEnCurso(label24.Text, "Tercer Cuatrimestre");
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            // Llamar al método para inscribir al estudiante en la materia 4
+            InscribirEstudianteEnCurso(label34.Text, "Tercer Cuatrimestre");
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            // Llamar al método para inscribir al estudiante en la materia 5
+            InscribirEstudianteEnCurso(label42.Text, "Tercer Cuatrimestre");
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            // Llamar al método para inscribir al estudiante en la materia 6
+            InscribirEstudianteEnCurso(label51.Text, "Tercer Cuatrimestre");
+        }
+
         private void button2_Click_1(object sender, EventArgs e)
         {
-            //volver al menu de cursos y horarios
+            // Volver al menú de cursos y horarios
             MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
             menuCursosYHorariosEstudiantes.Show();
             this.Hide();
@@ -151,302 +243,8 @@ namespace Sistema
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
-            //salir del programa
+            // Salir del programa
             Application.Exit();
         }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            // Obtener el número de estudiante desde el Label
-            int numeroEstudiante = int.Parse(label44.Text);
-
-            // Verificar si el estudiante existe en la lista de estudiantes
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
-                return;
-            }
-
-            if (estudiante == null)
-            {
-                MessageBox.Show("El estudiante no existe.");
-                return;
-            }
-
-            // Obtener el nombre del curso desde Label4
-            string cursoSeleccionado = label17.Text;
-
-            // Verificar si el estudiante ya está inscrito en la materiaUno
-            if (!string.IsNullOrEmpty(estudiante.materiaDos))
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en la materia {estudiante.materiaDos}.");
-                return;
-            }
-
-            // Buscar el curso en la lista de cursos
-            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
-
-            if (curso == null)
-            {
-                MessageBox.Show("El curso seleccionado no existe.");
-                return;
-            }
-
-            // Verificar si hay cupo disponible en el curso
-            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
-            {
-                MessageBox.Show("El curso está completo, no hay cupo disponible.");
-                return;
-            }
-
-            // Preguntar al usuario si realmente desea inscribirse
-            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {curso.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                // El usuario ha confirmado la inscripción
-
-                curso.CupoDisponibles--;
-                curso.NumeroInscriptos++;
-
-                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
-                GuardarDatosCursos.ActualizarCursos(cursos);
-
-                // Actualizar el JSON del estudiante para reflejar la inscripción en materiaUno
-                estudiante.materiaDos = cursoSeleccionado;
-                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
-
-                // Mostrar un mensaje de éxito
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
-            }
-            else
-            {
-                // El usuario ha cancelado la inscripción
-                MessageBox.Show("La inscripción ha sido cancelada.");
-            }
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            // Obtener el número de estudiante desde el Label
-            int numeroEstudiante = int.Parse(label44.Text);
-
-            // Verificar si el estudiante existe en la lista de estudiantes
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
-                return;
-            }
-
-            if (estudiante == null)
-            {
-                MessageBox.Show("El estudiante no existe.");
-                return;
-            }
-
-            // Obtener el nombre del curso desde Label3 (botón 3)
-            string cursoSeleccionado = label24.Text;
-
-            // Verificar si el estudiante ya está inscrito en la materiaTres
-            if (!string.IsNullOrEmpty(estudiante.materiaTres))
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en la materia {estudiante.materiaTres}.");
-                return;
-            }
-
-            // Buscar el curso en la lista de cursos
-            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
-
-            if (curso == null)
-            {
-                MessageBox.Show("El curso seleccionado no existe.");
-                return;
-            }
-
-            // Verificar si hay cupo disponible en el curso
-            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
-            {
-                MessageBox.Show("El curso está completo, no hay cupo disponible.");
-                return;
-            }
-
-            // Preguntar al usuario si realmente desea inscribirse
-            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {curso.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                // El usuario ha confirmado la inscripción
-
-                curso.CupoDisponibles--;
-                curso.NumeroInscriptos++;
-
-                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
-                GuardarDatosCursos.ActualizarCursos(cursos);
-
-                // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
-                estudiante.materiaTres = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
-
-                // Mostrar un mensaje de éxito
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
-            }
-            else
-            {
-                // El usuario ha cancelado la inscripción
-                MessageBox.Show("La inscripción ha sido cancelada.");
-            }
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            // Obtener el número de estudiante desde el Label
-            int numeroEstudiante = int.Parse(label44.Text);
-
-            // Verificar si el estudiante existe en la lista de estudiantes
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
-                return;
-            }
-
-            if (estudiante == null)
-            {
-                MessageBox.Show("El estudiante no existe.");
-                return;
-            }
-
-            // Obtener el nombre del curso desde Label3 (botón 3)
-            string cursoSeleccionado = label34.Text;
-
-            // Verificar si el estudiante ya está inscrito en la materiaTres
-            if (!string.IsNullOrEmpty(estudiante.materiaCuatro))
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en la materia {estudiante.materiaCuatro}.");
-                return;
-            }
-
-            // Buscar el curso en la lista de cursos
-            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
-
-            if (curso == null)
-            {
-                MessageBox.Show("El curso seleccionado no existe.");
-                return;
-            }
-
-            // Verificar si hay cupo disponible en el curso
-            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
-            {
-                MessageBox.Show("El curso está completo, no hay cupo disponible.");
-                return;
-            }
-
-            // Preguntar al usuario si realmente desea inscribirse
-            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {curso.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                // El usuario ha confirmado la inscripción
-
-                curso.CupoDisponibles--;
-                curso.NumeroInscriptos++;
-
-                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
-                GuardarDatosCursos.ActualizarCursos(cursos);
-
-                // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
-                estudiante.materiaCuatro = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
-
-                // Mostrar un mensaje de éxito
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
-            }
-            else
-            {
-                // El usuario ha cancelado la inscripción
-                MessageBox.Show("La inscripción ha sido cancelada.");
-            }
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            // Obtener el número de estudiante desde el Label
-            int numeroEstudiante = int.Parse(label44.Text);
-
-            // Verificar si el estudiante existe en la lista de estudiantes
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-
-            if (estudiante.CuatrimestreEstudiante != "Tercer Cuatrimestre")
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} no puede inscribirse en esta materia porque no está cursando el Tercer cuatrimestre.");
-                return;
-            }
-
-            if (estudiante == null)
-            {
-                MessageBox.Show("El estudiante no existe.");
-                return;
-            }
-
-            // Obtener el nombre del curso desde Label3 (botón 3)
-            string cursoSeleccionado = label42.Text;
-
-            // Verificar si el estudiante ya está inscrito en la materiaTres
-            if (!string.IsNullOrEmpty(estudiante.materiaCinco))
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en la materia {estudiante.materiaCinco}.");
-                return;
-            }
-
-            // Buscar el curso en la lista de cursos
-            Cursos curso = cursos.FirstOrDefault(c => c.Nombre == cursoSeleccionado);
-
-            if (curso == null)
-            {
-                MessageBox.Show("El curso seleccionado no existe.");
-                return;
-            }
-
-            // Verificar si hay cupo disponible en el curso
-            if (curso.NumeroInscriptos >= curso.CupoDisponibles)
-            {
-                MessageBox.Show("El curso está completo, no hay cupo disponible.");
-                return;
-            }
-
-            // Preguntar al usuario si realmente desea inscribirse
-            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {curso.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                // El usuario ha confirmado la inscripción
-
-                curso.CupoDisponibles--;
-                curso.NumeroInscriptos++;
-
-                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
-                GuardarDatosCursos.ActualizarCursos(cursos);
-
-                // Actualizar el JSON del estudiante para reflejar la inscripción en materiaTres
-                estudiante.materiaCinco = cursoSeleccionado; // Cambio a materiaTres
-                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
-
-                // Mostrar un mensaje de éxito
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {curso.Nombre}.");
-            }
-            else
-            {
-                // El usuario ha cancelado la inscripción
-                MessageBox.Show("La inscripción ha sido cancelada.");
-            }
-        }
-
     }
 }
-

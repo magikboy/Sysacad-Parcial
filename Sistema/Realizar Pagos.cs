@@ -15,7 +15,7 @@ namespace Sistema
     {
         private int numeroEstudianteIngresado;
         private List<Estudiante> estudiantes;
-        private int acumulado = 0; // Variable para mantener el valor acumulado en label16
+        private int acumulado = 0; // Variable para mantener el valor en label16
         public Realizar_Pagos(int numeroEstudiante)
         {
             InitializeComponent();

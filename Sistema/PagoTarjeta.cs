@@ -162,7 +162,7 @@ namespace Sistema
                 // Mostrar mensaje de pago exitoso y comprobante, incluyendo los valores de los numericUpDown
                 string mensaje = $"Pago de {tituloPago} realizado con éxito el {fechaActual.ToString("dd/MM/yyyy")}\n\n por un monto de {valorLabel}. " +
                                  $"\n\nDetalles de la transacción: " +
-                                 $"\n\nNumero: {valor1}{valor2}{valor3}{valor4}, " +
+                                 $"\n\nNumero: {valor1}-{valor2}-{valor3}-{valor4} " +
                                  $"\n\nNombre: {valor5}" +
                                  $"\n\nCvv: {valor7} " +
                                  $"\n\nMes de expiración: {mes} " +

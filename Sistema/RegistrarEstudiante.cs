@@ -27,18 +27,6 @@ namespace Sistema
             }
         }
 
-        public bool existeNumeroIdentificacionEnLaBaseDeDatos(string numeroIdentificacion)
-        {
-            foreach (Estudiante estudiante in estudiantes)
-            {
-                if (estudiante.NumeroEstudiante.ToString() == numeroIdentificacion)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             // Verificar si algún campo está vacío
