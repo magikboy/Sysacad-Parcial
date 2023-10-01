@@ -116,5 +116,28 @@ namespace Sistema
                 textBox7.UseSystemPasswordChar = false;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string HistorialAcademico = textBox1.Text;
+
+            // Buscar el estudiante por su número de estudiante
+            Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+
+            if (estudianteSeleccionado != null)
+            {
+                // Actualizar el historial académico del estudiante
+                estudianteSeleccionado.CambiarHistorialAcademico(HistorialAcademico);
+
+                // Actualizar el historial académico en el archivo JSON
+                GuardarDatosEstudiantes.ActualizarHistorialAcademicoEstudiante(estudianteSeleccionado);
+
+                MessageBox.Show("Historial académico actualizado exitosamente.");
+            }
+            else
+            {
+                MessageBox.Show("No se encontró un estudiante con ese número.");
+            }
+        }
     }
 }

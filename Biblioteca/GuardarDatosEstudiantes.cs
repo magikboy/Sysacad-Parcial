@@ -103,6 +103,33 @@ namespace Biblioteca
             }
         }
 
+        //actualizar historial academico estudiante
+
+        public static void ActualizarHistorialAcademicoEstudiante(Estudiante estudiante)
+        {
+            var path = Combine("estudiantes.json");
+
+            // Lee los datos existentes del archivo JSON y los almacena en una lista.
+            var lista = ReadStreamJSON("estudiantes.json");
+
+            // Encuentra el estudiante en la lista y actualiza su historial academico
+            Estudiante estudianteExistente = lista.FirstOrDefault(e => e.NumeroEstudiante == estudiante.NumeroEstudiante);
+
+            if (estudianteExistente != null)
+            {
+                estudianteExistente.HistorialAcademico = estudiante.HistorialAcademico;
+
+                // Guarda la lista actualizada en el archivo JSON
+                using (var writer = new StreamWriter(path))
+                {
+                    var options = new JsonSerializerOptions();
+                    options.WriteIndented = true;
+                    var json = JsonSerializer.Serialize(lista, options);
+                    writer.Write(json);
+                }
+            }
+        }
+
         // Actualiza las materias de un Estudiante en el archivo JSON.
 
         public static void ActualizarMateriasEstudiante(Estudiante estudiante)

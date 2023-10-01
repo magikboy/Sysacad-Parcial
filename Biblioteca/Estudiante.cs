@@ -28,6 +28,8 @@ namespace Biblioteca
         public string PagoCargosAdministrativos { get; set; }
         public string PagoUtilidades { get; set; }
 
+        public string HistorialAcademico { get; set; }
+
 
         // Constructores de la clase Estudiante
         public Estudiante()
@@ -50,9 +52,10 @@ namespace Biblioteca
             this.PagoMatricula = "";
             this.PagoCargosAdministrativos = "";
             this.PagoUtilidades = "";
+            this.HistorialAcademico = "";
         }
 
-        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis , string pagomatricula ,string pagocargos ,string pagoutilidades)
+        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis , string pagomatricula ,string pagocargos ,string pagoutilidades,string historialaca)
         {
             // Constructor que permite inicializar todas las propiedades de Estudiante
             NombreCompleto = nombreCompleto;
@@ -72,6 +75,7 @@ namespace Biblioteca
             PagoMatricula = pagomatricula;
             PagoCargosAdministrativos = pagocargos;
             PagoUtilidades = pagoutilidades;
+            HistorialAcademico = historialaca;
         }
 
         // Método para obtener una representación en cadena de las instancias de Estudiante
@@ -94,7 +98,8 @@ namespace Biblioteca
                 $"Materia 6: {materiaSeis}\n" +
                 $"Pago de matrícula: {PagoMatricula}\n" +
                 $"Pago de cargos administrativos: {PagoCargosAdministrativos}\n" +
-                $"Pago de utilidades: {PagoUtilidades}\n";
+                $"Pago de utilidades: {PagoUtilidades}\n"+
+                $"Historial académico: {HistorialAcademico}\n";
         }
 
         // Operador de conversión implícita para crear un Estudiante a partir de una cadena
@@ -102,7 +107,7 @@ namespace Biblioteca
         {
             // Método para convertir una cadena en un objeto Estudiante
             var datos = estudiante.Split('-');
-            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13], datos[14], datos[15], datos[16]);
+            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13], datos[14], datos[15], datos[16], datos[17]);
         }
 
         // Método para iniciar sesión del estudiante
@@ -116,5 +121,13 @@ namespace Biblioteca
         {
             Contrasenia = nuevaContraseña;
         }
+
+        // Método para que el estudiante cambie su historial académico
+
+        public void CambiarHistorialAcademico(string nuevoHistorialAcademico)
+        {
+            HistorialAcademico = nuevoHistorialAcademico;
+        }
+
     }
 }

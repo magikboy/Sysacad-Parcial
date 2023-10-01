@@ -53,12 +53,18 @@
             btnSalir = new Button();
             label17 = new Label();
             label18 = new Label();
+            textBox1 = new TextBox();
+            label19 = new Label();
+            button3 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(label19);
+            groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label16);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label15);
@@ -80,7 +86,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(101, 76);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(589, 282);
+            groupBox1.Size = new Size(589, 428);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Estudiante";
@@ -297,7 +303,7 @@
             // 
             button2.BackColor = Color.LightGreen;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(254, 364);
+            button2.Location = new Point(251, 520);
             button2.Name = "button2";
             button2.Size = new Size(296, 48);
             button2.TabIndex = 32;
@@ -309,7 +315,7 @@
             // 
             btnSalir.BackColor = SystemColors.Control;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(339, 418);
+            btnSalir.Location = new Point(339, 574);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(129, 48);
             btnSalir.TabIndex = 31;
@@ -335,12 +341,43 @@
             label18.TabIndex = 72;
             label18.Text = "Numero Estudiante :";
             // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(11, 308);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(255, 95);
+            textBox1.TabIndex = 43;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label19.Location = new Point(11, 277);
+            label19.Name = "label19";
+            label19.Size = new Size(185, 19);
+            label19.TabIndex = 44;
+            label19.Text = "Agregar Historial Academico:";
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.LightGreen;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Location = new Point(275, 337);
+            button3.Name = "button3";
+            button3.Size = new Size(92, 33);
+            button3.TabIndex = 45;
+            button3.Text = "Confirmar";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // DatosEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 478);
+            ClientSize = new Size(800, 634);
             Controls.Add(label17);
             Controls.Add(label18);
             Controls.Add(button2);
@@ -417,5 +454,8 @@
         private Label label10;
         private Label label17;
         private Label label18;
+        private Label label19;
+        private TextBox textBox1;
+        private Button button3;
     }
 }
