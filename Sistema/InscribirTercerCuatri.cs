@@ -35,7 +35,7 @@ namespace Sistema
         {
             cursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
 
-            // Verificar si hay cursos disponibles en la lista y que sean del primer cuatrimestre
+            // Verificar si hay cursos disponibles en la lista y que sean del Tercer cuatrimestre
             List<Cursos> cursosPrimerCuatrimestre = cursos.Where(curso => curso.Cuatrimestre == "Tercer Cuatrimestre").ToList();
 
             if (cursosPrimerCuatrimestre.Count > indice)

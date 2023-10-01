@@ -31,7 +31,7 @@ namespace Sistema
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            //hacer que tenga un limite de 40 cupos
+            //tiene un limite de 40 cupos/numeros
             numericUpDown1.Maximum = 40;
 
         }
@@ -39,7 +39,7 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Verificar si algún campo está vacío
+            // Verifico si algún campo está vacío
             if (string.IsNullOrWhiteSpace(textBox1.Text) ||
                 string.IsNullOrWhiteSpace(textBox2.Text) ||
                 string.IsNullOrWhiteSpace(textBox3.Text) ||
@@ -57,23 +57,22 @@ namespace Sistema
             }
             else
             {
-                // Verificar si textBox1  y textBox7 contiene un valor numérico
+                // Verifico si textBox1  y textBox7 contiene un valor numérico
                 if (int.TryParse(textBox1.Text, out int codigoCurso) && int.TryParse(textBox7.Text, out int aulaCurso))
                 {
-                    // Todos los campos obligatorios están completos y textBox1 contiene un valor numérico.
-                    // Puedes continuar con el proceso de registro.
+                    // si es que Todos los campos obligatorios están completos y textBox1 contiene un valor numérico.
 
-                    // Verificar si el curso ya existe en la lista
+                    // Verifico si el curso ya existe en la lista
                     if (cursos.Exists(x => x.Codigo == codigoCurso))
                     {
                         MessageBox.Show("El curso ya está registrado en la base de datos.");
                     }
                     else
                     {
-                        // Crear un objeto de tipo Cursos
+                        // Creo un objeto de tipo Cursos
                         Cursos curso = new Cursos();
 
-                        // Asignar los valores de los campos a las propiedades del objeto
+                        // Asigno los valores de los campos a las propiedades del objeto
                         curso.Codigo = codigoCurso;
                         curso.Nombre = textBox2.Text;
                         curso.DescripcionCurso = textBox4.Text;
@@ -88,15 +87,15 @@ namespace Sistema
                         curso.Division = textBox8.Text;
                         curso.Turno = textBox9.Text;
 
-                        // Agregar el curso a la lista
+                        // Agrego el curso a la lista
                         cursos.Add(curso);
 
-                        // Guardar todos los cursos en el archivo JSON (sobrescribir el archivo)
+                        // Guardo todos los cursos en el archivo JSON (sobrescribir el archivo)
                         GuardarDatosCursos.WriteStreamJSON("cursos.json", cursos);
 
                         MessageBox.Show("Curso Registrado.");
 
-                        // Limpiar los campos después de agregar el curso
+                        // Limpia los campos después de agregar el curso
                         textBox1.Clear();
                         textBox2.Clear();
                         textBox3.Clear();

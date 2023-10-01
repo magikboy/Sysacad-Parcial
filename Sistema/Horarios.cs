@@ -25,24 +25,24 @@ namespace Sistema
             estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
 
 
-            // Buscar al estudiante por su número y obtener su cuatrimestre
+            // Busco al estudiante por su número y obtener su cuatrimestre
             var estudiante = estudiantes.FirstOrDefault(e => e.NumeroEstudiante == numeroEstudiante);
 
-            // Verificar si el estudiante tiene cursos asociados
+            // Verifica si el estudiante tiene cursos asociados
             if (estudiante != null)
             {
-                // Obtener las materias inscritas del estudiante
+                // Obtengo las materias inscritas del estudiante
                 List<string> materiasInscritas = ObtenerMateriasInscritas(estudiante);
 
-                // Filtrar las materias que no estén vacías en el JSON
+                // Filtra las materias que no estén vacías en el JSON
                 materiasInscritas = materiasInscritas.Where(materia => !string.IsNullOrWhiteSpace(materia)).ToList();
 
-                // Verificar si el estudiante tiene al menos una materia inscrita
+                // Verifica si el estudiante tiene al menos una materia inscrita
                 if (materiasInscritas.Count > 0)
                 {
                     string cuatrimestreEstudiante = estudiante.CuatrimestreEstudiante;
 
-                    // Filtrar cursos por el cuatrimestre del estudiante
+                    // Filtra cursos por el cuatrimestre del estudiante
                     cursos = GuardarDatosCursos.ReadStreamJSON("cursos.json")
                         .Where(curso => curso.Cuatrimestre == cuatrimestreEstudiante)
                         .OrderBy(curso => curso.Fecha) // Ordenar por fecha
@@ -83,7 +83,7 @@ namespace Sistema
                 estudiante.materiaSeis
             };
 
-            // Filtrar las materias que no estén vacías
+            // Filtra las materias que no estén vacías
             materiasInscritas = materiasInscritas.Where(materia => !string.IsNullOrWhiteSpace(materia)).ToList();
 
             return materiasInscritas;
@@ -91,24 +91,24 @@ namespace Sistema
 
         private void MostrarCursosEnFormulario()
         {
-            // Obtener las materias inscritas del estudiante
+            // Obtengo las materias inscritas del estudiante
             List<string> materiasInscritas = ObtenerMateriasInscritas(estudiantes.FirstOrDefault(e => e.NumeroEstudiante == numeroEstudianteIngresado));
 
             foreach (var diaSemana in new[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" })
             {
                 for (int horario = 9; horario <= 22; horario++)
                 {
-                    // Filtrar cursos por día de la semana y horario
+                    // Filtra cursos por día de la semana y horario
                     var curso = cursos.FirstOrDefault(c => c.Fecha == diaSemana && c.HorarioMin <= horario && c.HorarioMax >= horario);
 
                     if (curso != null && materiasInscritas.Contains(curso.Nombre))
                     {
-                        // Mostrar la información en los labels correspondientes
+                        // Muestra la información en los labels correspondientes
                         MostrarCursoEnLabel(diaSemana, horario, curso);
                     }
                     else
                     {
-                        // Si no se encuentra un curso con ese horario o no está inscrito en la materia, mostrar un mensaje en los labels
+                        // Si no se encuentra un curso con ese horario o no está inscrito en la materia, muestra un mensaje en los labels
                         MostrarCursoEnLabel(diaSemana, horario, null);
                     }
                 }
@@ -123,11 +123,11 @@ namespace Sistema
             Label labelHoraFin = null;
             Label labelProfesor = null;
 
-            // Asignar los labels correspondientes según el día de la semana
+            // Asigno los labels correspondientes según el día de la semana
             switch (diaSemana)
             {
                 case "Lunes":
-                    // Asignar los labels del lunes según el horario
+                    // Asigno los labels del lunes según el horario
                     if (horario >= 9 && horario <= 13)
                     {
                         labelNombre = label9;
@@ -154,7 +154,7 @@ namespace Sistema
                     }
                     break;
                 case "Martes":
-                    // Asignar los labels del martes según el horario
+                    // Asigno los labels del martes según el horario
                     if (horario >= 9 && horario <= 13)
                     {
                         labelNombre = label37;
@@ -181,7 +181,7 @@ namespace Sistema
                     }
                     break;
                 case "Miercoles":
-                    // Asignar los labels del miércoles según el horario
+                    // Asigno los labels del miércoles según el horario
                     if (horario >= 9 && horario <= 13)
                     {
                         labelNombre = label57;
@@ -208,7 +208,7 @@ namespace Sistema
                     }
                     break;
                 case "Jueves":
-                    // Asignar los labels del jueves según el horario
+                    // Asigno los labels del jueves según el horario
                     if (horario >= 9 && horario <= 13)
                     {
                         labelNombre = label77;
@@ -235,7 +235,7 @@ namespace Sistema
                     }
                     break;
                 case "Viernes":
-                    // Asignar los labels del viernes según el horario
+                    // Asigno los labels del viernes según el horario
                     if (horario >= 9 && horario <= 13)
                     {
                         labelNombre = label97;
@@ -265,7 +265,7 @@ namespace Sistema
 
             if (curso != null)
             {
-                // Mostrar la información en los labels correspondientes
+                // Muestra la información en los labels correspondientes
                 labelNombre.Text = curso.Nombre;
                 labelAula.Text = "Aula: " + curso.Aula.ToString();
                 labelHoraInicio.Text = "De: " + curso.HorarioMin.ToString();

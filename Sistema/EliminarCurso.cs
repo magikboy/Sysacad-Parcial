@@ -11,7 +11,7 @@ namespace Sistema
         {
             InitializeComponent();
 
-            // Llamamos a un método para cargar y mostrar los datos
+            // Llamamo a un método para cargar y mostrar los datos
             CargarYMostrarDatos();
         }
 
@@ -42,10 +42,10 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Obtener el código ingresado por el usuario
+            // Obtengo el código ingresado por el usuario
             string codigoIngresado = textBox1.Text;
 
-            // Intentar convertir el código ingresado a un entero
+            // Intento convertir el código ingresado a un entero
             if (int.TryParse(codigoIngresado, out int codigoEntero))
             {
                 // Leer la lista de cursos desde el archivo JSON

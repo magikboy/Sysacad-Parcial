@@ -26,7 +26,7 @@ namespace Sistema
         {
             InitializeComponent();
 
-            // Llamamos a un método para cargar y mostrar los datos
+            // Llamamo a un método para cargar y mostrar los datos
             CargarYMostrarDatos();
         }
 
@@ -93,19 +93,19 @@ namespace Sistema
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            // Obtener el código ingresado por el usuario
+            // Obtengo el código ingresado por el usuario
             string codigoIngresado = textBox1.Text;
 
-            // Intentar convertir el código ingresado a un entero
+            // Intento convertir el código ingresado a un entero
             if (int.TryParse(codigoIngresado, out int codigoEntero))
             {
-                // Leer la lista de cursos desde el archivo JSON
+                // Lee la lista de cursos desde el archivo JSON
                 var listaCursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
 
                 // Variable para almacenar el curso encontrado
                 Biblioteca.Cursos cursoEncontrado = null;
 
-                // Buscar el curso con el código ingresado
+                // Busco el curso con el código ingresado
                 foreach (var curso in listaCursos)
                 {
                     if (curso.Codigo == codigoEntero)

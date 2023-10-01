@@ -14,10 +14,10 @@ namespace Sistema
         public EditarCurso(int numeroCurso, string nombreCurso)
         {
             InitializeComponent();
-            this.numeroCurso = numeroCurso; // Guarda el número de curso recibido como parámetro
-            MostrarNombreCurso(nombreCurso); // Muestra el nombre del curso en otro label
-            CargarDatosCursos(); // Carga los datos de los cursos desde el archivo JSON
-            MostrarDatosCurso(); // Muestra los datos del curso en los controles del formulario
+            this.numeroCurso = numeroCurso; // Guardo el número de curso recibido como parámetro
+            MostrarNombreCurso(nombreCurso); // Muestro el nombre del curso en otro label
+            CargarDatosCursos(); // Cargo los datos de los cursos desde el archivo JSON
+            MostrarDatosCurso(); // Muestro los datos del curso en los controles del formulario
         }
 
         private void CargarDatosCursos()
@@ -83,7 +83,7 @@ namespace Sistema
             int nuevoHorarioMax = (int)numericUpDown3.Value;
 
 
-            // Buscar el curso en la lista que coincida con el número de curso seleccionado
+            // Busco el curso en la lista que coincida con el número de curso seleccionado
             Cursos cursoAEditar = cursos.Find(curso => curso.Codigo == numeroCurso);
 
             if (cursoAEditar != null)
@@ -134,7 +134,6 @@ namespace Sistema
                 MessageBox.Show("El curso seleccionado ya se encuentra en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

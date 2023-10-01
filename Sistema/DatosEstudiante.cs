@@ -51,22 +51,22 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Obtener la contraseña actual y la nueva contraseña ingresadas por el estudiante
+            // Obtengo la contraseña actual y la nueva contraseña ingresadas por el estudiante
             string actualContraseña = textBox6.Text;
             string nuevaContraseña = textBox7.Text;
 
-            // Buscar el estudiante por su número de estudiante
+            // Busco el estudiante por su número de estudiante
             Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
 
             if (estudianteSeleccionado != null)
             {
-                // Verificar si la contraseña actual coincide con la contraseña del estudiante
+                // Verifica si la contraseña actual coincide con la contraseña del estudiante
                 if (estudianteSeleccionado.IniciarSesion(actualContraseña))
                 {
-                    // Cambiar la contraseña del estudiante
+                    // Cambia la contraseña del estudiante
                     estudianteSeleccionado.CambiarContraseña(nuevaContraseña);
 
-                    // Actualizar la contraseña en el archivo JSON
+                    // Actualiza la contraseña en el archivo JSON
                     GuardarDatosEstudiantes.ActualizarContraseñaEstudiante(estudianteSeleccionado);
 
                     MessageBox.Show("Contraseña cambiada exitosamente.");
@@ -81,7 +81,7 @@ namespace Sistema
                 MessageBox.Show("No se encontró un estudiante con ese número.");
             }
 
-            // Limpiar los TextBox después de cambiar la contraseña
+            // Limpia los TextBox después de cambiar la contraseña
             textBox6.Clear();
             textBox7.Clear();
         }
@@ -105,13 +105,13 @@ namespace Sistema
         {
             if (checkBox1.Checked)
             {
-                // Mostrar la contraseña sin enmascararla
+                // Muestro la contraseña sin taparla
                 textBox6.UseSystemPasswordChar = true;
                 textBox7.UseSystemPasswordChar = true;
             }
             else
             {
-                // Mostrar la contraseña enmascarada con asteriscos
+                // Muestro la contraseña tapada con asteriscos
                 textBox6.UseSystemPasswordChar = false;
                 textBox7.UseSystemPasswordChar = false;
             }
@@ -121,15 +121,15 @@ namespace Sistema
         {
             string HistorialAcademico = textBox1.Text;
 
-            // Buscar el estudiante por su número de estudiante
+            // Busco el estudiante por su número de estudiante
             Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
 
             if (estudianteSeleccionado != null)
             {
-                // Actualizar el historial académico del estudiante
+                // Actualiza el historial académico del estudiante
                 estudianteSeleccionado.CambiarHistorialAcademico(HistorialAcademico);
 
-                // Actualizar el historial académico en el archivo JSON
+                // Actualiza el historial académico en el archivo JSON
                 GuardarDatosEstudiantes.ActualizarHistorialAcademicoEstudiante(estudianteSeleccionado);
 
                 MessageBox.Show("Historial académico actualizado exitosamente.");

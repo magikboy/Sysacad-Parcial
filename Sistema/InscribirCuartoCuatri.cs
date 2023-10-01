@@ -35,7 +35,7 @@ namespace Sistema
         {
             cursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
 
-            // Verificar si hay cursos disponibles en la lista y que sean del primer cuatrimestre
+            // Verifica si hay cursos disponibles en la lista y que sean del Cuarto cuatrimestre
             List<Cursos> cursosPrimerCuatrimestre = cursos.Where(curso => curso.Cuatrimestre == "Cuarto Cuatrimestre").ToList();
 
             if (cursosPrimerCuatrimestre.Count > indice)
@@ -128,7 +128,7 @@ namespace Sistema
                 return;
             }
 
-            // Buscar el curso en la lista de cursos
+            // Busco el curso en la lista de cursos
             Cursos curso = cursos.FirstOrDefault(cur => cur.Nombre == cursoSeleccionado);
 
             if (curso == null)
@@ -154,7 +154,7 @@ namespace Sistema
                 curso.CupoDisponibles--;
                 curso.NumeroInscriptos++;
 
-                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
+                // Actualiza el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
                 GuardarDatosCursos.ActualizarCursos(cursos);
 
                 // Actualizar la materia correspondiente en el JSON del estudiante
@@ -199,13 +199,13 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 1
+            // Llamo al método para inscribir al estudiante en la materia 1
             InscribirEstudianteEnCurso(label4.Text, "Cuarto Cuatrimestre");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 2
+            // Llamo al método para inscribir al estudiante en la materia 2
             InscribirEstudianteEnCurso(label17.Text, "Cuarto Cuatrimestre");
         }
 
