@@ -160,13 +160,14 @@ namespace Sistema
                 GuardarDatos.ActualizarPagoEstudiante(estudiante);
 
                 // Mostrar mensaje de pago exitoso y comprobante, incluyendo los valores de los numericUpDown
-                string mensaje = $"Pago de {tituloPago} realizado con éxito el {fechaActual.ToString("dd/MM/yyyy")} por un monto de {valorLabel}. " +
-                                 $"Detalles de la transacción: " +
-                                 $"Numero: {valor1}{valor2}{valor3}{valor4}, " +
-                                 $"Nombre: {valor5}, " +
-                                 $"Cvv: {valor7}, " +
-                                 $"Mes de expiración: {mes}, " +
-                                 $"Año de expiración: {año}";
+                string mensaje = $"Pago de {tituloPago} realizado con éxito el {fechaActual.ToString("dd/MM/yyyy")}\n\n por un monto de {valorLabel}. " +
+                                 $"\n\nDetalles de la transacción: " +
+                                 $"\n\nNumero: {valor1}{valor2}{valor3}{valor4}, " +
+                                 $"\n\nNombre: {valor5}" +
+                                 $"\n\nCvv: {valor7} " +
+                                 $"\n\nMes de expiración: {mes} " +
+                                 $"\n\nAño de expiración: {año}"+
+                                 $"\n\nse envio el comprobante al mail de {estudiante.CorreoElectronico}";
                 MessageBox.Show(mensaje);
             }
             else

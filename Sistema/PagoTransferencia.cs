@@ -94,7 +94,7 @@ namespace Sistema
 
                 // Mostrar mensaje de confirmación
                 string cuentaBancaria = label7.Text; // Obtengo la información de la cuenta bancaria desde label7
-                MessageBox.Show($"Pago de {tituloPago} realizado con éxito. Tiene 3 días para hacer el pago a la siguiente cuenta bancaria:\n\n{cuentaBancaria}");
+                MessageBox.Show($"Pago de {tituloPago} realizado con éxito. Tiene 3 días para hacer el pago a la siguiente cuenta bancaria:\n\n{cuentaBancaria} " + $"y se envio el comprobante al mail de {estudiante.CorreoElectronico}");
 
             }
             else

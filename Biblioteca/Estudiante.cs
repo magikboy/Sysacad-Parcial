@@ -28,7 +28,6 @@ namespace Biblioteca
         public string PagoCargosAdministrativos { get; set; }
         public string PagoUtilidades { get; set; }
 
-        public string EstadoPago { get; set; }
 
         // Constructores de la clase Estudiante
         public Estudiante()
@@ -51,10 +50,9 @@ namespace Biblioteca
             this.PagoMatricula = "";
             this.PagoCargosAdministrativos = "";
             this.PagoUtilidades = "";
-            this.EstadoPago = "";
         }
 
-        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis , string pagomatricula ,string pagocargos ,string pagoutilidades,string estadopago)
+        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis , string pagomatricula ,string pagocargos ,string pagoutilidades)
         {
             // Constructor que permite inicializar todas las propiedades de Estudiante
             NombreCompleto = nombreCompleto;
@@ -74,7 +72,6 @@ namespace Biblioteca
             PagoMatricula = pagomatricula;
             PagoCargosAdministrativos = pagocargos;
             PagoUtilidades = pagoutilidades;
-            EstadoPago = estadopago;
         }
 
         // Método para obtener una representación en cadena de las instancias de Estudiante
@@ -87,18 +84,17 @@ namespace Biblioteca
                 $"Dirección: {Direccion}\n" +
                 $"Número de teléfono: {NumeroTelefono}\n" +
                 $"Correo electrónico: {CorreoElectronico}\n" +
-                $"Número de estudiante: {NumeroEstudiante}\n"+
-                $"Cuatrimestre: {CuatrimestreEstudiante}\n"+
-                $"Materia 1: {materiaUno}\n"+
-                $"Materia 2: {materiaDos}\n"+
-                $"Materia 3: {materiaTres}\n"+
-                $"Materia 4: {materiaCuatro}\n"+
-                $"Materia 5: {materiaCinco}\n"+
-                $"Materia 6: {materiaSeis}\n"+
-                $"Pago de matrícula: {PagoMatricula}\n"+
-                $"Pago de cargos administrativos: {PagoCargosAdministrativos}\n"+
-                $"Pago de utilidades: {PagoUtilidades}\n"+
-                $"Estado de pago: {EstadoPago}\n";
+                $"Número de estudiante: {NumeroEstudiante}\n" +
+                $"Cuatrimestre: {CuatrimestreEstudiante}\n" +
+                $"Materia 1: {materiaUno}\n" +
+                $"Materia 2: {materiaDos}\n" +
+                $"Materia 3: {materiaTres}\n" +
+                $"Materia 4: {materiaCuatro}\n" +
+                $"Materia 5: {materiaCinco}\n" +
+                $"Materia 6: {materiaSeis}\n" +
+                $"Pago de matrícula: {PagoMatricula}\n" +
+                $"Pago de cargos administrativos: {PagoCargosAdministrativos}\n" +
+                $"Pago de utilidades: {PagoUtilidades}\n";
         }
 
         // Operador de conversión implícita para crear un Estudiante a partir de una cadena
@@ -106,7 +102,7 @@ namespace Biblioteca
         {
             // Método para convertir una cadena en un objeto Estudiante
             var datos = estudiante.Split('-');
-            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13], datos[14], datos[15], datos[16], datos[17]);
+            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13], datos[14], datos[15], datos[16]);
         }
 
         // Método para iniciar sesión del estudiante
