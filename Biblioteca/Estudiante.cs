@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Biblioteca
 {
     // Clase Estudiante
-    public class Estudiante : Usuarios
+    public class Estudiante
     {
         // Propiedades públicas de la clase Estudiante
         public string NombreCompleto { get; set; }

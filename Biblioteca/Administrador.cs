@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public class Administrador : Usuarios
+    public class Administrador
     {
         public string Usuario { get; set; }
         public string Contraseña { get; set; }
