@@ -14,6 +14,7 @@ namespace Sistema
         public Login()
         {
             InitializeComponent();
+            GuardarDatosAdministrador.CrearCarpeta();
 
             // Verificar si el archivo de administradores ya existe
             if (!GuardarDatosAdministrador.FileExists())

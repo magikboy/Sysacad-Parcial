@@ -149,7 +149,7 @@ namespace Sistema
         {
             //horario del curso max
             numericUpDown3.Minimum = 9;
-            numericUpDown3.Maximum = 21;
+            numericUpDown3.Maximum = 22;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -162,27 +162,31 @@ namespace Sistema
             Random random = new Random();
 
             // Opciones para los datos
-            string[] cursos = { "Matemática", "Programación", "Laboratorio" };
+            string[] cursos = { "Matematica", "Programacion", "Laboratorio" };
             string[] profesores = { "Araya", "Gomez", "Juarez" };
             string[] cuatrimestres = { "Primer Cuatrimestre", "Segundo Cuatrimestre", "Tercer Cuatrimestre", "Cuarto Cuatrimestre" };
-            string[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
+            string[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
             string[] divisiones = { "Primero A", "Segundo B", "Tercero C", "Cuarto D" };
-            string[] turnos = { "Mañana", "Tarde", "Noche" };
+            string[] turnos = { "Maniana", "Tarde", "Noche" };
+            string[] HorarioMin = { "9", "14", "19" };
+            string[] HorarioMax = { "13", "18", "22" };
 
             // Generar datos aleatorios
             int cuatrimestreIndex = random.Next(cuatrimestres.Length);
             textBox1.Text = ((cuatrimestreIndex + 1) * 100).ToString(); // Código del curso aleatorio
             textBox2.Text = cursos[random.Next(cursos.Length)]; // Nombre del curso aleatorio
-            textBox3.Text = "Profesor " + profesores[random.Next(profesores.Length)]; // Nombre del profesor aleatorio
+            textBox3.Text = profesores[random.Next(profesores.Length)]; // Nombre del profesor aleatorio
             textBox4.Text = textBox2.Text + " Inicial"; // Descripción aleatoria
             textBox5.Text = cuatrimestres[cuatrimestreIndex]; // Cuatrimestre aleatorio
             textBox6.Text = dias[random.Next(dias.Length)]; // Día de la semana aleatorio
             textBox7.Text = random.Next(1, 30).ToString(); // Aula aleatoria
             textBox8.Text = divisiones[cuatrimestreIndex]; // División aleatoria
             textBox9.Text = turnos[random.Next(turnos.Length)]; // Turno aleatorio
+
+            int horarioIndex = random.Next(HorarioMin.Length);
             numericUpDown1.Value = random.Next(1, 40); // Cupo aleatorio
-            numericUpDown2.Value = random.Next(7, 19); // HorarioMin aleatorio
-            numericUpDown3.Value = random.Next(9, 21); // HorarioMax aleatorio
+            numericUpDown2.Value = int.Parse(HorarioMin[horarioIndex]); // Horario mínimo aleatorio
+            numericUpDown3.Value = int.Parse(HorarioMax[horarioIndex]); // Horario máximo aleatorio
         }
 
     }

@@ -8,8 +8,11 @@ namespace Biblioteca
     public class GuardarDatosBase
     {
         protected static string directorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\documentos";
-
-        protected static void CrearCarpeta()
+        public GuardarDatosBase()
+        {
+            CrearCarpeta();
+        }
+        public static void CrearCarpeta()
         {
             // Comprobar si la carpeta ya existe, si no, crearla.
             if (!Directory.Exists(directorio))
