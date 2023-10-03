@@ -34,5 +34,31 @@ namespace Biblioteca
             }
         }
 
+
+        //validar que se ingresaron 4 numeros para la tarjeta de credito
+        public static bool ValidarTarjetaCredito4numeros(string tarjetaCredito)
+        {
+            if (tarjetaCredito.Length == 4)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //validar que se ingresaron 3 numeros para la tarjeta de credito
+        public static bool ValidarTarjetaCredito3numeros(string tarjetaCredito)
+        {
+            if (tarjetaCredito.Length == 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

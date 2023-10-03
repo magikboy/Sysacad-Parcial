@@ -105,6 +105,22 @@ namespace Sistema
                 return; // Salir de la función si no están completos
             }
 
+            // Validar que los TextBox del 1 al 4 tengan 4 números ingresados
+            if (!Validacion.ValidarTarjetaCredito4numeros(textBox1.Text) ||
+                !Validacion.ValidarTarjetaCredito4numeros(textBox2.Text) ||
+                !Validacion.ValidarTarjetaCredito4numeros(textBox3.Text) ||
+                !Validacion.ValidarTarjetaCredito4numeros(textBox4.Text))
+            {
+                MessageBox.Show("Por favor, ingrese 4 números en los campos de la tarjeta de crédito.");
+                return; // Salir de la función si no se cumple la validación
+            }
+
+            // Validar que el TextBox 7 tenga 3 números ingresados
+            if (!Validacion.ValidarTarjetaCredito3numeros(textBox7.Text))
+            {
+                MessageBox.Show("Por favor, ingrese 3 números en el campo de CVV.");
+                return; // Salir de la función si no se cumple la validación
+            }
             // Obtener los valores de los TextBox del 1 al 7
             string valor1 = textBox1.Text;
             string valor2 = textBox2.Text;
@@ -175,7 +191,6 @@ namespace Sistema
                 MessageBox.Show("Estudiante no encontrado");
             }
         }
-
 
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
