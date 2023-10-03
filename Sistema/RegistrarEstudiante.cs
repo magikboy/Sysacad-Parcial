@@ -141,5 +141,33 @@ namespace Sistema
             this.Hide();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+
+            // Opciones para los datos
+            string[] nombres = { "Juan", "Maria", "Carlos", "Laura", "Ana" };
+            string[] apellidos = { "Perez", "Gomez", "Rodriguez", "Martinez", "Lopez" };
+            string[] Direccion = { "Calle 312", "Calle 211", "Calle 987", "Calle 11", "Calle 242", "Calle 23211", "Calle 23111" };
+            string[] correos = { "juan@example.com", "maria@example.com", "carlos@example.com", "laura@example.com", "ana@example.com" };
+            string[] telefonos = { "12345678", "98765432", "55555555", "99999999", "77777777" };
+            string[] Cuatrimestre = { "Primer Cuatrimestre", "Segundo Cuatrimestre", "Tercer Cuatrimestre", "Cuarto Cuatrimestre"};
+
+            // Generar datos aleatorios
+            string nombreAleatorio = nombres[random.Next(nombres.Length)];
+            string apellidoAleatorio = apellidos[random.Next(apellidos.Length)];
+            string direccionAleatorio = Direccion[random.Next(Direccion.Length)];
+            string correoAleatorio = correos[random.Next(correos.Length)];
+            string telefonoAleatorio = telefonos[random.Next(telefonos.Length)];
+            string cuatrimestreAleatorio = Cuatrimestre[random.Next(Cuatrimestre.Length)];
+
+            // Llenar los Labels con datos aleatorios
+            textBox1.Text = nombreAleatorio;
+            textBox2.Text = apellidoAleatorio;
+            textBox4.Text = direccionAleatorio;
+            textBox3.Text = correoAleatorio;
+            textBox5.Text = telefonoAleatorio;
+            textBox6.Text = cuatrimestreAleatorio;
+        }
     }
 }

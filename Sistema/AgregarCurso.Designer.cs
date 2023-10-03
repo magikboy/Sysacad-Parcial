@@ -58,6 +58,7 @@
             label2 = new Label();
             button2 = new Button();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -68,6 +69,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.WhiteSmoke;
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(textBox9);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(textBox8);
@@ -309,7 +311,7 @@
             // 
             btnIngresar.BackColor = Color.LightGreen;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(102, 530);
+            btnIngresar.Location = new Point(13, 539);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(171, 47);
             btnIngresar.TabIndex = 25;
@@ -364,6 +366,18 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 37;
             pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.LightGreen;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(204, 539);
+            button1.Name = "button1";
+            button1.Size = new Size(171, 47);
+            button1.TabIndex = 60;
+            button1.Text = "Hardcodear Curso";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // AgregarCurso
             // 
@@ -450,5 +464,6 @@
         private TextBox textBox8;
         private Label label12;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }

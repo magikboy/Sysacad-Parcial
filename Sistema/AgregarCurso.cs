@@ -156,5 +156,34 @@ namespace Sistema
         {
             string cuatrimeste = textBox5.Text;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+
+            // Opciones para los datos
+            string[] cursos = { "Matemática", "Programación", "Laboratorio" };
+            string[] profesores = { "Araya", "Gomez", "Juarez" };
+            string[] cuatrimestres = { "Primer Cuatrimestre", "Segundo Cuatrimestre", "Tercer Cuatrimestre", "Cuarto Cuatrimestre" };
+            string[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
+            string[] divisiones = { "Primero A", "Segundo B", "Tercero C", "Cuarto D" };
+            string[] turnos = { "Mañana", "Tarde", "Noche" };
+
+            // Generar datos aleatorios
+            int cuatrimestreIndex = random.Next(cuatrimestres.Length);
+            textBox1.Text = ((cuatrimestreIndex + 1) * 100).ToString(); // Código del curso aleatorio
+            textBox2.Text = cursos[random.Next(cursos.Length)]; // Nombre del curso aleatorio
+            textBox3.Text = "Profesor " + profesores[random.Next(profesores.Length)]; // Nombre del profesor aleatorio
+            textBox4.Text = textBox2.Text + " Inicial"; // Descripción aleatoria
+            textBox5.Text = cuatrimestres[cuatrimestreIndex]; // Cuatrimestre aleatorio
+            textBox6.Text = dias[random.Next(dias.Length)]; // Día de la semana aleatorio
+            textBox7.Text = random.Next(1, 30).ToString(); // Aula aleatoria
+            textBox8.Text = divisiones[cuatrimestreIndex]; // División aleatoria
+            textBox9.Text = turnos[random.Next(turnos.Length)]; // Turno aleatorio
+            numericUpDown1.Value = random.Next(1, 40); // Cupo aleatorio
+            numericUpDown2.Value = random.Next(7, 19); // HorarioMin aleatorio
+            numericUpDown3.Value = random.Next(9, 21); // HorarioMax aleatorio
+        }
+
     }
 }

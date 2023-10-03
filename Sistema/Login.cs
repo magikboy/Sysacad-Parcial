@@ -1,5 +1,5 @@
 using Biblioteca;
-using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,9 +10,21 @@ namespace Sistema
     {
         List<Administrador> admin = new List<Administrador>();
         List<Estudiante> estudiantes = new List<Estudiante>();
+
         public Login()
         {
             InitializeComponent();
+
+            // Verificar si el archivo de administradores ya existe
+            if (!GuardarDatosAdministrador.FileExists())
+            {
+                // Si no existe, crea un administrador predeterminado
+                List<Administrador> administradores = new List<Administrador>();
+                Administrador administrador = new Administrador("admin", "1234");
+                administradores.Add(administrador);
+                GuardarDatosAdministrador.WriteStreamJSON(administradores);
+            }
+
             // Cargar la lista de administradores desde el archivo JSON si existe
             this.admin = GuardarDatosAdministrador.ReadStreamJSON();
             this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
@@ -68,36 +80,30 @@ namespace Sistema
             Administrador administrador = new Administrador("admin", "1234");
             textBox1.Text = administrador.Usuario;
             textBox2.Text = administrador.Contrasenia;
+            MessageBox.Show("Datos del Administrador cargados.");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Crear un nuevo estudiante con la información del JSON
-            Estudiante estudiante = new Estudiante(
-                "Massimo",
-                "Bosco",
-                "1234",
-                "calle 314",
-                "11232122",
-                "Massimo@gmail.com",
-                1,
-                "Primer Cuatrimestre",
-                "Matematica",
-                "Laboratorio I",
-                "Ingles",
-                "Programacion I",
-                "SPD",
-                "",
-                "pagado",
-                "pagado",
-                "pagado",
-                "Secundario Completo"
-            );
+            // Leer la lista de estudiantes desde el archivo JSON
+            List<Estudiante> estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
 
-            // Asignar el número de estudiante al campo textBox1
-            textBox1.Text = estudiante.NumeroEstudiante.ToString();
-            // Asignar los demás datos del estudiante a los campos correspondientes
-            textBox2.Text = estudiante.Contrasenia;
+            // Verificar si hay al menos un estudiante en la lista
+            if (estudiantes != null && estudiantes.Count > 0)
+            {
+                // Obtener el primer estudiante de la lista
+                Estudiante estudiante = estudiantes[0];
+
+                // Asignar los datos del estudiante a los campos correspondientes
+                textBox1.Text = estudiante.NumeroEstudiante.ToString();
+                textBox2.Text = estudiante.Contrasenia;
+
+                MessageBox.Show("Datos del primer estudiante cargados.");
+            }
+            else
+            {
+                MessageBox.Show("No hay estudiantes en la lista.");
+            }
         }
 
     }

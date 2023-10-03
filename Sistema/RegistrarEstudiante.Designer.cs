@@ -49,6 +49,7 @@
             label2 = new Label();
             btnSalir = new Button();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -56,6 +57,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(textBox6);
             groupBox1.Controls.Add(label7);
@@ -212,9 +214,9 @@
             // 
             btnIngresar.BackColor = Color.LightGreen;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(79, 419);
+            btnIngresar.Location = new Point(13, 423);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(159, 47);
+            btnIngresar.Size = new Size(123, 47);
             btnIngresar.TabIndex = 25;
             btnIngresar.Text = "Registar";
             btnIngresar.UseVisualStyleBackColor = false;
@@ -268,6 +270,18 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.LightGreen;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(188, 423);
+            button1.Name = "button1";
+            button1.Size = new Size(121, 47);
+            button1.TabIndex = 41;
+            button1.Text = "Harcodear Est";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // RegistrarEstudiante
             // 
@@ -359,5 +373,6 @@
         private Label label8;
         private TextBox textBox6;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }

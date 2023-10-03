@@ -15,16 +15,22 @@ namespace Biblioteca
 
         public static void WriteStreamJSON(List<Administrador> administradores)
         {
-            WriteStreamJSON("administradores.json", administradores);
+            WriteStreamJSON("administrador.json", administradores);
         }
 
         // Actualiza la contraseña de un Administrador en el archivo JSON.
         public static void ActualizarContraseñaAdministrador(Administrador administrador)
         {
-            var path = Combine("administradores.json");
+            var path = Combine("administrador.json");
 
             // Lee los datos existentes del archivo JSON y los almacena en una lista.
-            var lista = GuardarDatosBase.ReadStreamJSON<Administrador>("administradores.json");
+            var lista = GuardarDatosBase.ReadStreamJSON<Administrador>("administrador.json");
         }
+        public static bool FileExists()
+        {
+            var path = Combine("administrador.json");
+            return File.Exists(path);
+        }
+
     }
 }
