@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarCurso));
             groupBox1 = new GroupBox();
             textBox9 = new TextBox();
             label13 = new Label();
@@ -56,15 +57,17 @@
             textBox1 = new TextBox();
             label2 = new Label();
             button2 = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.BackColor = Color.WhiteSmoke;
             groupBox1.Controls.Add(textBox9);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(textBox8);
@@ -352,6 +355,16 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-791, -178);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 37;
+            pictureBox1.TabStop = false;
+            // 
             // AgregarCurso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -361,6 +374,7 @@
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(groupBox1);
+            Controls.Add(pictureBox1);
             Name = "AgregarCurso";
             Text = "Form2";
             groupBox1.ResumeLayout(false);
@@ -368,6 +382,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -434,5 +449,6 @@
         private Label label13;
         private TextBox textBox8;
         private Label label12;
+        private PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Realizar_Pagos));
             btnSalir = new Button();
             btnIngresar = new Button();
             button2 = new Button();
@@ -47,6 +48,9 @@
             label4 = new Label();
             checkBox1 = new CheckBox();
             groupBox2 = new GroupBox();
+            label19 = new Label();
+            label18 = new Label();
+            label17 = new Label();
             checkBox4 = new CheckBox();
             checkBox5 = new CheckBox();
             label7 = new Label();
@@ -55,12 +59,11 @@
             label2 = new Label();
             label3 = new Label();
             label1 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            label19 = new Label();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnSalir
@@ -263,6 +266,36 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Conceptos Pendientes";
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.Location = new Point(6, 99);
+            label19.Name = "label19";
+            label19.Size = new Size(128, 21);
+            label19.TabIndex = 120;
+            label19.Text = "Pagar Utilidades";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.Location = new Point(6, 49);
+            label18.Name = "label18";
+            label18.Size = new Size(121, 42);
+            label18.TabIndex = 120;
+            label18.Text = "Pagar Cargos \r\nadminsitrativos";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label17.Location = new Point(6, 19);
+            label17.Name = "label17";
+            label17.Size = new Size(123, 21);
+            label17.TabIndex = 120;
+            label17.Text = "Pagar Matricula";
+            // 
             // checkBox4
             // 
             checkBox4.AutoSize = true;
@@ -342,35 +375,15 @@
             label1.TabIndex = 105;
             label1.Text = "Numero";
             // 
-            // label17
+            // pictureBox1
             // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(6, 19);
-            label17.Name = "label17";
-            label17.Size = new Size(123, 21);
-            label17.TabIndex = 120;
-            label17.Text = "Pagar Matricula";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Location = new Point(6, 49);
-            label18.Name = "label18";
-            label18.Size = new Size(121, 42);
-            label18.TabIndex = 120;
-            label18.Text = "Pagar Cargos \r\nadminsitrativos";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label19.Location = new Point(6, 99);
-            label19.Name = "label19";
-            label19.Size = new Size(128, 21);
-            label19.TabIndex = 120;
-            label19.Text = "Pagar Utilidades";
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-729, -212);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 109;
+            pictureBox1.TabStop = false;
             // 
             // Realizar_Pagos
             // 
@@ -386,6 +399,7 @@
             Controls.Add(button2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
+            Controls.Add(pictureBox1);
             Name = "Realizar_Pagos";
             Text = "Realizar_Pagos";
             groupBox1.ResumeLayout(false);
@@ -394,6 +408,7 @@
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -430,5 +445,6 @@
         private Label label19;
         private Label label18;
         private Label label17;
+        private PictureBox pictureBox1;
     }
 }

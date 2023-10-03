@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PagoTarjeta));
             pictureBox1 = new PictureBox();
             label3 = new Label();
             label2 = new Label();
@@ -52,12 +53,14 @@
             pictureBox2 = new PictureBox();
             label11 = new Label();
             label10 = new Label();
+            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -279,6 +282,16 @@
             label10.TabIndex = 134;
             label10.Text = "Total:";
             // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(-738, -166);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(1920, 1080);
+            pictureBox5.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox5.TabIndex = 135;
+            pictureBox5.TabStop = false;
+            // 
             // PagoTarjeta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -308,6 +321,7 @@
             Controls.Add(label2);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
+            Controls.Add(pictureBox5);
             Name = "PagoTarjeta";
             Text = "Pagar";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -316,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -346,5 +361,6 @@
         private PictureBox pictureBox2;
         private Label label11;
         private Label label10;
+        private PictureBox pictureBox5;
     }
 }

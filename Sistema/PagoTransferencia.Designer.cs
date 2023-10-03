@@ -28,21 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PagoTransferencia));
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             button2 = new Button();
             btnIngresar = new Button();
             groupBox1 = new GroupBox();
+            label11 = new Label();
+            label10 = new Label();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label1 = new Label();
-            label10 = new Label();
-            label11 = new Label();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -114,6 +117,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos Bancarios";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(37, 172);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 15);
+            label11.TabIndex = 132;
+            label11.Text = "Numero";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(6, 172);
+            label10.Name = "label10";
+            label10.Size = new Size(35, 15);
+            label10.TabIndex = 132;
+            label10.Text = "Total:";
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -174,23 +195,15 @@
             label1.TabIndex = 132;
             label1.Text = "CVU:";
             // 
-            // label10
+            // pictureBox1
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(6, 172);
-            label10.Name = "label10";
-            label10.Size = new Size(35, 15);
-            label10.TabIndex = 132;
-            label10.Text = "Total:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(37, 172);
-            label11.Name = "label11";
-            label11.Size = new Size(51, 15);
-            label11.TabIndex = 132;
-            label11.Text = "Numero";
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-755, -315);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 132;
+            pictureBox1.TabStop = false;
             // 
             // PagoTransferencia
             // 
@@ -203,10 +216,12 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Controls.Add(pictureBox1);
             Name = "PagoTransferencia";
             Text = "PagoTransferencia";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,5 +242,6 @@
         private Label label7;
         private Label label11;
         private Label label10;
+        private PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarEstudiante));
             groupBox1 = new GroupBox();
             label8 = new Label();
             textBox6 = new TextBox();
@@ -47,7 +48,9 @@
             textBox1 = new TextBox();
             label2 = new Label();
             btnSalir = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -256,6 +259,16 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-783, -242);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
+            // 
             // RegistrarEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -265,11 +278,13 @@
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(btnSalir);
+            Controls.Add(pictureBox1);
             Name = "RegistrarEstudiante";
             Text = "Form1";
             Load += RegistrarEstudiante_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -343,5 +358,6 @@
         private Label label7;
         private Label label8;
         private TextBox textBox6;
+        private PictureBox pictureBox1;
     }
 }

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarCursos));
             button1 = new Button();
             label2 = new Label();
             btnSalir = new Button();
             btnIngresar = new Button();
             button3 = new Button();
             button2 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -107,6 +110,16 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-598, -312);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 37;
+            pictureBox1.TabStop = false;
+            // 
             // GestionarCursos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -119,8 +132,10 @@
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
+            Controls.Add(pictureBox1);
             Name = "GestionarCursos";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,5 +147,6 @@
         private Button btnIngresar;
         private Button button3;
         private Button button2;
+        private PictureBox pictureBox1;
     }
 }

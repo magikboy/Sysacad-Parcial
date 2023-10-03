@@ -21,7 +21,7 @@ namespace Sistema
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
             MostrarNumeroEstudiante();
             textBox1.KeyPress += textBox1_KeyPress;
             textBox2.KeyPress += textBox2_KeyPress;
@@ -166,7 +166,7 @@ namespace Sistema
                                  $"\n\nNombre: {valor5}" +
                                  $"\n\nCvv: {valor7} " +
                                  $"\n\nMes de expiración: {mes} " +
-                                 $"\n\nAño de expiración: {año}"+
+                                 $"\n\nAño de expiración: {año}" +
                                  $"\n\nse envio el comprobante al mail de {estudiante.CorreoElectronico}";
                 MessageBox.Show(mensaje);
             }

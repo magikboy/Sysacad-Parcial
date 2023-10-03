@@ -6,78 +6,25 @@ using System.Text.Json;
 
 namespace Biblioteca
 {
-    public class GuardarDatosAdministrador
+    public class GuardarDatosAdministrador : GuardarDatosBase
     {
-        // Directorio que es el escritorio donde se almacenarán los archivos.
-        private static string directorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\documentos";
-
-        // Nombre del archivo JSON en el que se guardarán los datos de los administradores.
-        private static string archivoAdministradores = "administrador.json";
-
-        public static void CrearCarpeta()
+        public static List<Administrador> ReadStreamJSON()
         {
-            // Comprobar si la carpeta ya existe, si no, crearla.
-            if (!Directory.Exists(directorio))
-            {
-                Directory.CreateDirectory(directorio);
-            }
+            return ReadStreamJSON<Administrador>("administradores.json");
         }
 
-        // Lee datos en formato JSON desde un archivo y los deserializa en una lista de Administrador.
-        public static List<Administrador> ReadStreamJSON(string v)
+        public static void WriteStreamJSON(List<Administrador> administradores)
         {
-            CrearCarpeta();
-            var path = ObtenerRutaCompleta(archivoAdministradores);
-            var lista = new List<Administrador>();
-
-            if (File.Exists(path))
-            {
-                using (var reader = new StreamReader(path))
-                {
-                    var json = reader.ReadToEnd();
-                    var listaAux = JsonSerializer.Deserialize<List<Administrador>>(json);
-
-                    if (listaAux != null)
-                    {
-                        lista = listaAux;
-                    }
-                }
-            }
-
-            return lista;
+            WriteStreamJSON("administradores.json", administradores);
         }
 
-        // Escribe datos en formato JSON en un archivo, fusionándolos con los datos existentes.
-        public static void WriteStreamJSON(string file, List<Administrador> administradores)
+        // Actualiza la contraseña de un Administrador en el archivo JSON.
+        public static void ActualizarContraseñaAdministrador(Administrador administrador)
         {
-            var path = Combine(file);
+            var path = Combine("administradores.json");
 
             // Lee los datos existentes del archivo JSON y los almacena en una lista.
-            var lista = ReadStreamJSON(file);
-            lista.AddRange(administradores);
-
-            using (var writer = new StreamWriter(path))
-            {
-                var options = new JsonSerializerOptions();
-                options.WriteIndented = true;
-                var json = JsonSerializer.Serialize(lista, options);
-                writer.Write(json);
-            }
-        }
-
-        // Método privado para combinar el nombre de archivo con la ubicación en el escritorio.
-        private static string Combine(string file)
-        {
-            Environment.SpecialFolder escritorio = Environment.SpecialFolder.DesktopDirectory;
-            var desktop = Environment.GetFolderPath(escritorio);
-            var path = Path.Combine(desktop, "documentos", file);
-            return path;
-        }
-
-        // Método privado para combinar la ruta del directorio con el nombre del archivo.
-        private static string ObtenerRutaCompleta(string archivo)
-        {
-            return Path.Combine(directorio, archivo);
+            var lista = GuardarDatosBase.ReadStreamJSON<Administrador>("administradores.json");
         }
     }
 }

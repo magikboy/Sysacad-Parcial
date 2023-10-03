@@ -23,7 +23,7 @@ namespace Sistema
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
             MostrarDatosDelPrimerAlSextoCurso();
-            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
         }
 
         private void MostrarNumeroEstudiante()
@@ -33,7 +33,8 @@ namespace Sistema
 
         private void MostrarDatosCurso(int indice, Label nombreLabel, Label codigoLabel, Label descripcionLabel, Label cupoLabel)
         {
-            cursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+            // Leer la lista de cursos desde el archivo JSON
+            cursos = GuardarDatosCursos.ReadStreamJSON();
 
             // Verificar si hay cursos disponibles en la lista y que sean del Segundo cuatrimestre
             List<Cursos> cursosPrimerCuatrimestre = cursos.Where(curso => curso.Cuatrimestre == "Segundo Cuatrimestre").ToList();
@@ -133,7 +134,7 @@ namespace Sistema
 
             if (curso == null)
             {
-                MessageBox.Show("El curso no existe."); 
+                MessageBox.Show("El curso no existe.");
                 return;
             }
 

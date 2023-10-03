@@ -7,19 +7,21 @@ namespace Sistema
 {
     public partial class EliminarCurso : Form
     {
+        List<Biblioteca.Cursos> cursos = new List<Biblioteca.Cursos>();
         public EliminarCurso()
         {
             InitializeComponent();
 
             // Llamamo a un método para cargar y mostrar los datos
             CargarYMostrarDatos();
+            this.cursos = GuardarDatosCursos.ReadStreamJSON();
         }
 
         // Método para cargar y mostrar los datos en los labels
         private void CargarYMostrarDatos()
         {
             // Leer la lista de cursos desde el archivo JSON
-            var lista = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+            var lista = GuardarDatosCursos.ReadStreamJSON();
 
             // Mostrar cursos en los labels (tiene un máximo de 7 cursos)
             for (int i = 0; i < Math.Min(lista.Count, 7); i++)
@@ -49,7 +51,7 @@ namespace Sistema
             if (int.TryParse(codigoIngresado, out int codigoEntero))
             {
                 // Leer la lista de cursos desde el archivo JSON
-                var listaCursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+                var listaCursos = GuardarDatosCursos.ReadStreamJSON();
 
                 // Buscar el curso con el código ingresado
                 var cursoEncontrado = listaCursos.Find(curso => curso.Codigo == codigoEntero);

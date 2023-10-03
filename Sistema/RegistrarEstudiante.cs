@@ -23,7 +23,7 @@ namespace Sistema
             // Verificar si el archivo JSON existe antes de cargarlo
             if (File.Exists("estudiantes.json"))
             {
-                estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+                this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
             }
         }
 

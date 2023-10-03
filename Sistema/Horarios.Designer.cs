@@ -135,6 +135,7 @@
             label74 = new Label();
             label73 = new Label();
             groupBox14 = new GroupBox();
+            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox4.SuspendLayout();
@@ -152,6 +153,7 @@
             groupBox19.SuspendLayout();
             groupBox21.SuspendLayout();
             groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -1190,6 +1192,16 @@
             groupBox14.TabIndex = 78;
             groupBox14.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(-394, -182);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1920, 1080);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 79;
+            pictureBox2.TabStop = false;
+            // 
             // Horarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1223,6 +1235,7 @@
             Controls.Add(groupBox4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Controls.Add(pictureBox2);
             Name = "Horarios";
             Text = "Form2";
             groupBox1.ResumeLayout(false);
@@ -1258,6 +1271,7 @@
             groupBox21.PerformLayout();
             groupBox14.ResumeLayout(false);
             groupBox14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1369,5 +1383,6 @@
         private Label label74;
         private Label label73;
         private GroupBox groupBox14;
+        private PictureBox pictureBox2;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InscribirCuartoCuatri));
             label42 = new Label();
             label11 = new Label();
             groupBox2 = new GroupBox();
@@ -93,12 +94,14 @@
             label37 = new Label();
             groupBox4 = new GroupBox();
             label41 = new Label();
+            pictureBox1 = new PictureBox();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label42
@@ -813,6 +816,16 @@
             label41.TabIndex = 108;
             label41.Text = "descripcion";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-349, -192);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 118;
+            pictureBox1.TabStop = false;
+            // 
             // InscribirCuartoCuatri
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -830,6 +843,7 @@
             Controls.Add(groupBox5);
             Controls.Add(groupBox6);
             Controls.Add(groupBox4);
+            Controls.Add(pictureBox1);
             Name = "InscribirCuartoCuatri";
             Text = "Form2";
             groupBox2.ResumeLayout(false);
@@ -844,6 +858,7 @@
             groupBox6.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -915,5 +930,6 @@
         private Label label37;
         private GroupBox groupBox4;
         private Label label41;
+        private PictureBox pictureBox1;
     }
 }

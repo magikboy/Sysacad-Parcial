@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EliminarCurso));
             button1 = new Button();
             groupBox2 = new GroupBox();
             groupBox4 = new GroupBox();
@@ -51,10 +52,12 @@
             groupBox1 = new GroupBox();
             label1 = new Label();
             textBox1 = new TextBox();
+            pictureBox1 = new PictureBox();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -71,7 +74,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.Gainsboro;
+            groupBox2.BackColor = Color.White;
             groupBox2.Controls.Add(groupBox4);
             groupBox2.Controls.Add(groupBox3);
             groupBox2.Location = new Point(14, 172);
@@ -84,7 +87,7 @@
             // 
             // groupBox4
             // 
-            groupBox4.BackColor = Color.Gainsboro;
+            groupBox4.BackColor = Color.White;
             groupBox4.Controls.Add(label16);
             groupBox4.Controls.Add(label15);
             groupBox4.Controls.Add(label14);
@@ -172,7 +175,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.BackColor = Color.Gainsboro;
+            groupBox3.BackColor = Color.White;
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label7);
@@ -273,16 +276,17 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(129, 9);
+            label2.Location = new Point(117, 9);
             label2.Name = "label2";
-            label2.Size = new Size(143, 32);
+            label2.Size = new Size(170, 32);
             label2.TabIndex = 43;
-            label2.Text = "Elegir Curso";
+            label2.Text = "Eliminar Curso";
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Location = new Point(14, 66);
@@ -305,10 +309,21 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = SystemColors.ScrollBar;
             textBox1.Location = new Point(13, 44);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(362, 23);
             textBox1.TabIndex = 23;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-785, -228);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 46;
+            pictureBox1.TabStop = false;
             // 
             // EliminarCurso
             // 
@@ -320,6 +335,7 @@
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(groupBox1);
+            Controls.Add(pictureBox1);
             Name = "EliminarCurso";
             Text = "Form2";
             groupBox2.ResumeLayout(false);
@@ -329,6 +345,7 @@
             groupBox3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -358,5 +375,6 @@
         private GroupBox groupBox1;
         private Label label1;
         private TextBox textBox1;
+        private PictureBox pictureBox1;
     }
 }

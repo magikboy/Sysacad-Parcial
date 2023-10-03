@@ -21,7 +21,7 @@ namespace Sistema
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
             MostrarNumeroEstudiante();
 
             // Buscar el estudiante por NumeroEstudiante
@@ -34,7 +34,7 @@ namespace Sistema
                 label12.Text = estudianteSeleccionado.ApellidoCompleto;
                 label13.Text = estudianteSeleccionado.Direccion;
                 label14.Text = estudianteSeleccionado.CorreoElectronico;
-                label15.Text = estudianteSeleccionado.NumeroTelefono;
+                label15.Text = "+54-11-" + estudianteSeleccionado.NumeroTelefono;
                 label16.Text = estudianteSeleccionado.CuatrimestreEstudiante;
             }
             else

@@ -25,7 +25,7 @@ namespace Sistema
             try
             {
                 // Carga los datos de los cursos desde el archivo JSON
-                cursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+                cursos = GuardarDatosCursos.ReadStreamJSON();
             }
             catch (Exception ex)
             {

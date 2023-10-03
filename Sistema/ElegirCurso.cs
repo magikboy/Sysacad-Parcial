@@ -25,18 +25,18 @@ namespace Sistema
         public ElegirCurso()
         {
             InitializeComponent();
-
             // Llamamo a un método para cargar y mostrar los datos
             CargarYMostrarDatos();
         }
 
         // Método para cargar y mostrar los datos en los labels
+        // Método para cargar y mostrar los datos en los labels
         private void CargarYMostrarDatos()
         {
-            // Leer la lista de cursos desde el archivo JSON
-            var lista = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+            // Lee la lista de cursos desde el archivo JSON
+            var lista = GuardarDatosCursos.ReadStreamJSON();
 
-            // me Aseguro de que hay al menos un curso en la lista antes de mostrar datos
+            // Verificar si hay cursos en la lista antes de mostrar datos
             if (lista.Count > 0)
             {
                 label3.Text = lista[0].Nombre.ToString();
@@ -79,9 +79,8 @@ namespace Sistema
                 label16.Text = lista[6].Codigo.ToString();
             }
 
-            // Repite si hay mas cursos.
+            // Repite si hay más cursos.
         }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -100,7 +99,8 @@ namespace Sistema
             if (int.TryParse(codigoIngresado, out int codigoEntero))
             {
                 // Lee la lista de cursos desde el archivo JSON
-                var listaCursos = GuardarDatosCursos.ReadStreamJSON(GuardarDatosCursos.archivoCursos);
+                var listaCursos = GuardarDatosCursos.ReadStreamJSON();
+
 
                 // Variable para almacenar el curso encontrado
                 Biblioteca.Cursos cursoEncontrado = null;
@@ -110,8 +110,9 @@ namespace Sistema
                 {
                     if (curso.Codigo == codigoEntero)
                     {
+                        // Encontré el curso, lo guardo en la variable
                         cursoEncontrado = curso;
-                        break; // Salir del bucle una vez que se encuentre el curso
+                        break;
                     }
                 }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarCurso));
             groupBox1 = new GroupBox();
             textBox9 = new TextBox();
             label15 = new Label();
@@ -58,15 +59,17 @@
             textBox1 = new TextBox();
             label2 = new Label();
             btnSalir = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(textBox9);
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(textBox8);
@@ -104,6 +107,7 @@
             // 
             // textBox9
             // 
+            textBox9.BackColor = SystemColors.ScrollBar;
             textBox9.Location = new Point(199, 424);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(108, 23);
@@ -122,6 +126,7 @@
             // 
             // textBox8
             // 
+            textBox8.BackColor = SystemColors.ScrollBar;
             textBox8.Location = new Point(299, 369);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(83, 23);
@@ -140,6 +145,7 @@
             // 
             // textBox7
             // 
+            textBox7.BackColor = SystemColors.ScrollBar;
             textBox7.Location = new Point(199, 369);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(83, 23);
@@ -168,6 +174,7 @@
             // 
             // textBox6
             // 
+            textBox6.BackColor = SystemColors.ScrollBar;
             textBox6.Location = new Point(13, 424);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(162, 23);
@@ -176,6 +183,7 @@
             // 
             // textBox5
             // 
+            textBox5.BackColor = SystemColors.ScrollBar;
             textBox5.Location = new Point(13, 369);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(162, 23);
@@ -204,6 +212,7 @@
             // 
             // textBox3
             // 
+            textBox3.BackColor = SystemColors.ScrollBar;
             textBox3.Location = new Point(13, 312);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(369, 23);
@@ -298,6 +307,7 @@
             // 
             // textBox4
             // 
+            textBox4.BackColor = SystemColors.ScrollBar;
             textBox4.Location = new Point(13, 207);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
@@ -339,6 +349,7 @@
             // 
             // textBox2
             // 
+            textBox2.BackColor = SystemColors.ScrollBar;
             textBox2.Location = new Point(13, 149);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(369, 23);
@@ -347,6 +358,7 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = SystemColors.ScrollBar;
             textBox1.Location = new Point(13, 82);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(369, 23);
@@ -375,6 +387,16 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-749, -167);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 32;
+            pictureBox1.TabStop = false;
+            // 
             // EditarCurso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -384,6 +406,7 @@
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(btnSalir);
+            Controls.Add(pictureBox1);
             Name = "EditarCurso";
             Text = "Form2";
             groupBox1.ResumeLayout(false);
@@ -391,6 +414,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -471,5 +495,6 @@
         private Label label14;
         private TextBox textBox9;
         private Label label15;
+        private PictureBox pictureBox1;
     }
 }

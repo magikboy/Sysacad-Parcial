@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InscribirSegundoCuatri));
             groupBox6 = new GroupBox();
             label43 = new Label();
             label45 = new Label();
@@ -93,12 +94,14 @@
             btnSalir = new Button();
             label3 = new Label();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox6
@@ -813,6 +816,16 @@
             label2.TabIndex = 85;
             label2.Text = "Inscipcion Cursos Segundo Cuatrimestre";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-360, -193);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 96;
+            pictureBox1.TabStop = false;
+            // 
             // InscribirSegundoCuatri
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -830,6 +843,7 @@
             Controls.Add(btnSalir);
             Controls.Add(label3);
             Controls.Add(label2);
+            Controls.Add(pictureBox1);
             Name = "InscribirSegundoCuatri";
             Text = "Form2";
             groupBox6.ResumeLayout(false);
@@ -844,6 +858,7 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -915,5 +930,6 @@
         private Button btnSalir;
         private Label label3;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

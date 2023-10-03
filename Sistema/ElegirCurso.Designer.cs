@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElegirCurso));
             button2 = new Button();
             label2 = new Label();
             groupBox1 = new GroupBox();
@@ -53,11 +54,13 @@
             label3 = new Label();
             guardarDatosBindingSource = new BindingSource(components);
             button1 = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guardarDatosBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button2
@@ -84,7 +87,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Gainsboro;
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Location = new Point(12, 78);
@@ -107,6 +110,7 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = SystemColors.ScrollBar;
             textBox1.Location = new Point(13, 44);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(362, 23);
@@ -115,7 +119,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.Gainsboro;
+            groupBox2.BackColor = Color.White;
             groupBox2.Controls.Add(groupBox4);
             groupBox2.Controls.Add(groupBox3);
             groupBox2.Location = new Point(12, 184);
@@ -128,7 +132,7 @@
             // 
             // groupBox4
             // 
-            groupBox4.BackColor = Color.Gainsboro;
+            groupBox4.BackColor = Color.White;
             groupBox4.Controls.Add(label16);
             groupBox4.Controls.Add(label15);
             groupBox4.Controls.Add(label14);
@@ -223,7 +227,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.BackColor = Color.Gainsboro;
+            groupBox3.BackColor = Color.White;
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label7);
@@ -332,6 +336,16 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_2;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-755, -241);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 41;
+            pictureBox1.TabStop = false;
+            // 
             // ElegirCurso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -343,6 +357,7 @@
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(groupBox1);
+            Controls.Add(pictureBox1);
             Name = "ElegirCurso";
             Text = "Form1";
             groupBox1.ResumeLayout(false);
@@ -353,6 +368,7 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guardarDatosBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -440,5 +456,6 @@
         private Label label4;
         private Label label3;
         private Button button1;
+        private PictureBox pictureBox1;
     }
 }

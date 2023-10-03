@@ -32,7 +32,7 @@ namespace Biblioteca
         {
             // fijarse en el json si existe el numero de identificacion
             List<Estudiante> estudiantes = new List<Estudiante>();
-            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
             foreach (Estudiante estudiante in estudiantes)
             {
                 if (estudiante.NumeroEstudiante.ToString() == numeroIdentificacion)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuCursosYHorariosEstudiantes));
             label3 = new Label();
             label1 = new Label();
             button2 = new Button();
@@ -35,6 +36,8 @@
             label2 = new Label();
             btnSalir = new Button();
             btnIngresar = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label3
@@ -114,6 +117,16 @@
             btnIngresar.UseVisualStyleBackColor = false;
             btnIngresar.Click += btnIngresar_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-560, -315);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
+            // 
             // MenuCursosYHorariosEstudiantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -127,8 +140,10 @@
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
+            Controls.Add(pictureBox1);
             Name = "MenuCursosYHorariosEstudiantes";
             Text = "Menu Cursos y Horario";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +157,6 @@
         private Label label2;
         private Button btnSalir;
         private Button btnIngresar;
+        private PictureBox pictureBox1;
     }
 }

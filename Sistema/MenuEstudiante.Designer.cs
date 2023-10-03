@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuEstudiante));
             button2 = new Button();
             button1 = new Button();
             label2 = new Label();
@@ -36,6 +37,8 @@
             button3 = new Button();
             label1 = new Label();
             label3 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button2
@@ -127,6 +130,16 @@
             label3.TabIndex = 39;
             label3.Text = "Numero Estudiante :";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-560, -315);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 40;
+            pictureBox1.TabStop = false;
+            // 
             // MenuEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -141,8 +154,10 @@
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
+            Controls.Add(pictureBox1);
             Name = "MenuEstudiante";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -157,5 +172,6 @@
         private Button button3;
         private Label label1;
         private Label label3;
+        private PictureBox pictureBox1;
     }
 }

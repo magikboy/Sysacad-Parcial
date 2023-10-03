@@ -22,7 +22,8 @@ namespace Sistema
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
-            estudiantes = GuardarDatosEstudiantes.ReadStreamJSON("estudiantes.json");
+            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
+            this.cursos = GuardarDatosCursos.ReadStreamJSON();
 
 
             // Busco al estudiante por su número y obtener su cuatrimestre
@@ -43,7 +44,7 @@ namespace Sistema
                     string cuatrimestreEstudiante = estudiante.CuatrimestreEstudiante;
 
                     // Filtra cursos por el cuatrimestre del estudiante
-                    cursos = GuardarDatosCursos.ReadStreamJSON("cursos.json")
+                    cursos = cursos
                         .Where(curso => curso.Cuatrimestre == cuatrimestreEstudiante)
                         .OrderBy(curso => curso.Fecha) // Ordenar por fecha
                         .ToList();
