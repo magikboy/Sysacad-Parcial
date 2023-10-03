@@ -73,27 +73,26 @@ namespace Sistema
         private void button2_Click(object sender, EventArgs e)
         {
             // Crear un nuevo estudiante con la información del JSON
-            Estudiante estudiante = new Estudiante
-            {
-                NombreCompleto = "Massimo",
-                ApellidoCompleto = "Bosco",
-                Contrasenia = "1234",
-                Direccion = "calle 314",
-                NumeroTelefono = "11232122",
-                CorreoElectronico = "Massimo@gmail.com",
-                NumeroEstudiante = 1,
-                CuatrimestreEstudiante = "Primer Cuatrimestre",
-                materiaUno = "Matematica",
-                materiaDos = "Laboratorio I",
-                materiaTres = "Ingles",
-                materiaCuatro = "Programacion I",
-                materiaCinco = "SPD",
-                materiaSeis = "",
-                PagoMatricula = "pagado",
-                PagoCargosAdministrativos = "pagado",
-                PagoUtilidades = "pagado",
-                HistorialAcademico = "Secundario Completo"
-            };
+            Estudiante estudiante = new Estudiante(
+                "Massimo",
+                "Bosco",
+                "1234",
+                "calle 314",
+                "11232122",
+                "Massimo@gmail.com",
+                1,
+                "Primer Cuatrimestre",
+                "Matematica",
+                "Laboratorio I",
+                "Ingles",
+                "Programacion I",
+                "SPD",
+                "",
+                "pagado",
+                "pagado",
+                "pagado",
+                "Secundario Completo"
+            );
 
             // Asignar el número de estudiante al campo textBox1
             textBox1.Text = estudiante.NumeroEstudiante.ToString();

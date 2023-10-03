@@ -74,15 +74,15 @@ namespace Sistema
 
         private List<string> ObtenerMateriasInscritas(Estudiante estudiante)
         {
-            List<string> materiasInscritas = new List<string>
-            {
-                estudiante.materiaUno,
-                estudiante.materiaDos,
-                estudiante.materiaTres,
-                estudiante.materiaCuatro,
-                estudiante.materiaCinco,
-                estudiante.materiaSeis
-            };
+            List<string> materiasInscritas = new List<string>();
+
+            // Agrega las materias inscritas a la lista
+            materiasInscritas.Add(estudiante.MateriaUno);
+            materiasInscritas.Add(estudiante.MateriaDos);
+            materiasInscritas.Add(estudiante.MateriaTres);
+            materiasInscritas.Add(estudiante.MateriaCuatro);
+            materiasInscritas.Add(estudiante.MateriaCinco);
+            materiasInscritas.Add(estudiante.MateriaSeis);
 
             // Filtra las materias que no estén vacías
             materiasInscritas = materiasInscritas.Where(materia => !string.IsNullOrWhiteSpace(materia)).ToList();

@@ -90,12 +90,12 @@ namespace Biblioteca
 
             if (estudianteExistente != null)
             {
-                estudianteExistente.materiaUno = estudiante.materiaUno;
-                estudianteExistente.materiaDos = estudiante.materiaDos;
-                estudianteExistente.materiaTres = estudiante.materiaTres;
-                estudianteExistente.materiaCuatro = estudiante.materiaCuatro;
-                estudianteExistente.materiaCinco = estudiante.materiaCinco;
-                estudianteExistente.materiaSeis = estudiante.materiaSeis;
+                estudianteExistente.MateriaUno = estudiante.MateriaUno;
+                estudianteExistente.MateriaDos = estudiante.MateriaDos;
+                estudianteExistente.MateriaTres = estudiante.MateriaTres;
+                estudianteExistente.MateriaCuatro = estudiante.MateriaCuatro;
+                estudianteExistente.MateriaCinco = estudiante.MateriaCinco;
+                estudianteExistente.MateriaSeis = estudiante.MateriaSeis;
 
                 // Guarda la lista actualizada en el archivo JSON
                 using (var writer = new StreamWriter(path))

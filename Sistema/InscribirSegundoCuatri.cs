@@ -87,43 +87,43 @@ namespace Sistema
             string cursoSeleccionado = materiaLabel;
 
             // Verificar si el estudiante ya está inscrito en la materia
-            if (!string.IsNullOrEmpty(estudiante.materiaUno) &&
-                estudiante.materiaUno == cursoSeleccionado)
+            if (!string.IsNullOrEmpty(estudiante.MateriaUno) &&
+                estudiante.MateriaUno == cursoSeleccionado)
             {
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(estudiante.materiaDos) &&
-                estudiante.materiaDos == cursoSeleccionado)
+            if (!string.IsNullOrEmpty(estudiante.MateriaDos) &&
+                estudiante.MateriaDos == cursoSeleccionado)
             {
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(estudiante.materiaTres) &&
-                estudiante.materiaTres == cursoSeleccionado)
+            if (!string.IsNullOrEmpty(estudiante.MateriaTres) &&
+                estudiante.MateriaTres == cursoSeleccionado)
             {
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(estudiante.materiaCuatro) &&
-                estudiante.materiaCuatro == cursoSeleccionado)
+            if (!string.IsNullOrEmpty(estudiante.MateriaCuatro) &&
+                estudiante.MateriaCuatro == cursoSeleccionado)
             {
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(estudiante.materiaCinco) &&
-                estudiante.materiaCinco == cursoSeleccionado)
+            if (!string.IsNullOrEmpty(estudiante.MateriaCinco) &&
+                estudiante.MateriaCinco == cursoSeleccionado)
             {
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(estudiante.materiaSeis) &&
-                estudiante.materiaSeis == cursoSeleccionado)
+            if (!string.IsNullOrEmpty(estudiante.MateriaSeis) &&
+                estudiante.MateriaSeis == cursoSeleccionado)
             {
                 MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
                 return;
@@ -159,29 +159,29 @@ namespace Sistema
                 GuardarDatosCursos.ActualizarCursos(cursos);
 
                 // Actualizar la materia correspondiente en el JSON del estudiante
-                if (string.IsNullOrEmpty(estudiante.materiaUno))
+                if (string.IsNullOrEmpty(estudiante.MateriaUno))
                 {
-                    estudiante.materiaUno = cursoSeleccionado;
+                    estudiante.MateriaUno = cursoSeleccionado;
                 }
-                else if (string.IsNullOrEmpty(estudiante.materiaDos))
+                else if (string.IsNullOrEmpty(estudiante.MateriaDos))
                 {
-                    estudiante.materiaDos = cursoSeleccionado;
+                    estudiante.MateriaDos = cursoSeleccionado;
                 }
-                else if (string.IsNullOrEmpty(estudiante.materiaTres))
+                else if (string.IsNullOrEmpty(estudiante.MateriaTres))
                 {
-                    estudiante.materiaTres = cursoSeleccionado;
+                    estudiante.MateriaTres = cursoSeleccionado;
                 }
-                else if (string.IsNullOrEmpty(estudiante.materiaCuatro))
+                else if (string.IsNullOrEmpty(estudiante.MateriaCuatro))
                 {
-                    estudiante.materiaCuatro = cursoSeleccionado;
+                    estudiante.MateriaCuatro = cursoSeleccionado;
                 }
-                else if (string.IsNullOrEmpty(estudiante.materiaCinco))
+                else if (string.IsNullOrEmpty(estudiante.MateriaCinco))
                 {
-                    estudiante.materiaCinco = cursoSeleccionado;
+                    estudiante.MateriaCinco = cursoSeleccionado;
                 }
-                else if (string.IsNullOrEmpty(estudiante.materiaSeis))
+                else if (string.IsNullOrEmpty(estudiante.MateriaSeis))
                 {
-                    estudiante.materiaSeis = cursoSeleccionado;
+                    estudiante.MateriaSeis = cursoSeleccionado;
                 }
 
                 // Actualizar el JSON del estudiante para reflejar la inscripción en la materia correspondiente

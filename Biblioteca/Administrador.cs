@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public class Administrador
+    public class Administrador : Usuarios
     {
         public string Usuario { get; set; }
-        public string Contrasenia { get; set; }
 
-
-        // Constructor de la clase Administrador
         public Administrador(string usuario, string contrasenia)
+            : base("", contrasenia) // No es necesario pasar un nombre para el administrador
         {
             Usuario = usuario;
-            Contrasenia = contrasenia;
+        }
+
+        // Implementa el método abstracto de la clase base
+        public override string GetInstancias()
+        {
+            return $"Nombre de usuario: {Usuario}\n" +
+                   $"Contrasenia: {Contrasenia}\n";
         }
 
         // Método para iniciar sesión con un usuario y contraseña proporcionados

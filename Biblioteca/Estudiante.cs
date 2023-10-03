@@ -1,113 +1,78 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    // Clase Estudiante
-    public class Estudiante
+    // Clase Estudiante que hereda de Usuarios
+    public class Estudiante : Usuarios
     {
-        // Propiedades públicas de la clase Estudiante
-        public string NombreCompleto { get; set; }
+        // Propiedades específicas de la clase Estudiante
         public string ApellidoCompleto { get; set; }
-        public string Contrasenia { get; set; }
         public string Direccion { get; set; }
         public string NumeroTelefono { get; set; }
         public string CorreoElectronico { get; set; }
         public int NumeroEstudiante { get; set; }
-        public string materiaUno { get; set; }
-        public string materiaDos { get; set; }
-        public string materiaTres { get; set; }
-        public string materiaCuatro { get; set; }
-        public string materiaCinco { get; set; }
-        public string materiaSeis { get; set; }
         public string CuatrimestreEstudiante { get; set; }
+        public string MateriaUno { get; set; }
+        public string MateriaDos { get; set; }
+        public string MateriaTres { get; set; }
+        public string MateriaCuatro { get; set; }
+        public string MateriaCinco { get; set; }
+        public string MateriaSeis { get; set; }
         public string PagoMatricula { get; set; }
         public string PagoCargosAdministrativos { get; set; }
         public string PagoUtilidades { get; set; }
-
         public string HistorialAcademico { get; set; }
 
-
-        // Constructores de la clase Estudiante
+        // Constructor sin parámetros requerido para deserialización JSON
         public Estudiante()
+            : base("", "") 
         {
-            // Valores predeterminados para las propiedades
-            this.NombreCompleto = "";
-            this.ApellidoCompleto = "";
-            this.Contrasenia = "";
-            this.Direccion = "";
-            this.NumeroTelefono = "";
-            this.CorreoElectronico = "";
-            this.NumeroEstudiante = 0;
-            this.CuatrimestreEstudiante = "";
-            this.materiaUno = "";
-            this.materiaDos = "";
-            this.materiaTres = "";
-            this.materiaCuatro = "";
-            this.materiaCinco = "";
-            this.materiaSeis = "";
-            this.PagoMatricula = "";
-            this.PagoCargosAdministrativos = "";
-            this.PagoUtilidades = "";
-            this.HistorialAcademico = "";
+            // si es que tengo que inicializar las propiedades segun el caso
         }
 
-        public Estudiante(string nombreCompleto, string apellidoCompleto, string contraseña, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante,string materiauno, string materiados , string materiatres , string materiacuatro , string materiacinco , string materiaseis , string pagomatricula ,string pagocargos ,string pagoutilidades,string historialaca)
+        // Constructor de la clase Estudiante
+        public Estudiante(string nombreCompleto, string apellidoCompleto, string contrasenia, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante, string materiaUno, string materiaDos, string materiaTres, string materiaCuatro, string materiaCinco, string materiaSeis, string pagoMatricula, string pagoCargos, string pagoUtilidades, string historialAcademico)
+            : base(nombreCompleto, contrasenia)
         {
-            // Constructor que permite inicializar todas las propiedades de Estudiante
-            NombreCompleto = nombreCompleto;
             ApellidoCompleto = apellidoCompleto;
-            Contrasenia = contraseña;
             Direccion = direccion;
             NumeroTelefono = numeroTelefono;
             CorreoElectronico = correoElectronico;
             NumeroEstudiante = numeroEstudiante;
             CuatrimestreEstudiante = cuatrimestreEstudiante;
-            materiaUno = materiauno;
-            materiaDos = materiados;
-            materiaTres = materiatres;
-            materiaCuatro = materiacuatro;
-            materiaCinco = materiacinco;
-            materiaSeis = materiaseis;
-            PagoMatricula = pagomatricula;
-            PagoCargosAdministrativos = pagocargos;
-            PagoUtilidades = pagoutilidades;
-            HistorialAcademico = historialaca;
+            MateriaUno = materiaUno;
+            MateriaDos = materiaDos;
+            MateriaTres = materiaTres;
+            MateriaCuatro = materiaCuatro;
+            MateriaCinco = materiaCinco;
+            MateriaSeis = materiaSeis;
+            PagoMatricula = pagoMatricula;
+            PagoCargosAdministrativos = pagoCargos;
+            PagoUtilidades = pagoUtilidades;
+            HistorialAcademico = historialAcademico;
         }
 
-        // Método para obtener una representación en cadena de las instancias de Estudiante
-        public string GetInstancias()
+        // Implementa el método abstracto de la clase base
+        public override string GetInstancias()
         {
-            return
-                $"Nombre: {NombreCompleto}\n" +
-                $"Apellido: {ApellidoCompleto}\n" +
-                $"Contrasenia: {Contrasenia}\n" +
-                $"Dirección: {Direccion}\n" +
-                $"Número de teléfono: {NumeroTelefono}\n" +
-                $"Correo electrónico: {CorreoElectronico}\n" +
-                $"Número de estudiante: {NumeroEstudiante}\n" +
-                $"Cuatrimestre: {CuatrimestreEstudiante}\n" +
-                $"Materia 1: {materiaUno}\n" +
-                $"Materia 2: {materiaDos}\n" +
-                $"Materia 3: {materiaTres}\n" +
-                $"Materia 4: {materiaCuatro}\n" +
-                $"Materia 5: {materiaCinco}\n" +
-                $"Materia 6: {materiaSeis}\n" +
-                $"Pago de matrícula: {PagoMatricula}\n" +
-                $"Pago de cargos administrativos: {PagoCargosAdministrativos}\n" +
-                $"Pago de utilidades: {PagoUtilidades}\n"+
-                $"Historial académico: {HistorialAcademico}\n";
-        }
-
-        // Operador de conversión implícita para crear un Estudiante a partir de una cadena
-        public static implicit operator Estudiante(string estudiante)
-        {
-            // Método para convertir una cadena en un objeto Estudiante
-            var datos = estudiante.Split('-');
-            return new Estudiante(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], int.Parse(datos[6]), datos[7], datos[8], datos[9], datos[10], datos[11], datos[12], datos[13], datos[14], datos[15], datos[16], datos[17]);
+            return $"Nombre: {NombreCompleto}\n" +
+                   $"Apellido: {ApellidoCompleto}\n" +
+                   $"Contrasenia: {Contrasenia}\n" +
+                   $"Dirección: {Direccion}\n" +
+                   $"Número de teléfono: {NumeroTelefono}\n" +
+                   $"Correo electrónico: {CorreoElectronico}\n" +
+                   $"Número de estudiante: {NumeroEstudiante}\n" +
+                   $"Cuatrimestre: {CuatrimestreEstudiante}\n" +
+                   $"Materia 1: {MateriaUno}\n" +
+                   $"Materia 2: {MateriaDos}\n" +
+                   $"Materia 3: {MateriaTres}\n" +
+                   $"Materia 4: {MateriaCuatro}\n" +
+                   $"Materia 5: {MateriaCinco}\n" +
+                   $"Materia 6: {MateriaSeis}\n" +
+                   $"Pago de matrícula: {PagoMatricula}\n" +
+                   $"Pago de cargos administrativos: {PagoCargosAdministrativos}\n" +
+                   $"Pago de utilidades: {PagoUtilidades}\n" +
+                   $"Historial académico: {HistorialAcademico}\n";
         }
 
         // Método para iniciar sesión del estudiante
@@ -123,11 +88,9 @@ namespace Biblioteca
         }
 
         // Método para que el estudiante cambie su historial académico
-
         public void CambiarHistorialAcademico(string nuevoHistorialAcademico)
         {
             HistorialAcademico = nuevoHistorialAcademico;
         }
-
     }
 }

@@ -59,15 +59,32 @@ namespace Sistema
                 }
 
                 // Crear un objeto de tipo Estudiante
-                Estudiante estudiante = new Estudiante();
+                Estudiante estudiante = new Estudiante
+                (
+                textBox1.Text,
+                textBox2.Text,
+                "contraseña_predeterminada", //contraseña que se generara
+                textBox4.Text,
+                textBox5.Text,
+                textBox3.Text,
+                0, //número de estudiante adecuado
+                textBox6.Text,
+                "",  // Las materias 
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "", // Los pagos
+                "",
+                "");
 
-                // Asignar los valores de los campos a las propiedades del objeto
-                estudiante.NombreCompleto = textBox1.Text;
-                estudiante.ApellidoCompleto = textBox2.Text;
-                estudiante.CorreoElectronico = correoElectronico; // Usar el valor validado
-                estudiante.Direccion = textBox4.Text;
-                estudiante.NumeroTelefono = numeroTelefono; // Usar el valor validado
-                estudiante.CuatrimestreEstudiante = textBox6.Text;
+                // Llamar al método de creación de número de estudiante
+                inicioSesion.GenerarNumeroEstudiante(estudiante);
+
+                // Resto del código...
+
 
                 // Llamar al método de creación de número de estudiante
                 inicioSesion.GenerarNumeroEstudiante(estudiante);
