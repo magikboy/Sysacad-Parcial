@@ -78,7 +78,6 @@ namespace Sistema
                     inicioSesion.GenerarConstaseniaProvisoria(estudiante);
                 }
 
-
                 // Verificar si el estudiante ya existe en la lista
                 if (estudiantes.Exists(est => est.NumeroEstudiante == estudiante.NumeroEstudiante))
                 {
@@ -86,14 +85,17 @@ namespace Sistema
                 }
                 else
                 {
-                    // Agregar el estudiante a la lista
-                    estudiantes.Add(estudiante);
+                    // Cargar la lista existente de estudiantes desde el archivo JSON
+                    var listaExistente = GuardarDatosEstudiantes.ReadStreamJSON();
 
-                    // Guardar la lista de estudiantes actualizada en el archivo JSON
-                    GuardarDatosEstudiantes.WriteStreamJSON("estudiantes.json", estudiantes);
+                    // Agregar el estudiante a la lista existente
+                    listaExistente.Add(estudiante);
+
+                    // Guardar la lista completa de estudiantes (incluyendo el nuevo estudiante) en el archivo JSON
+                    GuardarDatosEstudiantes.WriteStreamJSON(listaExistente);
 
                     MessageBox.Show("Estudiante Registrado.");
-                    MessageBox.Show("Se envio un Correo al Estudiante.");
+                    MessageBox.Show("Se envió un Correo al Estudiante.");
                 }
             }
         }

@@ -57,10 +57,11 @@ namespace Sistema
             }
             else
             {
-                // Verifico si textBox1  y textBox7 contiene un valor numérico
+                // Verifico si textBox1 y textBox7 contiene un valor numérico
                 if (int.TryParse(textBox1.Text, out int codigoCurso) && int.TryParse(textBox7.Text, out int aulaCurso))
                 {
-                    // si es que Todos los campos obligatorios están completos y textBox1 contiene un valor numérico.
+                    // Cargar la lista existente de cursos desde el archivo JSON
+                    cursos = GuardarDatosCursos.ReadStreamJSON();
 
                     // Verifico si el curso ya existe en la lista
                     if (cursos.Exists(x => x.Codigo == codigoCurso))
@@ -91,7 +92,7 @@ namespace Sistema
                         cursos.Add(curso);
 
                         // Guardo todos los cursos en el archivo JSON (sobrescribir el archivo)
-                        GuardarDatosCursos.WriteStreamJSON("cursos.json", cursos);
+                        GuardarDatosCursos.WriteStreamJSON(cursos);
 
                         MessageBox.Show("Curso Registrado.");
 
