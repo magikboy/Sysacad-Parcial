@@ -34,37 +34,48 @@
             btnIngresar = new Button();
             button1 = new Button();
             button2 = new Button();
+            panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(279, 9);
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(189, 11);
             label2.Name = "label2";
-            label2.Size = new Size(239, 32);
+            label2.Size = new Size(248, 28);
             label2.TabIndex = 28;
             label2.Text = "Menu Administrador";
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = SystemColors.Control;
+            btnSalir.BackColor = Color.Black;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(337, 390);
+            btnSalir.Font = new Font("Century Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(12, 9);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(129, 48);
+            btnSalir.Size = new Size(30, 30);
             btnSalir.TabIndex = 26;
-            btnSalir.Text = "SALIR";
+            btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // btnIngresar
             // 
-            btnIngresar.BackColor = Color.LightGreen;
+            btnIngresar.BackColor = Color.FromArgb(64, 64, 64);
+            btnIngresar.FlatAppearance.BorderSize = 0;
+            btnIngresar.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(251, 96);
+            btnIngresar.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnIngresar.ForeColor = Color.White;
+            btnIngresar.Location = new Point(163, 100);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(296, 48);
             btnIngresar.TabIndex = 25;
@@ -74,9 +85,13 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightGreen;
+            button1.BackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.Gray;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(251, 189);
+            button1.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(163, 213);
             button1.Name = "button1";
             button1.Size = new Size(296, 48);
             button1.TabIndex = 29;
@@ -86,9 +101,13 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.LightGreen;
+            button2.BackColor = Color.FromArgb(64, 64, 64);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.Gray;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(251, 286);
+            button2.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(163, 333);
             button2.Name = "button2";
             button2.Size = new Size(296, 48);
             button2.TabIndex = 30;
@@ -96,30 +115,45 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(650, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(300, 450);
+            panel1.TabIndex = 31;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-560, -315);
+            pictureBox1.Location = new Point(0, 63);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.Size = new Size(294, 301);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 31;
+            pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // MenuAdministrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Black;
+            ClientSize = new Size(950, 450);
+            Controls.Add(panel1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
-            Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MenuAdministrador";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -131,6 +165,7 @@
         private Button btnIngresar;
         private Button button1;
         private Button button2;
+        private Panel panel1;
         private PictureBox pictureBox1;
     }
 }

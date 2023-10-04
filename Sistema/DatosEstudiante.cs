@@ -51,7 +51,7 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Obtengo la contraseña actual y la nueva contraseña ingresadas por el estudiante
+            // Obtengo la contraseña actual ingresada por el estudiante en texto plano
             string actualContraseña = textBox6.Text;
             string nuevaContraseña = textBox7.Text;
 
@@ -60,8 +60,8 @@ namespace Sistema
 
             if (estudianteSeleccionado != null)
             {
-                // Verifica si la contraseña actual coincide con la contraseña del estudiante
-                if (estudianteSeleccionado.IniciarSesion(actualContraseña))
+                // Verifica si la contraseña actual coincide con la contraseña encriptada almacenada
+                if (Hash.ValidatePassword(actualContraseña, estudianteSeleccionado.Contrasenia))
                 {
                     // Cambia la contraseña del estudiante
                     estudianteSeleccionado.CambiarContraseña(nuevaContraseña);
@@ -85,6 +85,7 @@ namespace Sistema
             textBox6.Clear();
             textBox7.Clear();
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

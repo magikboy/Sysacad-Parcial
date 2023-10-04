@@ -10,6 +10,7 @@ namespace Biblioteca
     {
         public string Usuario { get; set; }
 
+
         public Administrador(string usuario, string contrasenia)
             : base("", contrasenia) // No es necesario pasar un nombre para el administrador
         {
@@ -21,6 +22,13 @@ namespace Biblioteca
         {
             return $"Nombre de usuario: {Usuario}\n" +
                    $"Contrasenia: {Contrasenia}\n";
+        }
+
+        // Método para que el estudiante cambie su contraseña
+        public void CambiarContraseña(string nuevaContraseña)
+        {
+            // Hash de la nueva contraseña
+            Contrasenia = Hash.GetHash(nuevaContraseña);
         }
 
         // Método para iniciar sesión con un usuario y contraseña proporcionados

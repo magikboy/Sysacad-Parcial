@@ -77,12 +77,25 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Hardcodear un administrador y escribirlos en el textbox1 y 2
-            Administrador administrador = new Administrador("admin", "1234");
+            // Crear un nuevo administrador
+            string usuario = "admin";
+            string contrasenia = "1234"; // Contraseña en texto plano
+            string contraseniaEncriptada = Hash.GetHash(contrasenia); // Encriptar la contraseña
+
+            Administrador administrador = new Administrador(usuario, contraseniaEncriptada);
+
+            // Guardar el administrador en el archivo JSON
+            List<Administrador> administradores = new List<Administrador>();
+            administradores.Add(administrador);
+            GuardarDatosAdministrador.WriteStreamJSON(administradores);
+
+            // Asignar los datos del estudiante a los campos correspondientes
             textBox1.Text = administrador.Usuario;
-            textBox2.Text = administrador.Contrasenia;
+            textBox2.Text = contrasenia;
+
             MessageBox.Show("Datos del Administrador cargados.");
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -97,7 +110,7 @@ namespace Sistema
 
                 // Asignar los datos del estudiante a los campos correspondientes
                 textBox1.Text = estudiante.NumeroEstudiante.ToString();
-                textBox2.Text = estudiante.Contrasenia;
+                textBox2.Text = "1234";
 
                 MessageBox.Show("Datos del primer estudiante cargados.");
             }

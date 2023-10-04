@@ -17,6 +17,12 @@ namespace Biblioteca
 
         public static void WriteStreamJSON(List<Estudiante> estudiantes)
         {
+            // Antes de guardar, hashear las contraseñas nuevamente si es necesario
+            foreach (var estudiante in estudiantes)
+            {
+                estudiante.Contrasenia = Hash.GetHash(estudiante.Contrasenia);
+            }
+
             WriteStreamJSON("estudiantes.json", estudiantes);
         }
 

@@ -30,9 +30,9 @@ namespace Biblioteca
             // si es que tengo que inicializar las propiedades segun el caso
         }
 
-        // Constructor de la clase Estudiante
+        // Constructor de la clase Estudiante con hash de contraseña
         public Estudiante(string nombreCompleto, string apellidoCompleto, string contrasenia, string direccion, string numeroTelefono, string correoElectronico, int numeroEstudiante, string cuatrimestreEstudiante, string materiaUno, string materiaDos, string materiaTres, string materiaCuatro, string materiaCinco, string materiaSeis, string pagoMatricula, string pagoCargos, string pagoUtilidades, string historialAcademico)
-            : base(nombreCompleto, contrasenia)
+            : base(nombreCompleto, "")
         {
             ApellidoCompleto = apellidoCompleto;
             Direccion = direccion;
@@ -50,6 +50,9 @@ namespace Biblioteca
             PagoCargosAdministrativos = pagoCargos;
             PagoUtilidades = pagoUtilidades;
             HistorialAcademico = historialAcademico;
+
+            // Hash de la contraseña antes de asignarla
+            Contrasenia = Hash.GetHash(contrasenia);
         }
 
         // Implementa el método abstracto de la clase base
@@ -81,11 +84,12 @@ namespace Biblioteca
             return Contrasenia == contraseña;
         }
 
-        // Método para que el estudiante cambie su contraseña
         public void CambiarContraseña(string nuevaContraseña)
         {
-            Contrasenia = nuevaContraseña;
+            // Hash de la nueva contraseña
+            Contrasenia = Hash.GetHash(nuevaContraseña);
         }
+
 
         // Método para que el estudiante cambie su historial académico
         public void CambiarHistorialAcademico(string nuevoHistorialAcademico)
