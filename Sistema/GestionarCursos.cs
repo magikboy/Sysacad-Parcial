@@ -17,51 +17,77 @@ namespace Sistema
             InitializeComponent();
         }
 
-        private void Cursos_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            //salir del programa
-            Application.Exit();
+            try
+            {
+                // Salir del programa
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar salir del programa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //volver al menu principal
-            this.Hide();
-            EliminarCurso ingresar = new EliminarCurso();
-            ingresar.Show();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
+            try
+            {
+                // Volver al menú principal
+                this.Hide();
+                EliminarCurso ingresar = new EliminarCurso();
+                ingresar.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar ir al menú EliminarCurso: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //volver al menu de administrador
-            this.Hide();
-            MenuAdministrador menu = new MenuAdministrador();
-            menu.Show();
+            try
+            {
+                // Volver al menú de administrador
+                this.Hide();
+                MenuAdministrador menu = new MenuAdministrador();
+                menu.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar ir al menú MenuAdministrador: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //ingresar un nuevo curso
-            this.Hide();
-            AgregarCurso ingresar = new AgregarCurso();
-            ingresar.Show();
+            try
+            {
+                // Ingresar un nuevo curso
+                this.Hide();
+                AgregarCurso ingresar = new AgregarCurso();
+                ingresar.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar ir al menú AgregarCurso: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //elegir un curso para editar
-            this.Hide();
-            ElegirCurso elegir = new ElegirCurso();
-            elegir.Show();
+            try
+            {
+                // Elegir un curso para editar
+                this.Hide();
+                ElegirCurso elegir = new ElegirCurso();
+                elegir.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar ir al menú ElegirCurso: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

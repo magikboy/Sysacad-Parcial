@@ -68,42 +68,41 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Obtén los nuevos valores del curso desde los controles en el formulario
-            string nuevoNombre = textBox1.Text;
-            string nuevoCodigo = textBox2.Text;
-            string nuevoProfesor = textBox3.Text;
-            string nuevaDescripcion = textBox4.Text;
-            string nuevoCuatrimestre = textBox5.Text;
-            string nuevaFecha = textBox6.Text;
-            string nuevoAula = textBox7.Text;
-            string nuevaDivision = textBox8.Text;
-            string nuevoTurno = textBox9.Text;
-            int nuevoCupo = (int)numericUpDown1.Value;
-            int nuevoHorarioMin = (int)numericUpDown2.Value;
-            int nuevoHorarioMax = (int)numericUpDown3.Value;
-
-
-            // Busco el curso en la lista que coincida con el número de curso seleccionado
-            Cursos cursoAEditar = cursos.Find(curso => curso.Codigo == numeroCurso);
-
-            if (cursoAEditar != null)
+            try
             {
-                // Actualiza los datos del curso en la lista
-                cursoAEditar.Nombre = nuevoNombre;
-                cursoAEditar.Codigo = int.Parse(nuevoCodigo);
-                cursoAEditar.Profesor = nuevoProfesor;
-                cursoAEditar.DescripcionCurso = nuevaDescripcion;
-                cursoAEditar.Cuatrimestre = nuevoCuatrimestre;
-                cursoAEditar.Fecha = nuevaFecha;
-                cursoAEditar.Aula = int.Parse(nuevoAula);
-                cursoAEditar.Division = nuevaDivision;
-                cursoAEditar.Turno = nuevoTurno;
-                cursoAEditar.CupoDisponibles = nuevoCupo;
-                cursoAEditar.HorarioMin = nuevoHorarioMin;
-                cursoAEditar.HorarioMax = nuevoHorarioMax;
+                // Obtén los nuevos valores del curso desde los controles en el formulario
+                string nuevoNombre = textBox1.Text;
+                string nuevoCodigo = textBox2.Text;
+                string nuevoProfesor = textBox3.Text;
+                string nuevaDescripcion = textBox4.Text;
+                string nuevoCuatrimestre = textBox5.Text;
+                string nuevaFecha = textBox6.Text;
+                string nuevoAula = textBox7.Text;
+                string nuevaDivision = textBox8.Text;
+                string nuevoTurno = textBox9.Text;
+                int nuevoCupo = (int)numericUpDown1.Value;
+                int nuevoHorarioMin = (int)numericUpDown2.Value;
+                int nuevoHorarioMax = (int)numericUpDown3.Value;
 
-                try
+                // Busco el curso en la lista que coincida con el número de curso seleccionado
+                Cursos cursoAEditar = cursos.Find(curso => curso.Codigo == numeroCurso);
+
+                if (cursoAEditar != null)
                 {
+                    // Actualiza los datos del curso en la lista
+                    cursoAEditar.Nombre = nuevoNombre;
+                    cursoAEditar.Codigo = int.Parse(nuevoCodigo);
+                    cursoAEditar.Profesor = nuevoProfesor;
+                    cursoAEditar.DescripcionCurso = nuevaDescripcion;
+                    cursoAEditar.Cuatrimestre = nuevoCuatrimestre;
+                    cursoAEditar.Fecha = nuevaFecha;
+                    cursoAEditar.Aula = int.Parse(nuevoAula);
+                    cursoAEditar.Division = nuevaDivision;
+                    cursoAEditar.Turno = nuevoTurno;
+                    cursoAEditar.CupoDisponibles = nuevoCupo;
+                    cursoAEditar.HorarioMin = nuevoHorarioMin;
+                    cursoAEditar.HorarioMax = nuevoHorarioMax;
+
                     // Actualiza los datos del curso en el archivo JSON
                     cursoAEditar.CambiarCodigo(nuevoCodigo);
                     cursoAEditar.CambiarNombre(nuevoNombre);
@@ -123,15 +122,21 @@ namespace Sistema
 
                     MessageBox.Show("Los datos del curso se actualizaron correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error al actualizar los datos del curso: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Si no se encuentra el curso, muestra un mensaje de error
+                    MessageBox.Show("El curso seleccionado no se encuentra en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (FormatException ex)
             {
-                // Si no se encuentra el curso, muestra un mensaje de error
-                MessageBox.Show("El curso seleccionado ya se encuentra en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Manejar errores de formato (por ejemplo, si no se puede convertir una cadena a un número)
+                MessageBox.Show("Error de formato en los datos ingresados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                // Manejar otras excepciones generales
+                MessageBox.Show("Error al actualizar los datos del curso: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -161,6 +166,5 @@ namespace Sistema
         {
             string cuatrimeste = textBox5.Text;
         }
-
     }
 }

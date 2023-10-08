@@ -173,6 +173,10 @@
             PerformLayout();
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+        }
+
         #endregion
         private Button button1;
         private Label label2;

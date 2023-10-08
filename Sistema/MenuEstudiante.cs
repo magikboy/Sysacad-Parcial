@@ -32,7 +32,6 @@ namespace Sistema
             label1.ForeColor = Color.White;
         }
 
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -48,19 +47,26 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Buscar el estudiante por NumeroEstudiante
-            Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+            try
+            {
+                // Buscar el estudiante por NumeroEstudiante
+                Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
 
-            if (estudianteSeleccionado != null)
-            {
-                // Abrir el formulario de datos del estudiante
-                DatosEstudiante datosEstudiante = new DatosEstudiante(numeroEstudianteIngresado);
-                datosEstudiante.Show();
-                this.Hide();
+                if (estudianteSeleccionado != null)
+                {
+                    // Abrir el formulario de datos del estudiante
+                    DatosEstudiante datosEstudiante = new DatosEstudiante(numeroEstudianteIngresado);
+                    datosEstudiante.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró un estudiante con ese número.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontró un estudiante con ese número.");
+                MessageBox.Show("Ocurrió un error al intentar ingresar: " + ex.Message);
             }
         }
 
@@ -71,18 +77,32 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //entra al formulario de cursos y horarios
-            MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
-            menuCursosYHorariosEstudiantes.Show();
-            this.Hide();
+            try
+            {
+                // Entra al formulario de cursos y horarios
+                MenuCursosYHorariosEstudiantes menuCursosYHorariosEstudiantes = new MenuCursosYHorariosEstudiantes(numeroEstudianteIngresado);
+                menuCursosYHorariosEstudiantes.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar acceder a los cursos y horarios: " + ex.Message);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //ir al menu de realizar pagos
-            Realizar_Pagos realizar_Pagos = new Realizar_Pagos(numeroEstudianteIngresado);
-            realizar_Pagos.Show();
-            this.Hide();
+            try
+            {
+                // Ir al menú de realizar pagos
+                Realizar_Pagos realizar_Pagos = new Realizar_Pagos(numeroEstudianteIngresado);
+                realizar_Pagos.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar realizar pagos: " + ex.Message);
+            }
         }
     }
 }

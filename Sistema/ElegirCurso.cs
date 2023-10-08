@@ -25,118 +25,114 @@ namespace Sistema
         public ElegirCurso()
         {
             InitializeComponent();
-            // Llamamo a un método para cargar y mostrar los datos
+            // Llamo a un método para cargar y mostrar los datos
             CargarYMostrarDatos();
         }
 
         // Método para cargar y mostrar los datos en los labels
-        // Método para cargar y mostrar los datos en los labels
         private void CargarYMostrarDatos()
         {
-            // Lee la lista de cursos desde el archivo JSON
-            var lista = GuardarDatosCursos.ReadStreamJSON();
-
-            // Verificar si hay cursos en la lista antes de mostrar datos
-            if (lista.Count > 0)
+            try
             {
-                label3.Text = lista[0].Nombre.ToString();
-                label10.Text = lista[0].Codigo.ToString();
-            }
+                // Lee la lista de cursos desde el archivo JSON
+                var lista = GuardarDatosCursos.ReadStreamJSON();
 
-            if (lista.Count > 1)
+                // Verificar si hay cursos en la lista antes de mostrar datos
+                if (lista.Count > 0)
+                {
+                    label3.Text = lista[0].Nombre.ToString();
+                    label10.Text = lista[0].Codigo.ToString();
+                }
+
+                if (lista.Count > 1)
+                {
+                    label4.Text = lista[1].Nombre.ToString();
+                    label11.Text = lista[1].Codigo.ToString();
+                }
+
+                if (lista.Count > 2)
+                {
+                    label5.Text = lista[2].Nombre.ToString();
+                    label12.Text = lista[2].Codigo.ToString();
+                }
+
+                if (lista.Count > 3)
+                {
+                    label6.Text = lista[3].Nombre.ToString();
+                    label13.Text = lista[3].Codigo.ToString();
+                }
+
+                if (lista.Count > 4)
+                {
+                    label7.Text = lista[4].Nombre.ToString();
+                    label14.Text = lista[4].Codigo.ToString();
+                }
+
+                if (lista.Count > 5)
+                {
+                    label8.Text = lista[5].Nombre.ToString();
+                    label15.Text = lista[5].Codigo.ToString();
+                }
+
+                if (lista.Count > 6)
+                {
+                    label9.Text = lista[6].Nombre.ToString();
+                    label16.Text = lista[6].Codigo.ToString();
+                }
+            }
+            catch (Exception ex)
             {
-                label4.Text = lista[1].Nombre.ToString();
-                label11.Text = lista[1].Codigo.ToString();
+                MessageBox.Show($"Error al cargar y mostrar datos: {ex.Message}");
             }
-
-            if (lista.Count > 2)
-            {
-                label5.Text = lista[2].Nombre.ToString();
-                label12.Text = lista[2].Codigo.ToString();
-            }
-
-            if (lista.Count > 3)
-            {
-                label6.Text = lista[3].Nombre.ToString();
-                label13.Text = lista[3].Codigo.ToString();
-            }
-
-            if (lista.Count > 4)
-            {
-                label7.Text = lista[4].Nombre.ToString();
-                label14.Text = lista[4].Codigo.ToString();
-            }
-
-            if (lista.Count > 5)
-            {
-                label8.Text = lista[5].Nombre.ToString();
-                label15.Text = lista[5].Codigo.ToString();
-            }
-
-            if (lista.Count > 6)
-            {
-                label9.Text = lista[6].Nombre.ToString();
-                label16.Text = lista[6].Codigo.ToString();
-            }
-
-            // Repite si hay más cursos.
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //volver al menú administrador
-            this.Hide();
-            MenuAdministrador menu = new MenuAdministrador();
-            menu.Show();
+            try
+            {
+                // Volver al menú administrador
+                this.Hide();
+                MenuAdministrador menu = new MenuAdministrador();
+                menu.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al volver al menú administrador: {ex.Message}");
+            }
         }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            // Obtengo el código ingresado por el usuario
-            string codigoIngresado = textBox1.Text;
-
-            // Intento convertir el código ingresado a un entero
-            if (int.TryParse(codigoIngresado, out int codigoEntero))
+            try
             {
-                // Lee la lista de cursos desde el archivo JSON
-                var listaCursos = GuardarDatosCursos.ReadStreamJSON();
+                string codigoIngresado = textBox1.Text;
 
-
-                // Variable para almacenar el curso encontrado
-                Biblioteca.Cursos cursoEncontrado = null;
-
-                // Busco el curso con el código ingresado
-                foreach (var curso in listaCursos)
+                if (int.TryParse(codigoIngresado, out int codigoEntero))
                 {
-                    if (curso.Codigo == codigoEntero)
+                    var listaCursos = GuardarDatosCursos.ReadStreamJSON();
+
+                    Biblioteca.Cursos cursoEncontrado = listaCursos.FirstOrDefault(curso => curso.Codigo == codigoEntero);
+
+                    if (cursoEncontrado != null)
                     {
-                        // Encontré el curso, lo guardo en la variable
-                        cursoEncontrado = curso;
-                        break;
+                        MessageBox.Show($"Curso encontrado: {cursoEncontrado.Nombre}");
+                        this.Hide();
+                        EditarCurso editarCurso = new EditarCurso(cursoEncontrado.Codigo, cursoEncontrado.Nombre);
+                        editarCurso.Show();
                     }
-                }
-
-                // Verificar si se encontró el curso
-                if (cursoEncontrado != null)
-                {
-                    // El curso existe en el JSON, puedes mostrar sus datos
-                    MessageBox.Show($"Curso encontrado: {cursoEncontrado.Nombre}");
-
-                    // Abrir el formulario EditarCurso y pasar el número y nombre del curso
-                    this.Hide();
-                    EditarCurso editarCurso = new EditarCurso(cursoEncontrado.Codigo, cursoEncontrado.Nombre);
-                    editarCurso.Show();
+                    else
+                    {
+                        MessageBox.Show("El código de curso ingresado no existe.");
+                    }
                 }
                 else
                 {
-                    // El curso no fue encontrado
-                    MessageBox.Show("El código de curso ingresado no existe.");
+                    MessageBox.Show("Por favor, ingrese un código de curso válido (número entero).");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                // El código ingresado no es un número entero válido
-                MessageBox.Show("Por favor, ingrese un código de curso válido (número entero).");
+                MessageBox.Show($"Error al buscar y mostrar curso: {ex.Message}");
             }
         }
     }

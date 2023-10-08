@@ -1,12 +1,6 @@
 ﻿using Biblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -21,25 +15,34 @@ namespace Sistema
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
-            MostrarNumeroEstudiante();
 
-            // Buscar el estudiante por NumeroEstudiante
-            Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
-
-            if (estudianteSeleccionado != null) // Verifica si se encontró el estudiante
+            try
             {
-                // Mostrar la información del estudiante en los Labels
-                label11.Text = estudianteSeleccionado.NombreCompleto;
-                label12.Text = estudianteSeleccionado.ApellidoCompleto;
-                label13.Text = estudianteSeleccionado.Direccion;
-                label14.Text = estudianteSeleccionado.CorreoElectronico;
-                label15.Text = "+54-11-" + estudianteSeleccionado.NumeroTelefono;
-                label16.Text = estudianteSeleccionado.CuatrimestreEstudiante;
+                this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
+                MostrarNumeroEstudiante();
+
+                // Buscar el estudiante por NumeroEstudiante
+                Estudiante estudianteSeleccionado = estudiantes.Find(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+
+                if (estudianteSeleccionado != null) // Verifica si se encontró el estudiante
+                {
+                    // Mostrar la información del estudiante en los Labels
+                    label11.Text = estudianteSeleccionado.NombreCompleto;
+                    label12.Text = estudianteSeleccionado.ApellidoCompleto;
+                    label13.Text = estudianteSeleccionado.Direccion;
+                    label14.Text = estudianteSeleccionado.CorreoElectronico;
+                    label15.Text = "+54-11-" + estudianteSeleccionado.NumeroTelefono;
+                    label16.Text = estudianteSeleccionado.CuatrimestreEstudiante;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró un estudiante con ese número.");
+                    this.Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontró un estudiante con ese número.");
+                MessageBox.Show("Error al cargar los datos de los estudiantes: " + ex.Message);
                 this.Close();
             }
         }
@@ -55,41 +58,47 @@ namespace Sistema
             string actualContraseña = textBox6.Text;
             string nuevaContraseña = textBox7.Text;
 
-            // Busco el estudiante por su número de estudiante
-            Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
-
-            if (estudianteSeleccionado != null)
+            try
             {
-                // Verifica si la contraseña actual coincide con la contraseña encriptada almacenada
-                if (Hash.ValidatePassword(actualContraseña, estudianteSeleccionado.Contrasenia))
+                // Busco el estudiante por su número de estudiante
+                Estudiante estudianteSeleccionado = estudiantes.Find(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+
+                if (estudianteSeleccionado != null)
                 {
-                    // Cambia la contraseña del estudiante
-                    estudianteSeleccionado.CambiarContraseña(nuevaContraseña);
+                    // Verifica si la contraseña actual coincide con la contraseña encriptada almacenada
+                    if (Hash.ValidatePassword(actualContraseña, estudianteSeleccionado.Contrasenia))
+                    {
+                        // Cambia la contraseña del estudiante
+                        estudianteSeleccionado.CambiarContraseña(nuevaContraseña);
 
-                    // Actualiza la contraseña en el archivo JSON
-                    GuardarDatosEstudiantes.ActualizarContraseñaEstudiante(estudianteSeleccionado);
+                        // Actualiza la contraseña en el archivo JSON
+                        GuardarDatosEstudiantes.ActualizarContraseñaEstudiante(estudianteSeleccionado);
 
-                    MessageBox.Show("Contraseña cambiada exitosamente.");
+                        MessageBox.Show("Contraseña cambiada exitosamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La contraseña actual es incorrecta. Por favor, inténtelo de nuevo.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña actual es incorrecta. Por favor, inténtelo de nuevo.");
+                    MessageBox.Show("No se encontró un estudiante con ese número.");
                 }
+
+                // Limpia los TextBox después de cambiar la contraseña
+                textBox6.Clear();
+                textBox7.Clear();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontró un estudiante con ese número.");
+                MessageBox.Show("Error al cambiar la contraseña: " + ex.Message);
             }
-
-            // Limpia los TextBox después de cambiar la contraseña
-            textBox6.Clear();
-            textBox7.Clear();
         }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //volver al menu del estudiante
+            //volver al menú del estudiante
             this.Hide();
             MenuEstudiante menuEstudiante = new MenuEstudiante(numeroEstudianteIngresado);
             menuEstudiante.Show();
@@ -100,7 +109,6 @@ namespace Sistema
             //salir
             Application.Exit();
         }
-
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -122,22 +130,29 @@ namespace Sistema
         {
             string HistorialAcademico = textBox1.Text;
 
-            // Busco el estudiante por su número de estudiante
-            Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
-
-            if (estudianteSeleccionado != null)
+            try
             {
-                // Actualiza el historial académico del estudiante
-                estudianteSeleccionado.CambiarHistorialAcademico(HistorialAcademico);
+                // Busco el estudiante por su número de estudiante
+                Estudiante estudianteSeleccionado = estudiantes.Find(est => est.NumeroEstudiante == numeroEstudianteIngresado);
 
-                // Actualiza el historial académico en el archivo JSON
-                GuardarDatosEstudiantes.ActualizarHistorialAcademicoEstudiante(estudianteSeleccionado);
+                if (estudianteSeleccionado != null)
+                {
+                    // Actualiza el historial académico del estudiante
+                    estudianteSeleccionado.CambiarHistorialAcademico(HistorialAcademico);
 
-                MessageBox.Show("Historial académico actualizado exitosamente.");
+                    // Actualiza el historial académico en el archivo JSON
+                    GuardarDatosEstudiantes.ActualizarHistorialAcademicoEstudiante(estudianteSeleccionado);
+
+                    MessageBox.Show("Historial académico actualizado exitosamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró un estudiante con ese número.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontró un estudiante con ese número.");
+                MessageBox.Show("Error al actualizar el historial académico: " + ex.Message);
             }
         }
     }

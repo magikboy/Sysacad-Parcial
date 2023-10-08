@@ -21,7 +21,15 @@ namespace Sistema
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
-            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
+
+            try
+            {
+                this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de los estudiantes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void MostrarNumeroEstudiante()
@@ -31,43 +39,55 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            int numeroEstudiante = int.Parse(label1.Text);
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-
-            // ingresar a inscribir primer cuatri if pertenece a primer cuatri
-            if (estudiante.CuatrimestreEstudiante == "Primer Cuatrimestre")
+            try
             {
-                InscribirPrimerCuatri inscribirPrimerCuatri = new InscribirPrimerCuatri(numeroEstudianteIngresado);
-                inscribirPrimerCuatri.Show();
-                this.Hide();
-            }
-            // ingresar a inscribir segundo cuatri if pertenece a segundo cuatri
-            else if (estudiante.CuatrimestreEstudiante == "Segundo Cuatrimestre")
-            {
-                InscribirSegundoCuatri inscribirSegundoCuatri = new InscribirSegundoCuatri(numeroEstudianteIngresado);
-                inscribirSegundoCuatri.Show();
-                this.Hide();
-            }
-            // ingresar a inscribir tercer cuatri if pertenece a tercer cuatri
-            else if (estudiante.CuatrimestreEstudiante == "Tercer Cuatrimestre")
-            {
-                InscribirTercerCuatri inscribirTercerCuatri = new InscribirTercerCuatri(numeroEstudianteIngresado);
-                inscribirTercerCuatri.Show();
-                this.Hide();
-            }
-            // ingresar a inscribir cuarto cuatri if pertenece a cuarto cuatri
-            else if (estudiante.CuatrimestreEstudiante == "Cuarto Cuatrimestre")
-            {
-                InscribirCuartoCuatri inscribirCuartoCuatri = new InscribirCuartoCuatri(numeroEstudianteIngresado);
-                inscribirCuartoCuatri.Show();
-                this.Hide();
-            }
-        }
+                int numeroEstudiante = int.Parse(label1.Text);
+                Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
 
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+                if (estudiante != null)
+                {
+                    if (estudiante.CuatrimestreEstudiante == "Primer Cuatrimestre")
+                    {
+                        InscribirPrimerCuatri inscribirPrimerCuatri = new InscribirPrimerCuatri(numeroEstudianteIngresado);
+                        inscribirPrimerCuatri.Show();
+                        this.Hide();
+                    }
+                    else if (estudiante.CuatrimestreEstudiante == "Segundo Cuatrimestre")
+                    {
+                        InscribirSegundoCuatri inscribirSegundoCuatri = new InscribirSegundoCuatri(numeroEstudianteIngresado);
+                        inscribirSegundoCuatri.Show();
+                        this.Hide();
+                    }
+                    else if (estudiante.CuatrimestreEstudiante == "Tercer Cuatrimestre")
+                    {
+                        InscribirTercerCuatri inscribirTercerCuatri = new InscribirTercerCuatri(numeroEstudianteIngresado);
+                        inscribirTercerCuatri.Show();
+                        this.Hide();
+                    }
+                    else if (estudiante.CuatrimestreEstudiante == "Cuarto Cuatrimestre")
+                    {
+                        InscribirCuartoCuatri inscribirCuartoCuatri = new InscribirCuartoCuatri(numeroEstudianteIngresado);
+                        inscribirCuartoCuatri.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El estudiante no pertenece a ningún cuatrimestre válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Número de estudiante no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Por favor, ingrese un número de estudiante válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

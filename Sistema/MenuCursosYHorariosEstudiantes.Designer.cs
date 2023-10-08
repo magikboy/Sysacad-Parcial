@@ -183,6 +183,10 @@
             PerformLayout();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
+
         #endregion
 
         private Label label3;

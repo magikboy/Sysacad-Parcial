@@ -122,6 +122,7 @@
             textBox1.BackColor = Color.FromArgb(64, 64, 64);
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.ForeColor = Color.White;
             textBox1.Location = new Point(13, 349);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
@@ -255,7 +256,7 @@
             textBox7.BackColor = Color.FromArgb(64, 64, 64);
             textBox7.BorderStyle = BorderStyle.None;
             textBox7.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox7.ForeColor = Color.Silver;
+            textBox7.ForeColor = Color.White;
             textBox7.Location = new Point(424, 143);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(182, 16);
