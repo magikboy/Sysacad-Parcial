@@ -12,12 +12,16 @@
 PRIMER PARCIAL LABORATORIO/PROGRAMACION 2
 
 ● Se deberán realizar las especificaciones descritas en los cinco casos de uso dados.
+
 ● El parcial se evaluará en forma individual y el alumno tendrá que defender ambas
 aplicaciones, la biblioteca de clases y la app windows forms.
+
 ● En la defensa el alumno tendrá que defender el código escrito y la teoría aplicada a
 este (para la materia programación 2).
+
 ● La fecha de entrega es el lunes 9 de octubre, si no es posible evaluar a todos los
 alumnos se continuará al día siguiente.
+
 ● El parcial se entregará a través de un formulario que se habilitará el día lunes (Crear
 un repositorio en Github compartido con todos los profesores).
 
@@ -43,6 +47,34 @@ información).
 12. Serán valorados a la hora de evaluar la creatividad que se aplique al programa en
 cuanto al diseño y usabilidad de la misma.
 13. Se tendrá en cuenta el grado de dificultad del programa a la hora de la evaluación.
+
+### 📄Parcial:
+
+## Consignas
+📃[Consignas](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Primer%20Parcial%20Progra%202.pdf)
+
+##Casos De Uso
+📃[General Casos de uso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/New%20SYSACAD.pdf)
+
+##Caso De Uso 1
+
+📃[Caso De Uso 1](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%201%20-%20%20Registrar%20Estudiante.pdf)
+
+##Caso De Uso 2
+
+📃[Caso De Uso 2](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%202%20-%20Gestionar%20Cursos.pdf)
+
+##Caso De Uso 3
+
+📃[Caso De Uso 3](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%203%20-%20Inscribir%20Estudiante%20en%20Curso.pdf)
+
+##Caso De Uso 4
+
+📃[Caso De Uso 4](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%204%20-%20Consultar%20Horario.pdf)
+
+##Caso De Uso 5
+
+📃[Caso De Uso 5](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%205%20-%20Realizar%20Pagos.pdf)
 
 ## Formulario de Login
 
