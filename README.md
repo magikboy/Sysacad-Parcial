@@ -76,6 +76,44 @@ cuanto al diseño y usabilidad de la misma.
 
 ![Curso A Editar](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/curso%20a%20editar.png)
 
-## Eleminar Curso
+## Eliminar Curso
 
-![Eleminar Curso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/curso%20a%20eliminar.png)
+![Eliminar Curso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/curso%20a%20eliminar.png)
+
+## Hardcodeo estudiante
+
+![Hardcodeo estu](https://github.com/magikboy/Sysacad-1er-Parcial/blob/f8128733c44f3641284a14e750a1022faa8eada4/hardcodeo%20Estudiante.png)
+
+## Menu Estudiante
+
+![Menu Estudiante](https://github.com/magikboy/Sysacad-1er-Parcial/blob/f8128733c44f3641284a14e750a1022faa8eada4/Menu%20estudiante.png)
+
+## Datos Estudiante
+
+![Datos Estudiante](https://github.com/magikboy/Sysacad-1er-Parcial/blob/f8128733c44f3641284a14e750a1022faa8eada4/Datos%20estudiante.png)
+
+## Menu Cursos Y horarios
+
+![Menu Cursos Y horarios](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/menu%20cursos%20y%20horarios.png)
+
+
+## Inscripcion Cursos
+
+![Inscripcion Cursos](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/inscipcion%20a%20cursos.png)
+
+
+## Horarios
+
+![Horarios](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/horarios.png)
+
+## Menu Pagos
+
+![Menu Pagos](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/menu%20pagos.png)
+
+## Menu Pagos Tarjeta
+
+![Menu Pagos Tarjeta](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/menu%20pago%20tarjeta.png)
+
+## Menu Pagos Transferencia
+
+![Menu Pagos Transferencia](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/menu%20pago%20transferencia.png)
