@@ -77,14 +77,8 @@ namespace Sistema
                 "",
                 "",
                 "", // Los pagos
-                "",
+                "", 
                 "");
-
-                // Llamar al método de creación de número de estudiante
-                inicioSesion.GenerarNumeroEstudiante(estudiante);
-
-                // Resto del código...
-
 
                 // Llamar al método de creación de número de estudiante
                 inicioSesion.GenerarNumeroEstudiante(estudiante);
@@ -95,6 +89,12 @@ namespace Sistema
                     inicioSesion.GenerarConstaseniaProvisoria(estudiante);
                 }
 
+                if (checkBox2.Checked)
+                {
+                    //poner contrasenia en blanco
+                    estudiante.Contrasenia = "";
+                }
+
                 // Verificar si el estudiante ya existe en la lista
                 if (estudiantes.Exists(est => est.NumeroEstudiante == estudiante.NumeroEstudiante))
                 {
@@ -102,14 +102,11 @@ namespace Sistema
                 }
                 else
                 {
-                    // Cargar la lista existente de estudiantes desde el archivo JSON
-                    var listaExistente = GuardarDatosEstudiantes.ReadStreamJSON();
-
-                    // Agregar el estudiante a la lista existente
-                    listaExistente.Add(estudiante);
+                    // Agregar el estudiante a la lista en memoria
+                    estudiantes.Add(estudiante);
 
                     // Guardar la lista completa de estudiantes (incluyendo el nuevo estudiante) en el archivo JSON
-                    GuardarDatosEstudiantes.WriteStreamJSON(listaExistente);
+                    GuardarDatosEstudiantes.WriteStreamJSON(estudiantes);
 
                     MessageBox.Show("Estudiante Registrado.");
                     MessageBox.Show("Se envió un Correo al Estudiante.");
@@ -151,7 +148,7 @@ namespace Sistema
             string[] Direccion = { "Calle 312", "Calle 211", "Calle 987", "Calle 11", "Calle 242", "Calle 23211", "Calle 23111" };
             string[] correos = { "juan@example.com", "maria@example.com", "carlos@example.com", "laura@example.com", "ana@example.com" };
             string[] telefonos = { "12345678", "98765432", "55555555", "99999999", "77777777" };
-            string[] Cuatrimestre = { "Primer Cuatrimestre", "Segundo Cuatrimestre", "Tercer Cuatrimestre", "Cuarto Cuatrimestre"};
+            string[] Cuatrimestre = { "Primer Cuatrimestre", "Segundo Cuatrimestre", "Tercer Cuatrimestre", "Cuarto Cuatrimestre" };
 
             // Generar datos aleatorios
             string nombreAleatorio = nombres[random.Next(nombres.Length)];

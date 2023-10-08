@@ -37,17 +37,22 @@
             button3 = new Button();
             label1 = new Label();
             label3 = new Label();
+            panel1 = new Panel();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button2
             // 
-            button2.BackColor = Color.LightGreen;
+            button2.BackColor = Color.FromArgb(64, 64, 64);
+            button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(252, 316);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(225, 392);
             button2.Name = "button2";
-            button2.Size = new Size(296, 48);
+            button2.Size = new Size(338, 54);
             button2.TabIndex = 35;
             button2.Text = "Volver al menu";
             button2.UseVisualStyleBackColor = false;
@@ -55,11 +60,14 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightGreen;
+            button1.BackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(252, 164);
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(225, 196);
             button1.Name = "button1";
-            button1.Size = new Size(296, 48);
+            button1.Size = new Size(338, 54);
             button1.TabIndex = 34;
             button1.Text = "Cursos y Horarios";
             button1.UseVisualStyleBackColor = false;
@@ -68,32 +76,41 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(305, 9);
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(282, 25);
             label2.Name = "label2";
-            label2.Size = new Size(198, 32);
+            label2.Size = new Size(202, 28);
             label2.TabIndex = 33;
             label2.Text = "Menu Estudiante";
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = SystemColors.Control;
+            btnSalir.BackColor = Color.Black;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnSalir.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(338, 392);
+            btnSalir.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(12, 23);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(129, 48);
+            btnSalir.Size = new Size(31, 37);
             btnSalir.TabIndex = 32;
-            btnSalir.Text = "SALIR";
+            btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // btnIngresar
             // 
-            btnIngresar.BackColor = Color.LightGreen;
+            btnIngresar.BackColor = Color.FromArgb(64, 64, 64);
+            btnIngresar.FlatAppearance.BorderSize = 0;
             btnIngresar.FlatStyle = FlatStyle.Flat;
-            btnIngresar.Location = new Point(252, 89);
+            btnIngresar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnIngresar.ForeColor = Color.White;
+            btnIngresar.Location = new Point(225, 105);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(296, 48);
+            btnIngresar.Size = new Size(338, 54);
             btnIngresar.TabIndex = 31;
             btnIngresar.Text = "Datos";
             btnIngresar.UseVisualStyleBackColor = false;
@@ -101,11 +118,13 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.LightGreen;
+            button3.BackColor = Color.FromArgb(64, 64, 64);
+            button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(252, 242);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(225, 296);
             button3.Name = "button3";
-            button3.Size = new Size(296, 48);
+            button3.Size = new Size(338, 54);
             button3.TabIndex = 36;
             button3.Text = "Realizar Pagos";
             button3.UseVisualStyleBackColor = false;
@@ -114,9 +133,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(429, 47);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(424, 53);
             label1.Name = "label1";
-            label1.Size = new Size(52, 15);
+            label1.Size = new Size(60, 17);
             label1.TabIndex = 38;
             label1.Text = "Num Est";
             label1.Click += label1_Click;
@@ -124,28 +144,50 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(317, 47);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(279, 53);
             label3.Name = "label3";
-            label3.Size = new Size(115, 15);
+            label3.Size = new Size(139, 17);
             label3.TabIndex = 39;
             label3.Text = "Numero Estudiante :";
+            // 
+            // panel1
+            // 
+            panel1.AutoSize = true;
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(1089, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(0, 528);
+            panel1.TabIndex = 40;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(756, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(333, 528);
+            panel2.TabIndex = 41;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-560, -315);
+            pictureBox1.Location = new Point(24, 85);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.Size = new Size(294, 301);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 40;
+            pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // MenuEstudiante
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Black;
+            ClientSize = new Size(1089, 528);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(button3);
@@ -154,9 +196,14 @@
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
-            Controls.Add(pictureBox1);
+            Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MenuEstudiante";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -172,6 +219,8 @@
         private Button button3;
         private Label label1;
         private Label label3;
+        private Panel panel1;
+        private Panel panel2;
         private PictureBox pictureBox1;
     }
 }

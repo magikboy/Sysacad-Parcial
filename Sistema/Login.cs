@@ -110,7 +110,7 @@ namespace Sistema
 
                 // Asignar los datos del estudiante a los campos correspondientes
                 textBox1.Text = estudiante.NumeroEstudiante.ToString();
-                textBox2.Text = "1234";
+                textBox2.Text = "1234"; // Contraseña en texto plano
 
                 MessageBox.Show("Datos del primer estudiante cargados.");
             }

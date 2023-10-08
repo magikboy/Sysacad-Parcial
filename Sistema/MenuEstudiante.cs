@@ -21,12 +21,15 @@ namespace Sistema
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
             this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
+            label1.ForeColor = Color.White;
             MostrarNumeroEstudiante();
         }
 
         private void MostrarNumeroEstudiante()
         {
             label1.Text = numeroEstudianteIngresado.ToString();
+            //poner label 1 en blanco
+            label1.ForeColor = Color.White;
         }
 
 
@@ -63,6 +66,7 @@ namespace Sistema
 
         private void label1_Click(object sender, EventArgs e)
         {
+            MostrarNumeroEstudiante();
         }
 
         private void button1_Click(object sender, EventArgs e)

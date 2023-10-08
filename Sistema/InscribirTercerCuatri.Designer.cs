@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InscribirTercerCuatri));
             groupBox6 = new GroupBox();
             label43 = new Label();
             label45 = new Label();
@@ -94,18 +93,17 @@
             btnSalir = new Button();
             label3 = new Label();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox6
             // 
+            groupBox6.BackColor = Color.Black;
             groupBox6.Controls.Add(label43);
             groupBox6.Controls.Add(label45);
             groupBox6.Controls.Add(label46);
@@ -115,7 +113,9 @@
             groupBox6.Controls.Add(button7);
             groupBox6.Controls.Add(label50);
             groupBox6.Controls.Add(label51);
-            groupBox6.Location = new Point(762, 321);
+            groupBox6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox6.ForeColor = Color.White;
+            groupBox6.Location = new Point(764, 341);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(279, 257);
             groupBox6.TabIndex = 105;
@@ -184,11 +184,12 @@
             // 
             // button7
             // 
-            button7.BackColor = Color.LightGreen;
+            button7.BackColor = Color.FromArgb(64, 64, 64);
+            button7.FlatAppearance.BorderSize = 0;
             button7.FlatStyle = FlatStyle.Flat;
             button7.Location = new Point(104, 222);
             button7.Name = "button7";
-            button7.Size = new Size(72, 28);
+            button7.Size = new Size(86, 28);
             button7.TabIndex = 113;
             button7.Text = "Inscribirse";
             button7.UseVisualStyleBackColor = false;
@@ -216,6 +217,7 @@
             // 
             // groupBox5
             // 
+            groupBox5.BackColor = Color.Black;
             groupBox5.Controls.Add(label19);
             groupBox5.Controls.Add(label21);
             groupBox5.Controls.Add(label20);
@@ -225,7 +227,9 @@
             groupBox5.Controls.Add(button4);
             groupBox5.Controls.Add(label23);
             groupBox5.Controls.Add(label24);
-            groupBox5.Location = new Point(762, 62);
+            groupBox5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox5.ForeColor = Color.White;
+            groupBox5.Location = new Point(764, 82);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(279, 253);
             groupBox5.TabIndex = 106;
@@ -294,11 +298,12 @@
             // 
             // button4
             // 
-            button4.BackColor = Color.LightGreen;
+            button4.BackColor = Color.FromArgb(64, 64, 64);
+            button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Location = new Point(104, 210);
             button4.Name = "button4";
-            button4.Size = new Size(72, 28);
+            button4.Size = new Size(86, 28);
             button4.TabIndex = 86;
             button4.Text = "Inscribirse";
             button4.UseVisualStyleBackColor = false;
@@ -326,6 +331,7 @@
             // 
             // groupBox4
             // 
+            groupBox4.BackColor = Color.Black;
             groupBox4.Controls.Add(label35);
             groupBox4.Controls.Add(label36);
             groupBox4.Controls.Add(label37);
@@ -335,7 +341,9 @@
             groupBox4.Controls.Add(button6);
             groupBox4.Controls.Add(label41);
             groupBox4.Controls.Add(label42);
-            groupBox4.Location = new Point(457, 321);
+            groupBox4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox4.ForeColor = Color.White;
+            groupBox4.Location = new Point(459, 341);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(279, 257);
             groupBox4.TabIndex = 103;
@@ -404,11 +412,12 @@
             // 
             // button6
             // 
-            button6.BackColor = Color.LightGreen;
+            button6.BackColor = Color.FromArgb(64, 64, 64);
+            button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
             button6.Location = new Point(104, 222);
             button6.Name = "button6";
-            button6.Size = new Size(72, 28);
+            button6.Size = new Size(91, 28);
             button6.TabIndex = 104;
             button6.Text = "Inscribirse";
             button6.UseVisualStyleBackColor = false;
@@ -436,6 +445,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.BackColor = Color.Black;
             groupBox3.Controls.Add(label11);
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(label12);
@@ -445,7 +455,9 @@
             groupBox3.Controls.Add(button3);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(label16);
-            groupBox3.Location = new Point(457, 62);
+            groupBox3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox3.ForeColor = Color.White;
+            groupBox3.Location = new Point(459, 82);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(279, 253);
             groupBox3.TabIndex = 104;
@@ -514,11 +526,12 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.LightGreen;
+            button3.BackColor = Color.FromArgb(64, 64, 64);
+            button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Location = new Point(104, 210);
             button3.Name = "button3";
-            button3.Size = new Size(72, 28);
+            button3.Size = new Size(91, 28);
             button3.TabIndex = 77;
             button3.Text = "Inscribirse";
             button3.UseVisualStyleBackColor = false;
@@ -546,6 +559,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.Black;
             groupBox2.Controls.Add(label27);
             groupBox2.Controls.Add(label28);
             groupBox2.Controls.Add(label29);
@@ -555,7 +569,9 @@
             groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(label33);
             groupBox2.Controls.Add(label34);
-            groupBox2.Location = new Point(154, 321);
+            groupBox2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.ForeColor = Color.White;
+            groupBox2.Location = new Point(156, 341);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(279, 257);
             groupBox2.TabIndex = 102;
@@ -624,11 +640,12 @@
             // 
             // button5
             // 
-            button5.BackColor = Color.LightGreen;
+            button5.BackColor = Color.FromArgb(64, 64, 64);
+            button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Location = new Point(104, 222);
             button5.Name = "button5";
-            button5.Size = new Size(72, 28);
+            button5.Size = new Size(89, 28);
             button5.TabIndex = 95;
             button5.Text = "Inscribirse";
             button5.UseVisualStyleBackColor = false;
@@ -657,14 +674,18 @@
             // label44
             // 
             label44.AutoSize = true;
-            label44.Location = new Point(627, 44);
+            label44.BackColor = Color.Black;
+            label44.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label44.ForeColor = Color.White;
+            label44.Location = new Point(660, 50);
             label44.Name = "label44";
-            label44.Size = new Size(44, 15);
+            label44.Size = new Size(54, 17);
             label44.TabIndex = 101;
             label44.Text = "label44";
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Black;
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label7);
@@ -674,7 +695,9 @@
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(154, 62);
+            groupBox1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(156, 82);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(279, 253);
             groupBox1.TabIndex = 100;
@@ -743,11 +766,12 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightGreen;
+            button1.BackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Location = new Point(104, 210);
             button1.Name = "button1";
-            button1.Size = new Size(72, 28);
+            button1.Size = new Size(89, 28);
             button1.TabIndex = 68;
             button1.Text = "Inscribirse";
             button1.UseVisualStyleBackColor = false;
@@ -775,11 +799,14 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.LightGreen;
+            button2.BackColor = Color.FromArgb(64, 64, 64);
+            button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(440, 582);
+            button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(440, 618);
             button2.Name = "button2";
-            button2.Size = new Size(296, 48);
+            button2.Size = new Size(312, 48);
             button2.TabIndex = 99;
             button2.Text = "Volver al menu";
             button2.UseVisualStyleBackColor = false;
@@ -787,50 +814,50 @@
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = SystemColors.Control;
+            btnSalir.BackColor = Color.Black;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnSalir.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(531, 636);
+            btnSalir.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(12, 9);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(129, 48);
+            btnSalir.Size = new Size(43, 38);
             btnSalir.TabIndex = 98;
-            btnSalir.Text = "SALIR";
+            btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click_1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(513, 44);
+            label3.BackColor = Color.Black;
+            label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(515, 50);
             label3.Name = "label3";
-            label3.Size = new Size(115, 15);
+            label3.Size = new Size(139, 17);
             label3.TabIndex = 97;
             label3.Text = "Numero Estudiante :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(376, -3);
+            label2.BackColor = Color.Black;
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(378, 9);
             label2.Name = "label2";
-            label2.Size = new Size(421, 32);
+            label2.Size = new Size(460, 30);
             label2.TabIndex = 96;
             label2.Text = "Inscipcion Cursos Tercer Cuatrimestre";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-363, -195);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1920, 1080);
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 107;
-            pictureBox1.TabStop = false;
             // 
             // InscribirTercerCuatri
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.Black;
             ClientSize = new Size(1194, 691);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
@@ -843,8 +870,10 @@
             Controls.Add(btnSalir);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "InscribirTercerCuatri";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
@@ -858,7 +887,6 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -934,6 +962,5 @@
         private Button btnSalir;
         private Label label3;
         private Label label2;
-        private PictureBox pictureBox1;
     }
 }

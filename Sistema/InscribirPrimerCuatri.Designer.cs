@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InscribirPrimerCuatri));
             label44 = new Label();
             groupBox1 = new GroupBox();
             label9 = new Label();
@@ -94,27 +93,29 @@
             button7 = new Button();
             label50 = new Label();
             label51 = new Label();
-            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label44
             // 
             label44.AutoSize = true;
-            label44.Location = new Point(542, 56);
+            label44.BackColor = Color.Black;
+            label44.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label44.ForeColor = Color.White;
+            label44.Location = new Point(564, 54);
             label44.Name = "label44";
-            label44.Size = new Size(44, 15);
+            label44.Size = new Size(60, 17);
             label44.TabIndex = 65;
-            label44.Text = "label44";
+            label44.Text = "Numero";
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Black;
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label7);
@@ -124,6 +125,8 @@
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
+            groupBox1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(69, 74);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(279, 253);
@@ -193,11 +196,13 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightGreen;
+            button1.BackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(104, 210);
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(91, 210);
             button1.Name = "button1";
-            button1.Size = new Size(72, 28);
+            button1.Size = new Size(85, 28);
             button1.TabIndex = 68;
             button1.Text = "Inscribirse";
             button1.UseVisualStyleBackColor = false;
@@ -225,11 +230,14 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.LightGreen;
+            button2.BackColor = Color.FromArgb(64, 64, 64);
+            button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(355, 594);
+            button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(356, 633);
             button2.Name = "button2";
-            button2.Size = new Size(296, 48);
+            button2.Size = new Size(308, 48);
             button2.TabIndex = 60;
             button2.Text = "Volver al menu";
             button2.UseVisualStyleBackColor = false;
@@ -237,37 +245,48 @@
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = SystemColors.Control;
+            btnSalir.BackColor = Color.Black;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnSalir.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(446, 648);
+            btnSalir.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(12, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(129, 48);
+            btnSalir.Size = new Size(33, 37);
             btnSalir.TabIndex = 59;
-            btnSalir.Text = "SALIR";
+            btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(428, 56);
+            label3.BackColor = Color.Black;
+            label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(428, 54);
             label3.Name = "label3";
-            label3.Size = new Size(115, 15);
+            label3.Size = new Size(139, 17);
             label3.TabIndex = 58;
             label3.Text = "Numero Estudiante :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(291, 9);
+            label2.BackColor = Color.Black;
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(278, 9);
             label2.Name = "label2";
-            label2.Size = new Size(427, 32);
+            label2.Size = new Size(461, 30);
             label2.TabIndex = 57;
             label2.Text = "Inscipcion Cursos Primer Cuatrimestre";
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.Black;
             groupBox2.Controls.Add(label27);
             groupBox2.Controls.Add(label28);
             groupBox2.Controls.Add(label29);
@@ -277,6 +296,8 @@
             groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(label33);
             groupBox2.Controls.Add(label34);
+            groupBox2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(69, 333);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(279, 257);
@@ -346,11 +367,13 @@
             // 
             // button5
             // 
-            button5.BackColor = Color.LightGreen;
+            button5.BackColor = Color.FromArgb(64, 64, 64);
+            button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(104, 222);
+            button5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Location = new Point(91, 222);
             button5.Name = "button5";
-            button5.Size = new Size(72, 28);
+            button5.Size = new Size(85, 28);
             button5.TabIndex = 95;
             button5.Text = "Inscribirse";
             button5.UseVisualStyleBackColor = false;
@@ -378,6 +401,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.BackColor = Color.Black;
             groupBox3.Controls.Add(label11);
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(label12);
@@ -387,6 +411,8 @@
             groupBox3.Controls.Add(button3);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(label16);
+            groupBox3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox3.ForeColor = Color.White;
             groupBox3.Location = new Point(372, 74);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(279, 253);
@@ -456,11 +482,13 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.LightGreen;
+            button3.BackColor = Color.FromArgb(64, 64, 64);
+            button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(104, 210);
+            button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(94, 210);
             button3.Name = "button3";
-            button3.Size = new Size(72, 28);
+            button3.Size = new Size(85, 28);
             button3.TabIndex = 77;
             button3.Text = "Inscribirse";
             button3.UseVisualStyleBackColor = false;
@@ -488,6 +516,7 @@
             // 
             // groupBox4
             // 
+            groupBox4.BackColor = Color.Black;
             groupBox4.Controls.Add(label35);
             groupBox4.Controls.Add(label36);
             groupBox4.Controls.Add(label37);
@@ -497,6 +526,8 @@
             groupBox4.Controls.Add(button6);
             groupBox4.Controls.Add(label41);
             groupBox4.Controls.Add(label42);
+            groupBox4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox4.ForeColor = Color.White;
             groupBox4.Location = new Point(372, 333);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(279, 257);
@@ -566,11 +597,13 @@
             // 
             // button6
             // 
-            button6.BackColor = Color.LightGreen;
+            button6.BackColor = Color.FromArgb(64, 64, 64);
+            button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(104, 222);
+            button6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Location = new Point(94, 222);
             button6.Name = "button6";
-            button6.Size = new Size(72, 28);
+            button6.Size = new Size(85, 28);
             button6.TabIndex = 104;
             button6.Text = "Inscribirse";
             button6.UseVisualStyleBackColor = false;
@@ -598,6 +631,7 @@
             // 
             // groupBox5
             // 
+            groupBox5.BackColor = Color.Black;
             groupBox5.Controls.Add(label19);
             groupBox5.Controls.Add(label21);
             groupBox5.Controls.Add(label20);
@@ -607,6 +641,8 @@
             groupBox5.Controls.Add(button4);
             groupBox5.Controls.Add(label23);
             groupBox5.Controls.Add(label24);
+            groupBox5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox5.ForeColor = Color.White;
             groupBox5.Location = new Point(677, 74);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(279, 253);
@@ -617,70 +653,72 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label19.Location = new Point(6, 175);
             label19.Name = "label19";
-            label19.Size = new Size(58, 15);
+            label19.Size = new Size(68, 16);
             label19.TabIndex = 92;
             label19.Text = "cupomax";
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label21.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label21.Location = new Point(6, 157);
             label21.Name = "label21";
-            label21.Size = new Size(86, 15);
+            label21.Size = new Size(102, 16);
             label21.TabIndex = 91;
             label21.Text = "Cupo Maximo:";
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label20.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label20.Location = new Point(6, 111);
             label20.Name = "label20";
-            label20.Size = new Size(75, 15);
+            label20.Size = new Size(88, 16);
             label20.TabIndex = 89;
             label20.Text = "Descripcion:";
             // 
             // label26
             // 
             label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label26.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label26.Location = new Point(6, 62);
             label26.Name = "label26";
-            label26.Size = new Size(48, 15);
+            label26.Size = new Size(59, 16);
             label26.TabIndex = 87;
             label26.Text = "Codigo:";
             // 
             // label25
             // 
             label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label25.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label25.Location = new Point(6, 80);
             label25.Name = "label25";
-            label25.Size = new Size(44, 15);
+            label25.Size = new Size(53, 16);
             label25.TabIndex = 88;
             label25.Text = "codigo";
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label22.Location = new Point(6, 19);
             label22.Name = "label22";
-            label22.Size = new Size(56, 15);
+            label22.Size = new Size(63, 16);
             label22.TabIndex = 84;
             label22.Text = "Nombre:";
             // 
             // button4
             // 
-            button4.BackColor = Color.LightGreen;
+            button4.BackColor = Color.FromArgb(64, 64, 64);
+            button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(104, 210);
+            button4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(95, 210);
             button4.Name = "button4";
-            button4.Size = new Size(72, 28);
+            button4.Size = new Size(85, 28);
             button4.TabIndex = 86;
             button4.Text = "Inscribirse";
             button4.UseVisualStyleBackColor = false;
@@ -689,25 +727,26 @@
             // label23
             // 
             label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label23.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label23.Location = new Point(6, 129);
             label23.Name = "label23";
-            label23.Size = new Size(70, 15);
+            label23.Size = new Size(84, 16);
             label23.TabIndex = 90;
             label23.Text = "descripcion";
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label24.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label24.Location = new Point(6, 37);
             label24.Name = "label24";
-            label24.Size = new Size(51, 15);
+            label24.Size = new Size(57, 16);
             label24.TabIndex = 85;
             label24.Text = "nombre";
             // 
             // groupBox6
             // 
+            groupBox6.BackColor = Color.Black;
             groupBox6.Controls.Add(label43);
             groupBox6.Controls.Add(label45);
             groupBox6.Controls.Add(label46);
@@ -717,6 +756,8 @@
             groupBox6.Controls.Add(button7);
             groupBox6.Controls.Add(label50);
             groupBox6.Controls.Add(label51);
+            groupBox6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox6.ForeColor = Color.White;
             groupBox6.Location = new Point(677, 333);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(279, 257);
@@ -786,11 +827,13 @@
             // 
             // button7
             // 
-            button7.BackColor = Color.LightGreen;
+            button7.BackColor = Color.FromArgb(64, 64, 64);
+            button7.FlatAppearance.BorderSize = 0;
             button7.FlatStyle = FlatStyle.Flat;
-            button7.Location = new Point(104, 222);
+            button7.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button7.Location = new Point(95, 222);
             button7.Name = "button7";
-            button7.Size = new Size(72, 28);
+            button7.Size = new Size(85, 28);
             button7.TabIndex = 113;
             button7.Text = "Inscribirse";
             button7.UseVisualStyleBackColor = false;
@@ -815,22 +858,12 @@
             label51.TabIndex = 112;
             label51.Text = "nombre";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-476, -186);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1920, 1080);
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 85;
-            pictureBox1.TabStop = false;
-            // 
             // InscribirPrimerCuatri
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1020, 708);
+            BackColor = Color.Black;
+            ClientSize = new Size(1020, 713);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -842,8 +875,10 @@
             Controls.Add(btnSalir);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "InscribirPrimerCuatri";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -857,7 +892,6 @@
             groupBox5.PerformLayout();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -929,6 +963,5 @@
         private Button button7;
         private Label label50;
         private Label label51;
-        private PictureBox pictureBox1;
     }
 }

@@ -43,18 +43,21 @@ namespace Sistema
                 {
                     checkBox1.Enabled = false;
                     label17.Visible = false;
+                    label9.Text = "Pagado";
                 }
 
                 if (estudiante.PagoCargosAdministrativos == "pagado")
                 {
                     checkBox2.Enabled = false;
                     label18.Visible = false;
+                    label10.Text = "Pagado";
                 }
 
                 if (estudiante.PagoUtilidades == "pagado")
                 {
                     checkBox3.Enabled = false;
                     label19.Visible = false;
+                    label11.Text = "Pagado";
                 }
             }
         }

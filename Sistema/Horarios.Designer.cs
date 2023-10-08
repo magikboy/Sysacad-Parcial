@@ -135,7 +135,6 @@
             label74 = new Label();
             label73 = new Label();
             groupBox14 = new GroupBox();
-            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox4.SuspendLayout();
@@ -153,16 +152,18 @@
             groupBox19.SuspendLayout();
             groupBox21.SuspendLayout();
             groupBox14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label9);
+            groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.ForeColor = Color.Black;
             groupBox1.Location = new Point(116, 178);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(181, 90);
@@ -174,16 +175,16 @@
             label13.AutoSize = true;
             label13.Location = new Point(6, 64);
             label13.Name = "label13";
-            label13.Size = new Size(51, 15);
+            label13.Size = new Size(56, 17);
             label13.TabIndex = 4;
             label13.Text = "Profesor";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(40, 49);
+            label12.Location = new Point(47, 49);
             label12.Name = "label12";
-            label12.Size = new Size(30, 15);
+            label12.Size = new Size(33, 17);
             label12.TabIndex = 3;
             label12.Text = "Max";
             // 
@@ -192,7 +193,7 @@
             label11.AutoSize = true;
             label11.Location = new Point(6, 49);
             label11.Name = "label11";
-            label11.Size = new Size(28, 15);
+            label11.Size = new Size(29, 17);
             label11.TabIndex = 2;
             label11.Text = "Min";
             // 
@@ -201,7 +202,7 @@
             label10.AutoSize = true;
             label10.Location = new Point(6, 34);
             label10.Name = "label10";
-            label10.Size = new Size(31, 15);
+            label10.Size = new Size(35, 17);
             label10.TabIndex = 1;
             label10.Text = "Aula";
             // 
@@ -210,7 +211,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(6, 19);
             label9.Name = "label9";
-            label9.Size = new Size(47, 15);
+            label9.Size = new Size(55, 17);
             label9.TabIndex = 0;
             label9.Text = "Materia";
             // 
@@ -272,28 +273,33 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(639, 43);
+            label4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(668, 43);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(60, 17);
             label4.TabIndex = 71;
-            label4.Text = "label4";
+            label4.Text = "Numero";
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(89, 73);
+            pictureBox1.Location = new Point(89, 77);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1061, 511);
+            pictureBox1.Size = new Size(1061, 507);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 70;
             pictureBox1.TabStop = false;
             // 
             // button2
             // 
-            button2.BackColor = Color.LightGreen;
+            button2.BackColor = Color.FromArgb(64, 64, 64);
+            button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(459, 598);
+            button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(463, 601);
             button2.Name = "button2";
             button2.Size = new Size(296, 48);
             button2.TabIndex = 69;
@@ -303,13 +309,18 @@
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = SystemColors.Control;
+            btnSalir.BackColor = Color.Black;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnSalir.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Location = new Point(548, 652);
+            btnSalir.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(12, 5);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(129, 48);
+            btnSalir.Size = new Size(32, 38);
             btnSalir.TabIndex = 68;
-            btnSalir.Text = "SALIR";
+            btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
@@ -364,29 +375,35 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(531, 43);
+            label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(523, 43);
             label3.Name = "label3";
-            label3.Size = new Size(115, 15);
+            label3.Size = new Size(139, 17);
             label3.TabIndex = 67;
             label3.Text = "Numero Estudiante :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(501, 1);
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(485, 9);
             label2.Name = "label2";
-            label2.Size = new Size(218, 32);
+            label2.Size = new Size(227, 30);
             label2.TabIndex = 66;
             label2.Text = "Consultar Horarios";
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.White;
             groupBox2.Controls.Add(label14);
             groupBox2.Controls.Add(label15);
             groupBox2.Controls.Add(label16);
             groupBox2.Controls.Add(label17);
             groupBox2.Controls.Add(label18);
+            groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.ForeColor = Color.Black;
             groupBox2.Location = new Point(116, 317);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(181, 90);
@@ -398,16 +415,16 @@
             label14.AutoSize = true;
             label14.Location = new Point(6, 64);
             label14.Name = "label14";
-            label14.Size = new Size(51, 15);
+            label14.Size = new Size(56, 17);
             label14.TabIndex = 4;
             label14.Text = "Profesor";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(40, 49);
+            label15.Location = new Point(47, 49);
             label15.Name = "label15";
-            label15.Size = new Size(30, 15);
+            label15.Size = new Size(33, 17);
             label15.TabIndex = 3;
             label15.Text = "Max";
             // 
@@ -416,7 +433,7 @@
             label16.AutoSize = true;
             label16.Location = new Point(6, 49);
             label16.Name = "label16";
-            label16.Size = new Size(28, 15);
+            label16.Size = new Size(29, 17);
             label16.TabIndex = 2;
             label16.Text = "Min";
             // 
@@ -425,7 +442,7 @@
             label17.AutoSize = true;
             label17.Location = new Point(6, 34);
             label17.Name = "label17";
-            label17.Size = new Size(31, 15);
+            label17.Size = new Size(35, 17);
             label17.TabIndex = 1;
             label17.Text = "Aula";
             // 
@@ -434,17 +451,20 @@
             label18.AutoSize = true;
             label18.Location = new Point(6, 19);
             label18.Name = "label18";
-            label18.Size = new Size(47, 15);
+            label18.Size = new Size(55, 17);
             label18.TabIndex = 0;
             label18.Text = "Materia";
             // 
             // groupBox5
             // 
+            groupBox5.BackColor = Color.White;
             groupBox5.Controls.Add(label28);
             groupBox5.Controls.Add(label29);
             groupBox5.Controls.Add(label30);
             groupBox5.Controls.Add(label31);
             groupBox5.Controls.Add(label32);
+            groupBox5.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox5.ForeColor = Color.Black;
             groupBox5.Location = new Point(116, 471);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(181, 90);
@@ -456,16 +476,16 @@
             label28.AutoSize = true;
             label28.Location = new Point(6, 64);
             label28.Name = "label28";
-            label28.Size = new Size(51, 15);
+            label28.Size = new Size(56, 17);
             label28.TabIndex = 4;
             label28.Text = "Profesor";
             // 
             // label29
             // 
             label29.AutoSize = true;
-            label29.Location = new Point(40, 49);
+            label29.Location = new Point(47, 47);
             label29.Name = "label29";
-            label29.Size = new Size(30, 15);
+            label29.Size = new Size(33, 17);
             label29.TabIndex = 3;
             label29.Text = "Max";
             // 
@@ -474,7 +494,7 @@
             label30.AutoSize = true;
             label30.Location = new Point(6, 49);
             label30.Name = "label30";
-            label30.Size = new Size(28, 15);
+            label30.Size = new Size(29, 17);
             label30.TabIndex = 2;
             label30.Text = "Min";
             // 
@@ -483,7 +503,7 @@
             label31.AutoSize = true;
             label31.Location = new Point(6, 34);
             label31.Name = "label31";
-            label31.Size = new Size(31, 15);
+            label31.Size = new Size(35, 17);
             label31.TabIndex = 1;
             label31.Text = "Aula";
             // 
@@ -492,17 +512,20 @@
             label32.AutoSize = true;
             label32.Location = new Point(6, 19);
             label32.Name = "label32";
-            label32.Size = new Size(47, 15);
+            label32.Size = new Size(55, 17);
             label32.TabIndex = 0;
             label32.Text = "Materia";
             // 
             // groupBox6
             // 
+            groupBox6.BackColor = Color.White;
             groupBox6.Controls.Add(label33);
             groupBox6.Controls.Add(label34);
             groupBox6.Controls.Add(label35);
             groupBox6.Controls.Add(label36);
             groupBox6.Controls.Add(label37);
+            groupBox6.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox6.ForeColor = Color.Black;
             groupBox6.Location = new Point(320, 178);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(181, 90);
@@ -514,16 +537,16 @@
             label33.AutoSize = true;
             label33.Location = new Point(6, 64);
             label33.Name = "label33";
-            label33.Size = new Size(51, 15);
+            label33.Size = new Size(56, 17);
             label33.TabIndex = 4;
             label33.Text = "Profesor";
             // 
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new Point(43, 49);
+            label34.Location = new Point(47, 49);
             label34.Name = "label34";
-            label34.Size = new Size(30, 15);
+            label34.Size = new Size(33, 17);
             label34.TabIndex = 3;
             label34.Text = "Max";
             // 
@@ -532,7 +555,7 @@
             label35.AutoSize = true;
             label35.Location = new Point(6, 49);
             label35.Name = "label35";
-            label35.Size = new Size(28, 15);
+            label35.Size = new Size(29, 17);
             label35.TabIndex = 2;
             label35.Text = "Min";
             // 
@@ -541,7 +564,7 @@
             label36.AutoSize = true;
             label36.Location = new Point(6, 34);
             label36.Name = "label36";
-            label36.Size = new Size(31, 15);
+            label36.Size = new Size(35, 17);
             label36.TabIndex = 1;
             label36.Text = "Aula";
             // 
@@ -550,17 +573,20 @@
             label37.AutoSize = true;
             label37.Location = new Point(6, 19);
             label37.Name = "label37";
-            label37.Size = new Size(47, 15);
+            label37.Size = new Size(55, 17);
             label37.TabIndex = 0;
             label37.Text = "Materia";
             // 
             // groupBox7
             // 
+            groupBox7.BackColor = Color.White;
             groupBox7.Controls.Add(label38);
             groupBox7.Controls.Add(label39);
             groupBox7.Controls.Add(label40);
             groupBox7.Controls.Add(label41);
             groupBox7.Controls.Add(label42);
+            groupBox7.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox7.ForeColor = Color.Black;
             groupBox7.Location = new Point(320, 317);
             groupBox7.Name = "groupBox7";
             groupBox7.Size = new Size(181, 90);
@@ -572,16 +598,16 @@
             label38.AutoSize = true;
             label38.Location = new Point(6, 64);
             label38.Name = "label38";
-            label38.Size = new Size(51, 15);
+            label38.Size = new Size(56, 17);
             label38.TabIndex = 4;
             label38.Text = "Profesor";
             // 
             // label39
             // 
             label39.AutoSize = true;
-            label39.Location = new Point(43, 49);
+            label39.Location = new Point(47, 49);
             label39.Name = "label39";
-            label39.Size = new Size(30, 15);
+            label39.Size = new Size(33, 17);
             label39.TabIndex = 3;
             label39.Text = "Max";
             // 
@@ -590,7 +616,7 @@
             label40.AutoSize = true;
             label40.Location = new Point(6, 49);
             label40.Name = "label40";
-            label40.Size = new Size(28, 15);
+            label40.Size = new Size(29, 17);
             label40.TabIndex = 2;
             label40.Text = "Min";
             // 
@@ -599,7 +625,7 @@
             label41.AutoSize = true;
             label41.Location = new Point(6, 34);
             label41.Name = "label41";
-            label41.Size = new Size(31, 15);
+            label41.Size = new Size(35, 17);
             label41.TabIndex = 1;
             label41.Text = "Aula";
             // 
@@ -608,17 +634,20 @@
             label42.AutoSize = true;
             label42.Location = new Point(6, 19);
             label42.Name = "label42";
-            label42.Size = new Size(47, 15);
+            label42.Size = new Size(55, 17);
             label42.TabIndex = 0;
             label42.Text = "Materia";
             // 
             // groupBox9
             // 
+            groupBox9.BackColor = Color.White;
             groupBox9.Controls.Add(label48);
             groupBox9.Controls.Add(label49);
             groupBox9.Controls.Add(label50);
             groupBox9.Controls.Add(label51);
             groupBox9.Controls.Add(label52);
+            groupBox9.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox9.ForeColor = Color.Black;
             groupBox9.Location = new Point(320, 471);
             groupBox9.Name = "groupBox9";
             groupBox9.Size = new Size(181, 90);
@@ -630,16 +659,16 @@
             label48.AutoSize = true;
             label48.Location = new Point(6, 64);
             label48.Name = "label48";
-            label48.Size = new Size(51, 15);
+            label48.Size = new Size(56, 17);
             label48.TabIndex = 4;
             label48.Text = "Profesor";
             // 
             // label49
             // 
             label49.AutoSize = true;
-            label49.Location = new Point(43, 49);
+            label49.Location = new Point(47, 49);
             label49.Name = "label49";
-            label49.Size = new Size(30, 15);
+            label49.Size = new Size(33, 17);
             label49.TabIndex = 3;
             label49.Text = "Max";
             // 
@@ -648,7 +677,7 @@
             label50.AutoSize = true;
             label50.Location = new Point(6, 49);
             label50.Name = "label50";
-            label50.Size = new Size(28, 15);
+            label50.Size = new Size(29, 17);
             label50.TabIndex = 2;
             label50.Text = "Min";
             // 
@@ -657,7 +686,7 @@
             label51.AutoSize = true;
             label51.Location = new Point(6, 34);
             label51.Name = "label51";
-            label51.Size = new Size(31, 15);
+            label51.Size = new Size(35, 17);
             label51.TabIndex = 1;
             label51.Text = "Aula";
             // 
@@ -666,17 +695,20 @@
             label52.AutoSize = true;
             label52.Location = new Point(6, 19);
             label52.Name = "label52";
-            label52.Size = new Size(47, 15);
+            label52.Size = new Size(55, 17);
             label52.TabIndex = 0;
             label52.Text = "Materia";
             // 
             // groupBox10
             // 
+            groupBox10.BackColor = Color.White;
             groupBox10.Controls.Add(label53);
             groupBox10.Controls.Add(label54);
             groupBox10.Controls.Add(label55);
             groupBox10.Controls.Add(label56);
             groupBox10.Controls.Add(label57);
+            groupBox10.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox10.ForeColor = Color.Black;
             groupBox10.Location = new Point(531, 178);
             groupBox10.Name = "groupBox10";
             groupBox10.Size = new Size(181, 90);
@@ -688,16 +720,16 @@
             label53.AutoSize = true;
             label53.Location = new Point(6, 64);
             label53.Name = "label53";
-            label53.Size = new Size(51, 15);
+            label53.Size = new Size(56, 17);
             label53.TabIndex = 4;
             label53.Text = "Profesor";
             // 
             // label54
             // 
             label54.AutoSize = true;
-            label54.Location = new Point(43, 49);
+            label54.Location = new Point(47, 49);
             label54.Name = "label54";
-            label54.Size = new Size(30, 15);
+            label54.Size = new Size(33, 17);
             label54.TabIndex = 3;
             label54.Text = "Max";
             // 
@@ -706,7 +738,7 @@
             label55.AutoSize = true;
             label55.Location = new Point(6, 49);
             label55.Name = "label55";
-            label55.Size = new Size(28, 15);
+            label55.Size = new Size(29, 17);
             label55.TabIndex = 2;
             label55.Text = "Min";
             // 
@@ -715,7 +747,7 @@
             label56.AutoSize = true;
             label56.Location = new Point(6, 34);
             label56.Name = "label56";
-            label56.Size = new Size(31, 15);
+            label56.Size = new Size(35, 17);
             label56.TabIndex = 1;
             label56.Text = "Aula";
             // 
@@ -724,17 +756,20 @@
             label57.AutoSize = true;
             label57.Location = new Point(6, 19);
             label57.Name = "label57";
-            label57.Size = new Size(47, 15);
+            label57.Size = new Size(55, 17);
             label57.TabIndex = 0;
             label57.Text = "Materia";
             // 
             // groupBox11
             // 
+            groupBox11.BackColor = Color.White;
             groupBox11.Controls.Add(label58);
             groupBox11.Controls.Add(label59);
             groupBox11.Controls.Add(label60);
             groupBox11.Controls.Add(label61);
             groupBox11.Controls.Add(label62);
+            groupBox11.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox11.ForeColor = Color.Black;
             groupBox11.Location = new Point(531, 317);
             groupBox11.Name = "groupBox11";
             groupBox11.Size = new Size(181, 90);
@@ -746,16 +781,16 @@
             label58.AutoSize = true;
             label58.Location = new Point(6, 64);
             label58.Name = "label58";
-            label58.Size = new Size(51, 15);
+            label58.Size = new Size(56, 17);
             label58.TabIndex = 4;
             label58.Text = "Profesor";
             // 
             // label59
             // 
             label59.AutoSize = true;
-            label59.Location = new Point(43, 49);
+            label59.Location = new Point(47, 49);
             label59.Name = "label59";
-            label59.Size = new Size(30, 15);
+            label59.Size = new Size(33, 17);
             label59.TabIndex = 3;
             label59.Text = "Max";
             // 
@@ -764,7 +799,7 @@
             label60.AutoSize = true;
             label60.Location = new Point(6, 49);
             label60.Name = "label60";
-            label60.Size = new Size(28, 15);
+            label60.Size = new Size(29, 17);
             label60.TabIndex = 2;
             label60.Text = "Min";
             // 
@@ -773,7 +808,7 @@
             label61.AutoSize = true;
             label61.Location = new Point(6, 34);
             label61.Name = "label61";
-            label61.Size = new Size(31, 15);
+            label61.Size = new Size(35, 17);
             label61.TabIndex = 1;
             label61.Text = "Aula";
             // 
@@ -782,17 +817,20 @@
             label62.AutoSize = true;
             label62.Location = new Point(6, 19);
             label62.Name = "label62";
-            label62.Size = new Size(47, 15);
+            label62.Size = new Size(55, 17);
             label62.TabIndex = 0;
             label62.Text = "Materia";
             // 
             // groupBox13
             // 
+            groupBox13.BackColor = Color.White;
             groupBox13.Controls.Add(label68);
             groupBox13.Controls.Add(label69);
             groupBox13.Controls.Add(label70);
             groupBox13.Controls.Add(label71);
             groupBox13.Controls.Add(label72);
+            groupBox13.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox13.ForeColor = Color.Black;
             groupBox13.Location = new Point(531, 471);
             groupBox13.Name = "groupBox13";
             groupBox13.Size = new Size(181, 90);
@@ -804,16 +842,16 @@
             label68.AutoSize = true;
             label68.Location = new Point(6, 64);
             label68.Name = "label68";
-            label68.Size = new Size(51, 15);
+            label68.Size = new Size(56, 17);
             label68.TabIndex = 4;
             label68.Text = "Profesor";
             // 
             // label69
             // 
             label69.AutoSize = true;
-            label69.Location = new Point(43, 49);
+            label69.Location = new Point(47, 49);
             label69.Name = "label69";
-            label69.Size = new Size(30, 15);
+            label69.Size = new Size(33, 17);
             label69.TabIndex = 3;
             label69.Text = "Max";
             // 
@@ -822,7 +860,7 @@
             label70.AutoSize = true;
             label70.Location = new Point(6, 49);
             label70.Name = "label70";
-            label70.Size = new Size(28, 15);
+            label70.Size = new Size(29, 17);
             label70.TabIndex = 2;
             label70.Text = "Min";
             // 
@@ -831,7 +869,7 @@
             label71.AutoSize = true;
             label71.Location = new Point(6, 34);
             label71.Name = "label71";
-            label71.Size = new Size(31, 15);
+            label71.Size = new Size(35, 17);
             label71.TabIndex = 1;
             label71.Text = "Aula";
             // 
@@ -840,17 +878,20 @@
             label72.AutoSize = true;
             label72.Location = new Point(6, 19);
             label72.Name = "label72";
-            label72.Size = new Size(47, 15);
+            label72.Size = new Size(55, 17);
             label72.TabIndex = 0;
             label72.Text = "Materia";
             // 
             // groupBox15
             // 
+            groupBox15.BackColor = Color.White;
             groupBox15.Controls.Add(label78);
             groupBox15.Controls.Add(label79);
             groupBox15.Controls.Add(label80);
             groupBox15.Controls.Add(label81);
             groupBox15.Controls.Add(label82);
+            groupBox15.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox15.ForeColor = Color.Black;
             groupBox15.Location = new Point(738, 317);
             groupBox15.Name = "groupBox15";
             groupBox15.Size = new Size(181, 90);
@@ -862,16 +903,16 @@
             label78.AutoSize = true;
             label78.Location = new Point(6, 64);
             label78.Name = "label78";
-            label78.Size = new Size(51, 15);
+            label78.Size = new Size(56, 17);
             label78.TabIndex = 4;
             label78.Text = "Profesor";
             // 
             // label79
             // 
             label79.AutoSize = true;
-            label79.Location = new Point(43, 49);
+            label79.Location = new Point(47, 49);
             label79.Name = "label79";
-            label79.Size = new Size(30, 15);
+            label79.Size = new Size(33, 17);
             label79.TabIndex = 3;
             label79.Text = "Max";
             // 
@@ -880,7 +921,7 @@
             label80.AutoSize = true;
             label80.Location = new Point(6, 49);
             label80.Name = "label80";
-            label80.Size = new Size(28, 15);
+            label80.Size = new Size(29, 17);
             label80.TabIndex = 2;
             label80.Text = "Min";
             // 
@@ -889,7 +930,7 @@
             label81.AutoSize = true;
             label81.Location = new Point(6, 34);
             label81.Name = "label81";
-            label81.Size = new Size(31, 15);
+            label81.Size = new Size(35, 17);
             label81.TabIndex = 1;
             label81.Text = "Aula";
             // 
@@ -898,17 +939,20 @@
             label82.AutoSize = true;
             label82.Location = new Point(6, 19);
             label82.Name = "label82";
-            label82.Size = new Size(47, 15);
+            label82.Size = new Size(55, 17);
             label82.TabIndex = 0;
             label82.Text = "Materia";
             // 
             // groupBox17
             // 
+            groupBox17.BackColor = Color.White;
             groupBox17.Controls.Add(label88);
             groupBox17.Controls.Add(label89);
             groupBox17.Controls.Add(label90);
             groupBox17.Controls.Add(label91);
             groupBox17.Controls.Add(label92);
+            groupBox17.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox17.ForeColor = Color.Black;
             groupBox17.Location = new Point(738, 471);
             groupBox17.Name = "groupBox17";
             groupBox17.Size = new Size(181, 90);
@@ -920,16 +964,16 @@
             label88.AutoSize = true;
             label88.Location = new Point(6, 64);
             label88.Name = "label88";
-            label88.Size = new Size(51, 15);
+            label88.Size = new Size(56, 17);
             label88.TabIndex = 4;
             label88.Text = "Profesor";
             // 
             // label89
             // 
             label89.AutoSize = true;
-            label89.Location = new Point(43, 49);
+            label89.Location = new Point(47, 49);
             label89.Name = "label89";
-            label89.Size = new Size(30, 15);
+            label89.Size = new Size(33, 17);
             label89.TabIndex = 3;
             label89.Text = "Max";
             // 
@@ -938,7 +982,7 @@
             label90.AutoSize = true;
             label90.Location = new Point(6, 49);
             label90.Name = "label90";
-            label90.Size = new Size(28, 15);
+            label90.Size = new Size(29, 17);
             label90.TabIndex = 2;
             label90.Text = "Min";
             // 
@@ -947,7 +991,7 @@
             label91.AutoSize = true;
             label91.Location = new Point(6, 34);
             label91.Name = "label91";
-            label91.Size = new Size(31, 15);
+            label91.Size = new Size(35, 17);
             label91.TabIndex = 1;
             label91.Text = "Aula";
             // 
@@ -956,17 +1000,20 @@
             label92.AutoSize = true;
             label92.Location = new Point(6, 19);
             label92.Name = "label92";
-            label92.Size = new Size(47, 15);
+            label92.Size = new Size(55, 17);
             label92.TabIndex = 0;
             label92.Text = "Materia";
             // 
             // groupBox18
             // 
+            groupBox18.BackColor = Color.White;
             groupBox18.Controls.Add(label93);
             groupBox18.Controls.Add(label94);
             groupBox18.Controls.Add(label95);
             groupBox18.Controls.Add(label96);
             groupBox18.Controls.Add(label97);
+            groupBox18.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox18.ForeColor = Color.Black;
             groupBox18.Location = new Point(941, 178);
             groupBox18.Name = "groupBox18";
             groupBox18.Size = new Size(181, 90);
@@ -978,16 +1025,16 @@
             label93.AutoSize = true;
             label93.Location = new Point(6, 64);
             label93.Name = "label93";
-            label93.Size = new Size(51, 15);
+            label93.Size = new Size(56, 17);
             label93.TabIndex = 4;
             label93.Text = "Profesor";
             // 
             // label94
             // 
             label94.AutoSize = true;
-            label94.Location = new Point(40, 49);
+            label94.Location = new Point(47, 49);
             label94.Name = "label94";
-            label94.Size = new Size(30, 15);
+            label94.Size = new Size(33, 17);
             label94.TabIndex = 3;
             label94.Text = "Max";
             // 
@@ -996,7 +1043,7 @@
             label95.AutoSize = true;
             label95.Location = new Point(6, 49);
             label95.Name = "label95";
-            label95.Size = new Size(28, 15);
+            label95.Size = new Size(29, 17);
             label95.TabIndex = 2;
             label95.Text = "Min";
             // 
@@ -1005,7 +1052,7 @@
             label96.AutoSize = true;
             label96.Location = new Point(6, 34);
             label96.Name = "label96";
-            label96.Size = new Size(31, 15);
+            label96.Size = new Size(35, 17);
             label96.TabIndex = 1;
             label96.Text = "Aula";
             // 
@@ -1014,17 +1061,20 @@
             label97.AutoSize = true;
             label97.Location = new Point(6, 19);
             label97.Name = "label97";
-            label97.Size = new Size(47, 15);
+            label97.Size = new Size(55, 17);
             label97.TabIndex = 0;
             label97.Text = "Materia";
             // 
             // groupBox19
             // 
+            groupBox19.BackColor = Color.White;
             groupBox19.Controls.Add(label98);
             groupBox19.Controls.Add(label99);
             groupBox19.Controls.Add(label100);
             groupBox19.Controls.Add(label101);
             groupBox19.Controls.Add(label102);
+            groupBox19.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox19.ForeColor = Color.Black;
             groupBox19.Location = new Point(941, 317);
             groupBox19.Name = "groupBox19";
             groupBox19.Size = new Size(181, 90);
@@ -1036,16 +1086,16 @@
             label98.AutoSize = true;
             label98.Location = new Point(6, 64);
             label98.Name = "label98";
-            label98.Size = new Size(51, 15);
+            label98.Size = new Size(56, 17);
             label98.TabIndex = 4;
             label98.Text = "Profesor";
             // 
             // label99
             // 
             label99.AutoSize = true;
-            label99.Location = new Point(43, 49);
+            label99.Location = new Point(47, 49);
             label99.Name = "label99";
-            label99.Size = new Size(30, 15);
+            label99.Size = new Size(33, 17);
             label99.TabIndex = 3;
             label99.Text = "Max";
             // 
@@ -1054,7 +1104,7 @@
             label100.AutoSize = true;
             label100.Location = new Point(6, 49);
             label100.Name = "label100";
-            label100.Size = new Size(28, 15);
+            label100.Size = new Size(29, 17);
             label100.TabIndex = 2;
             label100.Text = "Min";
             // 
@@ -1063,7 +1113,7 @@
             label101.AutoSize = true;
             label101.Location = new Point(6, 34);
             label101.Name = "label101";
-            label101.Size = new Size(31, 15);
+            label101.Size = new Size(35, 17);
             label101.TabIndex = 1;
             label101.Text = "Aula";
             // 
@@ -1072,17 +1122,20 @@
             label102.AutoSize = true;
             label102.Location = new Point(6, 19);
             label102.Name = "label102";
-            label102.Size = new Size(47, 15);
+            label102.Size = new Size(55, 17);
             label102.TabIndex = 0;
             label102.Text = "Materia";
             // 
             // groupBox21
             // 
+            groupBox21.BackColor = Color.White;
             groupBox21.Controls.Add(label108);
             groupBox21.Controls.Add(label109);
             groupBox21.Controls.Add(label110);
             groupBox21.Controls.Add(label111);
             groupBox21.Controls.Add(label112);
+            groupBox21.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox21.ForeColor = Color.Black;
             groupBox21.Location = new Point(941, 471);
             groupBox21.Name = "groupBox21";
             groupBox21.Size = new Size(181, 90);
@@ -1094,16 +1147,16 @@
             label108.AutoSize = true;
             label108.Location = new Point(6, 64);
             label108.Name = "label108";
-            label108.Size = new Size(51, 15);
+            label108.Size = new Size(56, 17);
             label108.TabIndex = 4;
             label108.Text = "Profesor";
             // 
             // label109
             // 
             label109.AutoSize = true;
-            label109.Location = new Point(43, 49);
+            label109.Location = new Point(47, 48);
             label109.Name = "label109";
-            label109.Size = new Size(30, 15);
+            label109.Size = new Size(33, 17);
             label109.TabIndex = 3;
             label109.Text = "Max";
             // 
@@ -1112,7 +1165,7 @@
             label110.AutoSize = true;
             label110.Location = new Point(6, 49);
             label110.Name = "label110";
-            label110.Size = new Size(28, 15);
+            label110.Size = new Size(29, 17);
             label110.TabIndex = 2;
             label110.Text = "Min";
             // 
@@ -1121,7 +1174,7 @@
             label111.AutoSize = true;
             label111.Location = new Point(6, 34);
             label111.Name = "label111";
-            label111.Size = new Size(31, 15);
+            label111.Size = new Size(35, 17);
             label111.TabIndex = 1;
             label111.Text = "Aula";
             // 
@@ -1130,7 +1183,7 @@
             label112.AutoSize = true;
             label112.Location = new Point(6, 19);
             label112.Name = "label112";
-            label112.Size = new Size(47, 15);
+            label112.Size = new Size(55, 17);
             label112.TabIndex = 0;
             label112.Text = "Materia";
             // 
@@ -1139,7 +1192,7 @@
             label77.AutoSize = true;
             label77.Location = new Point(6, 19);
             label77.Name = "label77";
-            label77.Size = new Size(47, 15);
+            label77.Size = new Size(55, 17);
             label77.TabIndex = 0;
             label77.Text = "Materia";
             // 
@@ -1148,7 +1201,7 @@
             label76.AutoSize = true;
             label76.Location = new Point(6, 34);
             label76.Name = "label76";
-            label76.Size = new Size(31, 15);
+            label76.Size = new Size(35, 17);
             label76.TabIndex = 1;
             label76.Text = "Aula";
             // 
@@ -1157,16 +1210,16 @@
             label75.AutoSize = true;
             label75.Location = new Point(6, 49);
             label75.Name = "label75";
-            label75.Size = new Size(28, 15);
+            label75.Size = new Size(29, 17);
             label75.TabIndex = 2;
             label75.Text = "Min";
             // 
             // label74
             // 
             label74.AutoSize = true;
-            label74.Location = new Point(43, 49);
+            label74.Location = new Point(47, 49);
             label74.Name = "label74";
-            label74.Size = new Size(30, 15);
+            label74.Size = new Size(33, 17);
             label74.TabIndex = 3;
             label74.Text = "Max";
             // 
@@ -1175,39 +1228,32 @@
             label73.AutoSize = true;
             label73.Location = new Point(6, 64);
             label73.Name = "label73";
-            label73.Size = new Size(51, 15);
+            label73.Size = new Size(56, 17);
             label73.TabIndex = 4;
             label73.Text = "Profesor";
             // 
             // groupBox14
             // 
+            groupBox14.BackColor = Color.White;
             groupBox14.Controls.Add(label73);
             groupBox14.Controls.Add(label74);
             groupBox14.Controls.Add(label75);
             groupBox14.Controls.Add(label76);
             groupBox14.Controls.Add(label77);
+            groupBox14.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox14.ForeColor = Color.Black;
             groupBox14.Location = new Point(738, 178);
             groupBox14.Name = "groupBox14";
             groupBox14.Size = new Size(181, 90);
             groupBox14.TabIndex = 78;
             groupBox14.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(-394, -182);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1920, 1080);
-            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox2.TabIndex = 79;
-            pictureBox2.TabStop = false;
-            // 
             // Horarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1239, 716);
+            BackColor = Color.Black;
+            ClientSize = new Size(1239, 673);
             Controls.Add(groupBox21);
             Controls.Add(groupBox19);
             Controls.Add(groupBox18);
@@ -1235,8 +1281,10 @@
             Controls.Add(groupBox4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(pictureBox2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Horarios";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -1271,7 +1319,6 @@
             groupBox21.PerformLayout();
             groupBox14.ResumeLayout(false);
             groupBox14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1383,6 +1430,5 @@
         private Label label74;
         private Label label73;
         private GroupBox groupBox14;
-        private PictureBox pictureBox2;
     }
 }

@@ -48,7 +48,7 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Century Gothic", 20F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(277, 15);
+            label2.Location = new Point(317, 17);
             label2.Name = "label2";
             label2.Size = new Size(100, 32);
             label2.TabIndex = 21;
@@ -63,9 +63,9 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(12, 12);
+            btnSalir.Location = new Point(14, 14);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(32, 35);
+            btnSalir.Size = new Size(37, 40);
             btnSalir.TabIndex = 19;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
@@ -80,9 +80,9 @@
             btnIngresar.FlatStyle = FlatStyle.Flat;
             btnIngresar.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnIngresar.ForeColor = Color.White;
-            btnIngresar.Location = new Point(258, 321);
+            btnIngresar.Location = new Point(295, 364);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(129, 48);
+            btnIngresar.Size = new Size(147, 54);
             btnIngresar.TabIndex = 18;
             btnIngresar.Text = "INGRESAR";
             btnIngresar.UseVisualStyleBackColor = false;
@@ -94,9 +94,9 @@
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(216, 208);
+            textBox2.Location = new Point(247, 236);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(242, 20);
+            textBox2.Size = new Size(277, 20);
             textBox2.TabIndex = 17;
             textBox2.Text = "Contraseña";
             textBox2.TextChanged += textBox2_TextChanged;
@@ -107,9 +107,9 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(216, 141);
+            textBox1.Location = new Point(247, 160);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(242, 20);
+            textBox1.Size = new Size(277, 20);
             textBox1.TabIndex = 16;
             textBox1.Text = "Usuario/Legajo";
             textBox1.TextChanged += textBox1_TextChanged_2;
@@ -123,9 +123,9 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(12, 390);
+            button1.Location = new Point(14, 442);
             button1.Name = "button1";
-            button1.Size = new Size(125, 48);
+            button1.Size = new Size(143, 54);
             button1.TabIndex = 23;
             button1.Text = "Harcodear Admin";
             button1.UseVisualStyleBackColor = false;
@@ -140,9 +140,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(12, 321);
+            button2.Location = new Point(14, 364);
             button2.Name = "button2";
-            button2.Size = new Size(125, 48);
+            button2.Size = new Size(143, 54);
             button2.TabIndex = 24;
             button2.Text = "Hardcodear Estudiante";
             button2.UseVisualStyleBackColor = false;
@@ -153,15 +153,15 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(650, 0);
+            panel1.Location = new Point(743, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(300, 450);
+            panel1.Size = new Size(343, 510);
             panel1.TabIndex = 25;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 68);
+            pictureBox1.Location = new Point(22, 90);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(294, 301);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -170,10 +170,10 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(950, 450);
+            ClientSize = new Size(1086, 510);
             Controls.Add(btnSalir);
             Controls.Add(panel1);
             Controls.Add(button2);
@@ -182,6 +182,7 @@
             Controls.Add(btnIngresar);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
+            Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
             Opacity = 0.95D;

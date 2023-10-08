@@ -23,8 +23,16 @@ namespace Biblioteca
                 estudiante.Contrasenia = Hash.GetHash(estudiante.Contrasenia);
             }
 
-            WriteStreamJSON("estudiantes.json", estudiantes);
+            // Leer los estudiantes existentes en el archivo JSON
+            var estudiantesExistente = ReadStreamJSON();
+
+            // Agregar los nuevos estudiantes a la lista existente
+            estudiantesExistente.AddRange(estudiantes);
+
+            // Guardar la lista completa de estudiantes (incluyendo los nuevos estudiantes) en el archivo JSON
+            WriteStreamJSON("estudiantes.json", estudiantesExistente);
         }
+
 
 
         // Actualiza la contraseña de un Estudiante en el archivo JSON.
