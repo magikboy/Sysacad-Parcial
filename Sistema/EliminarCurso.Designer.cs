@@ -108,70 +108,70 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label16.Location = new Point(20, 255);
             label16.Name = "label16";
-            label16.Size = new Size(55, 16);
+            label16.Size = new Size(51, 16);
             label16.TabIndex = 43;
             label16.Text = "Codigo";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label15.Location = new Point(20, 221);
             label15.Name = "label15";
-            label15.Size = new Size(55, 16);
+            label15.Size = new Size(51, 16);
             label15.TabIndex = 42;
             label15.Text = "Codigo";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label14.Location = new Point(20, 187);
             label14.Name = "label14";
-            label14.Size = new Size(55, 16);
+            label14.Size = new Size(51, 16);
             label14.TabIndex = 41;
             label14.Text = "Codigo";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label13.Location = new Point(20, 149);
             label13.Name = "label13";
-            label13.Size = new Size(55, 16);
+            label13.Size = new Size(51, 16);
             label13.TabIndex = 40;
             label13.Text = "Codigo";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label12.Location = new Point(20, 110);
             label12.Name = "label12";
-            label12.Size = new Size(55, 16);
+            label12.Size = new Size(51, 16);
             label12.TabIndex = 39;
             label12.Text = "Codigo";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label11.Location = new Point(20, 75);
             label11.Name = "label11";
-            label11.Size = new Size(55, 16);
+            label11.Size = new Size(51, 16);
             label11.TabIndex = 38;
             label11.Text = "Codigo";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label10.Location = new Point(20, 43);
             label10.Name = "label10";
-            label10.Size = new Size(55, 16);
+            label10.Size = new Size(51, 16);
             label10.TabIndex = 37;
             label10.Text = "Codigo";
             // 
@@ -198,70 +198,70 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label9.Location = new Point(7, 255);
             label9.Name = "label9";
-            label9.Size = new Size(55, 16);
+            label9.Size = new Size(51, 16);
             label9.TabIndex = 36;
             label9.Text = "Codigo";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label8.Location = new Point(7, 221);
             label8.Name = "label8";
-            label8.Size = new Size(55, 16);
+            label8.Size = new Size(51, 16);
             label8.TabIndex = 35;
             label8.Text = "Codigo";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label7.Location = new Point(7, 187);
             label7.Name = "label7";
-            label7.Size = new Size(55, 16);
+            label7.Size = new Size(51, 16);
             label7.TabIndex = 34;
             label7.Text = "Codigo";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(7, 149);
             label6.Name = "label6";
-            label6.Size = new Size(55, 16);
+            label6.Size = new Size(51, 16);
             label6.TabIndex = 33;
             label6.Text = "Codigo";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(7, 110);
             label5.Name = "label5";
-            label5.Size = new Size(55, 16);
+            label5.Size = new Size(51, 16);
             label5.TabIndex = 32;
             label5.Text = "Codigo";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(7, 75);
             label4.Name = "label4";
-            label4.Size = new Size(55, 16);
+            label4.Size = new Size(51, 16);
             label4.TabIndex = 31;
             label4.Text = "Codigo";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(7, 43);
             label3.Name = "label3";
-            label3.Size = new Size(55, 16);
+            label3.Size = new Size(51, 16);
             label3.TabIndex = 30;
             label3.Text = "Codigo";
             // 
