@@ -53,26 +53,15 @@ cuanto al diseño y usabilidad de la misma.
 ## Consignas
 📃[Consignas](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Primer%20Parcial%20Progra%202.pdf)
 
-##Casos De Uso
 📃[General Casos de uso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/New%20SYSACAD.pdf)
-
-##Caso De Uso 1
 
 📃[Caso De Uso 1](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%201%20-%20%20Registrar%20Estudiante.pdf)
 
-##Caso De Uso 2
-
 📃[Caso De Uso 2](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%202%20-%20Gestionar%20Cursos.pdf)
-
-##Caso De Uso 3
 
 📃[Caso De Uso 3](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%203%20-%20Inscribir%20Estudiante%20en%20Curso.pdf)
 
-##Caso De Uso 4
-
 📃[Caso De Uso 4](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%204%20-%20Consultar%20Horario.pdf)
-
-##Caso De Uso 5
 
 📃[Caso De Uso 5](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%205%20-%20Realizar%20Pagos.pdf)
 
