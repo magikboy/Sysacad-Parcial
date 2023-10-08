@@ -138,3 +138,10 @@ cuanto al diseño y usabilidad de la misma.
 ## Menu Pagos Transferencia
 
 ![Menu Pagos Transferencia](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/menu%20pago%20transferencia.png)
+
+
+### 📄Fuentes
+
+- [Youtube](https://www.youtube.com)
+- [Lab](https://codeutnfra.github.io/programacion_2_laboratorio_2_apuntes/)
+- [Utn](http://www.sistemas-utnfra.com.ar/#/home)
