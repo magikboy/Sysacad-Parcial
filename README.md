@@ -47,3 +47,35 @@ cuanto al diseño y usabilidad de la misma.
 ## Formulario de Login
 
 ![Login](https://github.com/magikboy/Sysacad-1er-Parcial/blob/49707d1192795584e08a7ae57392f4a1ebc32864/Login.png)
+
+## Hardcodeo Admin
+
+![HardcodeoAdmin](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/hardcodeo%20admin.png)
+
+## Menu Administrador
+
+![MenuAdmin](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/menu%20admin.png)
+
+## Registrar Estudiante
+
+![Registar](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/registro%20estudiante.png)
+
+## Gestionar Cursos
+
+![GestionarCursos](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/menu%20gestion%20curso.png)
+
+## Agregar Cursos
+
+![Agregar Cursos](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/Agregar%20Curso.png)
+
+## Elegir Cursos a editar
+
+![Elegir Cursos a editar](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/Elegir%20curso%20a%20editar.png)
+
+## Curso A Editar
+
+![Curso A Editar](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/curso%20a%20editar.png)
+
+## Eleminar Curso
+
+![Eleminar Curso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/b4f1c19fb84301aca7d150da12ad34033a71dfe3/curso%20a%20eliminar.png)
