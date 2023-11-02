@@ -1,12 +1,5 @@
-﻿using Biblioteca;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistema
@@ -14,16 +7,25 @@ namespace Sistema
     public partial class InscribirTercerCuatri : Form
     {
         private int numeroEstudianteIngresado;
-        List<Biblioteca.Cursos> cursos = new List<Biblioteca.Cursos>();
-        List<Estudiante> estudiantes = new List<Estudiante>();
+        private MySqlConnection connection;
+        private MySqlCommand cmd;
+        private MySqlDataReader reader;
 
         public InscribirTercerCuatri(int numeroEstudiante)
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
             MostrarNumeroEstudiante();
+            InicializarBaseDeDatos();
             MostrarDatosDelPrimerAlSextoCurso();
-            this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
+        }
+
+        private void InicializarBaseDeDatos()
+        {
+            string connectionString = "server=localhost;port=3306;database=datos_sysacad;user=root;password=;"; // Corregir 'Uid' a 'user' y 'pwd' a 'password'
+            connection = new MySqlConnection(connectionString);
+            cmd = new MySqlCommand();
+            cmd.Connection = connection;
         }
 
         private void MostrarNumeroEstudiante()
@@ -31,208 +33,176 @@ namespace Sistema
             label44.Text = numeroEstudianteIngresado.ToString();
         }
 
-        private void MostrarDatosCurso(int indice, Label nombreLabel, Label codigoLabel, Label descripcionLabel, Label cupoLabel)
-        {
-            // Lee la lista de cursos desde el archivo JSON
-            cursos = GuardarDatosCursos.ReadStreamJSON();
-
-            // Verificar si hay cursos disponibles en la lista y que sean del Tercer cuatrimestre
-            List<Cursos> cursosPrimerCuatrimestre = cursos.Where(curso => curso.Cuatrimestre == "Tercer Cuatrimestre").ToList();
-
-            if (cursosPrimerCuatrimestre.Count > indice)
-            {
-                Cursos curso = cursosPrimerCuatrimestre[indice];
-
-                nombreLabel.Text = curso.Nombre;
-                codigoLabel.Text = curso.Codigo.ToString();
-                descripcionLabel.Text = curso.DescripcionCurso;
-                cupoLabel.Text = curso.CupoDisponibles.ToString();
-            }
-            else
-            {
-                // Si no hay un curso disponible en ese índice, establecer los labels en blanco
-                nombreLabel.Text = "";
-                codigoLabel.Text = "";
-                descripcionLabel.Text = "";
-                cupoLabel.Text = "";
-            }
-        }
-
         private void MostrarDatosDelPrimerAlSextoCurso()
         {
-            // Mostrar los datos de los cursos del primer cuatrimestre del uno al cinco
-            MostrarDatosCurso(0, label4, label1, label7, label9);
-            MostrarDatosCurso(1, label17, label15, label13, label11);
-            MostrarDatosCurso(2, label24, label25, label23, label19);
-            MostrarDatosCurso(3, label34, label31, label33, label27);
-            MostrarDatosCurso(4, label42, label39, label41, label35);
-            MostrarDatosCurso(5, label51, label48, label50, label43);
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM cursos WHERE Cuatrimestre = 'Tercer Cuatrimestre'";
+                cmd.CommandText = query;
+                reader = cmd.ExecuteReader();
+
+                int courseIndex = 0;
+                while (reader.Read() && courseIndex < 6)
+                {
+                    Label nombreLabel = null;
+                    Label codigoLabel = null;
+                    Label descripcionLabel = null;
+                    Label cupoLabel = null;
+
+                    switch (courseIndex)
+                    {
+                        case 0:
+                            nombreLabel = label4;
+                            codigoLabel = label1;
+                            descripcionLabel = label7;
+                            cupoLabel = label9;
+                            break;
+                        case 1:
+                            nombreLabel = label17;
+                            codigoLabel = label15;
+                            descripcionLabel = label13;
+                            cupoLabel = label11;
+                            break;
+                        case 2:
+                            nombreLabel = label24;
+                            codigoLabel = label25;
+                            descripcionLabel = label23;
+                            cupoLabel = label19;
+                            break;
+                        case 3:
+                            nombreLabel = label34;
+                            codigoLabel = label31;
+                            descripcionLabel = label33;
+                            cupoLabel = label27;
+                            break;
+                        case 4:
+                            nombreLabel = label42;
+                            codigoLabel = label39;
+                            descripcionLabel = label41;
+                            cupoLabel = label35;
+                            break;
+                        case 5:
+                            nombreLabel = label51;
+                            codigoLabel = label48;
+                            descripcionLabel = label50;
+                            cupoLabel = label43;
+                            break;
+                    }
+
+                    if (nombreLabel != null)
+                    {
+                        nombreLabel.Text = reader["nombre"].ToString();
+                        codigoLabel.Text = reader["id"].ToString();
+                        descripcionLabel.Text = reader["Descripcion"].ToString();
+                        cupoLabel.Text = reader["CuposDisponibles"].ToString();
+                    }
+
+                    courseIndex++;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de cursos: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        private void InscribirEstudianteEnCurso(string materiaLabel, string cuatrimestre)
+        private void InscribirEstudianteEnCurso(string cursoNombre, string materiaColumn)
         {
-            // Obtener el número de estudiante desde el Label
-            int numeroEstudiante = int.Parse(label44.Text);
-
-            // Verificar si el estudiante existe en la lista de estudiantes
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
-
-            if (estudiante == null)
+            try
             {
-                MessageBox.Show("El estudiante no existe.");
-                return;
-            }
+                connection.Open();
 
-            // Obtener el nombre del curso desde el Label correspondiente a la materia
-            string cursoSeleccionado = materiaLabel;
+                // Consultar si el estudiante ya está inscrito en la materia
+                string checkQuery = $"SELECT {materiaColumn} FROM estudiantes WHERE id = {numeroEstudianteIngresado}";
+                cmd.CommandText = checkQuery;
+                object result = cmd.ExecuteScalar();
 
-            // Verificar si el estudiante ya está inscrito en la materia
-            if (!string.IsNullOrEmpty(estudiante.MateriaUno) &&
-                estudiante.MateriaUno == cursoSeleccionado)
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(estudiante.MateriaDos) &&
-                estudiante.MateriaDos == cursoSeleccionado)
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(estudiante.MateriaTres) &&
-                estudiante.MateriaTres == cursoSeleccionado)
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(estudiante.MateriaCuatro) &&
-                estudiante.MateriaCuatro == cursoSeleccionado)
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(estudiante.MateriaCinco) &&
-                estudiante.MateriaCinco == cursoSeleccionado)
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(estudiante.MateriaSeis) &&
-                estudiante.MateriaSeis == cursoSeleccionado)
-            {
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ya está inscrito en este curso.");
-                return;
-            }
-
-            // Buscar el curso en la lista de cursos
-            Cursos curso = cursos.FirstOrDefault(cur => cur.Nombre == cursoSeleccionado);
-
-            if (curso == null)
-            {
-                MessageBox.Show("El curso no existe.");
-                return;
-            }
-
-            // Verificar si hay cupos disponibles
-            if (curso.CupoDisponibles == 0)
-            {
-                MessageBox.Show("No hay cupos disponibles para este curso.");
-                return;
-            }
-
-            // Preguntar al usuario si realmente desea inscribirse
-            DialogResult result = MessageBox.Show($"¿Desea inscribir al estudiante {estudiante.NombreCompleto} en el curso {cursoSeleccionado}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                // El usuario ha confirmado la inscripción
-
-                curso.CupoDisponibles--;
-                curso.NumeroInscriptos++;
-
-                // Actualizar el JSON de cursos con los cambios (guardar los cambios en el archivo JSON)
-                GuardarDatosCursos.ActualizarCursos(cursos);
-
-                // Actualizar la materia correspondiente en el JSON del estudiante
-                if (string.IsNullOrEmpty(estudiante.MateriaUno))
+                if (result == null || result == DBNull.Value || string.IsNullOrEmpty(result.ToString()))
                 {
-                    estudiante.MateriaUno = cursoSeleccionado;
-                }
-                else if (string.IsNullOrEmpty(estudiante.MateriaDos))
-                {
-                    estudiante.MateriaDos = cursoSeleccionado;
-                }
-                else if (string.IsNullOrEmpty(estudiante.MateriaTres))
-                {
-                    estudiante.MateriaTres = cursoSeleccionado;
-                }
-                else if (string.IsNullOrEmpty(estudiante.MateriaCuatro))
-                {
-                    estudiante.MateriaCuatro = cursoSeleccionado;
-                }
-                else if (string.IsNullOrEmpty(estudiante.MateriaCinco))
-                {
-                    estudiante.MateriaCinco = cursoSeleccionado;
-                }
-                else if (string.IsNullOrEmpty(estudiante.MateriaSeis))
-                {
-                    estudiante.MateriaSeis = cursoSeleccionado;
-                }
+                    // El estudiante no está inscrito, se puede proceder con la inscripción
+                    // Reinicializar los parámetros antes de usarlos nuevamente
+                    cmd.Parameters.Clear();
 
-                // Actualizar el JSON del estudiante para reflejar la inscripción en la materia correspondiente
-                GuardarDatosEstudiantes.ActualizarMateriasEstudiante(estudiante);
+                    string updateQuery = $"UPDATE estudiantes SET {materiaColumn} = @CursoNombre WHERE id = {numeroEstudianteIngresado}";
+                    cmd.CommandText = updateQuery;
+                    cmd.Parameters.AddWithValue("@CursoNombre", cursoNombre);
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                // Mostrar un mensaje de éxito
-                MessageBox.Show($"El estudiante {estudiante.NombreCompleto} ha sido inscrito en el curso {cursoSeleccionado}.");
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Estudiante inscrito en {cursoNombre} con éxito.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo inscribir al estudiante en el curso.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"El estudiante ya está inscrito en {cursoNombre}.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // El usuario ha cancelado la inscripción
-                MessageBox.Show("La inscripción ha sido cancelada.");
+                MessageBox.Show("Error al inscribir al estudiante en el curso: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
+
+
+        private void InscribirEstudianteEnCurso(Label cursoLabel, string materiaColumn)
+        {
+            string cursoNombre = cursoLabel.Text;
+            InscribirEstudianteEnCurso(cursoNombre, materiaColumn);
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 1
-            InscribirEstudianteEnCurso(label4.Text, "Tercer Cuatrimestre");
+            string cursoNombre = label4.Text;
+            InscribirEstudianteEnCurso(cursoNombre, "MateriaUno");
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 2
-            InscribirEstudianteEnCurso(label17.Text, "Tercer Cuatrimestre");
+            string cursoNombre = label17.Text;
+            InscribirEstudianteEnCurso(cursoNombre, "MateriaDos");
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 3
-            InscribirEstudianteEnCurso(label24.Text, "Tercer Cuatrimestre");
+            string cursoNombre = label24.Text;
+            InscribirEstudianteEnCurso(cursoNombre, "MateriaTres");
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 4
-            InscribirEstudianteEnCurso(label34.Text, "Tercer Cuatrimestre");
+            string cursoNombre = label34.Text;
+            InscribirEstudianteEnCurso(cursoNombre, "MateriaCuatro");
         }
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 5
-            InscribirEstudianteEnCurso(label42.Text, "Tercer Cuatrimestre");
+            string cursoNombre = label42.Text;
+            InscribirEstudianteEnCurso(cursoNombre, "MateriaCinco");
         }
 
-        private void button7_Click_1(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            // Llamar al método para inscribir al estudiante en la materia 6
-            InscribirEstudianteEnCurso(label51.Text, "Tercer Cuatrimestre");
+            string cursoNombre = label51.Text;
+            InscribirEstudianteEnCurso(cursoNombre, "MateriaSeis");
         }
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {

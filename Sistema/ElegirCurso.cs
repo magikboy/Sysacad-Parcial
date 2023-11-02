@@ -1,4 +1,5 @@
 ﻿using Biblioteca;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,75 +15,57 @@ namespace Sistema
     public partial class ElegirCurso : Form
     {
 
-        List<Biblioteca.Cursos> cursos = new List<Biblioteca.Cursos>();
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //hacer que lea el codigo del curso
-            string Codigo = textBox1.Text;
-        }
+        Label[] labels;
 
         public ElegirCurso()
         {
             InitializeComponent();
-            // Llamo a un método para cargar y mostrar los datos
-            CargarYMostrarDatos();
+            labels = new Label[]
+            {
+                label3, label4, label5, label6, label7, label8, label9,
+                label10, label11, label12, label13, label14, label15, label16
+            };
+
+            // Llamo a un método para cargar y mostrar los datos desde la base de datos
+            CargarYMostrarDatosDesdeBaseDeDatos();
         }
 
-        // Método para cargar y mostrar los datos en los labels
-        private void CargarYMostrarDatos()
+        // Método para cargar y mostrar los datos desde la base de datos en los labels
+        private void CargarYMostrarDatosDesdeBaseDeDatos()
         {
             try
             {
-                // Lee la lista de cursos desde el archivo JSON
-                var lista = GuardarDatosCursos.ReadStreamJSON();
+                // Debes configurar la cadena de conexión según tu entorno
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
 
-                // Verificar si hay cursos en la lista antes de mostrar datos
-                if (lista.Count > 0)
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    label3.Text = lista[0].Nombre.ToString();
-                    label10.Text = lista[0].Codigo.ToString();
-                }
+                    connection.Open();
 
-                if (lista.Count > 1)
-                {
-                    label4.Text = lista[1].Nombre.ToString();
-                    label11.Text = lista[1].Codigo.ToString();
-                }
+                    string selectQuery = "SELECT id, nombre FROM cursos";
 
-                if (lista.Count > 2)
-                {
-                    label5.Text = lista[2].Nombre.ToString();
-                    label12.Text = lista[2].Codigo.ToString();
-                }
+                    using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        int labelIndex = 0;
 
-                if (lista.Count > 3)
-                {
-                    label6.Text = lista[3].Nombre.ToString();
-                    label13.Text = lista[3].Codigo.ToString();
-                }
+                        while (reader.Read() && labelIndex < 7)
+                        {
+                            string nombreCurso = reader["nombre"].ToString();
+                            int idCurso = reader.GetInt32("id");
 
-                if (lista.Count > 4)
-                {
-                    label7.Text = lista[4].Nombre.ToString();
-                    label14.Text = lista[4].Codigo.ToString();
-                }
+                            // Actualiza los labels con los datos de la base de datos
+                            labels[labelIndex].Text = nombreCurso;
+                            labels[labelIndex + 7].Text = idCurso.ToString();
 
-                if (lista.Count > 5)
-                {
-                    label8.Text = lista[5].Nombre.ToString();
-                    label15.Text = lista[5].Codigo.ToString();
-                }
-
-                if (lista.Count > 6)
-                {
-                    label9.Text = lista[6].Nombre.ToString();
-                    label16.Text = lista[6].Codigo.ToString();
+                            labelIndex++;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar y mostrar datos: {ex.Message}");
+                MessageBox.Show($"Error al cargar y mostrar datos desde la base de datos: {ex.Message}");
             }
         }
 
@@ -103,36 +86,40 @@ namespace Sistema
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            try
+            string codigoIngresado = textBox1.Text;
+
+            if (int.TryParse(codigoIngresado, out int cursoId))
             {
-                string codigoIngresado = textBox1.Text;
+                // Debes configurar la cadena de conexión según tu entorno
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
 
-                if (int.TryParse(codigoIngresado, out int codigoEntero))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    var listaCursos = GuardarDatosCursos.ReadStreamJSON();
+                    connection.Open();
 
-                    Biblioteca.Cursos cursoEncontrado = listaCursos.FirstOrDefault(curso => curso.Codigo == codigoEntero);
+                    string selectQuery = "SELECT * FROM cursos WHERE id = @cursoId";
+                    MySqlCommand command = new MySqlCommand(selectQuery, connection);
+                    command.Parameters.AddWithValue("@cursoId", cursoId);
 
-                    if (cursoEncontrado != null)
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        MessageBox.Show($"Curso encontrado: {cursoEncontrado.Nombre}");
-                        this.Hide();
-                        EditarCurso editarCurso = new EditarCurso(cursoEncontrado.Codigo, cursoEncontrado.Nombre);
-                        editarCurso.Show();
+                        if (reader.Read())
+                        {
+                            string nombreCurso = reader["nombre"].ToString();
+                            this.Hide();
+                            EditarCurso editarCurso = new EditarCurso(cursoId, nombreCurso);
+                            editarCurso.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El curso con el ID ingresado no existe en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("El código de curso ingresado no existe.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, ingrese un código de curso válido (número entero).");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error al buscar y mostrar curso: {ex.Message}");
+                MessageBox.Show("Por favor, ingrese un ID de curso válido (número entero).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

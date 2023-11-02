@@ -1,29 +1,17 @@
-﻿using Biblioteca;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Windows.Forms;
-using System.Linq;
+using MySql.Data.MySqlClient;
 
 namespace Sistema
 {
     public partial class PagoTransferencia : Form
     {
         private int numeroEstudianteIngresado;
-        private List<Estudiante> estudiantes;
 
         public PagoTransferencia(int numeroEstudiante)
         {
             InitializeComponent();
             this.numeroEstudianteIngresado = numeroEstudiante;
-            try
-            {
-                this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar datos de estudiantes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.estudiantes = new List<Estudiante>();
-            }
             MostrarNumeroEstudiante();
         }
 
@@ -54,63 +42,60 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Obtener el valor actual en label11.Text
-            string valorLabel = label11.Text;
-
-            // Obtener el estudiante correspondiente en la lista
-            Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
-
             try
             {
-                if (estudiante != null)
-                {
-                    string tituloPago = string.Empty; // Variable para el título del pago
+                string valorLabel = label11.Text; // Obtener el valor actual en label11.Text
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
 
-                    // Realizar las actualizaciones en función del valor en label11.Text y definir el título del pago
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Definir la sentencia SQL para actualizar la base de datos
+                    string updateQuery = "";
+
+                    // Determinar la sentencia SQL y el título del pago en función del valor en label11.Text
                     switch (valorLabel)
                     {
                         case "10000$":
-                            estudiante.PagoMatricula = "pagado";
-                            tituloPago = "Matrícula";
+                            updateQuery = "UPDATE estudiantes SET PagoMatricula = 'pagado' WHERE id = @id";
                             break;
                         case "5000$":
-                            estudiante.PagoCargosAdministrativos = "pagado";
-                            tituloPago = "Cargos Administrativos";
+                            updateQuery = "UPDATE estudiantes SET PagoCargosAdministrativos = 'pagado' WHERE id = @id";
                             break;
                         case "1000$":
-                            estudiante.PagoUtilidades = "pagado";
-                            tituloPago = "Utilidades";
+                            updateQuery = "UPDATE estudiantes SET PagoUtilidades = 'pagado' WHERE id = @id";
                             break;
                         case "15000$":
-                            estudiante.PagoMatricula = "pagado";
-                            estudiante.PagoCargosAdministrativos = "pagado";
-                            tituloPago = "Matrícula y Cargos Administrativos";
+                            updateQuery = "UPDATE estudiantes SET PagoMatricula = 'pagado', PagoCargosAdministrativos = 'pagado' WHERE id = @id";
                             break;
                         case "11000$":
-                            estudiante.PagoMatricula = "pagado";
-                            estudiante.PagoUtilidades = "pagado";
-                            tituloPago = "Matrícula y Utilidades";
+                            updateQuery = "UPDATE estudiantes SET PagoMatricula = 'pagado', PagoUtilidades = 'pagado' WHERE id = @id";
                             break;
                         case "6000$":
-                            estudiante.PagoCargosAdministrativos = "pagado";
-                            estudiante.PagoUtilidades = "pagado";
-                            tituloPago = "Cargos Administrativos y Utilidades";
+                            updateQuery = "UPDATE estudiantes SET PagoCargosAdministrativos = 'pagado', PagoUtilidades = 'pagado' WHERE id = @id";
                             break;
                         default:
                             // Manejar otros casos si es necesario
                             break;
                     }
 
-                    // Guardar la lista actualizada en el archivo JSON
-                    GuardarDatosEstudiantes.ActualizarPagoEstudiante(estudiante);
+                    if (!string.IsNullOrEmpty(updateQuery))
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", numeroEstudianteIngresado);
+                            cmd.ExecuteNonQuery();
 
-                    // Mostrar mensaje de confirmación
-                    string cuentaBancaria = label7.Text; // Obtengo la información de la cuenta bancaria desde label7
-                    MessageBox.Show($"Pago de {tituloPago} realizado con éxito. Tiene 3 días para hacer el pago a la siguiente cuenta bancaria:\n\n{cuentaBancaria} " + $"y se envió el comprobante al correo electrónico de {estudiante.CorreoElectronico}");
-                }
-                else
-                {
-                    MessageBox.Show("Estudiante no encontrado");
+                            // Mostrar mensaje de confirmación
+                            string cuentaBancaria = label7.Text; // Obtén la información de la cuenta bancaria desde label7
+                            MessageBox.Show($"Pago realizado con éxito. Tiene 3 días para hacer el pago a la siguiente cuenta bancaria:\n\n{cuentaBancaria}");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo procesar el pago debido a un valor no reconocido en label11.");
+                    }
                 }
             }
             catch (Exception ex)
