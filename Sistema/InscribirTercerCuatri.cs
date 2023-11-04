@@ -115,43 +115,126 @@ namespace Sistema
 
         private void InscribirEstudianteEnCurso(string cursoNombre, string materiaColumn)
         {
+            // Verificar el requisito de historial académico
+            bool cumpleRequisitoHistorial = VerificarRequisitoHistorialAcademico();
+
+            if (!cumpleRequisitoHistorial)
+            {
+                MessageBox.Show("El estudiante no cumple con el requisito de Historial Académico y no puede inscribirse.");
+                return;
+            }
+
             try
             {
                 connection.Open();
 
-                // Consultar si el estudiante ya está inscrito en la materia
-                string checkQuery = $"SELECT {materiaColumn} FROM estudiantes WHERE id = {numeroEstudianteIngresado}";
-                cmd.CommandText = checkQuery;
-                object result = cmd.ExecuteScalar();
+                // Consultar el nombre del estudiante
+                string nombreEstudianteQuery = $"SELECT Nombre FROM estudiantes WHERE id = {numeroEstudianteIngresado}";
+                cmd.CommandText = nombreEstudianteQuery;
+                object nombreEstudianteResult = cmd.ExecuteScalar();
+                string nombreEstudiante = nombreEstudianteResult != null ? nombreEstudianteResult.ToString() : "Nombre no encontrado";
 
-                if (result == null || result == DBNull.Value || string.IsNullOrEmpty(result.ToString()))
+                // Borra los parámetros existentes antes de agregar nuevos
+                cmd.Parameters.Clear();
+
+                // Consultar el número de cupos disponibles en el curso
+                string cuposQuery = $"SELECT CuposDisponibles FROM cursos WHERE nombre = @CursoNombre";
+                cmd.CommandText = cuposQuery;
+                cmd.Parameters.AddWithValue("@CursoNombre", cursoNombre); // Agrega el parámetro
+                object cuposResult = cmd.ExecuteScalar();
+                int cuposDisponibles = 0;
+
+                if (cuposResult != null && cuposResult != DBNull.Value)
                 {
-                    // El estudiante no está inscrito, se puede proceder con la inscripción
-                    // Reinicializar los parámetros antes de usarlos nuevamente
-                    cmd.Parameters.Clear();
+                    cuposDisponibles = Convert.ToInt32(cuposResult);
+                }
 
-                    string updateQuery = $"UPDATE estudiantes SET {materiaColumn} = @CursoNombre WHERE id = {numeroEstudianteIngresado}";
-                    cmd.CommandText = updateQuery;
-                    cmd.Parameters.AddWithValue("@CursoNombre", cursoNombre);
+                if (cumpleRequisitoHistorial && cuposDisponibles > 0)
+                {
+                    // Consultar si el estudiante ya está inscrito en la materia
+                    string checkQuery = $"SELECT {materiaColumn} FROM estudiantes WHERE id = {numeroEstudianteIngresado}";
+                    cmd.CommandText = checkQuery;
+                    object result = cmd.ExecuteScalar();
+
+                    if (result == null || result == DBNull.Value || string.IsNullOrEmpty(result.ToString()))
+                    {
+                        // El estudiante no está inscrito, se puede proceder con la inscripción
+                        // Reinicializar los parámetros antes de usarlos nuevamente
+                        cmd.Parameters.Clear();
+
+                        string updateQuery = $"UPDATE estudiantes SET {materiaColumn} = @CursoNombre WHERE id = {numeroEstudianteIngresado}";
+                        cmd.CommandText = updateQuery;
+                        cmd.Parameters.AddWithValue("@CursoNombre", cursoNombre);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show($"{nombreEstudiante} inscrito en {cursoNombre} con éxito.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo inscribir a {nombreEstudiante} en el curso.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{nombreEstudiante} ya está inscrito en {cursoNombre}.");
+                    }
+                }
+                else if (cuposDisponibles <= 0)
+                {
+                    // Agregar a la lista de espera
+                    string insertWaitlistQuery = "INSERT INTO listadeespera (NombreEstudiante, NombreMateria, Fecha) VALUES (@NombreEstudiante, @NombreMateria, @Fecha)";
+                    cmd.CommandText = insertWaitlistQuery;
+                    cmd.Parameters.AddWithValue("@NombreEstudiante", nombreEstudiante);
+                    cmd.Parameters.AddWithValue("@NombreMateria", cursoNombre);
+                    cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show($"Estudiante inscrito en {cursoNombre} con éxito.");
+                        MessageBox.Show($"{nombreEstudiante} agregado a la lista de espera para {cursoNombre}.");
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo inscribir al estudiante en el curso.");
+                        MessageBox.Show("No se pudo agregar a {nombreEstudiante} a la lista de espera.");
                     }
-                }
-                else
-                {
-                    MessageBox.Show($"El estudiante ya está inscrito en {cursoNombre}.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al inscribir al estudiante en el curso: " + ex.Message);
+                MessageBox.Show("Error al inscribir a {nombreEstudiante} en el curso: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private bool VerificarRequisitoHistorialAcademico()
+        {
+            try
+            {
+                connection.Open();
+
+                // Consultar el valor de HistorialAcademico del estudiante
+                string query = $"SELECT HistorialAcademico FROM estudiantes WHERE id = {numeroEstudianteIngresado}";
+                cmd.CommandText = query;
+                object result = cmd.ExecuteScalar();
+
+                // Verificar si el historial académico cumple con el requisito
+                if (result != null && result != DBNull.Value)
+                {
+                    string historialAcademico = result.ToString();
+                    return historialAcademico.Equals("Secundario Completo", StringComparison.OrdinalIgnoreCase) || historialAcademico.Equals("Posgrado Completo", StringComparison.OrdinalIgnoreCase);
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar el requisito de Historial Académico: " + ex.Message);
+                return false;
             }
             finally
             {

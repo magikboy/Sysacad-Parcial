@@ -1,17 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class MenuAdministrador : Form
+    public partial class ListaInformes : Form
     {
-        public MenuAdministrador()
+        public ListaInformes()
         {
             InitializeComponent();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //volver al menu administrador con exepciones
+            try
+            {
+                // Código que podría generar una excepción
+                MenuAdministrador menuAdministrador = new MenuAdministrador();
+                menuAdministrador.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción
+                MessageBox.Show($"Ocurrió una excepción: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            //salir del programa
             try
             {
                 // Código que podría generar una excepción
@@ -24,13 +49,14 @@ namespace Sistema
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
+            //ir al informeDeInscripciones
             try
             {
                 // Código que podría generar una excepción
-                Login login = new Login();
-                login.Show();
+                InformeDeCuatrimeste informeDeInscripciones = new InformeDeCuatrimeste();
+                informeDeInscripciones.Show();
                 this.Hide();
             }
             catch (Exception ex)
@@ -42,11 +68,12 @@ namespace Sistema
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            //ir al formulario de infromePorPeriodo
             try
             {
                 // Código que podría generar una excepción
-                RegistrarEstudiante registrarEstudiante = new RegistrarEstudiante();
-                registrarEstudiante.Show();
+                InformePorPeriodo informePorPeriodo = new InformePorPeriodo();
+                informePorPeriodo.Show();
                 this.Hide();
             }
             catch (Exception ex)
@@ -58,11 +85,12 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //ir al formulario de informeCursos
             try
             {
                 // Código que podría generar una excepción
-                GestionarCursos cursos = new GestionarCursos();
-                cursos.Show();
+                InformeCursos informeCursos = new InformeCursos();
+                informeCursos.Show();
                 this.Hide();
             }
             catch (Exception ex)
@@ -74,30 +102,12 @@ namespace Sistema
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //ir al form de listaInformes
+            //ir al formulario de informePagos
             try
             {
                 // Código que podría generar una excepción
-                ListaInformes listaInformes = new ListaInformes();
-                listaInformes.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción
-                MessageBox.Show($"Ocurrió una excepción: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //abrir elegircursoAcademico
-
-            try
-            {
-                // Código que podría generar una excepción
-                ElegirCursoAcademico elegirCursoAcademico = new ElegirCursoAcademico();
-                elegirCursoAcademico.Show();
+                InformePagos informePagos = new InformePagos();
+                informePagos.Show();
                 this.Hide();
             }
             catch (Exception ex)
@@ -109,12 +119,12 @@ namespace Sistema
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //abrir elegircursoListaEspera
+            //ir al menu informeListaEsperaCursos
             try
             {
                 // Código que podría generar una excepción
-                ElegirCursoListaEspera elegirCursoListaEspera = new ElegirCursoListaEspera();
-                elegirCursoListaEspera.Show();
+                InformeListaEsperaCursos informeListaEsperaCursos = new InformeListaEsperaCursos();
+                informeListaEsperaCursos.Show();
                 this.Hide();
             }
             catch (Exception ex)

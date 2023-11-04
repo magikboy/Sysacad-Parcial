@@ -23,7 +23,6 @@ namespace Sistema
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             //mostrar un mensaje si la conexion es exitosa
-
             try
             {
                 // Abrir la conexión a la base de datos
