@@ -335,6 +335,7 @@
             Controls.Add(button2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ElegirCursoAcademico";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ElegirCursoAcademico";
             ((System.ComponentModel.ISupportInitialize)guardarDatosBindingSource).EndInit();

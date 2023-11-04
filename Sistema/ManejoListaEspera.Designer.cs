@@ -327,6 +327,7 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ManejoListaEspera";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ManejoListaEspera";
             groupBox1.ResumeLayout(false);

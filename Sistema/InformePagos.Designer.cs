@@ -126,6 +126,7 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "InformePagos";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InformePagos";
             groupBox1.ResumeLayout(false);

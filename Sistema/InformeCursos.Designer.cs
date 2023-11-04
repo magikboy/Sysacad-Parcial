@@ -126,6 +126,7 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "InformeCursos";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InformeCursos";
             groupBox1.ResumeLayout(false);

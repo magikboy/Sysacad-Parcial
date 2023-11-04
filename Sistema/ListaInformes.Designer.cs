@@ -203,6 +203,7 @@
             Controls.Add(button3);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListaInformes";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ListaInformes";
             panel1.ResumeLayout(false);

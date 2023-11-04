@@ -32,10 +32,10 @@
             btnIngresar = new Button();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
-            label2 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
             label1 = new Label();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            label2 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -96,34 +96,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Informe";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Black;
-            label2.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(185, 34);
-            label2.Name = "label2";
-            label2.Size = new Size(442, 28);
-            label2.TabIndex = 37;
-            label2.Text = "Informe de inscripciones por período";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(13, 122);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(155, 23);
-            dateTimePicker1.TabIndex = 26;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(227, 122);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(155, 23);
-            dateTimePicker2.TabIndex = 27;
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -136,6 +108,34 @@
             label1.TabIndex = 38;
             label1.Text = "A";
             // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(227, 122);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(155, 23);
+            dateTimePicker2.TabIndex = 27;
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(13, 122);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(155, 23);
+            dateTimePicker1.TabIndex = 26;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Black;
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(185, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(442, 28);
+            label2.TabIndex = 37;
+            label2.Text = "Informe de inscripciones por período";
+            // 
             // InformePorPeriodo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -147,6 +147,7 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "InformePorPeriodo";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InformePorPeriodo";
             groupBox1.ResumeLayout(false);

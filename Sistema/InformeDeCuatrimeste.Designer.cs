@@ -126,6 +126,7 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "InformeDeCuatrimeste";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InformeDeInscripciones";
             groupBox1.ResumeLayout(false);

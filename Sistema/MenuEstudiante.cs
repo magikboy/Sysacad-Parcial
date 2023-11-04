@@ -120,5 +120,20 @@ namespace Sistema
                 MessageBox.Show("Ocurrió un error al intentar realizar pagos: " + ex.Message);
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            //abrir menuNotificaciones con excepciones
+            try
+            {
+                MenuNotificacion menuNotificaciones = new MenuNotificacion(numeroEstudianteIngresado);
+                menuNotificaciones.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar acceder a las notificaciones: " + ex.Message);
+            }
+        }
     }
 }

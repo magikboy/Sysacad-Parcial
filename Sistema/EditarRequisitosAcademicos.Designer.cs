@@ -33,16 +33,16 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
             textBox5 = new TextBox();
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -120,6 +120,51 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Curso";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(11, 301);
+            label7.Name = "label7";
+            label7.Size = new Size(298, 17);
+            label7.TabIndex = 33;
+            label7.Text = "CreditosAcumulados Academicos Del Curso:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(13, 231);
+            label6.Name = "label6";
+            label6.Size = new Size(241, 17);
+            label6.TabIndex = 32;
+            label6.Text = "PreRequisitos Academico Del Curso:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(13, 157);
+            label5.Name = "label5";
+            label5.Size = new Size(221, 17);
+            label5.TabIndex = 31;
+            label5.Text = "Promedio Academico Del Curso:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(13, 81);
+            label4.Name = "label4";
+            label4.Size = new Size(128, 17);
+            label4.TabIndex = 30;
+            label4.Text = "Codigo Del Curso:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(13, 26);
+            label3.Name = "label3";
+            label3.Size = new Size(131, 17);
+            label3.TabIndex = 29;
+            label3.Text = "Nombre Del Curso:";
+            // 
             // textBox5
             // 
             textBox5.BackColor = Color.FromArgb(64, 64, 64);
@@ -176,51 +221,6 @@
             label1.TabIndex = 35;
             label1.Text = "label1";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(13, 26);
-            label3.Name = "label3";
-            label3.Size = new Size(131, 17);
-            label3.TabIndex = 29;
-            label3.Text = "Nombre Del Curso:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(13, 81);
-            label4.Name = "label4";
-            label4.Size = new Size(128, 17);
-            label4.TabIndex = 30;
-            label4.Text = "Codigo Del Curso:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(13, 157);
-            label5.Name = "label5";
-            label5.Size = new Size(221, 17);
-            label5.TabIndex = 31;
-            label5.Text = "Promedio Academico Del Curso:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(13, 231);
-            label6.Name = "label6";
-            label6.Size = new Size(241, 17);
-            label6.TabIndex = 32;
-            label6.Text = "PreRequisitos Academico Del Curso:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(11, 301);
-            label7.Name = "label7";
-            label7.Size = new Size(298, 17);
-            label7.TabIndex = 33;
-            label7.Text = "CreditosAcumulados Academicos Del Curso:";
-            // 
             // EditarRequisitosAcademicos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -233,6 +233,7 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EditarRequisitosAcademicos";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EditarRequisitosAcademicos";
             groupBox1.ResumeLayout(false);

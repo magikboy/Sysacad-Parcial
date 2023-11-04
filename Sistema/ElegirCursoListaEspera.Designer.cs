@@ -335,6 +335,7 @@
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ElegirCursoListaEspera";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ElegirCursoListaEspera";
             groupBox3.ResumeLayout(false);
