@@ -289,9 +289,7 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(140, 20);
             label2.Name = "label2";
-            label2.Size = new Size(174, 28);
             label2.TabIndex = 43;
-            label2.Text = "Elegir Profesor";
             // 
             // groupBox1
             // 

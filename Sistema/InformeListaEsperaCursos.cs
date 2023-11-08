@@ -12,6 +12,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
 
+
 namespace Sistema
 {
     public partial class InformeListaEsperaCursos : Form
@@ -31,7 +32,6 @@ namespace Sistema
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            // Volvemos al menú administrador con excepciones
             try
             {
                 MenuAdministrador menuAdministrador = new MenuAdministrador();
@@ -44,7 +44,6 @@ namespace Sistema
             }
         }
 
-        private async void btnIngresar_Click(object sender, EventArgs e)
         {
             // Obtener el nombre de la materia y el título del PDF desde los TextBox
             string materia = textBox2.Text;
@@ -93,5 +92,7 @@ namespace Sistema
             // Disparar el evento InformeGenerado cuando se genera un informe exitosamente
             InformeGenerado?.Invoke(nombreArchivoPDF);
         }
+
+
     }
 }

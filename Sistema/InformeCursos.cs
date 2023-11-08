@@ -43,7 +43,6 @@ namespace Sistema
             await Task.Run(() => GenerateInforme());
         }
 
-        private void GenerateInforme()
         {
             // Obtén el ID del curso y el título de los TextBox
             int cursoId;
@@ -107,5 +106,6 @@ namespace Sistema
                 MessageBox.Show("Por favor, ingrese un ID de curso válido.");
             }
         }
+
     }
 }

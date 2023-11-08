@@ -37,7 +37,6 @@ namespace Sistema
             }
         }
 
-        private async void btnIngresar_Click(object sender, EventArgs e)
         {
             // Obtén el cuatrimestre desde el TextBox2 y el título desde el TextBox1
             string cuatrimestre = textBox2.Text;
@@ -121,5 +120,6 @@ namespace Sistema
                 }
             }
         }
+
     }
 }

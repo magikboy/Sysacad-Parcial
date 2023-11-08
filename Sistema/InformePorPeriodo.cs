@@ -82,11 +82,8 @@ namespace Sistema
                 doc.Close();
             }
 
-            // Disparar el evento InformeGenerado cuando se genera un informe exitosamente
-            InformeGenerado?.Invoke(pdfFilePath);
         }
 
-        private async void btnIngresar_Click(object sender, EventArgs e)
         {
             DateTime fechaInicio = dateTimePicker1.Value;
             DateTime fechaFin = dateTimePicker2.Value;
@@ -98,10 +95,9 @@ namespace Sistema
             // Utilizar Task.Run para ejecutar el proceso de generación de informe en un hilo separado.
             await Task.Run(() =>
             {
-                int cantidadAlumnos = ObtenerAlumnosEnCuatrimestres(fechaInicio, fechaFin);
+            int cantidadAlumnos = ObtenerAlumnosEnCuatrimestres(fechaInicio, fechaFin);
 
-                // Crear el informe en PDF con el título dinámico en el hilo secundario.
-                GenerarInformePDF(tituloInforme, fechaInicio, fechaFin, cantidadAlumnos);
+            GenerarInformePDF(tituloInforme, fechaInicio, fechaFin, cantidadAlumnos);
 
             });
 
