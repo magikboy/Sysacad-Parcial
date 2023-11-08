@@ -1,4 +1,5 @@
 ﻿using Biblioteca;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,136 +98,98 @@ namespace Sistema
         {
             try
             {
-                // Obtener el valor actual en label11.Text
-                string valorLabel = label11.Text;
+                string valorLabel = label11.Text; // Obtener el valor actual en label11.Text
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
 
-                // Obtener la fecha actual
-                DateTime fechaActual = DateTime.Now;
-
-                // Obtener el estudiante correspondiente en la lista
-                Estudiante estudiante = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
-
-                // Verificar si todos los campos del 1 al 7 y los numericUpDown no están vacíos
-                if (string.IsNullOrWhiteSpace(textBox1.Text) ||
-                    string.IsNullOrWhiteSpace(textBox2.Text) ||
-                    string.IsNullOrWhiteSpace(textBox3.Text) ||
-                    string.IsNullOrWhiteSpace(textBox4.Text) ||
-                    string.IsNullOrWhiteSpace(textBox5.Text) ||
-                    string.IsNullOrWhiteSpace(textBox7.Text) ||
-                    numericUpDown1.Value == 0 || // Verificar que numericUpDown1 no esté vacío
-                    numericUpDown2.Value == 0)   // Verificar que numericUpDown2 no esté vacío
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    MessageBox.Show("Por favor, complete todos los campos.");
-                    return; // Salir de la función si no están completos
-                }
+                    connection.Open();
 
-                // Validar que los TextBox del 1 al 4 tengan 4 números ingresados
-                if (!Validacion.ValidarTarjetaCredito4numeros(textBox1.Text) ||
-                    !Validacion.ValidarTarjetaCredito4numeros(textBox2.Text) ||
-                    !Validacion.ValidarTarjetaCredito4numeros(textBox3.Text) ||
-                    !Validacion.ValidarTarjetaCredito4numeros(textBox4.Text))
-                {
-                    MessageBox.Show("Por favor, ingrese 4 números en los campos de la tarjeta de crédito.");
-                    return; // Salir de la función si no se cumple la validación
-                }
+                    // Definir la sentencia SQL para actualizar la base de datos
+                    string updateQuery = "";
 
-                // Validar que el TextBox 7 tenga 3 números ingresados
-                if (!Validacion.ValidarTarjetaCredito3numeros(textBox7.Text))
-                {
-                    MessageBox.Show("Por favor, ingrese 3 números en el campo de CVV.");
-                    return; // Salir de la función si no se cumple la validación
-                }
-                // Obtener los valores de los TextBox del 1 al 7
-                string valor1 = textBox1.Text;
-                string valor2 = textBox2.Text;
-                string valor3 = textBox3.Text;
-                string valor4 = textBox4.Text;
-                string valor5 = textBox5.Text;
-                string valor7 = textBox7.Text;
-
-                // Obtener los valores de los numericUpDown
-                int mes = (int)numericUpDown2.Value;
-                int año = (int)numericUpDown1.Value;
-
-                if (estudiante != null)
-                {
-                    string tituloPago = string.Empty; // Variable para el título del pago
-
-                    // Realizar las actualizaciones en función del valor en label11.Text y definir el título del pago
+                    // Determinar la sentencia SQL y el título del pago en función del valor en label11.Text
                     switch (valorLabel)
                     {
                         case "10000$":
-                            estudiante.PagoMatricula = "pagado";
-                            tituloPago = "Matrícula";
+                            updateQuery = "UPDATE estudiantes SET PagoMatricula = 'pagado' WHERE id = @id";
                             break;
                         case "5000$":
-                            estudiante.PagoCargosAdministrativos = "pagado";
-                            tituloPago = "Cargos Administrativos";
+                            updateQuery = "UPDATE estudiantes SET PagoCargosAdministrativos = 'pagado' WHERE id = @id";
                             break;
                         case "1000$":
-                            estudiante.PagoUtilidades = "pagado";
-                            tituloPago = "Utilidades";
+                            updateQuery = "UPDATE estudiantes SET PagoUtilidades = 'pagado' WHERE id = @id";
                             break;
                         case "15000$":
-                            estudiante.PagoMatricula = "pagado";
-                            estudiante.PagoCargosAdministrativos = "pagado";
-                            tituloPago = "Matrícula y Cargos Administrativos";
+                            updateQuery = "UPDATE estudiantes SET PagoMatricula = 'pagado', PagoCargosAdministrativos = 'pagado' WHERE id = @id";
                             break;
                         case "11000$":
-                            estudiante.PagoMatricula = "pagado";
-                            estudiante.PagoUtilidades = "pagado";
-                            tituloPago = "Matrícula y Utilidades";
+                            updateQuery = "UPDATE estudiantes SET PagoMatricula = 'pagado', PagoUtilidades = 'pagado' WHERE id = @id";
                             break;
                         case "6000$":
-                            estudiante.PagoCargosAdministrativos = "pagado";
-                            estudiante.PagoUtilidades = "pagado";
-                            tituloPago = "Cargos Administrativos y Utilidades";
+                            updateQuery = "UPDATE estudiantes SET PagoCargosAdministrativos = 'pagado', PagoUtilidades = 'pagado' WHERE id = @id";
                             break;
                         default:
                             // Manejar otros casos si es necesario
                             break;
                     }
 
-                    // Guardar la lista actualizada en el archivo JSON
-                    GuardarDatosEstudiantes.ActualizarPagoEstudiante(estudiante);
+                    if (!string.IsNullOrEmpty(updateQuery))
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", numeroEstudianteIngresado);
+                            cmd.ExecuteNonQuery();
 
-                    // Mostrar mensaje de pago exitoso y comprobante, incluyendo los valores de los numericUpDown
-                    string mensaje = $"Pago de {tituloPago} realizado con éxito el {fechaActual.ToString("dd/MM/yyyy")}\n\n por un monto de {valorLabel}. " +
-                                     $"\n\nDetalles de la transacción: " +
-                                     $"\n\nNumero: {valor1}-{valor2}-{valor3}-{valor4} " +
-                                     $"\n\nNombre: {valor5}" +
-                                     $"\n\nCvv: {valor7} " +
-                                     $"\n\nMes de expiración: {mes} " +
-                                     $"\n\nAño de expiración: {año}" +
-                                     $"\n\nse envió el comprobante al correo de {estudiante.CorreoElectronico}";
-                    MessageBox.Show(mensaje);
-                }
-                else
-                {
-                    MessageBox.Show("Estudiante no encontrado");
+                            // Validar que los campos de tarjeta de crédito sean válidos
+                            if (!Validacion.ValidarTarjetaCredito4numeros(textBox1.Text) || !Validacion.ValidarTarjetaCredito4numeros(textBox2.Text) || !Validacion.ValidarTarjetaCredito4numeros(textBox3.Text) || !Validacion.ValidarTarjetaCredito4numeros(textBox4.Text))
+                            {
+                                MessageBox.Show("Por favor, ingrese 4 dígitos válidos en los campos de la tarjeta de crédito.");
+                                return;
+                            }
+
+                            // Validar que el campo CVV sea válido
+                            if (!Validacion.ValidarTarjetaCredito3numeros(textBox7.Text))
+                            {
+                                MessageBox.Show("Por favor, ingrese 3 dígitos válidos en el campo de CVV.");
+                                return;
+                            }
+
+                            // Realizar otras operaciones relacionadas con el pago
+                            // ...
+
+                            // Mostrar mensaje de confirmación
+                            string mensaje = $"Pago con tarjeta de crédito realizado con éxito.\n\nEl estudiante con ID {numeroEstudianteIngresado} ha realizado el pago de {valorLabel}.";
+                            MessageBox.Show(mensaje);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo procesar el pago debido a un valor no reconocido en label11.");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show($"Error al procesar el pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
             {
-                // Permitir solo números y teclas de control
-                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                try
                 {
-                    e.Handled = true;
+                    // Permitir solo números y teclas de control
+                    if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.7.0" />
   </ItemGroup>
 
 </Project>

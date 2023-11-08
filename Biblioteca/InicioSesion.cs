@@ -10,10 +10,14 @@ namespace Biblioteca
     {
         public void GenerarConstaseniaProvisoria(Estudiante estudiante)
         {
-            //generar contraseña provisoria para el estudiante una vez registrado
-            string contraseña = "1234";
-            estudiante.Contrasenia = contraseña;
+            // Generar una contraseña provisoria: "1234"
+            string contraseñaProvisoria = "1234";
+
+            // Hashear la contraseña antes de almacenarla en la base de datos
+            estudiante.Contrasenia = Hash.GetHash(contraseñaProvisoria);
         }
+
+
 
         public void GenerarNumeroEstudiante(Estudiante estudiante)
         {

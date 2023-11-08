@@ -1,4 +1,5 @@
 ﻿using Biblioteca;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,19 +50,33 @@ namespace Sistema
         {
             try
             {
-                // Buscar el estudiante por NumeroEstudiante
-                Estudiante estudianteSeleccionado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudianteIngresado);
+                // Establece la cadena de conexión a la base de datos MySQL
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
 
-                if (estudianteSeleccionado != null)
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    // Abrir el formulario de datos del estudiante
-                    DatosEstudiante datosEstudiante = new DatosEstudiante(numeroEstudianteIngresado);
-                    datosEstudiante.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró un estudiante con ese número.");
+                    connection.Open();
+
+                    // Consulta SQL para buscar al estudiante por su número de legajo
+                    string query = "SELECT * FROM estudiantes WHERE Legajo = @Legajo";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@Legajo", numeroEstudianteIngresado);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Si se encuentra un estudiante, puedes obtener los datos aquí
+                            // Puedes abrir el formulario de DatosEstudiante para mostrar los detalles si es necesario
+                            DatosEstudiante datosEstudiante = new DatosEstudiante(numeroEstudianteIngresado);
+                            datosEstudiante.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró un estudiante con ese número.");
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -69,6 +84,7 @@ namespace Sistema
                 MessageBox.Show("Ocurrió un error al intentar ingresar: " + ex.Message);
             }
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -102,6 +118,21 @@ namespace Sistema
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al intentar realizar pagos: " + ex.Message);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            //abrir menuNotificaciones con excepciones
+            try
+            {
+                MenuNotificacion menuNotificaciones = new MenuNotificacion(numeroEstudianteIngresado);
+                menuNotificaciones.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar acceder a las notificaciones: " + ex.Message);
             }
         }
     }

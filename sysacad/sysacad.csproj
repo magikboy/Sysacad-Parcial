@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Biblioteca\Biblioteca.csproj" />
   </ItemGroup>
 
