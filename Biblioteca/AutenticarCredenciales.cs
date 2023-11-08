@@ -1,7 +1,6 @@
-﻿using Biblioteca;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using Biblioteca;
+using MySql.Data.MySqlClient;
 
 namespace Sistema
 {
@@ -9,36 +8,67 @@ namespace Sistema
     {
         public static bool AutenticarComoAdministrador(string usuario, string contrasenia)
         {
-            List<Administrador> administradores = GuardarDatosAdministrador.ReadStreamJSON<Administrador>("administrador.json");
-            Administrador administradorEncontrado = administradores.FirstOrDefault(admin => admin.Usuario == usuario);
+            string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
 
-            if (administradorEncontrado != null)
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                // Encriptar la contraseña ingresada y compararla con la almacenada
-                if (Hash.ValidatePassword(contrasenia, administradorEncontrado.Contrasenia))
+                connection.Open();
+
+                string query = "SELECT Usuario, Contrasenia FROM administrador WHERE Usuario = @admin";
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    return true; // Contraseña válida, usuario autenticado
+                    cmd.Parameters.AddWithValue("@admin", usuario);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string storedPasswordHash = reader["Contrasenia"].ToString();
+
+                            if (Hash.ValidatePassword(contrasenia, storedPasswordHash))
+                            {
+                                return true; // Contraseña válida, usuario autenticado
+                            }
+                        }
+                    }
                 }
             }
 
             return false; // Usuario o contraseña incorrectos
         }
 
-
         public static Estudiante AutenticarComoEstudiante(string usuario, string contrasenia)
         {
-            List<Estudiante> estudiantes = GuardarDatosEstudiantes.ReadStreamJSON<Estudiante>("estudiantes.json");
-            if (int.TryParse(usuario, out int numeroEstudiante))
-            {
-                Estudiante estudianteEncontrado = estudiantes.FirstOrDefault(est => est.NumeroEstudiante == numeroEstudiante);
+            string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
 
-                // Verificar si se encontró un estudiante con el número de estudiante especificado
-                if (estudianteEncontrado != null)
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                if (int.TryParse(usuario, out int numeroEstudiante))
                 {
-                    // Comparar la contraseña ingresada con el hash almacenado
-                    if (Hash.ValidatePassword(contrasenia, estudianteEncontrado.Contrasenia))
+                    string query = "SELECT Legajo, Contrasenia FROM estudiantes WHERE Legajo = @Legajo";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        return estudianteEncontrado; // Contraseña válida, retorna el estudiante encontrado
+                        cmd.Parameters.AddWithValue("@Legajo", numeroEstudiante);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string storedPasswordHash = reader["Contrasenia"].ToString();
+
+                                if (Hash.ValidatePassword(contrasenia, storedPasswordHash))
+                                {
+                                    // Puedes cargar los datos del estudiante desde la base de datos aquí
+                                    Estudiante estudiante = new Estudiante();
+                                    estudiante.NumeroEstudiante = numeroEstudiante;
+                                    // Cargar otros datos del estudiante desde la base de datos
+
+                                    return estudiante; // Contraseña válida, retorna el estudiante encontrado
+                                }
+                            }
+                        }
                     }
                 }
             }

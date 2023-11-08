@@ -10,7 +10,6 @@ namespace Biblioteca
     {
         public static string GetHash(string password)
         {
-
             var hash2 = BCrypt.Net.BCrypt.EnhancedHashPassword(password, 8);
 
             return hash2;

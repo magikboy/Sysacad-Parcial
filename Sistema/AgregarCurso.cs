@@ -11,6 +11,7 @@ using Biblioteca;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MySql.Data.MySqlClient;
 
 namespace Sistema
 {
@@ -39,7 +40,7 @@ namespace Sistema
         {
             try
             {
-                // Verifico si algún campo está vacío
+                // Validar que todos los campos estén completos
                 if (string.IsNullOrWhiteSpace(textBox1.Text) ||
                     string.IsNullOrWhiteSpace(textBox2.Text) ||
                     string.IsNullOrWhiteSpace(textBox3.Text) ||
@@ -56,46 +57,47 @@ namespace Sistema
                     throw new Exception("Faltan completar campos. Por favor, llene todos los campos.");
                 }
 
-                // Verifico si textBox1 y textBox7 contiene un valor numérico
+                // Verificar que los campos de código y aula sean valores numéricos
                 if (!int.TryParse(textBox1.Text, out int codigoCurso) || !int.TryParse(textBox7.Text, out int aulaCurso))
                 {
                     throw new Exception("El campo 'Código del curso' y 'Aula' deben ser valores numéricos.");
                 }
 
-                // Cargar la lista existente de cursos desde el archivo JSON
-                cursos = GuardarDatosCursos.ReadStreamJSON();
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
 
-                // Verifico si el curso ya existe en la lista
-                if (cursos.Exists(x => x.Codigo == codigoCurso))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    throw new Exception("El curso ya está registrado en la base de datos.");
+                    connection.Open();
+
+                    string insertQuery = "INSERT INTO cursos (id, nombre, Descripcion, CuposDisponibles, HorarioMin, HorarioMax, Profesor, Cuatrimestre, Fecha, Aula, Division, Turno) " +
+                    "VALUES (@codigo, @nombre, @descripcion, @cuota, @horarioMin, @horarioMax, @profesor, @cuatrimestre, @fecha, @aula, @division, @turno)";
+
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    command.Parameters.AddWithValue("@codigo", codigoCurso);
+                    command.Parameters.AddWithValue("@nombre", textBox2.Text);
+                    command.Parameters.AddWithValue("@descripcion", textBox4.Text);
+                    command.Parameters.AddWithValue("@cuota", (int)numericUpDown1.Value);
+                    command.Parameters.AddWithValue("@horarioMin", (int)numericUpDown2.Value);
+                    command.Parameters.AddWithValue("@horarioMax", (int)numericUpDown3.Value);
+                    command.Parameters.AddWithValue("@profesor", textBox3.Text);
+                    command.Parameters.AddWithValue("@cuatrimestre", textBox5.Text);
+                    command.Parameters.AddWithValue("@fecha", textBox6.Text);
+                    command.Parameters.AddWithValue("@aula", aulaCurso);
+                    command.Parameters.AddWithValue("@division", textBox8.Text);
+                    command.Parameters.AddWithValue("@turno", textBox9.Text);
+
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Curso Registrado en la base de datos.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar el curso en la base de datos.");
+                    }
                 }
-
-                // Creo un objeto de tipo Cursos
-                Cursos curso = new Cursos();
-
-                // Asigno los valores de los campos a las propiedades del objeto
-                curso.Codigo = codigoCurso;
-                curso.Nombre = textBox2.Text;
-                curso.DescripcionCurso = textBox4.Text;
-                curso.CupoDisponibles = (int)numericUpDown1.Value;
-                curso.NumeroInscriptos = 0; // Inicialmente, no hay inscritos en el curso
-                curso.HorarioMin = (int)numericUpDown2.Value;
-                curso.HorarioMax = (int)numericUpDown3.Value;
-                curso.Profesor = textBox3.Text;
-                curso.Cuatrimestre = textBox5.Text;
-                curso.Fecha = textBox6.Text;
-                curso.Aula = aulaCurso;
-                curso.Division = textBox8.Text;
-                curso.Turno = textBox9.Text;
-
-                // Agrego el curso a la lista
-                cursos.Add(curso);
-
-                // Guardo todos los cursos en el archivo JSON (sobrescribir el archivo)
-                GuardarDatosCursos.WriteStreamJSON(cursos);
-
-                MessageBox.Show("Curso Registrado.");
 
                 // Limpia los campos después de agregar el curso
                 textBox1.Clear();
@@ -158,17 +160,14 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Generar datos aleatorios para llenar los campos
             Random random = new Random();
-
-            // Opciones para los datos
-            string[] cursos = { "Matematica", "Programacion", "Laboratorio" };
+            string[] cursos = { "Matemática", "Programación", "Laboratorio" };
             string[] profesores = { "Araya", "Gomez", "Juarez" };
             string[] cuatrimestres = { "Primer Cuatrimestre", "Segundo Cuatrimestre", "Tercer Cuatrimestre", "Cuarto Cuatrimestre" };
-            string[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
+            string[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
             string[] divisiones = { "Primero A", "Segundo B", "Tercero C", "Cuarto D" };
-            string[] turnos = { "Maniana", "Tarde", "Noche" };
-            string[] HorarioMin = { "9", "14", "19" };
-            string[] HorarioMax = { "13", "18", "22" };
+            string[] turnos = { "Mañana", "Tarde", "Noche" };
 
             // Generar datos aleatorios
             int cuatrimestreIndex = random.Next(cuatrimestres.Length);
@@ -182,10 +181,10 @@ namespace Sistema
             textBox8.Text = divisiones[cuatrimestreIndex]; // División aleatoria
             textBox9.Text = turnos[random.Next(turnos.Length)]; // Turno aleatorio
 
-            int horarioIndex = random.Next(HorarioMin.Length);
+            int horarioIndex = random.Next(7, 19); // Horario mínimo aleatorio entre 7 y 19
             numericUpDown1.Value = random.Next(1, 40); // Cupo aleatorio
-            numericUpDown2.Value = int.Parse(HorarioMin[horarioIndex]); // Horario mínimo aleatorio
-            numericUpDown3.Value = int.Parse(HorarioMax[horarioIndex]); // Horario máximo aleatorio
+            numericUpDown2.Value = horarioIndex; // Horario mínimo aleatorio
+            numericUpDown3.Value = horarioIndex + 2; // Horario máximo aleatorio
         }
 
     }
