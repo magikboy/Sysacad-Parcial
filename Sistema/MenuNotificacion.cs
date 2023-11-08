@@ -202,6 +202,7 @@ namespace Sistema
             }
         }
 
+        private async void GenerarPDF()
         {
             // Verificar si alguna notificación no se pudo mostrar
             bool hayErrores = false;
@@ -236,39 +237,39 @@ namespace Sistema
                 // Utiliza una tarea para generar el PDF en segundo plano
                 await Task.Run(() =>
                 {
-                Document document = new Document();
+                    Document document = new Document();
 
-                try
-                {
-                    PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
-                    document.Open();
+                    try
+                    {
+                        PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
+                        document.Open();
 
-                    // Agregar título
-                    Paragraph title = new Paragraph("Notificaciones");
-                    title.Alignment = Element.ALIGN_CENTER;
-                    document.Add(title);
+                        // Agregar título
+                        Paragraph title = new Paragraph("Notificaciones");
+                        title.Alignment = Element.ALIGN_CENTER;
+                        document.Add(title);
 
-                    // Agregar número de estudiante
-                    document.Add(new Paragraph("Número de Estudiante: " + numeroEstudianteIngresado));
+                        // Agregar número de estudiante
+                        document.Add(new Paragraph("Número de Estudiante: " + numeroEstudianteIngresado));
 
-                    // Agregar información de notificaciones
-                    document.Add(new Paragraph("Fechas de Notificaciones:"));
+                        // Agregar información de notificaciones
+                        document.Add(new Paragraph("Fechas de Notificaciones:"));
 
-                    // Agregar las fechas de notificaciones desde tus etiquetas (label4, label5, etc.) al documento PDF.
-                    document.Add(new Paragraph("Fecha Límite de Inscripción: " + label4.Text));
-                    document.Add(new Paragraph("Inicio del Período Académico: " + label5.Text));
-                    document.Add(new Paragraph("Cambios de Horario: " + label6.Text));
-                    document.Add(new Paragraph("Fecha de Pago: " + label7.Text));
+                        // Agregar las fechas de notificaciones desde tus etiquetas (label4, label5, etc.) al documento PDF.
+                        document.Add(new Paragraph("Fecha Límite de Inscripción: " + label4.Text));
+                        document.Add(new Paragraph("Inicio del Período Académico: " + label5.Text));
+                        document.Add(new Paragraph("Cambios de Horario: " + label6.Text));
+                        document.Add(new Paragraph("Fecha de Pago: " + label7.Text));
 
-                    // Cerrar el documento
-                    document.Close();
+                        // Cerrar el documento
+                        document.Close();
 
-                    MessageBox.Show("Notificaciones exportadas a PDF en el escritorio: Notificaciones.pdf");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al exportar las notificaciones a PDF: " + ex.Message);
-                }
+                        MessageBox.Show("Notificaciones exportadas a PDF en el escritorio: Notificaciones.pdf");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al exportar las notificaciones a PDF: " + ex.Message);
+                    }
                 });
             }
         }

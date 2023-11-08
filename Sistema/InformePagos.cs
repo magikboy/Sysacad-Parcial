@@ -21,7 +21,6 @@ namespace Sistema
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            // Volver al Listainformes con excepciones
             try
             {
                 ListaInformes listaInformes = new ListaInformes();
@@ -34,24 +33,28 @@ namespace Sistema
             }
         }
 
+        private async void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Obtén el título de informe
             string titulo = textBox1.Text;
-
-            // Obtén el tipo de pago ingresado por el usuario en el TextBox2
             string tipoPago = textBox2.Text;
 
-            // Validar que el tipo de pago ingresado sea válido (Por ejemplo: "PagoMatricula", "PagoCargosAdministrativos" o "PagoUtilidades")
             switch (tipoPago)
             {
                 case "PagoMatricula":
                 case "PagoCargosAdministrativos":
                 case "PagoUtilidades":
+                    break;
                 default:
                     MessageBox.Show("Por favor, ingrese un tipo de pago válido (PagoMatricula, PagoCargosAdministrativos o PagoUtilidades).");
                     return;
             }
 
+            // Usar una tarea para ejecutar el proceso en segundo plano
+            await Task.Run(() => GenerateInforme(titulo, tipoPago));
+        }
+
+        private void GenerateInforme(string titulo, string tipoPago)
+        {
             string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -63,7 +66,6 @@ namespace Sistema
                 {
                     int estudiantesConTipoPago = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    // Generar el PDF en el escritorio
                     string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                     string pdfFilePath = Path.Combine(desktopPath, $"{titulo}.pdf");
 
@@ -82,7 +84,5 @@ namespace Sistema
                 }
             }
         }
-
-
     }
 }
