@@ -1,43 +1,63 @@
 ﻿using Biblioteca;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Sistema
 {
     public partial class EliminarCurso : Form
     {
-        List<Biblioteca.Cursos> cursos = new List<Biblioteca.Cursos>();
+        Label[] labels;
+
         public EliminarCurso()
         {
             InitializeComponent();
+            labels = new Label[]
+            {
+                label3, label4, label5, label6, label7, label8, label9,
+                label10, label11, label12, label13, label14, label15, label16
+            };
 
-            // Llamamos a un método para cargar y mostrar los datos
-            CargarYMostrarDatos();
-            this.cursos = GuardarDatosCursos.ReadStreamJSON();
+            // Llamar al método para cargar y mostrar los datos desde la base de datos
+            CargarYMostrarDatosDesdeBaseDeDatos();
         }
 
-        // Método para cargar y mostrar los datos en los labels
-        private void CargarYMostrarDatos()
+        // Método para cargar y mostrar los datos desde la base de datos en los Labels
+        private void CargarYMostrarDatosDesdeBaseDeDatos()
         {
             try
             {
-                // Leer la lista de cursos desde el archivo JSON
-                var lista = GuardarDatosCursos.ReadStreamJSON();
+                // Debes configurar la cadena de conexión según tu entorno
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
 
-                // Mostrar cursos en los labels (tiene un máximo de 7 cursos)
-                for (int i = 0; i < Math.Min(lista.Count, 7); i++)
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    var labelNombre = Controls.Find($"label{i + 3}", true)[0] as Label; // Encuentra el label por nombre
-                    var labelCodigo = Controls.Find($"label{i + 10}", true)[0] as Label;
+                    connection.Open();
 
-                    labelNombre.Text = lista[i].Nombre.ToString();
-                    labelCodigo.Text = lista[i].Codigo.ToString();
+                    string selectQuery = "SELECT id, nombre FROM cursos";
+
+                    using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        int labelIndex = 0;
+
+                        while (reader.Read() && labelIndex < 7)
+                        {
+                            string nombreCurso = reader["nombre"].ToString();
+                            int idCurso = reader.GetInt32("id");
+
+                            // Actualiza los Labels con los datos de la base de datos
+                            labels[labelIndex].Text = nombreCurso;
+                            labels[labelIndex + 7].Text = idCurso.ToString();
+
+                            labelIndex++;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar y mostrar datos desde la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -51,56 +71,45 @@ namespace Sistema
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            string codigoIngresado = textBox1.Text;
+
+            if (int.TryParse(codigoIngresado, out int cursoId))
             {
-                // Obtengo el código ingresado por el usuario
-                string codigoIngresado = textBox1.Text;
+                // Pregunta al usuario si está seguro de querer eliminar el curso
+                DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar este curso?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                // Intento convertir el código ingresado a un entero
-                if (int.TryParse(codigoIngresado, out int codigoEntero))
+                if (result == DialogResult.Yes)
                 {
-                    // Leer la lista de cursos desde el archivo JSON
-                    var listaCursos = GuardarDatosCursos.ReadStreamJSON();
+                    // Debes configurar la cadena de conexión según tu entorno
+                    string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
 
-                    // Buscar el curso con el código ingresado
-                    var cursoEncontrado = listaCursos.Find(curso => curso.Codigo == codigoEntero);
-
-                    // Verificar si se encontró el curso
-                    if (cursoEncontrado != null)
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        // Mostrar un cuadro de diálogo de confirmación
-                        DialogResult result = MessageBox.Show($"¿Está seguro de que desea eliminar el curso {cursoEncontrado.Nombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        connection.Open();
 
-                        if (result == DialogResult.Yes)
+                        string deleteQuery = "DELETE FROM cursos WHERE id = @cursoId";
+                        MySqlCommand command = new MySqlCommand(deleteQuery, connection);
+                        command.Parameters.AddWithValue("@cursoId", cursoId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
                         {
-                            // El usuario confirmó la eliminación, puedes proceder a eliminar el curso
-                            listaCursos.Remove(cursoEncontrado);
-                            GuardarDatosCursos.EliminarCurso(cursoEncontrado.Codigo); // Elimina el curso del archivo JSON
-                            MessageBox.Show($"Curso {cursoEncontrado.Nombre} eliminado correctamente.");
-                            CargarYMostrarDatos(); // Actualizar la lista de cursos mostrada
+                            MessageBox.Show("Curso eliminado correctamente.");
+                            CargarYMostrarDatosDesdeBaseDeDatos(); // Actualizar la lista de cursos mostrada
                         }
                         else
                         {
-                            // El usuario canceló la eliminación
-                            MessageBox.Show("Eliminación cancelada.");
+                            MessageBox.Show("El curso con el ID ingresado no existe en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
-                    {
-                        // El curso no fue encontrado
-                        MessageBox.Show("El código de curso ingresado no existe.");
-                    }
-                }
-                else
-                {
-                    // El código ingresado no es un número entero válido
-                    MessageBox.Show("Por favor, ingrese un código de curso válido (número entero).");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error al eliminar el curso: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, ingrese un ID de curso válido (número entero).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

@@ -39,9 +39,7 @@
             label9 = new Label();
             numericUpDown3 = new NumericUpDown();
             numericUpDown2 = new NumericUpDown();
-            label7 = new Label();
             label5 = new Label();
-            label6 = new Label();
             numericUpDown1 = new NumericUpDown();
             textBox4 = new TextBox();
             label1 = new Label();
@@ -69,9 +67,7 @@
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(numericUpDown3);
             groupBox1.Controls.Add(numericUpDown2);
-            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(numericUpDown1);
             groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(label1);
@@ -203,17 +199,6 @@
             numericUpDown2.TabIndex = 42;
             numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(95, 26);
-            label7.Name = "label7";
-            label7.Size = new Size(55, 16);
-            label7.TabIndex = 37;
-            label7.Text = "Nombre";
-            label7.Click += label7_Click;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -223,16 +208,6 @@
             label5.Size = new Size(116, 16);
             label5.TabIndex = 35;
             label5.Text = "Cupos Disponibles:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(13, 26);
-            label6.Name = "label6";
-            label6.Size = new Size(91, 16);
-            label6.TabIndex = 36;
-            label6.Text = "Curso a editar:";
             // 
             // numericUpDown1
             // 
@@ -410,8 +385,6 @@
         private Button btnSalir;
         private NumericUpDown numericUpDown1;
         private Label label5;
-        private Label label6;
-        private Label label7;
         private Label label8;
         private Label label9;
         private NumericUpDown numericUpDown3;

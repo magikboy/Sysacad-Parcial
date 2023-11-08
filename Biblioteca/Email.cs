@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    internal class Email
+    public class Email
     {
 
         public static void SendEmail(string email, string subject, string body)
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com");
+            var smtpClient = new SmtpClient("smtp.yopmail.com");
             smtpClient.Port = 587;
-            smtpClient.Credentials = new NetworkCredential("email@gmail.com", "password");
+            smtpClient.Credentials = new NetworkCredential("administrador@yopmail.com", "");
             smtpClient.EnableSsl = true;
 
             var message = new MailMessage();
-            message.From = new MailAddress("email@gmail.com");
+            message.From = new MailAddress("tucorreo@gmail.com");
             message.To.Add(new MailAddress(email));
             message.Subject = subject;
             message.Body = body;
