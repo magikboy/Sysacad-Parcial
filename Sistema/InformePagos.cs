@@ -35,6 +35,9 @@ namespace Sistema
 
         private async void btnIngresar_Click(object sender, EventArgs e)
         {
+            // Deshabilitar los controles mientras se genera el informe
+            SetControlsEnabled(false);
+
             string titulo = textBox1.Text;
             string tipoPago = textBox2.Text;
 
@@ -46,11 +49,39 @@ namespace Sistema
                     break;
                 default:
                     MessageBox.Show("Por favor, ingrese un tipo de pago válido (PagoMatricula, PagoCargosAdministrativos o PagoUtilidades).");
+                    SetControlsEnabled(true); // Habilitar los controles en caso de error
                     return;
             }
 
             // Usar una tarea para ejecutar el proceso en segundo plano
+            await GenerateInformeAsync(titulo, tipoPago);
+
+            // Habilitar los controles después de completar la tarea
+            SetControlsEnabled(true);
+        }
+
+        private void SetControlsEnabled(bool enabled)
+        {
+            // Habilitar o deshabilitar los controles según el valor de 'enabled'
+            textBox1.Enabled = enabled;
+            textBox2.Enabled = enabled;
+            btnIngresar.Enabled = enabled;
+            btnSalir.Enabled = enabled;
+        }
+
+        private async Task GenerateInformeAsync(string titulo, string tipoPago)
+        {
+            // Mostrar un mensaje indicando que se está generando el informe
+            MessageBox.Show("Generando el informe. Por favor, espere...", "Generando Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Usar await para permitir que el formulario siga siendo interactivo mientras se genera el informe en segundo plano
             await Task.Run(() => GenerateInforme(titulo, tipoPago));
+
+            // Esperar 3 segundos antes de mostrar el mensaje de éxito
+            await Task.Delay(3000);
+
+            // Mostrar un mensaje indicando que el informe se generó con éxito
+            MessageBox.Show("Informe generado con éxito en el escritorio.", "Informe Generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void GenerateInforme(string titulo, string tipoPago)
@@ -77,8 +108,6 @@ namespace Sistema
                     doc.Add(new Paragraph("Tipo de Pago: " + tipoPago));
                     doc.Add(new Paragraph("Cantidad de Estudiantes con este Pago: " + estudiantesConTipoPago));
                     doc.Close();
-
-                    MessageBox.Show("Informe generado con éxito en el escritorio.");
 
                     InformeGenerado?.Invoke(pdfFilePath);
                 }

@@ -1,11 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic; // Agregado para List
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System.Threading.Tasks;
 
 namespace Sistema
 {
@@ -41,7 +41,7 @@ namespace Sistema
         {
             // Obtén el cuatrimestre desde el TextBox2 y el título desde el TextBox1
             string cuatrimestre = textBox2.Text;
-            string tituloInforme = textBox1.Text; // Agrega esta línea
+            string tituloInforme = textBox1.Text;
 
             // Lista de cuatrimestres válidos
             List<string> cuatrimestresValidos = new List<string>
@@ -59,8 +59,42 @@ namespace Sistema
                 return;
             }
 
+            // Deshabilitar controles mientras se genera el informe
+            SetControlsEnabled(false);
+
+            // Mostrar mensaje de generación en curso
+            ShowGeneratingMessage();
+
             // Usar una tarea para ejecutar el proceso en segundo plano
             await Task.Run(() => GenerateInforme(cuatrimestre, tituloInforme));
+
+            // Esperar 3 segundos antes de mostrar el mensaje de éxito
+            await Task.Delay(3000);
+
+            // Mostrar mensaje de éxito
+            ShowSuccessMessage();
+
+            // Habilitar controles después de que se complete la generación
+            SetControlsEnabled(true);
+        }
+
+        private void SetControlsEnabled(bool enabled)
+        {
+            // Habilitar o deshabilitar los controles según el valor de 'enabled'
+            textBox1.Enabled = enabled;
+            textBox2.Enabled = enabled;
+            btnIngresar.Enabled = enabled;
+            btnSalir.Enabled = enabled;
+        }
+
+        private void ShowGeneratingMessage()
+        {
+            MessageBox.Show("Generando informe. Por favor, espere...", "Generando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ShowSuccessMessage()
+        {
+            MessageBox.Show("Informe PDF generado y guardado en el escritorio.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void GenerateInforme(string cuatrimestre, string tituloInforme)
@@ -107,9 +141,6 @@ namespace Sistema
                             doc.Close(); // Cierra el documento PDF aquí, dentro del bloque using
                             writer.Close(); // Cierra el escritor del PDF
                         }
-
-                        // Muestra un mensaje de éxito
-                        MessageBox.Show($"Informe PDF generado y guardado en el escritorio.");
 
                         // Disparar el evento InformeGenerado cuando se genera un informe exitosamente
                         InformeGenerado?.Invoke(pdfPath);

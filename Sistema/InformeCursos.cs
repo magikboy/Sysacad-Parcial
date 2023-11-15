@@ -40,11 +40,17 @@ namespace Sistema
         private async void btnIngresar_Click(object sender, EventArgs e)
         {
             // Usar una tarea para ejecutar el proceso en segundo plano
-            await Task.Run(() => GenerateInforme());
+            await GenerateInformeAsync();
         }
 
-        private void GenerateInforme()
+        private async Task GenerateInformeAsync()
         {
+            // Deshabilitar los TextBox durante la generación del informe
+            SetTextBoxesEnabled(false);
+
+            // Mostrar mensaje de generación en curso
+            ShowGeneratingMessage();
+
             // Obtén el ID del curso y el título de los TextBox
             int cursoId;
             if (int.TryParse(textBox2.Text, out cursoId))
@@ -89,7 +95,11 @@ namespace Sistema
                                 doc.Add(new Paragraph("Estudiantes Registrados: " + estudiantesRegistrados));
                                 doc.Close();
 
-                                MessageBox.Show("Informe generado con éxito en el escritorio.");
+                                // Esperar 3 segundos antes de mostrar el segundo mensaje
+                                await Task.Delay(3000);
+
+                                // Mostrar mensaje de éxito
+                                ShowSuccessMessage();
 
                                 // Disparar el evento InformeGenerado cuando se genera un informe exitosamente
                                 InformeGenerado?.Invoke(pdfFilePath);
@@ -106,6 +116,26 @@ namespace Sistema
             {
                 MessageBox.Show("Por favor, ingrese un ID de curso válido.");
             }
+
+            // Habilitar los TextBox después de completar la generación del informe
+            SetTextBoxesEnabled(true);
+        }
+
+        private void ShowGeneratingMessage()
+        {
+            MessageBox.Show("Generando informe. Por favor, espere...", "Generando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ShowSuccessMessage()
+        {
+            MessageBox.Show("Informe generado con éxito en el escritorio.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void SetTextBoxesEnabled(bool enabled)
+        {
+            // Habilitar o deshabilitar los TextBox según el valor de 'enabled'
+            textBox1.Enabled = enabled;
+            textBox2.Enabled = enabled;
         }
     }
 }

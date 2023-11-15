@@ -3,6 +3,7 @@ using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistema
@@ -14,6 +15,9 @@ namespace Sistema
 
         // Evento personalizado que se dispara cuando se genera un informe exitosamente
         public event InformeGeneradoEventHandler InformeGenerado;
+
+        // Variable para controlar si se está generando un informe
+        private bool generandoInforme = false;
 
         public InformePorPeriodo()
         {
@@ -88,6 +92,15 @@ namespace Sistema
 
         private async void btnIngresar_Click(object sender, EventArgs e)
         {
+            // Si se está generando un informe, no hacer nada
+            if (generandoInforme)
+            {
+                return;
+            }
+
+            // Deshabilitar los controles mientras se genera el informe
+            SetControlsEnabled(false);
+
             DateTime fechaInicio = dateTimePicker1.Value;
             DateTime fechaFin = dateTimePicker2.Value;
             string tituloInforme = textBox1.Text; // Obtener el título desde el TextBox
@@ -96,6 +109,18 @@ namespace Sistema
             MessageBox.Show("Generando informe, por favor espere...");
 
             // Utilizar Task.Run para ejecutar el proceso de generación de informe en un hilo separado.
+            await GenerateInformeAsync(tituloInforme, fechaInicio, fechaFin);
+
+            // Habilitar los controles después de completar la tarea
+            SetControlsEnabled(true);
+        }
+
+        private async Task GenerateInformeAsync(string tituloInforme, DateTime fechaInicio, DateTime fechaFin)
+        {
+            // Marcar que se está generando un informe
+            generandoInforme = true;
+
+            // Usar await para permitir que el formulario siga siendo interactivo mientras se genera el informe en segundo plano
             await Task.Run(() =>
             {
                 int cantidadAlumnos = ObtenerAlumnosEnCuatrimestres(fechaInicio, fechaFin);
@@ -103,11 +128,25 @@ namespace Sistema
                 // Crear el informe en PDF con el título dinámico en el hilo secundario.
                 GenerarInformePDF(tituloInforme, fechaInicio, fechaFin, cantidadAlumnos);
 
+                // Esperar 3 segundos antes de mostrar el mensaje de éxito
+                Task.Delay(3000).Wait();
             });
 
             // Mostrar un mensaje al usuario una vez que el informe se ha generado.
             MessageBox.Show("Informe generado exitosamente. Se ha guardado en el escritorio.");
+
+            // Marcar que se ha completado la generación del informe
+            generandoInforme = false;
         }
 
+        private void SetControlsEnabled(bool enabled)
+        {
+            // Habilitar o deshabilitar los controles según el valor de 'enabled'
+            textBox1.Enabled = enabled;
+            dateTimePicker1.Enabled = enabled;
+            dateTimePicker2.Enabled = enabled;
+            btnIngresar.Enabled = enabled;
+            btnSalir.Enabled = enabled;
+        }
     }
 }
