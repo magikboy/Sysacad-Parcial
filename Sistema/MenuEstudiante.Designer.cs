@@ -41,6 +41,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label4 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -186,7 +187,7 @@
             // 
             pictureBox2.BackColor = Color.White;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(670, 25);
+            pictureBox2.Location = new Point(686, 14);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(54, 56);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -194,12 +195,24 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(548, 14);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 16);
+            label4.TabIndex = 43;
+            label4.Text = "Notificacion";
+            // 
             // MenuEstudiante
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1089, 528);
+            Controls.Add(label4);
             Controls.Add(pictureBox2);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -239,5 +252,6 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Label label4;
     }
 }

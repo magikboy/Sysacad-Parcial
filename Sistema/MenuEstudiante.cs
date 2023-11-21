@@ -29,9 +29,47 @@ namespace Sistema
         private void MostrarNumeroEstudiante()
         {
             label1.Text = numeroEstudianteIngresado.ToString();
-            //poner label 1 en blanco
             label1.ForeColor = Color.White;
+
+            try
+            {
+                // Establece la cadena de conexión a la base de datos MySQL
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Consulta SQL para obtener los campos PagoMatricula, PagoUtilidades, y PagoCargosAdministrativos
+                    string query = "SELECT PagoMatricula, PagoUtilidades, PagoCargosAdministrativos FROM estudiantes WHERE Legajo = @Legajo";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@Legajo", numeroEstudianteIngresado);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Verificar si alguno de los campos está en blanco
+                            if (string.IsNullOrWhiteSpace(reader["PagoMatricula"].ToString()) ||
+                                string.IsNullOrWhiteSpace(reader["PagoUtilidades"].ToString()) ||
+                                string.IsNullOrWhiteSpace(reader["PagoCargosAdministrativos"].ToString()))
+                            {
+                                label4.Text = "Falta pagar Entrar \n al menu notifiaciones";
+                            }
+                            else
+                            {
+                                label4.Text = ""; // Oculta el mensaje
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al verificar los pagos: " + ex.Message);
+            }
         }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

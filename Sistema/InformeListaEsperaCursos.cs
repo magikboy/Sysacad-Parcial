@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
@@ -23,6 +17,9 @@ namespace Sistema
 
         // Evento personalizado que se dispara cuando se genera un informe exitosamente
         public event InformeGeneradoEventHandler InformeGenerado;
+
+        // Variable para controlar si se está generando un informe
+        private bool generandoInforme = false;
 
         public InformeListaEsperaCursos()
         {
@@ -46,51 +43,93 @@ namespace Sistema
 
         private async void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Obtener el nombre de la materia y el título del PDF desde los TextBox
-            string materia = textBox2.Text;
-            string tituloPDF = textBox1.Text;
+            // Si se está generando un informe, no hacer nada
+            if (generandoInforme)
+            {
+                return;
+            }
+
+            // Deshabilitar el botón y los TextBox mientras se genera el informe
+            SetControlsEnabled(false);
 
             // Usar una tarea para ejecutar el proceso en segundo plano
-            await Task.Run(() => GenerateInforme(materia, tituloPDF));
+            await GenerateInformeAsync(textBox1.Text);
+
+            // Habilitar el botón y los TextBox después de completar la tarea
+            SetControlsEnabled(true);
         }
 
-        private void GenerateInforme(string materia, string tituloPDF)
+        private void SetControlsEnabled(bool enabled)
+        {
+            // Habilitar o deshabilitar el botón y los TextBox según el valor de 'enabled'
+            btnIngresar.Enabled = enabled;
+            textBox1.Enabled = enabled;
+        }
+
+        private async Task GenerateInformeAsync(string nombreArchivo)
+        {
+            // Marcar que se está generando un informe
+            generandoInforme = true;
+
+            // Mostrar un mensaje al usuario para indicar que el informe se está generando.
+            MessageBox.Show("Generando informe, por favor espere...", "Generando Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Utilizar Task.Run para ejecutar el proceso de generación de informe en un hilo separado.
+            await Task.Run(() => GenerateInforme(nombreArchivo));
+
+            // Esperar 3 segundos antes de mostrar el mensaje de éxito
+            await Task.Delay(3000);
+
+            // Mostrar un mensaje al usuario una vez que el informe se ha generado.
+            MessageBox.Show($"PDF generado con éxito en el escritorio con el nombre: {nombreArchivo}", "Informe Generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Disparar el evento InformeGenerado cuando se genera un informe exitosamente
+            InformeGenerado?.Invoke($"{nombreArchivo}.pdf");
+
+            // Marcar que se ha completado la generación del informe
+            generandoInforme = false;
+        }
+
+        private void GenerateInforme(string nombreArchivo)
         {
             // Obtener la ruta del escritorio
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            // Crear el documento PDF en el escritorio
-            string nombreArchivoPDF = Path.Combine(desktopPath, "Informe_" + materia + ".pdf");
+            // Crear el documento PDF en el escritorio con el nombre proporcionado
+            string nombreArchivoPDF = Path.Combine(desktopPath, $"{nombreArchivo}.pdf");
             Document doc = new Document();
             PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(nombreArchivoPDF, FileMode.Create));
 
+            // Abrir el documento PDF
             doc.Open();
-            doc.Add(new Paragraph(tituloPDF));
 
-            // Conectar a la base de datos y obtener los datos
+            // Conectar a la base de datos y obtener los datos ordenados por FechaEpera
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT `NombreEstudiante`, `Fecha` FROM `listadeespera` WHERE `NombreMateria` = @materia", connection);
-                cmd.Parameters.AddWithValue("@materia", materia);
+                MySqlCommand cmd = new MySqlCommand("SELECT `Nombre`, `FechaEpera` FROM `estudiantes` WHERE `FechaEpera` IS NOT NULL ORDER BY `FechaEpera`", connection);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         string nombreEstudiante = reader.GetString(0);
-                        DateTime fecha = reader.GetDateTime(1);
-                        doc.Add(new Paragraph($"Nombre: {nombreEstudiante}, Fecha: {fecha.ToShortDateString()}"));
+
+                        // Verifica si el campo FechaEspera es DBNull o está vacío antes de intentar analizar
+                        DateTime fechaEspera;
+                        if (!reader.IsDBNull(1) && DateTime.TryParse(reader.GetString(1), out fechaEspera))
+                        {
+                            // Agregar cada nombre y fecha al documento PDF
+                            doc.Add(new Paragraph($"Nombre: {nombreEstudiante}, Fecha de Espera: {fechaEspera.ToShortDateString()}"));
+                        }
                     }
                 }
             }
 
+            // Cerrar el documento PDF
             doc.Close();
             writer.Close();
 
-            MessageBox.Show("PDF generado con éxito en el escritorio.");
-
-            // Disparar el evento InformeGenerado cuando se genera un informe exitosamente
             InformeGenerado?.Invoke(nombreArchivoPDF);
         }
     }
