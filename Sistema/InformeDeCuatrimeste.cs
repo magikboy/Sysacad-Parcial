@@ -68,38 +68,9 @@ namespace Sistema
 
             // Usar una tarea para ejecutar el proceso en segundo plano
             await Task.Run(() => GenerateInforme(cuatrimestre, tituloInforme));
-
-            // Esperar 3 segundos antes de mostrar el mensaje de éxito
-            await Task.Delay(3000);
-
-            // Mostrar mensaje de éxito
-            ShowSuccessMessage();
-
-            // Habilitar controles después de que se complete la generación
-            SetControlsEnabled(true);
         }
 
-        private void SetControlsEnabled(bool enabled)
-        {
-            // Habilitar o deshabilitar los controles según el valor de 'enabled'
-            textBox1.Enabled = enabled;
-            textBox2.Enabled = enabled;
-            btnIngresar.Enabled = enabled;
-            btnSalir.Enabled = enabled;
-        }
-
-        private void ShowGeneratingMessage()
-        {
-            MessageBox.Show("Generando informe. Por favor, espere...", "Generando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void ShowSuccessMessage()
-        {
-            MessageBox.Show("Informe PDF generado y guardado en el escritorio.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        // Implementación del método de la interfaz
-        public void GenerateInforme(string cuatrimestre, string tituloInforme)
+        private void GenerateInforme(string cuatrimestre, string tituloInforme)
         {
             string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
 
