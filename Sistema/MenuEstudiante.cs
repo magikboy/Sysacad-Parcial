@@ -17,34 +17,104 @@ namespace Sistema
         private int numeroEstudianteIngresado;
         private List<Estudiante> estudiantes;
 
+        private System.Windows.Forms.Timer timer; // Especificar que se utilizará Timer de System.Windows.Forms
+
         public MenuEstudiante(int numeroEstudiante)
         {
             InitializeComponent();
+            InitializeTimer();
             this.numeroEstudianteIngresado = numeroEstudiante;
             this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
             label1.ForeColor = Color.White;
             MostrarNumeroEstudiante();
         }
 
+        private void InitializeTimer()
+        {
+            // Inicializar el temporizador
+            timer = new System.Windows.Forms.Timer(); // Especificar que se utilizará Timer de System.Windows.Forms
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Interval = 2000; // Intervalo de 2000 milisegundos (2 segundos)
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Este método se llama cuando el temporizador alcanza su intervalo
+            timer.Stop(); // Detener el temporizador para evitar llamadas adicionales
+
+            // Redirigir al formulario de login
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Iniciar el temporizador cuando se hace clic en el botón
+                timer.Start();
+                //mensaje de que esta volviendo al menu de login
+                MessageBox.Show("Volviendo al menú de login", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción
+                MessageBox.Show($"Ocurrió una excepción: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void MostrarNumeroEstudiante()
         {
             label1.Text = numeroEstudianteIngresado.ToString();
-            //poner label 1 en blanco
             label1.ForeColor = Color.White;
+
+            try
+            {
+                // Establece la cadena de conexión a la base de datos MySQL
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;uid=root;pwd=;";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Consulta SQL para obtener los campos PagoMatricula, PagoUtilidades, y PagoCargosAdministrativos
+                    string query = "SELECT PagoMatricula, PagoUtilidades, PagoCargosAdministrativos FROM estudiantes WHERE Legajo = @Legajo";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@Legajo", numeroEstudianteIngresado);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Verificar si alguno de los campos está en blanco
+                            if (string.IsNullOrWhiteSpace(reader["PagoMatricula"].ToString()) ||
+                                string.IsNullOrWhiteSpace(reader["PagoUtilidades"].ToString()) ||
+                                string.IsNullOrWhiteSpace(reader["PagoCargosAdministrativos"].ToString()))
+                            {
+                                label4.Text = "Falta pagar Entrar \n al menu notifiaciones";
+                            }
+                            else
+                            {
+                                label4.Text = ""; // Oculta el mensaje
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al verificar los pagos: " + ex.Message);
+            }
         }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // Volver al login
-            Login login = new Login();
-            login.Show();
-            this.Hide();
-        }
+
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {

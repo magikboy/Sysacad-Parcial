@@ -274,8 +274,6 @@ namespace Sistema
             }
         }
 
-
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             // Volver al menú estudiante
