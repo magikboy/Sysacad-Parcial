@@ -26,7 +26,7 @@ namespace Biblioteca
         public NotificacionManejada()
         {
             // Inicializar el número de notificaciones
-            numeroNotificaciones = 1; // Puedes establecer este valor según tus necesidades
+            numeroNotificaciones = 1;
         }
 
         // Método para simular el clic en el icono de notificaciones
@@ -44,7 +44,7 @@ namespace Biblioteca
             // Disparar el evento con el número actual de notificaciones
             NotificacionClicada?.Invoke(this, new NotificacionEventArgs(numeroNotificaciones));
 
-            // Resetear el número de notificaciones después de clicar
+            // Resetear el número de notificaciones
             numeroNotificaciones = 0;
         }
     }
