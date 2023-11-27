@@ -12,7 +12,7 @@ PRIMER PARCIAL LABORATORIO/PROGRAMACION 2
 ## Consignas
 📃[Consignas](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Primer%20Parcial%20Progra%202.pdf)
 
-📃[Consignas Segundo Parcial](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Primer%20Parcial%20Progra%202.pdf)
+📃[Consignas Segundo Parcial](https://github.com/magikboy/Sysacad-1er-Parcial/blob/096b4687cb363191f4e2c9db0e32ee1a8442cf9b/Segundo%20Parcial%20Progra%202.pdf)
 
 📃[General Casos de uso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/New%20SYSACAD.pdf)
 
