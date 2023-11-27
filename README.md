@@ -110,6 +110,57 @@ PARCIAL LABORATORIO/PROGRAMACION 2
 
 ![Menu Pagos Transferencia](https://github.com/magikboy/Sysacad-1er-Parcial/blob/610a205461986bf931e5c406fc56ca81a864afd9/menu%20pago%20transferencia.png)
 
+## Menu Lista Reportes
+
+![Menu Lista Reportes](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Lista%20Reporte.png)
+
+## Menu Lista Reportes Por Periodo
+
+![Menu Lista Reportes](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Por%20Periodo.png)
+
+## Menu Lista Reportes Por Curso
+
+![Menu Lista Reportes](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Inscriptos%20por%20curso.png)
+
+## Menu Lista Reportes Por Pago
+
+![Menu Lista Reportes](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/por%20tipo%20de%20p%C3%A1go.png)
+
+## Menu Lista Reportes Por Cuatrimestre
+
+![Menu Lista Reportes](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Por%20cuatrimestre.png)
+
+## Menu Lista Reportes Lista de Espera
+
+![Menu Lista Reportes](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/informe%20lista%20de%20espera.png)
+
+## Menu Requisitos Academicos
+
+![Menu Requisitos Academicos](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/requisitos%20academicos%20cursos.png)
+
+## Menu Lista de espera Por curso
+
+![Menu Lista de espera Por curso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/lista%20de%20espera%20por%20curso.png)
+
+## Menu Gestionar Profesores
+
+![Menu Gestionar Profesores](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Gestionar%20Profesores.png)
+
+## Menu Agregar Profesores
+
+![Menu Gestionar Profesores](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Agregar%20Profesor.png)
+
+## Menu Editar Profesores
+
+![Menu Gestionar Profesores](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/editar%20Profesor.png)
+
+## Menu Asignar Profesores
+
+![Menu Gestionar Profesores](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Asignar%20Profesor%20a%20Curso.png)
+
+## Menu Eliminar Profesores
+
+![Menu Gestionar Profesores](https://github.com/magikboy/Sysacad-1er-Parcial/blob/0c0335c4085049ed3f43fcd82d1fe9454cfd1acd/Eliminar%20Profesor.png)
 
 ### 📄Fuentes
 
