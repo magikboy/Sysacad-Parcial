@@ -12,6 +12,8 @@ PRIMER PARCIAL LABORATORIO/PROGRAMACION 2
 ## Consignas
 📃[Consignas](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Primer%20Parcial%20Progra%202.pdf)
 
+📃[Consignas Segundo Parcial](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Primer%20Parcial%20Progra%202.pdf)
+
 📃[General Casos de uso](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/New%20SYSACAD.pdf)
 
 📃[Caso De Uso 1](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%201%20-%20%20Registrar%20Estudiante.pdf)
@@ -23,6 +25,16 @@ PRIMER PARCIAL LABORATORIO/PROGRAMACION 2
 📃[Caso De Uso 4](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%204%20-%20Consultar%20Horario.pdf)
 
 📃[Caso De Uso 5](https://github.com/magikboy/Sysacad-1er-Parcial/blob/8b7008638457de5ee11290fc75f76e1709904f26/Caso%20de%20Uso%205%20-%20Realizar%20Pagos.pdf)
+
+📃[Caso De Uso 6](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Caso%20de%20Uso%206%20-%20Generar%20Reportes.pdf)
+
+📃[Caso De Uso 7](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Caso%20de%20Uso%207%20-%20Gestionar%20Requisitos%20Acad%C3%A9micos.pdf)
+
+📃[Caso De Uso 8](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Caso%20de%20Uso%208%20-%20Manejar%20Listas%20de%20Espera.pdf)
+
+📃[Caso De Uso 9](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Caso%20de%20Uso%209%20-%20Enviar%20Notificaciones.pdf)
+
+📃[Caso De Uso 10](https://github.com/magikboy/Sysacad-1er-Parcial/blob/5235a87c520438db1cea8c08a278fdde872cc88f/Caso%20de%20Uso%2010%20-%20%20Gestionar%20Perfiles%20de%20Profesores.pdf)
 
 ## Formulario de Login
 
