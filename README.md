@@ -1,6 +1,6 @@
 
 
-# Parcial-1-labo
+# Parcial-laboratorio/Programacion II
 ### 📄Documentación de Laboratorio - UTN Tecnicatura Superior en Programación.
 ### **Sysacad**
 ### Nombre: Bosco Mascaro Massimo Ariel
