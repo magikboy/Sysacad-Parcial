@@ -5,7 +5,7 @@
 ### **Sysacad**
 ### Nombre: Bosco Mascaro Massimo Ariel
 
-PRIMER PARCIAL LABORATORIO/PROGRAMACION 2
+PARCIAL LABORATORIO/PROGRAMACION 2
 
 ### 📄Parcial:
 
