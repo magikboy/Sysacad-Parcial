@@ -17,6 +17,8 @@ namespace Sistema
         private int numeroEstudianteIngresado;
         private List<Estudiante> estudiantes;
 
+        private NotificacionManejada notificacionManejada;
+
         private System.Windows.Forms.Timer timer; // Especificar que se utilizará Timer de System.Windows.Forms
 
         public MenuEstudiante(int numeroEstudiante)
@@ -27,6 +29,11 @@ namespace Sistema
             this.estudiantes = GuardarDatosEstudiantes.ReadStreamJSON();
             label1.ForeColor = Color.White;
             MostrarNumeroEstudiante();
+            // Inicializar NotificacionManejada
+            notificacionManejada = new NotificacionManejada();
+
+            // Suscribirte al evento NotificacionClicada
+            notificacionManejada.NotificacionClicada += NotificacionClicadaHandler;
         }
 
         private void InitializeTimer()
@@ -64,6 +71,60 @@ namespace Sistema
             }
         }
 
+        private void NotificacionClicadaHandler(object sender, NotificacionEventArgs e)
+        {
+            // Este método ahora se utiliza para actualizar el label5 con el número de notificaciones sin leer
+            int numeroNotificaciones = e.NumeroNotificaciones;
+            label5.Text = numeroNotificaciones > 0 ? $"{numeroNotificaciones}" : "";
+
+            // Verificar pagos del estudiante y actualizar label5
+            VerificarPagosEstudiante();
+        }
+
+        private void VerificarPagosEstudiante()
+        {
+            try
+            {
+                // Establece la cadena de conexión a la base de datos MySQL
+                string connectionString = "server=localhost;port=3306;database=datos_sysacad;Uid=root;pwd=;";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Consulta para obtener la información de pagos del estudiante por su número de legajo
+                    string pagosQuery = "SELECT PagoMatricula, PagoCargosAdministrativos, PagoUtilidades FROM estudiantes WHERE Legajo = @legajo";
+
+                    using (MySqlCommand pagosCommand = new MySqlCommand(pagosQuery, connection))
+                    {
+                        pagosCommand.Parameters.AddWithValue("@legajo", numeroEstudianteIngresado);
+
+                        using (MySqlDataReader pagosReader = pagosCommand.ExecuteReader())
+                        {
+                            if (pagosReader.Read())
+                            {
+                                string pagoMatricula = pagosReader["PagoMatricula"].ToString();
+                                string pagoCargosAdministrativos = pagosReader["PagoCargosAdministrativos"].ToString();
+                                string pagoUtilidades = pagosReader["PagoUtilidades"].ToString();
+
+                                // Contar la cantidad de pagos pendientes
+                                int pagosPendientes = 0;
+                                if (pagoMatricula != "pagado") pagosPendientes++;
+                                if (pagoCargosAdministrativos != "pagado") pagosPendientes++;
+                                if (pagoUtilidades != "pagado") pagosPendientes++;
+
+                                label5.Text = pagosPendientes > 0 ? $"{pagosPendientes}" : "";
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al verificar los pagos: " + ex.Message);
+            }
+        }
+
         private void MostrarNumeroEstudiante()
         {
             label1.Text = numeroEstudianteIngresado.ToString();
@@ -87,17 +148,8 @@ namespace Sistema
                     {
                         if (reader.Read())
                         {
-                            // Verificar si alguno de los campos está en blanco
-                            if (string.IsNullOrWhiteSpace(reader["PagoMatricula"].ToString()) ||
-                                string.IsNullOrWhiteSpace(reader["PagoUtilidades"].ToString()) ||
-                                string.IsNullOrWhiteSpace(reader["PagoCargosAdministrativos"].ToString()))
-                            {
-                                label4.Text = "Falta pagar Entrar \n al menu notifiaciones";
-                            }
-                            else
-                            {
-                                label4.Text = ""; // Oculta el mensaje
-                            }
+                            // Verificar pagos del estudiante y actualizar label5
+                            VerificarPagosEstudiante();
                         }
                     }
                 }
@@ -199,6 +251,8 @@ namespace Sistema
                 MenuNotificacion menuNotificaciones = new MenuNotificacion(numeroEstudianteIngresado);
                 menuNotificaciones.Show();
                 this.Hide();
+                // Llamar al método para simular el clic en el icono de notificaciones
+                notificacionManejada.SimularClicNotificaciones();
             }
             catch (Exception ex)
             {

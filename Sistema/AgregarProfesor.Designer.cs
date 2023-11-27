@@ -71,7 +71,7 @@
             button1.Name = "button1";
             button1.Size = new Size(121, 53);
             button1.TabIndex = 41;
-            button1.Text = "Harcodear Est";
+            button1.Text = "Harcodear Prof";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
